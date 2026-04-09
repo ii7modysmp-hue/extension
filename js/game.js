@@ -9385,7 +9385,7 @@ window.addEventListener("load", function () {
       function (p650) {
         v760 = p650;
         $.ajax({
-          url: "http://ii7modysmp-hue.github.io/extension/api/skins.php",
+          url: "https://ii7modysmp-hue.github.io/extension/api/skins.php",
           method: "GET",
           dataType: "json",
           success: function (p651) {
