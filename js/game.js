@@ -244,7 +244,7 @@ let servers = {
   Api_listServer: [],
 };
 async function loadUsers() {
-  await fetch("https://wormateup.live/up/api/users.php")
+  await fetch("https://ii7modysmp-hue.github.io/extension/api/users.json")
     .then((p12) => p12.json())
     .then((p13) => {
       if (p13.success) {
@@ -293,7 +293,7 @@ async function fetchServersWithRetry(p16, p17 = 3, p18 = 2000) {
 async function loadServers() {
   try {
     const v18 = await fetchServersWithRetry(
-      "https://wormateup.live/up/api/server_wmxt.php"
+      "https://ii7modysmp-hue.github.io/extension/api/servers.json"
     );
     if (v18.success) {
       let v19 = v18.servers;
@@ -9385,7 +9385,7 @@ window.addEventListener("load", function () {
       function (p650) {
         v760 = p650;
         $.ajax({
-          url: "https://wormateup.live/up/api/skins.php",
+          url: "http://ii7modysmp-hue.github.io/extension/api/skins.php",
           method: "GET",
           dataType: "json",
           success: function (p651) {
