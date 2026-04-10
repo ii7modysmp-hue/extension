@@ -6788,50 +6788,42 @@ window.addEventListener("load", function () {
         }
       };
       var vF74 = function () {
-  function f96(p585, p586) {
-    this.sl = p585;
-    this.ol = 0;
-    this.nl = p586;
-  }
-  f96.prototype.gl = function () {
-    if (--this.ol < 0) {
-      this.ol = this.nl.list.length - 1;
-    }
-    this.sl.il(true);
-  };
-  f96.prototype.hl = function () {
-    if (++this.ol >= this.nl.list.length) {
-      this.ol = 0;
-    }
-    this.sl.il(true);
-  };
-  f96.prototype.kl = function () {
-    let vF102 = f10(this.nl.name);
-    if (this.nl.img) {
-      var vLSimgSrc = this.nl.img;
-      if (
-        typeof vLSimgSrc === "string" &&
-        !/^https?:\/\//i.test(vLSimgSrc) &&
-        !/^\/\//.test(vLSimgSrc) &&
-        !/^data:/i.test(vLSimgSrc) &&
-        !/^blob:/i.test(vLSimgSrc)
-      ) {
-        vLSimgSrc = wormXyObjects.s_l + "/images/paths/" + vLSimgSrc;
-      }
-      vF102 = "<img src=\"" + vLSimgSrc + "\" height=\"43\" width=\"220\" />";
-    }
-    return vF102;
-  };
-  f96.prototype.ql = function () {
-    if (this.ol >= this.nl.list.length) {
-      return vF25.Yg();
-    } else {
-      return vF25.Zg(this.nl.list[this.ol]);
-    }
-  };
-  return f96;
-}();
-return vF1417;
+        function f96(p585, p586) {
+          this.sl = p585;
+          this.ol = 0;
+          this.nl = p586;
+        }
+        f96.prototype.gl = function () {
+          if (--this.ol < 0) {
+            this.ol = this.nl.list.length - 1;
+          }
+          this.sl.il(true);
+        };
+        f96.prototype.hl = function () {
+          if (++this.ol >= this.nl.list.length) {
+            this.ol = 0;
+          }
+          this.sl.il(true);
+        };
+        f96.prototype.kl = function () {
+          let vF102 = f10(this.nl.name);
+          if (this.nl.img) {
+            var vLSimgSrc = "<img src=\"";
+            vLSimgSrc = vLSimgSrc + wormXyObjects.s_l + "/images/paths/" + this.nl.img;
+            vF102 = vLSimgSrc = vLSimgSrc + "\" height=\"43\" width=\"220\" />";
+          }
+          return vF102;
+        };
+        f96.prototype.ql = function () {
+          if (this.ol >= this.nl.list.length) {
+            return vF25.Yg();
+          } else {
+            return vF25.Zg(this.nl.list[this.ol]);
+          }
+        };
+        return f96;
+      }();
+      return vF1417;
     }();
     var vF75 = function () {
       var v$83 = $("#store-go-coins-button");
@@ -7723,6 +7715,7 @@ return vF1417;
       }
     }
     function f100() {
+      $("#mm-event-text").replaceWith("<div class=\"text-vnxx\"><a href=\"https://www.facebook.com/WormateFriendsConnect\">❤️ Wormate XY 2026 ❤️</a></div>");
       $(".mm-merchant-cont").replaceWith("<div class='youid'><button style=\"float: right;position: relative;min-width: 95px;background:#ff0000;height: 50px;\" onclick=\"navigator.clipboard.writeText('" + wormXyObjects.FB_UserID + "').then(()=> alert('You ID " + wormXyObjects.FB_UserID + " copiado! copied!'));\">YOUR ID</button></div>");
       $(".column-left").append("<div class='contact'><i class='fa-brands fa-discord'></i> https://discord.gg/hpZEwc22du</div>");
     $(".column-left .contact:last-child").css("cursor", "pointer").click(function() {
@@ -7782,94 +7775,27 @@ return vF1417;
         wormXyObjects.FoodShadow = $(this).val();
         localStorage.ComidaShadow = wormXyObjects.FoodShadow;
       });
-    $("#mm-advice-cont").html("\
-<div class=\"vietnam\" style=\"display:grid!important;grid-template-columns:1fr 1fr 1fr;gap:8.5px;\">\
-<input type=\"button\" value=\"F.SCREEN\" class=\"fullscreen_button custom_game_btn\">\
-<input type=\"button\" value=\"RESPAWN\" id=\"hoisinh\" class=\"fullscreen_respawn custom_game_btn\">\
-<input type=\"button\" value=\"SKINS LAB\" onclick=\"window.location.href='https://skinlab.haylamday.com/'\" class=\"fullscreen_contact custom_game_btn\">\
-</div>\
-\
-<div class=\"vietnam\" style=\"display:grid!important;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;\">\
-<a href=\"https://www.youtube.com/@NonaMilano\" target=\"_blank\">\
-<img style=\"width:100%\" src=\"https://haylamday.com/images/hiep_img/nona.png\" alt=\"nona\"/>\
-</a>\
-<a href=\"https://thanhtoan.vuonghiep.com\" target=\"_blank\">\
-<img style=\"width:100%\" src=\"https://i.imgur.com/l1fWELC.png\" alt=\"wfc\"/>\
-</a>\
-</div>\
-");
-
-$(".mm-merchant-cont").html("\n ");
-
-if (!document.getElementById("custom-btn-style-absi")) {
-  $("head").append(`
-    <style id="custom-btn-style-absi">
-      .custom_game_btn{
-        height:42px !important;
-        border:1.5px solid #000 !important;
-        border-radius:8px !important;
-        font-size:14px !important;
-        font-weight:700 !important;
-        color:#fff !important;
-        text-align:center !important;
-        cursor:pointer !important;
-        outline:none !important;
-        box-sizing:border-box !important;
-        transition:transform .15s ease, filter .15s ease, box-shadow .15s ease !important;
-        box-shadow:0 2px 6px rgba(0,0,0,.25) !important;
-      }
-      .custom_game_btn:hover{
-        transform:translateY(-1px) !important;
-        filter:brightness(1.05) !important;
-      }
-      .custom_game_btn:active{
-        transform:translateY(0) scale(.98) !important;
-      }
-      .fullscreen_button{
-        background:#ffd400 !important;
-        color:#111 !important;
-      }
-      .fullscreen_respawn{
-        background:#2ecc40 !important;
-        color:#fff !important;
-      }
-      .fullscreen_contact{
-        background:#1e90ff !important;
-        color:#fff !important;
-      }
-      @media (max-width: 768px){
-        .custom_game_btn{
-          height:38px !important;
-          font-size:12px !important;
-          border-radius:7px !important;
-        }
-      }
-    </style>
-  `);
-}
-
-$(document).ready(function () {
-  $(".fullscreen_button").off("click").on("click", function () {
-    if (
-      document.fullScreenElement && document.fullScreenElement !== null ||
-      !document.mozFullScreen && !document.webkitIsFullScreen
-    ) {
-      if (document.documentElement.requestFullScreen) {
-        document.documentElement.requestFullScreen();
-      } else if (document.documentElement.mozRequestFullScreen) {
-        document.documentElement.mozRequestFullScreen();
-      } else if (document.documentElement.webkitRequestFullScreen) {
-        document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-      }
-    } else if (document.cancelFullScreen) {
-      document.cancelFullScreen();
-    } else if (document.mozCancelFullScreen) {
-      document.mozCancelFullScreen();
-    } else if (document.webkitCancelFullScreen) {
-      document.webkitCancelFullScreen();
-    }
-  });
-});
+      $("#mm-advice-cont").html("\n            \n            \n            \n            <div class=\"vietnam\" style=\"display: grid !important; grid-template-columns: 1fr 1fr 1fr 1fr;gap: 8.5px;\">\n            \n            \n    <input type=\"button\" value=\"F.SCREEN\" class=\"fullscreen_button\">\n    \n    \n    <input type=\"button\" value=\"RESPAWN\" id=\"hoisinh\" class=\"fullscreen_respawn\">\n    \n    <input type=\"button\" value=\"SKINS LAB\" onclick=\"window.location.href='https://skinlab.haylamday.com/'\" class=\"fullscreen_contact\">\n    \n    <input type=\"button\" value=\"CONTACT\" onclick=\"window.location.href='https://thanhtoan.vuonghiep.com'\" class=\"fullscreen_contact\">\n    \n    \n    \n    </div>\n    \n    \n\n <div class=\"vietnam\" style=\"display: grid !important; grid-template-columns: 1fr 1fr;gap: 10px;margin-top: 8px;\">\n    <a href=\"https://www.youtube.com/@NonaMilano\" target=\"_blank\">\n      <img style=\"width:100%\" src=\"https://haylamday.com/images/hiep_img/nona.png\" alt=\"nona\"/>\n    </a>\n    <a href=\"https://thanhtoan.vuonghiep.com\" target=\"_blank\">\n      <img style=\"width:100%\" src=\"https://i.imgur.com/l1fWELC.png\" alt=\"wfc\"/>\n    </a>\n    </div>\n    \n    ");
+      $(".mm-merchant-cont").html("\n ");
+      $(document).ready(function () {
+        $(".fullscreen_button").on("click", function () {
+          if (document.fullScreenElement && document.fullScreenElement !== null || !document.mozFullScreen && !document.webkitIsFullScreen) {
+            if (document.documentElement.requestFullScreen) {
+              document.documentElement.requestFullScreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+              document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullScreen) {
+              document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+            }
+          } else if (document.cancelFullScreen) {
+            document.cancelFullScreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          } else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+          }
+        });
+      });
       $("#hoisinh").click(function () {
         let vHoisinhnhanh2 = hoisinhnhanh;
         if (vHoisinhnhanh2) {
