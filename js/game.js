@@ -982,7 +982,7 @@ window.addEventListener("load", function () {
             vLN05 = Math.max(0, Math.min(32767, (v68 + 90) / 180 * 32768)) << 1 | 1 | Math.max(0, Math.min(65535, (v69 + 180) / 360 * 65536)) << 16;
           }
           _wrmxy.testSkinCustom(v63);
-          let v70 = "x" + (v63 > 9999 ? "0000" : v63.toString().padStart(4, 0)) + (v67 > 999 ? "000" : v67.toString().padStart(3, 0)) + (v64 > 999 ? "000" : v64.toString().padStart(3, 0)) + (v65 > 999 ? "000" : v65.toString().padStart(3, 0));
+          let v70 = "XY_" + (v63 > 9999 ? "0000" : v63.toString().padStart(4, 0)) + (v67 > 999 ? "000" : v67.toString().padStart(3, 0)) + (v64 > 999 ? "000" : v64.toString().padStart(3, 0)) + (v65 > 999 ? "000" : v65.toString().padStart(3, 0));
           v62 = (v62.length >= 32 ? v62.substr(0, 16) : v62.substr(0, 16).padEnd(16, "x")) + v70;
           v62 = v62.trim();
           console.log(v62);
@@ -3068,7 +3068,7 @@ window.addEventListener("load", function () {
           for (let v221 in this.o.hb) {
             var v222 = this.o.hb[v221].Mb.dg;
             if (wormXyObjects.ModeStremerdangaunhien) {} else {
-              var vA8 = [1348, 1344, 1500, 1354, 1352, 1338, 1336, 1234, 1459, 1371, 1420, 1405, 1198, 1188, 1041, 1087, 1069, 1100, 1126, 1127, 1227, 1422, 1260, 1257, 1282, 1283, 1288, 1289, 1291, 1294, 1312, 1311, 1323, 1435, 1446, 1456, 1471, 1472, 1451, 1185];
+              var vA8 = [5489,1000,1009,1008,1041,1162];
               if ([0, 1, 2, 3, 6, 32, 33, 34, 35, 8].includes(v222)) {
                 var v223 = Math.floor(Math.random() * vA8.length);
                 this.o.hb[v221].Mb.dg = vA8[v223];
@@ -3864,6 +3864,10 @@ window.addEventListener("load", function () {
         var v329 = vF.$b.from("https://i.imgur.com/EDt862t.png");
         var v330 = vF.$b.from("https://i.imgur.com/U5sTlhC.png");
         var v331 = vF.$b.from("https://i.imgur.com/ub4ed3R.png");
+        var zigzag = vF.$b.from("https://i.imgur.com/LFiCido.png");
+         this.X_x5 = new vF32(zigzag, 156, 80, 87, 60, 170, 1.5, 128, 128);
+        this.X_x10 = new vF32(zigzag, 158, 200, 95, 55, 265, 128.5, 128, 128);
+        this.X_xxlupa = new vF32(zigzag, 79, 8, 75, 77, 265, 1.5, 128, 128);
         this.Id_mobileguia = new vF32(v331, 0, 0, 87, 74, 350, 63, 128, 128);
         this.emoji_headshot = new vF32(v329, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
         this.emoji_kill = new vF32(v330, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
@@ -3872,7 +3876,7 @@ window.addEventListener("load", function () {
           this.Qh = new vF32(v328, 158, 4, 87, 74, 203, 63.5, 128, 128);
         }
         ;
-        this.Rh = new vF32(v328, 4, 4, 146, 146, 63.5, 63.5, 128, 128);
+        this.Rh = new vF32(zigzag, 156, 140, 87, 60, 170, 128.5, 128, 128);
         this.Ug = function () {
           var v332 = window.document.createElement("canvas");
           v332.width = 80;
@@ -4915,6 +4919,32 @@ window.addEventListener("load", function () {
           this.guia_mobile.kh(f6().q.Id_mobileguia);
           this.guia_mobile.jh.zIndex = 0.001;
           this.addChild(this.guia_mobile.jh);
+          // zigzag
+          this.flx = new vF39();
+          this.flx.kh(f6().q.Rh);
+          this.flx.jh.zIndex = 0.001;
+          this.addChild(this.flx.jh);
+          this.flexx();
+          this.xxx5 = new vF39();
+          this.xxx5.kh(f6().q.X_x5);
+          this.xxx5.jh.zIndex = 0.001;
+          this.addChild(this.xxx5.jh);
+          this.xXx5();
+          this.xxx2 = new vF39();
+          this.xxx2.kh(f6().q.X_x2);
+          this.xxx2.jh.zIndex = 0.001;
+          this.addChild(this.xxx2.jh);
+          this.xXx2();
+          this.xxx10 = new vF39();
+          this.xxx10.kh(f6().q.X_x10);
+          this.xxx10.jh.zIndex = 0.001;
+          this.addChild(this.xxx10.jh);
+          this.xXx10();
+          this.xxxLupatype = new vF39();
+          this.xxxLupatype.kh(f6().q.X_xxlupa);
+          this.xxxLupatype.jh.zIndex = 0.001;
+          this.addChild(this.xxxLupatype.jh);
+          this.xXxLupaZ();
         });
         vF145.prototype.hh = function (p484, p485, p486, p487) {
           this.Lj(0.002, this.Cj, p484.Zc);
@@ -4979,6 +5009,71 @@ window.addEventListener("load", function () {
         };
         vF145.prototype.Kj = function () {
           this.Jj.jh.visible = false;
+        };
+        vF145.prototype.Nflex = function (p510, p511, p512, p513) {
+          this.flx.jh.visible = true;
+          this.flx.jh.alpha = f18(
+            this.Jj.jh.alpha,
+            p510.hj ? 0.9 : 0.2,
+            p513,
+            0.0025
+          );
+          this.flx.oh(p511);
+        };
+        vF145.prototype.flexx = function () {
+          this.flx.jh.visible = false;
+        };
+        vF145.prototype.ActiveX5 = function (p514, p515, p516, p517) {
+          this.xxx5.jh.visible = true;
+          this.xxx5.jh.alpha = f18(
+            this.Jj.jh.alpha,
+            p514.hj ? 0.9 : 0.2,
+            p517,
+            0.0025
+          );
+          this.xxx5.oh(p515);
+        };
+        vF145.prototype.xXx5 = function () {
+          this.xxx5.jh.visible = false;
+        };
+        vF145.prototype.ActiveX2 = function (p518, p519, p520, p521) {
+          this.xxx2.jh.visible = true;
+          this.xxx2.jh.alpha = f18(
+            this.Jj.jh.alpha,
+            p518.hj ? 0.9 : 0.2,
+            p521,
+            0.0025
+          );
+          this.xxx2.oh(p519);
+        };
+        vF145.prototype.xXx2 = function () {
+          this.xxx2.jh.visible = false;
+        };
+        vF145.prototype.ActiveX10 = function (p522, p523, p524, p525) {
+          this.xxx10.jh.visible = true;
+          this.xxx10.jh.alpha = f18(
+            this.Jj.jh.alpha,
+            p522.hj ? 0.9 : 0.2,
+            p525,
+            0.0025
+          );
+          this.xxx10.oh(p523);
+        };
+        vF145.prototype.xXx10 = function () {
+          this.xxx10.jh.visible = false;
+        };
+        vF145.prototype.ActiveZlupa = function (p526, p527, p528, p529) {
+          this.xxxLupatype.jh.visible = true;
+          this.xxxLupatype.jh.alpha = f18(
+            this.Jj.jh.alpha,
+            p526.hj ? 0.9 : 0.2,
+            p529,
+            0.0025
+          );
+          this.xxxLupatype.oh(p527);
+        };
+        vF145.prototype.xXxLupaZ = function () {
+          this.xxxLupatype.jh.visible = false;
         };
         vF145.prototype.xzs = function () {
           this.xEmojiType_headshot.jh.visible = false;
@@ -7670,7 +7765,7 @@ window.addEventListener("load", function () {
         }
       });
       $(".mm-merchant").replaceWith("");
-      $(".description-text").replaceWith("\n  <div class=\"description-text\">\n  <div class=\"title-wormate-friends-connect\" style=\"position: absolute; top: 0; z-index: 1; width: 95.5%;margin-top: 10px;\">\n<img src=\"https://i.imgur.com/FVK3Q8c.png\" width=\"20\" align=\"center\" alt=\"\">Wormate XY</div>\n  <div class=\"description-text-hiep\">\n  <ul class=\"ui-tabs-nav\">\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive0 ui-tab-active\" style=\"margin: -5px\">\n      <a> <span class=\"flag br\" value=\"https://i.imgur.com/dixYLjk.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive1\" style=\"margin: -5px\">\n      <a> <span class=\"flag mx\" value=\"https://i.imgur.com/JMAvuFN.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive2\" style=\"margin: -5px\">\n      <a> <span class=\"flag us\" value=\"https://i.imgur.com/Jb2FF0y.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive3\" style=\"margin: -5px\">\n      <a> <span class=\"flag ca\" value=\"https://i.imgur.com/m1skEsB.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive4\" style=\"margin: -5px\">\n      <a> <span class=\"flag de\" value=\"https://i.imgur.com/VgCH8iy.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive5\" style=\"margin: -5px\">\n      <a> <span class=\"flag fr\" value=\"https://i.imgur.com/QuEjBr0.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive6\" style=\"margin: -5px\">\n      <a> <span class=\"flag sg\" value=\"https://i.imgur.com/bT3xWqF.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive7\" style=\"margin: -5px\">\n      <a> <span class=\"flag jp\" value=\"https://i.imgur.com/P2rYk1k.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive8\" style=\"margin: -5px\">\n      <a> <span class=\"flag au\" value=\"https://i.imgur.com/X0co8Ao.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive9\" style=\"margin: -5px\">\n      <a> <span class=\"flag gb\" value=\"https://i.imgur.com/8pQY6RW.png\"></span> </a>\n    </li>\n  </ul>\n  <div class=\"gachngang\"></div>\n    <div id='mapsv'><div class='tensv'>Name</div><div class='valusv'>Region</div><div class='onlinesv'>On/Off</div><div class='img-teamsv'>Streamer</div></div>\n    \n    <div class=\"gachngang\"></div>\n    <div class=\"servers-container\">\n      <div class=\"servers-peru\"></div>\n      <div class=\"servers-mexico\" style=\"display: none;\"></div>\n      <div class=\"servers-eeuu\" style=\"display: none;\"></div>\n      <div class=\"servers-canada\" style=\"display: none;\"></div>\n      <div class=\"servers-germania\" style=\"display: none;\"></div>\n      <div class=\"servers-francia\" style=\"display: none;\"></div>\n      <div class=\"servers-singapur\" style=\"display: none;\"></div>\n      <div class=\"servers-japon\" style=\"display: none;\"></div>\n      <div class=\"servers-australia\" style=\"display: none;\"></div>\n      <div class=\"servers-granbretana\" style=\"display: none;\"></div>\n    </div>\n  </div>\n            \n             \n                    ");
+      $(".description-text").replaceWith("\n  <div class=\"description-text\">\n  <div class=\"title-wormate-friends-connect\" Wormate XY </div>\n  <div class=\"description-text-hiep\">\n  <ul class=\"ui-tabs-nav\">\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive0 ui-tab-active\" style=\"margin: -5px\">\n      <a> <span class=\"flag br\" value=\"https://i.imgur.com/dixYLjk.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive1\" style=\"margin: -5px\">\n      <a> <span class=\"flag mx\" value=\"https://i.imgur.com/JMAvuFN.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive2\" style=\"margin: -5px\">\n      <a> <span class=\"flag us\" value=\"https://i.imgur.com/Jb2FF0y.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive3\" style=\"margin: -5px\">\n      <a> <span class=\"flag ca\" value=\"https://i.imgur.com/m1skEsB.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive4\" style=\"margin: -5px\">\n      <a> <span class=\"flag de\" value=\"https://i.imgur.com/VgCH8iy.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive5\" style=\"margin: -5px\">\n      <a> <span class=\"flag fr\" value=\"https://i.imgur.com/QuEjBr0.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive6\" style=\"margin: -5px\">\n      <a> <span class=\"flag sg\" value=\"https://i.imgur.com/bT3xWqF.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive7\" style=\"margin: -5px\">\n      <a> <span class=\"flag jp\" value=\"https://i.imgur.com/P2rYk1k.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive8\" style=\"margin: -5px\">\n      <a> <span class=\"flag au\" value=\"https://i.imgur.com/X0co8Ao.png\"></span> </a>\n    </li>\n    <li class=\"ui-tabs-tab ui-tab ui-tab-inactive9\" style=\"margin: -5px\">\n      <a> <span class=\"flag gb\" value=\"https://i.imgur.com/8pQY6RW.png\"></span> </a>\n    </li>\n  </ul>\n  <div class=\"gachngang\"></div>\n    <div id='mapsv'><div class='tensv'>Name</div><div class='valusv'>Region</div><div class='onlinesv'>On/Off</div><div class='img-teamsv'>Streamer</div></div>\n    \n    <div class=\"gachngang\"></div>\n    <div class=\"servers-container\">\n      <div class=\"servers-peru\"></div>\n      <div class=\"servers-mexico\" style=\"display: none;\"></div>\n      <div class=\"servers-eeuu\" style=\"display: none;\"></div>\n      <div class=\"servers-canada\" style=\"display: none;\"></div>\n      <div class=\"servers-germania\" style=\"display: none;\"></div>\n      <div class=\"servers-francia\" style=\"display: none;\"></div>\n      <div class=\"servers-singapur\" style=\"display: none;\"></div>\n      <div class=\"servers-japon\" style=\"display: none;\"></div>\n      <div class=\"servers-australia\" style=\"display: none;\"></div>\n      <div class=\"servers-granbretana\" style=\"display: none;\"></div>\n    </div>\n  </div>\n            \n             \n                    ");
       $(".ui-tab").on("click", account);
       $(".flag").click(function () {
         let v524 = $(this).attr("value");
@@ -7898,9 +7993,10 @@ window.addEventListener("load", function () {
                     </div>
                 </div>
                 <div id="gioithieu" class="content-section">
-                    <h2>Giới Thiệu</h2>
+                    <h2>ID</h2>
                           <input type="text" value="${wormXyObjects.FB_UserID}" id="wormate_id" readonly style="flex: 1; padding: 5px; border: 1px solid #00ccff; border-radius: 4px; background: #f0f8ff; font-family: monospace; font-size: 11px;" />
-                </div>
+                          <<button style="/* padding: 19px; */float: right;ma;margin-top: 0px;r;margin-right: 158px;e;/* line-height: 0; */-size: 18px;" onclick="navigator.clipboard.writeText('${wormXyObjects.FB_UserID}').then(()=&gt; alert('You ID ${wormXyObjects.FB_UserID} copiado! copied!'));">Copy</button>
+                          </div>
             </div>
         </div>
         <script>
@@ -8807,7 +8903,17 @@ window.onload = function () {
   v602.style.background = v601.gradient;
   v602.style.backgroundSize = v601.size;
 };
-console.log("Core 2022 THEO Update 2023");
+window.addEventListener("keydown", (zkey) => {
+  const zkeysystem = zkey.key.toLocaleLowerCase();
+  if (zkeysystem === "z" || zkeysystem === "ئ") {
+    window.multiplier = 0.625;
+    if (typeof window.changedNf === "function") {
+      window.changedNf();
+    } else {
+      console.warn("changedNf not working")
+    }
+  }
+})
 (function () {
   var vSetInterval2 = setInterval(function () {
     try {} catch (e29) {}
