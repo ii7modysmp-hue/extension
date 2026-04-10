@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "UsersBanned": [
+    {
+      "cliente_ID": "123456789",
+      "Banned": true
+    }
+  ]
+}
