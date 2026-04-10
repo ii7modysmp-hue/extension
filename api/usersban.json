@@ -2,7 +2,10 @@
   "success": true,
   "UsersBanned": [
     {
+      "id": 1,
+      "cliente_NOMBRE": "ABSI BMW",
       "cliente_ID": "gg_108022486223048441992",
+      "cliente_DateExpired": "",
       "Banned": true
     }
   ]
