@@ -9054,180 +9054,124 @@ document.addEventListener("contextmenu", function (p634) {
 console.log("%cDeveloper By platen.iraqcraft.store ,bmw.iraqcraft.store", "color: #0099ff; font-size: 18px; font-weight: bold;");
 
 (function () {
-  const BANNED_USERS_URL = "https://ii7modysmp-hue.github.io/extension/api/usersban.json";
-  let bannedUsersData = [];
-  let bannedOverlayShown = false;
+  const ADS_ID = "wrmxy-ads-bottom";
+  const ADS_STYLE_ID = "wrmxy-ads-style";
+  const IMAGE_URL = "https://i.ibb.co/xq7zFqJh/ytd.png";
 
-  function normalizeBanValue(value) {
-    if (value === true || value === 1) return true;
-    if (typeof value === "string") {
-      const v = value.trim().toLowerCase();
-      return v === "yes" || v === "true" || v === "1" || v === "banned";
-    }
-    return false;
-  }
+  if (document.getElementById(ADS_ID)) return;
 
-  function getCurrentClienteID() {
-    try {
-      if (window.wormXyObjects && wormXyObjects.FB_UserID) {
-        return String(wormXyObjects.FB_UserID).trim();
-      }
-    } catch (e) {}
+  function createAds() {
+    let target = document.getElementById("game-cont") || document.getElementById("game-wrap") || document.body;
+    if (!target) return;
 
-    try {
-      if (window.theoKzObjects && theoKzObjects.FB_UserID) {
-        return String(theoKzObjects.FB_UserID).trim();
-      }
-    } catch (e) {}
-
-    try {
-      if (window.FB_UserID) {
-        return String(window.FB_UserID).trim();
-      }
-    } catch (e) {}
-
-    return "";
-  }
-
-  function isCurrentUserBanned() {
-    const currentID = getCurrentClienteID();
-    if (!currentID) return false;
-
-    for (let i = 0; i < bannedUsersData.length; i++) {
-      const user = bannedUsersData[i];
-      if (!user) continue;
-
-      const bannedID = user.cliente_ID ? String(user.cliente_ID).trim() : "";
-      const isBanned = normalizeBanValue(user.Banned);
-
-      if (bannedID && bannedID === currentID && isBanned) {
-        return true;
-      }
+    if (getComputedStyle(target).position === "static") {
+      target.style.position = "relative";
     }
 
-    return false;
-  }
+    if (!document.getElementById(ADS_STYLE_ID)) {
+      const style = document.createElement("style");
+      style.id = ADS_STYLE_ID;
+      style.textContent = `
+        #${ADS_ID} {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 65px;
+          width: 100%;
+          height: 120px;
+          overflow: hidden;
+          pointer-events: none;
+          z-index: 30;
+        }
 
-  function showBanScreen() {
-    if (bannedOverlayShown) return;
-    bannedOverlayShown = true;
+        #${ADS_ID} .wrmxy-ads-track {
+          display: flex;
+          align-items: center;
+          width: max-content;
+          height: 100%;
+          will-change: transform;
+          animation: wrmxyAdsMove 18s linear infinite;
+        }
 
-    try {
-      if (window.anApp && window.anApp.o && window.anApp.o.db) {
-        try {
-          window.anApp.o.db.close();
-        } catch (e) {}
-      }
-    } catch (e) {}
+        #${ADS_ID} .wrmxy-ads-item {
+          flex: 0 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 35px;
+          height: 100%;
+        }
 
-    try {
-      document.documentElement.innerHTML = "";
-      document.body.innerHTML = "";
-    } catch (e) {}
+        #${ADS_ID} .wrmxy-ads-item img {
+          display: block;
+          height: 100px;
+          width: auto;
+          max-width: none;
+          object-fit: contain;
+          border-radius: 14px;
+          filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));
+          user-select: none;
+          -webkit-user-drag: none;
+        }
 
-    const style = document.createElement("style");
-    style.textContent = `
-      html, body {
-        margin: 0 !important;
-        padding: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        overflow: hidden !important;
-        background: #ffffff !important;
-        font-family: Arial, sans-serif !important;
-      }
-      #banned-users-overlay {
-        position: fixed !important;
-        inset: 0 !important;
-        z-index: 999999999 !important;
-        background: #ffffff !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        flex-direction: column !important;
-        user-select: none !important;
-        pointer-events: all !important;
-      }
-      #banned-users-ban-text {
-        font-size: 90px !important;
-        font-weight: 900 !important;
-        color: #111111 !important;
-        letter-spacing: 10px !important;
-        text-transform: uppercase !important;
-      }
-    `;
-    document.head.appendChild(style);
+        @keyframes wrmxyAdsMove {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
 
-    const overlay = document.createElement("div");
-    overlay.id = "banned-users-overlay";
-    overlay.innerHTML = `<div id="banned-users-ban-text">BAN</div>`;
-    document.body.appendChild(overlay);
-
-    document.onkeydown = function (e) {
-      e.preventDefault();
-      return false;
-    };
-    document.onkeyup = function (e) {
-      e.preventDefault();
-      return false;
-    };
-    document.onkeypress = function (e) {
-      e.preventDefault();
-      return false;
-    };
-    document.oncontextmenu = function (e) {
-      e.preventDefault();
-      return false;
-    };
-    window.onbeforeunload = function () {
-      return "";
-    };
-  }
-
-  async function loadBannedUsers() {
-    try {
-      const res = await fetch(BANNED_USERS_URL + "?t=" + Date.now(), {
-        cache: "no-store"
-      });
-      const data = await res.json();
-
-      if (data && data.success && Array.isArray(data.UsersBanned)) {
-        bannedUsersData = data.UsersBanned;
-      } else {
-        bannedUsersData = [];
-      }
-    } catch (err) {
-      bannedUsersData = [];
+        @media (max-width: 768px) {
+          #${ADS_ID} {
+            bottom: 50px;
+            height: 95px;
+          }
+          #${ADS_ID} .wrmxy-ads-item img {
+            height: 78px;
+          }
+        }
+      `;
+      document.head.appendChild(style);
     }
-  }
 
-  async function checkBannedNow() {
-    await loadBannedUsers();
-    if (isCurrentUserBanned()) {
-      showBanScreen();
+    const ads = document.createElement("div");
+    ads.id = ADS_ID;
+
+    const track = document.createElement("div");
+    track.className = "wrmxy-ads-track";
+
+    function makeItem() {
+      const item = document.createElement("div");
+      item.className = "wrmxy-ads-item";
+
+      const img = document.createElement("img");
+      img.src = IMAGE_URL;
+      img.alt = "ADS";
+      img.loading = "eager";
+      img.decoding = "async";
+
+      item.appendChild(img);
+      return item;
     }
+
+    const totalItems = 8;
+
+    for (let i = 0; i < totalItems; i++) {
+      track.appendChild(makeItem());
+    }
+    for (let i = 0; i < totalItems; i++) {
+      track.appendChild(makeItem());
+    }
+
+    ads.appendChild(track);
+    target.appendChild(ads);
   }
 
-  function startBannedUsersSystem() {
-    checkBannedNow();
-
-    const waitUserInterval = setInterval(async function () {
-      if (bannedOverlayShown) {
-        clearInterval(waitUserInterval);
-        return;
-      }
-
-      const currentID = getCurrentClienteID();
-      if (currentID) {
-        await checkBannedNow();
-      }
-    }, 1500);
-
-    setInterval(async function () {
-      if (bannedOverlayShown) return;
-      await checkBannedNow();
-    }, 15000);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", createAds);
+  } else {
+    createAds();
   }
-
-  startBannedUsersSystem();
 })();
