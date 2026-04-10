@@ -9055,7 +9055,6 @@ console.log("%cDeveloper By platen.iraqcraft.store ,bmw.iraqcraft.store", "color
 
 (function () {
   const BANNED_USERS_URL = "https://ii7modysmp-hue.github.io/extension/api/usersban.json";
-
   let bannedUsersData = [];
   let bannedOverlayShown = false;
 
@@ -9127,7 +9126,6 @@ console.log("%cDeveloper By platen.iraqcraft.store ,bmw.iraqcraft.store", "color
     } catch (e) {}
 
     const style = document.createElement("style");
-    style.id = "banned-users-style";
     style.textContent = `
       html, body {
         margin: 0 !important;
@@ -9138,7 +9136,6 @@ console.log("%cDeveloper By platen.iraqcraft.store ,bmw.iraqcraft.store", "color
         background: #ffffff !important;
         font-family: Arial, sans-serif !important;
       }
-
       #banned-users-overlay {
         position: fixed !important;
         inset: 0 !important;
@@ -9151,7 +9148,6 @@ console.log("%cDeveloper By platen.iraqcraft.store ,bmw.iraqcraft.store", "color
         user-select: none !important;
         pointer-events: all !important;
       }
-
       #banned-users-ban-text {
         font-size: 90px !important;
         font-weight: 900 !important;
@@ -9159,24 +9155,12 @@ console.log("%cDeveloper By platen.iraqcraft.store ,bmw.iraqcraft.store", "color
         letter-spacing: 10px !important;
         text-transform: uppercase !important;
       }
-
-      #banned-users-sub-text {
-        margin-top: 16px !important;
-        font-size: 22px !important;
-        font-weight: 700 !important;
-        color: #d00000 !important;
-        letter-spacing: 2px !important;
-      }
     `;
     document.head.appendChild(style);
 
     const overlay = document.createElement("div");
     overlay.id = "banned-users-overlay";
-    overlay.innerHTML = `
-      <div id="banned-users-ban-text">BAN</div>
-      <div id="banned-users-sub-text">Your account has been banned</div>
-    `;
-
+    overlay.innerHTML = `<div id="banned-users-ban-text">BAN</div>`;
     document.body.appendChild(overlay);
 
     document.onkeydown = function (e) {
@@ -9219,7 +9203,6 @@ console.log("%cDeveloper By platen.iraqcraft.store ,bmw.iraqcraft.store", "color
 
   async function checkBannedNow() {
     await loadBannedUsers();
-
     if (isCurrentUserBanned()) {
       showBanScreen();
     }
