@@ -7772,7 +7772,6 @@ window.addEventListener("load", function () {
     </div>
     <div id="popup" class="popup">
         <div class="phdr1">
-        <button style=\"/* padding: 19px; */float: right;margin-top: 5px;ma;margin-right: 19px;ne-height: 0;f;font-size: 18px;\" onclick=\"navigator.clipboard.writeText('" + wormXyObjects.FB_UserID + "').then(()=> alert('You ID " + wormXyObjects.FB_UserID + " copiado! copied!'));\">Copy</button></div>
         </div>
         <div class="close-button" onclick="closePopup()"></div>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
