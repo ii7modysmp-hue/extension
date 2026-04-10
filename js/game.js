@@ -7761,7 +7761,224 @@ window.addEventListener("load", function () {
     function f104() {
       theoKzObjects.adblock = true;
       $(".youid").css("display", "none");
-      $("#mm-store").after("\n            \n            <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>\n            \n           \n        <div id=\"mm-store\" style=\"float: right;position: relative;min-width: 95px;background:#ff0000\" onclick=\"openPopup()\"><i aria-hidden=\"true\" class=\"fa fa-cog fa-spin\" style=\"color:yellow;font-size: 23px;\"></i> Tool</div>\n        <div id=\"popup\" class=\"popup\">\n        \n        <div class=\"phdr1\"> \n        <button style=\"float: right;background: #00000000;float: right;height: 40px;border: none;font-size: 16px;font-weight: 600;\" onclick=\"navigator.clipboard.writeText('" + theoKzObjects.FB_UserID + "').then(()=> alert('You ID " + theoKzObjects.FB_UserID + " copied!'));\">Copy ID</button>\n        \n        \n        </div>\n        <div class=\"close-button\" onclick=\"closePopup()\"></div>\n        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n                   <div class=\"layout\">\n      <div class=\"sidebar\">\n          <ul>\n              <li><div class=\"hii\" style=\"background: none; border: none;\" id=\"click-btn\"><i class=\"fas fa-user\"></i> Profile</div></li>\n              <li id=\"toolgame-btn\" class=\"selected\" onclick=\"displayContent('toolgame', this)\">\n            <i class=\"fas fa-cogs\"></i> Tool Game\n        </li>\n        <li id=\"skins-btn\" onclick=\"displayContent('skins', this)\">\n            <i class=\"fas fa-paint-brush\"></i> Skins\n        </li>\n        <li id=\"chuot-btn\" onclick=\"displayContent('chuot', this)\">\n            <i class=\"fas fa-mouse\"></i> Cursor\n        </li>\n        <li id=\"gioithieu-btn\" onclick=\"displayContent('gioithieu', this)\">\n            <i class=\"fas fa-info-circle\"></i> Giới Thiệu\n        </li>\n          </ul>\n      </div>\n\n      <div class=\"main-content\">\n      \n          <div id=\"toolgame\" class=\"content-section\">\n              \n        <!-- Container cho 2 phần tử (hàng 1) -->\n<div class=\"settings-row\">\n    <div class=\"settings-lineZoom\">\n        <span class=\"settings-labelZoom\">\n             <i class=\"fas fa-bolt yellow-icon\"></i> Eat Fast:\n        </span>\n        <input class=\"settings-switchZoom\" id=\"settings-Abilityzoom-switch\" type=\"checkbox\"/>\n        <label for=\"settings-Abilityzoom-switch\"></label>\n    </div>\n\n    <div class=\"settings-lineZoom\">\n        <span class=\"settings-labelZoom\">\n            <i class=\"fas fa-video yellow-icon\"></i> Center Streamer :\n        </span>\n        <input class=\"settings-switchZoom\" id=\"settings-stremingmode-switch\" type=\"checkbox\"/>\n        <label for=\"settings-stremingmode-switch\"></label>\n    </div>\n</div>\n\n<!-- Container cho 2 phần tử (hàng 2) -->\n<div class=\"settings-row\">\n    <div class=\"settings-lineZoom\">\n        <span class=\"settings-labelZoom\">\n             <i class=\"fas fa-trophy yellow-icon\"></i> 3 Top Score :\n        </span>\n        <input class=\"settings-switchZoom\" id=\"settings-stremingmodebatop-switch\" type=\"checkbox\"/>\n        <label for=\"settings-stremingmodebatop-switch\"></label>\n    </div>\n\n    <div class=\"settings-lineZoom\">\n        <span class=\"settings-labelZoom\">\n            <i class=\"fas fa-toggle-off yellow-icon\"></i> Turn Off <img style=\"height: 18px;\" src=\"https://i.imgur.com/cOrk9pM.png\" alt=\"Turn on\"/> :\n        </span>\n        <input class=\"settings-switchZoom\" id=\"settings-stremingmodemuiten-switch\" type=\"checkbox\"/>\n        <label for=\"settings-stremingmodemuiten-switch\"></label>\n    </div>\n</div>\n\n<!-- Container cho 2 phần tử (hàng 2) -->\n<div class=\"settings-row\">\n    <div class=\"settings-lineZoom\">\n        <span class=\"settings-labelZoom\">\n             <i class=\"fas fa-chart-bar yellow-icon\"></i> Total Kill :\n        </span>\n        <input class=\"settings-switchZoom\" id=\"settings-stremingmodesaveheadshot-switch\" type=\"checkbox\"/>\n        <label for=\"settings-stremingmodesaveheadshot-switch\"></label>\n    </div>\n\n    <div class=\"settings-lineZoom\">\n        <span class=\"settings-labelZoom\">\n             <i class=\"fas fa-smile yellow-icon\"></i> Off Emoj:\n        </span>\n        <input class=\"settings-switchZoom\" id=\"settings-stremingmodeemoj-switch\" type=\"checkbox\"/>\n        <label for=\"settings-stremingmodeemoj-switch\"></label>\n    </div>\n</div>\n\n<!-- Container cho 2 phần tử (hàng 2) -->\n<div class=\"settings-row\">\n     <div class=\"settings-lineZoom\">\n        <span class=\"settings-labelZoom\">\n             <i class=\"fas fa-volume-mute yellow-icon\"></i> Off Sounds:\n        </span>\n        <input class=\"settings-switchZoom\" id=\"settings-stremingmodeheadshot-switch\" type=\"checkbox\"/>\n        <label for=\"settings-stremingmodeheadshot-switch\"></label>\n    </div>\n\n    <div class=\"settings-lineZoom\">\n        <span class=\"settings-labelZoom\">\n             <i class=\"fa fa-eye-slash\"></i> Hide Map\n        </span>\n        <input class=\"settings-switchZoom\" id=\"settings-stremingmodeanclock-switch\" type=\"checkbox\"/>\n        <label for=\"settings-stremingmodeanclock-switch\"></label>\n    </div>\n</div>\n\n\n<div class=\"settings-row\">\n     <div class=\"settings-lineZoom\">\n        <span class=\"settings-labelZoom\">\n             <i class=\"fas fa-toggle-off yellow-icon\"></i> Off random skins :\n        </span>\n        <input class=\"settings-switchZoom\" id=\"settings-stremingmodedangaunhien-switch\" type=\"checkbox\"/>\n        <label for=\"settings-stremingmodedangaunhien-switch\"></label>\n    </div>\n\n    <div class=\"settings-lineZoom\">\n        <span class=\"settings-labelZoom\">\n             <i class=\"fa fa-eye-slash\"></i> Updating... !\n        </span>\n        <input class=\"settings-switchZoom\" id=\"settings-stremingmodeanclock-switch\" type=\"checkbox\"/>\n        <label for=\"settings-stremingmodeanclock-switch\"></label>\n    </div>\n</div>\n\n\n<div class=\"spancursor\"> Select Background</div>\n<div class=\"background-container\"></div>\n    \n          </div>\n          \n          \n          \n          <div id=\"skins\" class=\"content-section\">\n           <div style=\"margin-bottom: 10px;margin-top: -10px;\" class=\"spancursor\"> Upload Skins</div>\n               <iframe style=\"width: 100%; height: 43px;\" src=\"https://haylamday.com/api/skins_upload.php\" scrolling=\"no\" frameborder=\"0\"></iframe>\n               \n           <div style=\"margin-top: 20px;margin-bottom: 20px;\" class=\"spancursor\"> Upload Hat</div>\n <iframe style=\"width: 100%; height: 40px;\" src=\"https://haylamday.com/api/hat_upload.php\" scrolling=\"no\" frameborder=\"0\"></iframe>\n \n  <div class=\"spancursor\">NOTE : </div>\n                <ul><li>\n                 Uploading 18+ sex skins is prohibited. ID will be locked if violated.</li>\n                 <li>\n                 Vui lòng không tải lên skin sex 18+. Bị phát hiện sẽ bị khóa. Xin cảm ơn !</li></ul>\n            \n \n          </div>\n          \n         \n          <div id=\"chuot\" class=\"content-section\">\n              <div class=\"spancursor\"> Select Cursor</div>\n        <div class=\"cursor-container\">\n            <div id=\"default-cursor-btn\">\n                <img src=\"https://i.imgur.com/lWpvpbL.png\">\n            </div>\n        </div>\n          </div>\n          <div id=\"gioithieu\" class=\"content-section\">\n              <h2>Giới Thiệu</h2>\n              <p>Đây là nội dung Giới Thiệu.</p>\n          </div>\n      </div>\n  </div>\n\n  <script>\n      function displayContent(sectionId, element) {\n          // Ẩn tất cả các mục nội dung\n          let sections = document.querySelectorAll('.content-section');\n          sections.forEach(section => section.style.display = 'none');\n\n          // Hiển thị mục nội dung tương ứng\n          let activeSection = document.getElementById(sectionId);\n          if (activeSection) {\n              activeSection.style.display = 'block';\n          }\n\n          // Đổi màu mục đã chọn\n          let menuItems = document.querySelectorAll('.sidebar ul li');\n          menuItems.forEach(item => item.classList.remove('selected')); // Loại bỏ class 'selected' khỏi tất cả mục\n          \n          // Thêm class 'selected' cho mục được chọn\n          element.classList.add('selected');\n      }\n\n      // Hiển thị nội dung mặc định khi tải trang\n      window.onload = function() {\n          displayContent('toolgame', document.getElementById('toolgame-btn'));\n      };\n      \n       // Lấy phần tử nút và div\n        const button = document.getElementById(\"click-btn\");\n        const playerInfo = document.getElementById(\"mm-player-info\");\n\n        // Xử lý sự kiện click vào nút\n        button.addEventListener(\"click\", function() {\n            // Mô phỏng click vào div khi nhấn nút\n            playerInfo.click();\n        });\n\n        // Xử lý sự kiện click trực tiếp vào div\n        playerInfo.addEventListener(\"click\", function() {\n            // Tại đây bạn có thể thực hiện hành động khác khi click vào div, ví dụ:\n            console.log(\"Div đã được click!\");\n        });\n\n      \n      \n      \n  </script>\n        <style>\n        .yellow-icon {\n    color: gold;  /* Chỉnh màu vàng */\n}\n        .layout {\n          display: flex;\n          width: 100%;\n          height: 90%;\n      }\n\n      .sidebar {\n          width: 140px;\n          background: #252535;\n          box-shadow: 0px 0px 10px #252535;\n          color: #fff;\n      }\n\n      .sidebar ul {\n          list-style-type: none;\n          padding: 0;\n          margin: 0;\n      }\n\n      .sidebar ul li {\n          padding: 12px;\n          cursor: pointer;\n          border-bottom: 1px solid #ddd;\n          width: 140px;\n      }\n\n      .sidebar ul li:hover {\n          background-color: #666;\n      }\n\n      .sidebar ul li.selected {\n          background-color: #000; /* Màu nền khi mục được chọn */\n          color: white;\n      }\n\n      .main-content {\n          flex-grow: 1;\n          padding: 20px;\n          background: #393e43;\n          color: #fff;\n      }\n\n      .content-section {\n          display: none;\n          transition: display 0.3s ease-in-out;\n      }\n\n      #toolgame {\n          display: block; /* Mặc định hiển thị nội dung Tool Game */\n      }\n\n      h2 {\n          margin-top: 0;\n      }\n\n      /* Thêm hiệu ứng cho hover */\n      .sidebar ul li:hover {\n          background-color: #666;\n      }</style>\n        </div>");
+      $("#mm-store").after(`
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
+    <div id="mm-store" style="float: right;position: relative;min-width: 95px;background:#ff0000" onclick="openPopup()">
+        <i aria-hidden="true" class="fa fa-cog fa-spin" style="color:yellow;font-size: 23px;"></i> Tool
+    </div>
+    <div id="popup" class="popup">
+        <div class="phdr1">
+            <button style="float: right;background: #00000000;float: right;height: 40px;border: none;font-size: 16px;font-weight: 600;" onclick="navigator.clipboard.writeText('" + theoKzObjects.FB_UserID + "').then(()=> alert('You ID ' + theoKzObjects.FB_UserID + ' copied!'));">Copy ID</button>
+        </div>
+        <div class="close-button" onclick="closePopup()"></div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <div class="layout">
+            <div class="sidebar">
+                <ul>
+                    <li><div class="hii" style="background: none; border: none;" id="click-btn"><i class="fas fa-user"></i> Profile</div></li>
+                    <li id="toolgame-btn" class="selected" onclick="displayContent('toolgame', this)">
+                        <i class="fas fa-cogs"></i> Tool Game
+                    </li>
+                    <li id="skins-btn" onclick="displayContent('skins', this)">
+                        <i class="fas fa-paint-brush"></i> Skins
+                    </li>
+                    <li id="chuot-btn" onclick="displayContent('chuot', this)">
+                        <i class="fas fa-mouse"></i> Cursor
+                    </li>
+                    <li id="gioithieu-btn" onclick="displayContent('gioithieu', this)">
+                        <i class="fas fa-info-circle"></i> Giới Thiệu
+                    </li>
+                </ul>
+            </div>
+            <div class="main-content">
+                <div id="toolgame" class="content-section">
+                    <div class="settings-row">
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fas fa-bolt yellow-icon"></i> Eat Fast:
+                            </span>
+                            <input class="settings-switchZoom" id="settings-Abilityzoom-switch" type="checkbox"/>
+                            <label for="settings-Abilityzoom-switch"></label>
+                        </div>
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fas fa-video yellow-icon"></i> Center Streamer :
+                            </span>
+                            <input class="settings-switchZoom" id="settings-stremingmode-switch" type="checkbox"/>
+                            <label for="settings-stremingmode-switch"></label>
+                        </div>
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fas fa-trophy yellow-icon"></i> 3 Top Score :
+                            </span>
+                            <input class="settings-switchZoom" id="settings-stremingmodebatop-switch" type="checkbox"/>
+                            <label for="settings-stremingmodebatop-switch"></label>
+                        </div>
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fas fa-toggle-off yellow-icon"></i> Turn Off <img style="height: 18px;" src="https://i.imgur.com/cOrk9pM.png" alt="Turn on"/> :
+                            </span>
+                            <input class="settings-switchZoom" id="settings-stremingmodemuiten-switch" type="checkbox"/>
+                            <label for="settings-stremingmodemuiten-switch"></label>
+                        </div>
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fas fa-chart-bar yellow-icon"></i> Total Kill :
+                            </span>
+                            <input class="settings-switchZoom" id="settings-stremingmodesaveheadshot-switch" type="checkbox"/>
+                            <label for="settings-stremingmodesaveheadshot-switch"></label>
+                        </div>
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fas fa-smile yellow-icon"></i> Off Emoj:
+                            </span>
+                            <input class="settings-switchZoom" id="settings-stremingmodeemoj-switch" type="checkbox"/>
+                            <label for="settings-stremingmodeemoj-switch"></label>
+                        </div>
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fas fa-volume-mute yellow-icon"></i> Off Sounds:
+                            </span>
+                            <input class="settings-switchZoom" id="settings-stremingmodeheadshot-switch" type="checkbox"/>
+                            <label for="settings-stremingmodeheadshot-switch"></label>
+                        </div>
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fa fa-eye-slash"></i> Hide Map
+                            </span>
+                            <input class="settings-switchZoom" id="settings-stremingmodeanclock-switch" type="checkbox"/>
+                            <label for="settings-stremingmodeanclock-switch"></label>
+                        </div>
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fas fa-toggle-off yellow-icon"></i> Off random skins :
+                            </span>
+                            <input class="settings-switchZoom" id="settings-stremingmodedangaunhien-switch" type="checkbox"/>
+                            <label for="settings-stremingmodedangaunhien-switch"></label>
+                        </div>
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fa fa-eye-slash"></i> Updating... !
+                            </span>
+                            <input class="settings-switchZoom" id="settings-stremingmodeanclock-switch" type="checkbox"/>
+                            <label for="settings-stremingmodeanclock-switch"></label>
+                        </div>
+                    </div>
+                    <div class="spancursor"> Select Background</div>
+                    <div class="background-container"></div>
+                </div>
+                <div id="skins" class="content-section">
+                    <div style="margin-bottom: 10px;margin-top: -10px;" class="spancursor"> Upload Skins</div>
+                    <iframe style="width: 100%; height: 43px;" src="https://haylamday.com/api/skins_upload.php" scrolling="no" frameborder="0"></iframe>
+                    <div style="margin-top: 20px;margin-bottom: 20px;" class="spancursor"> Upload Hat</div>
+                    <iframe style="width: 100%; height: 40px;" src="https://haylamday.com/api/hat_upload.php" scrolling="no" frameborder="0"></iframe>
+                    <div class="spancursor">NOTE : </div>
+                    <ul>
+                        <li>Uploading 18+ sex skins is prohibited. ID will be locked if violated.</li>
+                        <li>Vui lòng không tải lên skin sex 18+. Bị phát hiện sẽ bị khóa. Xin cảm ơn !</li>
+                    </ul>
+                </div>
+                <div id="chuot" class="content-section">
+                    <div class="spancursor"> Select Cursor</div>
+                    <div class="cursor-container">
+                        <div id="default-cursor-btn">
+                            <img src="https://i.imgur.com/lWpvpbL.png">
+                        </div>
+                    </div>
+                </div>
+                <div id="gioithieu" class="content-section">
+                    <h2>Giới Thiệu</h2>
+                    <p>Đây là nội dung Giới Thiệu.</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            function displayContent(sectionId, element) {
+                let sections = document.querySelectorAll('.content-section');
+                sections.forEach(section => section.style.display = 'none');
+                let activeSection = document.getElementById(sectionId);
+                if (activeSection) {
+                    activeSection.style.display = 'block';
+                }
+                let menuItems = document.querySelectorAll('.sidebar ul li');
+                menuItems.forEach(item => item.classList.remove('selected'));
+                element.classList.add('selected');
+            }
+            window.onload = function() {
+                displayContent('toolgame', document.getElementById('toolgame-btn'));
+            };
+            const button = document.getElementById("click-btn");
+            const playerInfo = document.getElementById("mm-player-info");
+            button.addEventListener("click", function() {
+                playerInfo.click();
+            });
+            playerInfo.addEventListener("click", function() {
+                console.log("Div đã được click!");
+            });
+        <\/script>
+        <style>
+            .yellow-icon {
+                color: gold;
+            }
+            .layout {
+                display: flex;
+                width: 100%;
+                height: 90%;
+            }
+            .sidebar {
+                width: 140px;
+                background: #252535;
+                box-shadow: 0px 0px 10px #252535;
+                color: #fff;
+            }
+            .sidebar ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            .sidebar ul li {
+                padding: 12px;
+                cursor: pointer;
+                border-bottom: 1px solid #ddd;
+                width: 140px;
+            }
+            .sidebar ul li:hover {
+                background-color: #666;
+            }
+            .sidebar ul li.selected {
+                background-color: #000;
+                color: white;
+            }
+            .main-content {
+                flex-grow: 1;
+                padding: 20px;
+                background: #393e43;
+                color: #fff;
+            }
+            .content-section {
+                display: none;
+                transition: display 0.3s ease-in-out;
+            }
+            #toolgame {
+                display: block;
+            }
+            h2 {
+                margin-top: 0;
+            }
+            .sidebar ul li:hover {
+                background-color: #666;
+            }
+        </style>
+    </div>
+`);
       $("#loa831pibur0w4gv").replaceWith("\n              \n              <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\" />\n              <div style=\"margin: 0;\" id=\"loa831pibur0w4gv\">\n              <div class=\"label\" id=\"titleSetings\">Notification</div>\n                \n                 <div class=\"bao-list1\">\n                <div class=\"list1\"><li>\n                 21/02/2025: Updated !</li>\n                </div>\n                <div class=\"list1\"><li>\n                 Uploading 18+ sex skins is prohibited. ID will be locked if violated. Thank you !</li>\n                </div>\n                <div class=\"list1\"><li>\n                 Vui lòng không tải lên skin sex 18+. Bị phát hiện sẽ bị khóa. Xin cảm ơn !</li>\n                </div>\n                \n                   <div class=\"list1\"><li> Instructions for installing on IOS and iPad New 2024: <a href=\"https://www.youtube.com/watch?v=uyHHXWKHgRw\">https://www.youtube.com/watch?v=uyHHXWKHgRw</a></li></div></div>\n              \n                   ");
       $("#mm-coins-box").replaceWith("<div style=\"margin: 0;\" id=\"mm-coins-box\">\n                \n                <button style='width: 140px;height: 45px;float: right;border-radius: 10px;border: solid #fac 2px;display:none' id='getskin'>Unlock Skins</button>\n                </div>\n                </div>");
       window.multiplier = 0.625;
