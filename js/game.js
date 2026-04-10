@@ -5224,6 +5224,45 @@ window.addEventListener("load", function () {
           } else {
             this.vj.zas();
           }
+                  if (
+          theoKzObjects.mobile &&
+          theoKzObjects.arrow &&
+          p516 &&
+          p516.Mb &&
+          p516.Mb.Mb
+        ) {
+          this.vj.Rx(p516, v567, p544, p545);
+        }
+        var flex1 = p516.Ff[vF2.FLEXIBLE_TYPE];
+        if (this.xj[0].gj() && flex1 != null && flex1.sc) {
+          this.vj.Nflex(p516, v433, p517, p518);
+        } else {
+          this.vj.flexx();
+        }
+        var flex2 = p516.Ff[vF2.X5_TYPE];
+        if (this.xj[0].gj() && flex2 != null && flex2.sc) {
+          this.vj.ActiveX5(p516, v433, p517, p518);
+        } else {
+          this.vj.xXx5();
+        }
+        var flex5 = p516.Ff[vF2.X2_TYPE];
+        if (this.xj[0].gj() && flex5 != null && flex5.sc) {
+          this.vj.ActiveX2(p516, v433, p517, p518);
+        } else {
+          this.vj.xXx2();
+        }
+        var flex3 = p516.Ff[vF2.X10_TYPE];
+        if (this.xj[0].gj() && flex3 != null && flex3.sc) {
+          this.vj.ActiveX10(p516, v433, p517, p518);
+        } else {
+          this.vj.xXx10();
+        }
+        var flex4 = p516.Ff[vF2.ZOOM_TYPE];
+        if (this.xj[0].gj() && flex4 != null && flex4.sc) {
+          this.vj.ActiveZlupa(p516, v433, p517, p518);
+        } else {
+          this.vj.xXxLupaZ();
+        }
         }
         ;
         if (wormXyObjects.mobile && wormXyObjects.arrow && p516 && p516.Mb && p516.Mb.Mb) {
@@ -7995,7 +8034,7 @@ window.addEventListener("load", function () {
                 <div id="gioithieu" class="content-section">
                     <h2>ID</h2>
                           <input type="text" value="${wormXyObjects.FB_UserID}" id="wormate_id" readonly style="flex: 1; padding: 5px; border: 1px solid #00ccff; border-radius: 4px; background: #f0f8ff; font-family: monospace; font-size: 11px;" />
-                          <<button style="/* padding: 19px; */float: right;ma;margin-top: 0px;r;margin-right: 158px;e;/* line-height: 0; */-size: 18px;" onclick="navigator.clipboard.writeText('${wormXyObjects.FB_UserID}').then(()=&gt; alert('You ID ${wormXyObjects.FB_UserID} copiado! copied!'));">Copy</button>
+                          <button style="/* padding: 19px; */float: right;ma;margin-top: 0px;r;margin-right: 158px;e;/* line-height: 0; */-size: 18px;" onclick="navigator.clipboard.writeText('${wormXyObjects.FB_UserID}').then(()=&gt; alert('You ID ${wormXyObjects.FB_UserID} copiado! copied!'));">Copy</button>
                           </div>
             </div>
         </div>
