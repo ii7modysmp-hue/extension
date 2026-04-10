@@ -7789,7 +7789,7 @@ window.addEventListener("load", function () {
                         <i class="fas fa-mouse"></i> Cursor
                     </li>
                     <li id="gioithieu-btn" onclick="displayContent('gioithieu', this)">
-                        <i class="fas fa-info-circle"></i> Giới Thiệu
+                        <i class="fas fa-info-circle"></i> ID
                     </li>
                 </ul>
             </div>
@@ -7899,7 +7899,7 @@ window.addEventListener("load", function () {
                 </div>
                 <div id="gioithieu" class="content-section">
                     <h2>Giới Thiệu</h2>
-                    <p>Đây là nội dung Giới Thiệu.</p>
+                          <input type="text" value="${wormXyObjects.FB_UserID}" id="wormate_id" readonly style="flex: 1; padding: 5px; border: 1px solid #00ccff; border-radius: 4px; background: #f0f8ff; font-family: monospace; font-size: 11px;" />
                 </div>
             </div>
         </div>
