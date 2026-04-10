@@ -6788,42 +6788,50 @@ window.addEventListener("load", function () {
         }
       };
       var vF74 = function () {
-        function f96(p585, p586) {
-          this.sl = p585;
-          this.ol = 0;
-          this.nl = p586;
-        }
-        f96.prototype.gl = function () {
-          if (--this.ol < 0) {
-            this.ol = this.nl.list.length - 1;
-          }
-          this.sl.il(true);
-        };
-        f96.prototype.hl = function () {
-          if (++this.ol >= this.nl.list.length) {
-            this.ol = 0;
-          }
-          this.sl.il(true);
-        };
-        f96.prototype.kl = function () {
-          let vF102 = f10(this.nl.name);
-          if (this.nl.img) {
-            var vLSimgSrc = "<img src=\"";
-            vLSimgSrc = vLSimgSrc + wormXyObjects.s_l + "/images/paths/" + this.nl.img;
-            vF102 = vLSimgSrc = vLSimgSrc + "\" height=\"43\" width=\"220\" />";
-          }
-          return vF102;
-        };
-        f96.prototype.ql = function () {
-          if (this.ol >= this.nl.list.length) {
-            return vF25.Yg();
-          } else {
-            return vF25.Zg(this.nl.list[this.ol]);
-          }
-        };
-        return f96;
-      }();
-      return vF1417;
+  function f96(p585, p586) {
+    this.sl = p585;
+    this.ol = 0;
+    this.nl = p586;
+  }
+  f96.prototype.gl = function () {
+    if (--this.ol < 0) {
+      this.ol = this.nl.list.length - 1;
+    }
+    this.sl.il(true);
+  };
+  f96.prototype.hl = function () {
+    if (++this.ol >= this.nl.list.length) {
+      this.ol = 0;
+    }
+    this.sl.il(true);
+  };
+  f96.prototype.kl = function () {
+    let vF102 = f10(this.nl.name);
+    if (this.nl.img) {
+      var vLSimgSrc = this.nl.img;
+      if (
+        typeof vLSimgSrc === "string" &&
+        !/^https?:\/\//i.test(vLSimgSrc) &&
+        !/^\/\//.test(vLSimgSrc) &&
+        !/^data:/i.test(vLSimgSrc) &&
+        !/^blob:/i.test(vLSimgSrc)
+      ) {
+        vLSimgSrc = wormXyObjects.s_l + "/images/paths/" + vLSimgSrc;
+      }
+      vF102 = "<img src=\"" + vLSimgSrc + "\" height=\"43\" width=\"220\" />";
+    }
+    return vF102;
+  };
+  f96.prototype.ql = function () {
+    if (this.ol >= this.nl.list.length) {
+      return vF25.Yg();
+    } else {
+      return vF25.Zg(this.nl.list[this.ol]);
+    }
+  };
+  return f96;
+}();
+return vF1417;
     }();
     var vF75 = function () {
       var v$83 = $("#store-go-coins-button");
