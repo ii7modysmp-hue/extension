@@ -54,7 +54,8 @@ var theoEvents = {
     pxy: 110
   }
 };
-var theoKzObjects = {
+var wormXyObjects = {
+  s_l:"https://ii7modysmp-hue.github.io/extension", 
   FB_UserID: "",
   smoothCamera: 0.5,
   eat_animation: 0.005,
@@ -93,16 +94,16 @@ saveGameLocal = localStorage.getItem("SaveGameXT");
 if (saveGameLocal && saveGameLocal !== "null") {
   let t = JSON.parse(saveGameLocal);
   for (let e in t) {
-    theoKzObjects[e] = t[e];
+    wormXyObjects[e] = t[e];
   }
 }
-theoKzObjects.loading = true;
+wormXyObjects.loading = true;
 const PhoneChecked = function () {
   let v3 = false;
-  theoKzObjects.mobile = false;
+  wormXyObjects.mobile = false;
   var v4 = navigator.userAgent || navigator.vendor || window.opera;
   if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(v4) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(v4.substr(0, 4))) {
-    theoKzObjects.mobile = true;
+    wormXyObjects.mobile = true;
     v3 = true;
   }
   return v3;
@@ -119,9 +120,9 @@ const loadJoy = function (p7) {
   let v7;
   try {
     console.log(p7);
-    theoKzObjects.gamePad ||= theoEvents.joystick;
-    if (RechekingPhone() && (p7 || theoKzObjects.gamePad.checked)) {
-      v7 = nipplejs.create(theoKzObjects.gamePad);
+    wormXyObjects.gamePad ||= theoEvents.joystick;
+    if (RechekingPhone() && (p7 || wormXyObjects.gamePad.checked)) {
+      v7 = nipplejs.create(wormXyObjects.gamePad);
       v7.on("move", function (p8, p9) {
         theoEvents.eventoPrincipal.sk = p9.angle.radian <= Math.PI ? p9.angle.radian * -1 : Math.PI - (p9.angle.radian - Math.PI);
         console.log(p9);
@@ -276,7 +277,7 @@ ctx.clock.height = 100;
 ctx.clock.x = -50;
 ctx.clock.y = -50;
 ctx.clockan = PIXI.Sprite.fromImage("https://i.imgur.com/jkOvq9J.png");
-if (theoKzObjects.ModeStremeranclock) {
+if (wormXyObjects.ModeStremeranclock) {
   ctx.clockan.width = 100;
   ctx.clockan.height = 100;
   ctx.clockan.x = -50;
@@ -294,7 +295,7 @@ ctx.label_hs = new PIXI.Text("HS", ctx.fontStyle.amarillo);
 ctx.value1_hs = new PIXI.Text("0", ctx.fontStyle.amarillo);
 ctx.label_kill = new PIXI.Text("KL", ctx.fontStyle.morado);
 ctx.value1_kill = new PIXI.Text("0", ctx.fontStyle.morado);
-if (theoKzObjects.ModeStremersaveheadshot) {
+if (wormXyObjects.ModeStremersaveheadshot) {
   ctx.value2_hs = new PIXI.Text("", ctx.fontStyle.amarillo1);
   ctx.value2_kill = new PIXI.Text("", ctx.fontStyle.morado1);
 } else {
@@ -326,7 +327,7 @@ ctx.containerCountInfo.addChild(ctx.value1_kill);
 ctx.containerCountInfo.addChild(ctx.value2_kill);
 ctx.imgServerbase = PIXI.Texture.fromImage("https://i.imgur.com/EkbSd65.png");
 ctx.borderurl = PIXI.Texture.fromImage("https://i.imgur.com/wYJAfmO0.png");
-ctx.onclickServer = PIXI.Texture.fromImage(theoKzObjects.flag);
+ctx.onclickServer = PIXI.Texture.fromImage(wormXyObjects.flag);
 ctx.containerImgS = new PIXI.Sprite(ctx.imgServerbase);
 ctx.containerImgS.anchor.set(0.5);
 ctx.containerImgS.x = 0;
@@ -346,7 +347,7 @@ ctx.setCountGame = function (p17, p18, p19, p20) {
   ctx.value1_hs.text = p18;
   ctx.value1_kill.text = p17;
   ;
-  if (theoKzObjects.ModeStremersaveheadshot) {
+  if (wormXyObjects.ModeStremersaveheadshot) {
     ctx.value2_hs.text = p20;
     ctx.value2_kill.text = p19;
   } else {}
@@ -720,7 +721,7 @@ window.addEventListener("load", function () {
     }
     function f27() {
       function f28() {
-        let v50 = theoKzObjects.adblock ? 1 : 5;
+        let v50 = wormXyObjects.adblock ? 1 : 5;
         $("#adbl-1").text(f9("index.game.antiadblocker.msg1"));
         $("#adbl-2").text(f9("index.game.antiadblocker.msg2"));
         $("#adbl-3").text(f9("index.game.antiadblocker.msg3"));
@@ -1346,7 +1347,7 @@ window.addEventListener("load", function () {
         }
       };
       vO5.Vb = function (p127, p128) {
-        let vLoadJoy = loadJoy(!theoKzObjects.mobile);
+        let vLoadJoy = loadJoy(!wormXyObjects.mobile);
         var v101 = vO5.db = new WebSocket(p127);
         v101.binaryType = "arraybuffer";
         window.onOpen = v101.onopen = function () {
@@ -2376,7 +2377,7 @@ window.addEventListener("load", function () {
       vF14.prototype.Se = function (p277) {
         f111("count", p277);
         if (p277) {
-          if (theoKzObjects.ModeStremerheadshot) {} else {
+          if (wormXyObjects.ModeStremerheadshot) {} else {
             var v169 = document.createElement("audio");
             v169.src = "https://asserts.wormworld.io/sounds/headshot_sound_effect.mp3";
             v169.preload = "auto";
@@ -2387,9 +2388,9 @@ window.addEventListener("load", function () {
           this.addChild(vF57);
           this.Pe.push(vF57);
           if (vF57) {
-            theoKzObjects.emoji_headshot = true;
+            wormXyObjects.emoji_headshot = true;
             setTimeout(function () {
-              theoKzObjects.emoji_headshot = false;
+              wormXyObjects.emoji_headshot = false;
             }, 3000);
           }
         } else {
@@ -2397,9 +2398,9 @@ window.addEventListener("load", function () {
           this.addChild(vF57);
           this.Pe.push(vF57);
           if (vF57) {
-            theoKzObjects.emoji_kill = true;
+            wormXyObjects.emoji_kill = true;
             setTimeout(function () {
-              theoKzObjects.emoji_kill = false;
+              wormXyObjects.emoji_kill = false;
             }, 3000);
           }
         }
@@ -2553,7 +2554,7 @@ window.addEventListener("load", function () {
         this.vf.position.x = v175 - 225;
         this.vf.position.y = 1;
         window.changedNf = () => this.jf = Math.min(Math.max(v175, v176), window.multiplier * Math.min(v175, v176));
-        if (theoKzObjects.ModeStremer) {
+        if (wormXyObjects.ModeStremer) {
           var v177 = v175 / 2;
           var v178 = v176 / 2;
           var vLN100 = 100;
@@ -2574,7 +2575,7 @@ window.addEventListener("load", function () {
         this.vf.addChild(ctx.containerImgS);
         this.tf.addChild(ctx.borderImg);
         window.retundFlagError = () => {
-          return ctx.containerImgS.texture = PIXI.Texture.fromImage(theoKzObjects.flag);
+          return ctx.containerImgS.texture = PIXI.Texture.fromImage(wormXyObjects.flag);
         };
         this.tf.addChild(ctx.containerCountInfo);
       };
@@ -2612,7 +2613,7 @@ window.addEventListener("load", function () {
           }
           this.gf = Math.sin(p292 / 1200 * 2 * Math.PI);
           var v186 = v180.Gf();
-          this.yf.x = f19(this.yf.x, v186.x, p293, theoKzObjects.smoothCamera, 33.333);
+          this.yf.x = f19(this.yf.x, v186.x, p293, wormXyObjects.smoothCamera, 33.333);
           this.yf.y = f19(this.yf.y, v186.y, p293, 0.5, 33.333);
           var v187 = v181 / v183 / 2;
           var v188 = v182 / v183 / 2;
@@ -2734,7 +2735,7 @@ window.addEventListener("load", function () {
               }
               f5(this, v202, v203.tc);
               v204.Uf = v203.tc;
-              if (theoKzObjects.ModeStremer) {
+              if (wormXyObjects.ModeStremer) {
                 v204.position.x = vLN026 + 225;
               } else {
                 v204.position.x = vLN026;
@@ -3066,7 +3067,7 @@ window.addEventListener("load", function () {
         if (p315 > 210) {
           for (let v221 in this.o.hb) {
             var v222 = this.o.hb[v221].Mb.dg;
-            if (theoKzObjects.ModeStremerdangaunhien) {} else {
+            if (wormXyObjects.ModeStremerdangaunhien) {} else {
               var vA8 = [1348, 1344, 1500, 1354, 1352, 1338, 1336, 1234, 1459, 1371, 1420, 1405, 1198, 1188, 1041, 1087, 1069, 1100, 1126, 1127, 1227, 1422, 1260, 1257, 1282, 1283, 1288, 1289, 1291, 1294, 1312, 1311, 1323, 1435, 1446, 1456, 1471, 1472, 1451, 1185];
               if ([0, 1, 2, 3, 6, 32, 33, 34, 35, 8].includes(v222)) {
                 var v223 = Math.floor(Math.random() * vA8.length);
@@ -3092,7 +3093,7 @@ window.addEventListener("load", function () {
               console.log("tercer digitos: " + v227);
               let v228 = v225.substr(10, 3);
               console.log("mouthId_A: " + v228);
-              if (f62 !== "0000" && theoKzObjects.visibleSkin.indexOf(parseInt(f62)) !== -1) {
+              if (f62 !== "0000" && wormXyObjects.visibleSkin.indexOf(parseInt(f62)) !== -1) {
                 this.o.hb[v221].Mb.dg = parseInt(f62);
               }
               if (v226 !== "000") {
@@ -3108,11 +3109,11 @@ window.addEventListener("load", function () {
           }
         }
         if (window.anApp.o.N.Mb.Lb === v219.Lb) {
-          v219.dg = theoKzObjects.PropertyManager.rh;
-          v219.Bg = theoKzObjects.PropertyManager.sh;
-          v219.Cg = theoKzObjects.PropertyManager.th;
-          v219.Dg = theoKzObjects.PropertyManager.uh;
-          v219.Eg = theoKzObjects.PropertyManager.vh;
+          v219.dg = wormXyObjects.PropertyManager.rh;
+          v219.Bg = wormXyObjects.PropertyManager.sh;
+          v219.Cg = wormXyObjects.PropertyManager.th;
+          v219.Dg = wormXyObjects.PropertyManager.uh;
+          v219.Eg = wormXyObjects.PropertyManager.vh;
           p314.setInt16(vP315, v219.dg);
           p314.setInt16(vP3152, v219.Bg);
           p314.setInt16(vP3153, v219.Cg);
@@ -3435,7 +3436,7 @@ window.addEventListener("load", function () {
         p338 += 2;
         var v302 = new vF36();
         v302.ag = [];
-        if (theoKzObjects.ModeStremerbatop) {
+        if (wormXyObjects.ModeStremerbatop) {
           for (var v303 = p337.mc(p338++), vLN7 = 7; vLN7 < v303; vLN7++) {
             var v304 = p337.nc(p338);
             p338 += 2;
@@ -3577,7 +3578,7 @@ window.addEventListener("load", function () {
         this.Jb = f18(this.Jb, this.Rg, p357, 0.0025);
       };
       f64.prototype.Gb = function (p358, p359, p360) {
-        this.ch = f18(this.ch, this.Ob, p359, theoKzObjects.eat_animation);
+        this.ch = f18(this.ch, this.Ob, p359, wormXyObjects.eat_animation);
         this.dh = f18(this.dh, this.Pb, p359, 0.005);
         this.gh.Te(this, p358, p359, p360);
       };
@@ -3618,9 +3619,9 @@ window.addEventListener("load", function () {
         }
         var v317 = p364.fh * (1 + Math.cos(p364.Ae + p365 / 200) * 0.3);
         if (p364.bh) {
-          this.Of.mh(p364.ch, p364.dh, theoKzObjects.PortionSize * p364.eh, p364.Jb * 1, theoKzObjects.PortionAura * v317, theoKzObjects.PortionTransparent * p364.Jb);
+          this.Of.mh(p364.ch, p364.dh, wormXyObjects.PortionSize * p364.eh, p364.Jb * 1, wormXyObjects.PortionAura * v317, wormXyObjects.PortionTransparent * p364.Jb);
         } else {
-          this.Of.mh(p364.ch, p364.dh, theoKzObjects.FoodSize * p364.eh, p364.Jb * 1, theoKzObjects.FoodShadow * v317, theoKzObjects.FoodTransparent * p364.Jb);
+          this.Of.mh(p364.ch, p364.dh, wormXyObjects.FoodSize * p364.eh, p364.Jb * 1, wormXyObjects.FoodShadow * v317, wormXyObjects.FoodTransparent * p364.Jb);
         }
       };
       var vF29 = function () {
@@ -3690,9 +3691,9 @@ window.addEventListener("load", function () {
       }
       f68.prototype.a = function () {};
       f68.prototype.ha = function (p380) {
-        if (!theoKzObjects.loading) {
-          theoKzObjects.PropertyManager = this;
-          localStorage.setItem("SaveGameXT", JSON.stringify(theoKzObjects));
+        if (!wormXyObjects.loading) {
+          wormXyObjects.PropertyManager = this;
+          localStorage.setItem("SaveGameXT", JSON.stringify(wormXyObjects));
         }
         switch (p380) {
           case vF31.ia:
@@ -3867,7 +3868,7 @@ window.addEventListener("load", function () {
         this.emoji_headshot = new vF32(v329, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
         this.emoji_kill = new vF32(v330, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
         this.Ph = new vF32(v328, 158, 86, 67, 124, 148, 63.5, 128, 128);
-        if (theoKzObjects.ModeStremermuiten) {} else {
+        if (wormXyObjects.ModeStremermuiten) {} else {
           this.Qh = new vF32(v328, 158, 4, 87, 74, 203, 63.5, 128, 128);
         }
         ;
@@ -4197,7 +4198,7 @@ window.addEventListener("load", function () {
         this.pi.push(p412);
       };
       f81.prototype.Ch = function (p413, p414) {
-        var v339 = this.si.propertyList.concat(theoKzObjects.pL || []);
+        var v339 = this.si.propertyList.concat(wormXyObjects.pL || []);
         if (!v339) {
           return false;
         }
@@ -4441,7 +4442,7 @@ window.addEventListener("load", function () {
             vThis12.qi = true;
             vThis12.ri = p428;
             vThis12.si = p431.user_data;
-            theoKzObjects.FB_UserID = p431.user_data.userId;
+            wormXyObjects.FB_UserID = p431.user_data.userId;
             vThis12.ti = p427;
             f8(vF10.Oe, vThis12.ti, 60);
             f100();
@@ -4471,16 +4472,16 @@ window.addEventListener("load", function () {
               var v374 = clientes.clientesActivos[vLN060].Client_VisibleSkin20;
               var v375 = clientes.clientesActivos[vLN060].Client_KeyAccecs;
               var v376 = clientes.clientesActivos[vLN060].cliente_DateExpired;
-              if (theoKzObjects.FB_UserID == 0) {} else if (theoKzObjects.FB_UserID == v353) {
+              if (wormXyObjects.FB_UserID == 0) {} else if (wormXyObjects.FB_UserID == v353) {
                 $("#mm-line-top").append("<div class='het-han'> Expiration date : " + v376 + "</div>");
                 $("#mm-line-bottom").append("<div class='het-han' style='left: 300px; top: 46px;font-size: 15px;'> Expiration date : " + v376 + "</div>");
                 $(".profile-user").append("<div class='het-han'> Expiration date : " + v376 + "</div>");
-                $(".profile-user").append("<div class=\"idwormate\"><input type=\"text\" value=\"" + theoKzObjects.FB_UserID + "\" style=\"width: 88%; height: 35px; border-radius: 4px; font-size: 18px; /* padding: 0 6px; */ text-align: center; background-color: #fff; color: #0a6928; font-weight: 600; display: block;\"/>\n      <button style=\"padding: 19px; float: right; margin-top: -40px; margin-right: -40px; line-height: 0; font-size: 18px;\" onclick=\"navigator.clipboard.writeText('" + theoKzObjects.FB_UserID + "').then(()=> alert('You ID " + theoKzObjects.FB_UserID + " copiado! copied!'));\">Copy</button></div>");
+                $(".profile-user").append("<div class=\"idwormate\"><input type=\"text\" value=\"" + wormXyObjects.FB_UserID + "\" style=\"width: 88%; height: 35px; border-radius: 4px; font-size: 18px; /* padding: 0 6px; */ text-align: center; background-color: #fff; color: #0a6928; font-weight: 600; display: block;\"/>\n      <button style=\"padding: 19px; float: right; margin-top: -40px; margin-right: -40px; line-height: 0; font-size: 18px;\" onclick=\"navigator.clipboard.writeText('" + wormXyObjects.FB_UserID + "').then(()=> alert('You ID " + wormXyObjects.FB_UserID + " copiado! copied!'));\">Copy</button></div>");
                 f104();
                 f103();
               } else {}
             }
-            theoKzObjects.loading = false;
+            wormXyObjects.loading = false;
             if (v351 !== p428) {
               vThis12.aj();
             } else {
@@ -5117,20 +5118,20 @@ window.addEventListener("load", function () {
           this.vj.Kj();
         }
         ;
-        if (theoKzObjects.ModeStremeremoj) {} else {
-          if (theoKzObjects.emoji_headshot && p516 && p516.Mb && p516.Mb.Mb) {
+        if (wormXyObjects.ModeStremeremoj) {} else {
+          if (wormXyObjects.emoji_headshot && p516 && p516.Mb && p516.Mb.Mb) {
             this.vj.Njh(p516, v433, p517, p518);
           } else {
             this.vj.xzs();
           }
-          if (theoKzObjects.emoji_kill && p516 && p516.Mb && p516.Mb.Mb) {
+          if (wormXyObjects.emoji_kill && p516 && p516.Mb && p516.Mb.Mb) {
             this.vj.Njk(p516, v433, p517, p518);
           } else {
             this.vj.zas();
           }
         }
         ;
-        if (theoKzObjects.mobile && theoKzObjects.arrow && p516 && p516.Mb && p516.Mb.Mb) {
+        if (wormXyObjects.mobile && wormXyObjects.arrow && p516 && p516.Mb && p516.Mb.Mb) {
           this.vj.Rx(p516, v433, p517, p518);
         }
       };
@@ -5382,7 +5383,7 @@ window.addEventListener("load", function () {
             detecNewCodeAndPacth();
             setInterval(detecNewCodeAndPacth, 1000);
           }
-          if (theoKzObjects.KeyCodeRespawn == p555.keyCode) {
+          if (wormXyObjects.KeyCodeRespawn == p555.keyCode) {
             vThis14.rk = true;
             window.onclose();
             setTimeout(function () {
@@ -5397,7 +5398,7 @@ window.addEventListener("load", function () {
           }
         });
         v461.addEventListener("touchmove", function (p557) {
-          if (!RechekingPhone() || !theoKzObjects.gamePad.checked) {
+          if (!RechekingPhone() || !wormXyObjects.gamePad.checked) {
             if (p557 = p557 || window.event) {
               p557 = p557.touches[0];
               if (p557.clientX !== undefined) {
@@ -6674,7 +6675,7 @@ window.addEventListener("load", function () {
           let vF102 = f10(this.nl.name);
           if (this.nl.img) {
             var vLSimgSrc = "<img src=\"";
-            vLSimgSrc = vLSimgSrc + SITE_XTHOST + "/images/paths/" + this.nl.img;
+            vLSimgSrc = vLSimgSrc + wormXyObjects.s_l + "/images/paths/" + this.nl.img;
             vF102 = vLSimgSrc = vLSimgSrc + "\" height=\"43\" width=\"220\" />";
           }
           return vF102;
@@ -7387,7 +7388,7 @@ window.addEventListener("load", function () {
           v517++;
         }, 120 + (p609 >= 100000 ? 5 : p609 >= 10000 ? 10 : 0));
       }
-      localStorage.setItem("SaveGameXT", JSON.stringify(theoKzObjects));
+      localStorage.setItem("SaveGameXT", JSON.stringify(wormXyObjects));
     }, false);
     let vA14 = [{
       nombre: "chuot 01",
@@ -7553,7 +7554,7 @@ window.addEventListener("load", function () {
       nombre: "Sky 4",
       url: "https://asserts.wormworld.io/backgrounds/bg_sky_4.png"
     }];
-    theoKzObjects.loading = true;
+    wormXyObjects.loading = true;
     var vLS4 = "";
     vLS4 += "</div>";
     vLS4 += "</div>";
@@ -7568,22 +7569,25 @@ window.addEventListener("load", function () {
     vLS4 += "<img class=\"pwrups v6\" style=\"display: none;\" src=\"https://i.imgur.com/mSCZeEp.png\">";
     vLS4 += "</div>";
     vLS4 += "<img class=\"worm_1\" src=\"https://i.imgur.com/iekrYYm.png\"><span class=\"Worm_cerca\"></span>";
-    vLS4 += "\n      \n      \n        \n        \n        <input style=\"display:none\" id=\"zoom-slider\" type=\"range\" min=\"0\" max=\"100\" value=\"50\" step=\"1\">\n        <div style=\"display:none\" class=\"key\">Q</div>\n        <div class=\"worm_2\">\n        <button id=\"settingBtn\"><i aria-hidden=\"true\" class=\"fa fa-cog fa-spin\" style=\"color:yellow;font-size: 23px;\"></i></button>\n        \n        <div id=\"settingContent\">\n        \n        \n        <div class=\"container1\">\n                    <span class=\"settings_span\">Spin-Fast: </span>\n                    <input id=\"smoothCamera\" class=\"range\" type=\"range\" min=\"0.3\" max=\"0.6\" value=\"' + theoKzObjects.smoothCamera + '\" step=\"0.1\" onmousemove=\"smoothCameraValue.value=value\" />\n        </div>         \n        \n        <div class=\"container1\">\n        <span class=\"settings_span\">Power-ups-Size: </span>\n        <input id=\"PortionSize\" class=\"range\" type=\"range\" min=\"1\" max=\"6\" value=\"' + theoKzObjects.PortionSize + '\" step=\"1\" onmousemove=\"rangevalue1.value=value\" />\n        </div>\n        \n      <div class=\"container1\">\n      <span class=\"settings_span\">Power-ups-Aura: </span>\n      <input id=\"PortionAura\" class=\"range\" type=\"range\" min=\"1.2\" max=\"3.2\" value=\"' + theoKzObjects.PortionAura + '\" step=\"0.2\" onmousemove=\"PortionAuravalue.value=value\" />\n      </div>\n       \n      <div class=\"container1\">\n                    <span class=\"settings_span\">Food-Size: </span>\n                    <input id=\"FoodSize\" class=\"range\" type=\"range\" min=\"0.5\" max=\"3\" value=\"' + theoKzObjects.FoodSize + '\" step=\"0.5\" onmousemove=\"rangevalue2.value=value\" />\n                    </div>\n                    <div class=\"container1\">\n                    <span class=\"settings_span\">Food-Shadow: </span>\n                    <input id=\"FoodShadow\" class=\"range\" type=\"range\" min=\"0.5\" max=\"3\" value=\"' + theoKzObjects.FoodShadow + '\" step=\"0.5\" onmousemove=\"FoodShadowvalue.value=value\" />\n                    </div>\n    </div>\n    </div>";
+    vLS4 += "\n      \n      \n        \n        \n        <input style=\"display:none\" id=\"zoom-slider\" type=\"range\" min=\"0\" max=\"100\" value=\"50\" step=\"1\">\n        <div style=\"display:none\" class=\"key\">Q</div>\n        <div class=\"worm_2\">\n        <button id=\"settingBtn\"><i aria-hidden=\"true\" class=\"fa fa-cog fa-spin\" style=\"color:yellow;font-size: 23px;\"></i></button>\n        \n        <div id=\"settingContent\">\n        \n        \n        <div class=\"container1\">\n                    <span class=\"settings_span\">Spin-Fast: </span>\n                    <input id=\"smoothCamera\" class=\"range\" type=\"range\" min=\"0.3\" max=\"0.6\" value=\"' + wormXyObjects.smoothCamera + '\" step=\"0.1\" onmousemove=\"smoothCameraValue.value=value\" />\n        </div>         \n        \n        <div class=\"container1\">\n        <span class=\"settings_span\">Power-ups-Size: </span>\n        <input id=\"PortionSize\" class=\"range\" type=\"range\" min=\"1\" max=\"6\" value=\"' + wormXyObjects.PortionSize + '\" step=\"1\" onmousemove=\"rangevalue1.value=value\" />\n        </div>\n        \n      <div class=\"container1\">\n      <span class=\"settings_span\">Power-ups-Aura: </span>\n      <input id=\"PortionAura\" class=\"range\" type=\"range\" min=\"1.2\" max=\"3.2\" value=\"' + wormXyObjects.PortionAura + '\" step=\"0.2\" onmousemove=\"PortionAuravalue.value=value\" />\n      </div>\n       \n      <div class=\"container1\">\n                    <span class=\"settings_span\">Food-Size: </span>\n                    <input id=\"FoodSize\" class=\"range\" type=\"range\" min=\"0.5\" max=\"3\" value=\"' + wormXyObjects.FoodSize + '\" step=\"0.5\" onmousemove=\"rangevalue2.value=value\" />\n                    </div>\n                    <div class=\"container1\">\n                    <span class=\"settings_span\">Food-Shadow: </span>\n                    <input id=\"FoodShadow\" class=\"range\" type=\"range\" min=\"0.5\" max=\"3\" value=\"' + wormXyObjects.FoodShadow + '\" step=\"0.5\" onmousemove=\"FoodShadowvalue.value=value\" />\n                    </div>\n    </div>\n    </div>";
     $("#game-view").append(vLS4);
     function f99(p610) {
-      if (theoKzObjects.PropertyManager) {
-        p610.skinId = theoKzObjects.PropertyManager.rh;
-        p610.eyesId = theoKzObjects.PropertyManager.sh;
-        p610.mouthId = theoKzObjects.PropertyManager.th;
-        p610.glassesId = theoKzObjects.PropertyManager.uh;
-        p610.hatId = theoKzObjects.PropertyManager.vh;
+      if (wormXyObjects.PropertyManager) {
+        p610.skinId = wormXyObjects.PropertyManager.rh;
+        p610.eyesId = wormXyObjects.PropertyManager.sh;
+        p610.mouthId = wormXyObjects.PropertyManager.th;
+        p610.glassesId = wormXyObjects.PropertyManager.uh;
+        p610.hatId = wormXyObjects.PropertyManager.vh;
       }
     }
     function f100() {
-      $("#mm-event-text").replaceWith("<div class=\"text-vnxx\"><a href=\"https://www.facebook.com/WormateFriendsConnect\">❤️ Wormate XYt 2025 ❤️</a></div>");
-      $(".mm-merchant-cont").replaceWith("<div class='youid'><button style=\"float: right;position: relative;min-width: 95px;background:#ff0000;height: 50px;\" onclick=\"navigator.clipboard.writeText('" + theoKzObjects.FB_UserID + "').then(()=> alert('You ID " + theoKzObjects.FB_UserID + " copiado! copied!'));\">YOUR ID</button></div>");
-      $(".column-left").append("<div class='contact'><i class='fa fa-phone'></i> Zalo, Whatapp : 0924623650</div>");
-      $("#loa831pibur0w4gv").replaceWith("\n           \n           \n           \n           <div style=\"margin: 0;\" id=\"loa831pibur0w4gv\">\n  <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\" />\n  \n    <div class=\"label\" id=\"titleSetings\">Notification</div>\n    <div class=\"bao-list1\">\n      \n      <input type=\"text\" value=\"" + theoKzObjects.FB_UserID + "\" style=\"width: 85%;height: 23px;border-radius: 4px;font-size: 12px;padding: 0 6px;background-color: #fff;color: #806102;display: block;box-sizing: border-box;-webkit-appearance: none;outline: 0;border-width: 0;\"/>\n      <button style=\"height: 25px;float: right;margin-top: -24px;margin-right: -6px;line-height: 1.2;font-size: 14px;\" onclick=\"navigator.clipboard.writeText('" + theoKzObjects.FB_UserID + "').then(()=> alert('You ID " + theoKzObjects.FB_UserID + " copiado! copied!'));\">Copy</button>\n      <center>\n        <div class=\"hg\"><a target=\"_blank\" href=\"https://thanhtoan.vuonghiep.com/\">Activated</a> </div>\n      </center>\n     <i class=\"fa fa-book\" aria-hidden=\"true\" style=\"color:48ff00;\"></i> Instructions for installing on IOS and iPad New 2024: <a style=\"color: #2ae1eb; font-weight: 600;\" href=\"https://www.youtube.com/watch?v=uyHHXWKHgRw\">https://www.youtube.com/watch?v=uyHHXWKHgRw</a> </div>\n      \n    \n</div>");
+      $("#mm-event-text").replaceWith("<div class=\"text-vnxx\"><a href=\"https://www.facebook.com/WormateFriendsConnect\">❤️ Wormate XY 2026 ❤️</a></div>");
+      $(".mm-merchant-cont").replaceWith("<div class='youid'><button style=\"float: right;position: relative;min-width: 95px;background:#ff0000;height: 50px;\" onclick=\"navigator.clipboard.writeText('" + wormXyObjects.FB_UserID + "').then(()=> alert('You ID " + wormXyObjects.FB_UserID + " copiado! copied!'));\">YOUR ID</button></div>");
+      $(".column-left").append("<div class='contact'><i class='fa-brands fa-discord'></i> https://discord.gg/hpZEwc22du</div>");
+    $(".column-left .contact:last-child").css("cursor", "pointer").click(function() {
+        window.open("https://discord.gg/hpZEwc22du", "_blank");
+});
+      $("#loa831pibur0w4gv").replaceWith("\n           \n           \n           \n           <div style=\"margin: 0;\" id=\"loa831pibur0w4gv\">\n  <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\" />\n  \n    <div class=\"label\" id=\"titleSetings\">Notification</div>\n    <div class=\"bao-list1\">\n      \n      <input type=\"text\" value=\"" + wormXyObjects.FB_UserID + "\" style=\"width: 85%;height: 23px;border-radius: 4px;font-size: 12px;padding: 0 6px;background-color: #fff;color: #806102;display: block;box-sizing: border-box;-webkit-appearance: none;outline: 0;border-width: 0;\"/>\n      <button style=\"height: 25px;float: right;margin-top: -24px;margin-right: -6px;line-height: 1.2;font-size: 14px;\" onclick=\"navigator.clipboard.writeText('" + wormXyObjects.FB_UserID + "').then(()=> alert('You ID " + wormXyObjects.FB_UserID + " copiado! copied!'));\">Copy</button>\n      <center>\n        <div class=\"hg\"><a target=\"_blank\" href=\"https://thanhtoan.vuonghiep.com/\">Activated</a> </div>\n      </center>\n     <i class=\"fa fa-book\" aria-hidden=\"true\" style=\"color:48ff00;\"></i> Instructions for installing on IOS and iPad New 2024: <a style=\"color: #2ae1eb; font-weight: 600;\" href=\"https://www.youtube.com/watch?v=uyHHXWKHgRw\">https://www.youtube.com/watch?v=uyHHXWKHgRw</a> </div>\n      \n    \n</div>");
       var v518 = document.getElementById("settingBtn");
       var v519 = document.getElementById("settingContent");
       function f101() {
@@ -7618,24 +7622,24 @@ window.addEventListener("load", function () {
         f102();
       });
       $("#PortionSize").on("input", function () {
-        theoKzObjects.PortionSize = $(this).val();
-        localStorage.PotenciadorSize = theoKzObjects.PortionSize;
+        wormXyObjects.PortionSize = $(this).val();
+        localStorage.PotenciadorSize = wormXyObjects.PortionSize;
       });
       $("#PortionAura").on("input", function () {
-        theoKzObjects.PortionAura = $(this).val();
-        localStorage.PotenciadorAura = theoKzObjects.PortionAura;
+        wormXyObjects.PortionAura = $(this).val();
+        localStorage.PotenciadorAura = wormXyObjects.PortionAura;
       });
       $("#smoothCamera").on("input", function () {
-        theoKzObjects.smoothCamera = $(this).val();
-        localStorage.smoothCamera = theoKzObjects.smoothCamera;
+        wormXyObjects.smoothCamera = $(this).val();
+        localStorage.smoothCamera = wormXyObjects.smoothCamera;
       });
       $("#FoodSize").on("input", function () {
-        theoKzObjects.FoodSize = $(this).val();
-        localStorage.ComidaSize = theoKzObjects.FoodSize;
+        wormXyObjects.FoodSize = $(this).val();
+        localStorage.ComidaSize = wormXyObjects.FoodSize;
       });
       $("#FoodShadow").on("input", function () {
-        theoKzObjects.FoodShadow = $(this).val();
-        localStorage.ComidaShadow = theoKzObjects.FoodShadow;
+        wormXyObjects.FoodShadow = $(this).val();
+        localStorage.ComidaShadow = wormXyObjects.FoodShadow;
       });
       $("#mm-advice-cont").html("\n            \n            \n            \n            <div class=\"vietnam\" style=\"display: grid !important; grid-template-columns: 1fr 1fr 1fr 1fr;gap: 8.5px;\">\n            \n            \n    <input type=\"button\" value=\"F.SCREEN\" class=\"fullscreen_button\">\n    \n    \n    <input type=\"button\" value=\"RESPAWN\" id=\"hoisinh\" class=\"fullscreen_respawn\">\n    \n    <input type=\"button\" value=\"SKINS LAB\" onclick=\"window.location.href='https://skinlab.haylamday.com/'\" class=\"fullscreen_contact\">\n    \n    <input type=\"button\" value=\"CONTACT\" onclick=\"window.location.href='https://thanhtoan.vuonghiep.com'\" class=\"fullscreen_contact\">\n    \n    \n    \n    </div>\n    \n    \n\n <div class=\"vietnam\" style=\"display: grid !important; grid-template-columns: 1fr 1fr;gap: 10px;margin-top: 8px;\">\n    <a href=\"https://www.youtube.com/@NonaMilano\" target=\"_blank\">\n      <img style=\"width:100%\" src=\"https://haylamday.com/images/hiep_img/nona.png\" alt=\"nona\"/>\n    </a>\n    <a href=\"https://thanhtoan.vuonghiep.com\" target=\"_blank\">\n      <img style=\"width:100%\" src=\"https://i.imgur.com/l1fWELC.png\" alt=\"wfc\"/>\n    </a>\n    </div>\n    \n    ");
       $(".mm-merchant-cont").html("\n ");
@@ -7670,7 +7674,7 @@ window.addEventListener("load", function () {
       $(".ui-tab").on("click", account);
       $(".flag").click(function () {
         let v524 = $(this).attr("value");
-        theoKzObjects.flag = v524;
+        wormXyObjects.flag = v524;
         ctx.containerImgS.texture = ctx.onclickServer;
         retundFlagError();
         console.log(v524);
@@ -7745,10 +7749,10 @@ window.addEventListener("load", function () {
           var v552 = clientes.clientesActivos[vLN092].Client_VisibleSkin19;
           var v553 = clientes.clientesActivos[vLN092].Client_VisibleSkin20;
           var v554 = clientes.clientesActivos[vLN092].Client_KeyAccecs;
-          if (theoKzObjects.FB_UserID == 0) {} else if (theoKzObjects.FB_UserID == v532) {
+          if (wormXyObjects.FB_UserID == 0) {} else if (wormXyObjects.FB_UserID == v532) {
             if (v554 == "XTPRIVATESKIN") {
-              for (let vLN093 = 0; vLN093 < theoKzObjects.idSkin.length; vLN093++) {
-                const v555 = theoKzObjects.idSkin[vLN093];
+              for (let vLN093 = 0; vLN093 < wormXyObjects.idSkin.length; vLN093++) {
+                const v555 = wormXyObjects.idSkin[vLN093];
                 if (v555.id == v533 || v555.id == v534 || v555.id == v535 || v555.id == v536 || v555.id == v537 || v555.id == v538 || v555.id == v539 || v555.id == v540 || v555.id == v541 || v555.id == v542 || v555.id == v543 || v555.id == v544 || v555.id == v545 || v555.id == v546 || v555.id == v547 || v555.id == v548 || v555.id == v549 || v555.id == v550 || v555.id == v551 || v555.id == v552 || v555.id == v553) {
                   v555.nonbuyable = false;
                 }
@@ -7759,7 +7763,7 @@ window.addEventListener("load", function () {
       });
     }
     function f104() {
-      theoKzObjects.adblock = true;
+      wormXyObjects.adblock = true;
       $(".youid").css("display", "none");
       $("#mm-store").after(`
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
@@ -7768,7 +7772,7 @@ window.addEventListener("load", function () {
     </div>
     <div id="popup" class="popup">
         <div class="phdr1">
-            <button style="float: right;background: #00000000;float: right;height: 40px;border: none;font-size: 16px;font-weight: 600;" onclick="navigator.clipboard.writeText('" + theoKzObjects.FB_UserID + "').then(()=> alert('You ID ' + theoKzObjects.FB_UserID + ' copied!'));">Copy ID</button>
+        <button style=\"/* padding: 19px; */float: right;margin-top: 5px;ma;margin-right: 19px;ne-height: 0;f;font-size: 18px;\" onclick=\"navigator.clipboard.writeText('" + wormXyObjects.FB_UserID + "').then(()=> alert('You ID " + wormXyObjects.FB_UserID + " copiado! copied!'));\">Copy</button></div>
         </div>
         <div class="close-button" onclick="closePopup()"></div>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -8022,11 +8026,11 @@ window.addEventListener("load", function () {
       $("#settings-Abilityzoom-switch").on("click", function () {
         if (this.checked) {
           console.log("I am checked");
-          theoKzObjects.eat_animation = 1;
+          wormXyObjects.eat_animation = 1;
           localStorage.setItem("mySwitch", "on");
         } else {
           console.log("I'm not checked");
-          theoKzObjects.eat_animation = 0.005;
+          wormXyObjects.eat_animation = 0.005;
           localStorage.setItem("mySwitch", "off");
         }
       });
@@ -8034,85 +8038,85 @@ window.addEventListener("load", function () {
         var v559 = localStorage.getItem("mySwitch");
         if (v559 === "on") {
           $("#settings-Abilityzoom-switch").prop("checked", true);
-          theoKzObjects.eat_animation = 1;
+          wormXyObjects.eat_animation = 1;
         } else {
           $("#settings-Abilityzoom-switch").prop("checked", false);
-          theoKzObjects.eat_animation = 0.005;
+          wormXyObjects.eat_animation = 0.005;
         }
       });
       $("#settings-stremingmode-switch").on("click", function () {
         if (this.checked) {
           console.log("I am checked");
-          theoKzObjects.ModeStremer = true;
+          wormXyObjects.ModeStremer = true;
           localStorage.setItem("ModeStremer", "true");
         } else {
           console.log("I'm not checked");
-          theoKzObjects.ModeStremer = false;
+          wormXyObjects.ModeStremer = false;
           localStorage.setItem("ModeStremer", "false");
         }
       });
       $(document).ready(function () {
         var v560 = localStorage.getItem("ModeStremer");
         if (v560 === "true") {
-          theoKzObjects.ModeStremer = true;
+          wormXyObjects.ModeStremer = true;
           $("#settings-stremingmode-switch").prop("checked", true);
         } else {
-          theoKzObjects.ModeStremer = false;
+          wormXyObjects.ModeStremer = false;
           $("#settings-stremingmode-switch").prop("checked", false);
         }
       });
       $("#settings-stremingmodebatop-switch").on("click", function () {
         if (this.checked) {
           console.log("I am checked");
-          theoKzObjects.ModeStremerbatop = true;
+          wormXyObjects.ModeStremerbatop = true;
           localStorage.setItem("ModeStremerbatop", "true");
         } else {
           console.log("I'm not checked");
-          theoKzObjects.ModeStremerbatop = false;
+          wormXyObjects.ModeStremerbatop = false;
           localStorage.setItem("ModeStremerbatop", "false");
         }
       });
       $(document).ready(function () {
         var v561 = localStorage.getItem("ModeStremerbatop");
         if (v561 === "true") {
-          theoKzObjects.ModeStremerbatop = true;
+          wormXyObjects.ModeStremerbatop = true;
           $("#settings-stremingmodebatop-switch").prop("checked", true);
         } else {
-          theoKzObjects.ModeStremerbatop = false;
+          wormXyObjects.ModeStremerbatop = false;
           $("#settings-stremingmodebatop-switch").prop("checked", false);
         }
       });
       $("#settings-stremingmodedangaunhien-switch").on("click", function () {
         if (this.checked) {
           console.log("I am checked");
-          theoKzObjects.ModeStremerdangaunhien = true;
+          wormXyObjects.ModeStremerdangaunhien = true;
           localStorage.setItem("ModeStremerdangaunhien", "true");
         } else {
           console.log("I'm not checked");
-          theoKzObjects.ModeStremerdangaunhien = false;
+          wormXyObjects.ModeStremerdangaunhien = false;
           localStorage.setItem("ModeStremerdangaunhien", "false");
         }
       });
       $(document).ready(function () {
         var v562 = localStorage.getItem("ModeStremerdangaunhien");
         if (v562 === "true") {
-          theoKzObjects.ModeStremerdangaunhien = true;
+          wormXyObjects.ModeStremerdangaunhien = true;
           $("#settings-stremingmodedangaunhien-switch").prop("checked", true);
         } else {
-          theoKzObjects.ModeStremerdangaunhien = false;
+          wormXyObjects.ModeStremerdangaunhien = false;
           $("#settings-stremingmodedangaunhien-switch").prop("checked", false);
         }
       });
       $(document).ready(function () {
         var v563 = localStorage.getItem("ModeStremeranclock");
         if (v563 === "true") {
-          theoKzObjects.ModeStremeranclock = true;
+          wormXyObjects.ModeStremeranclock = true;
           $("#settings-stremingmodeanclock-switch").prop("checked", true);
         } else {
-          theoKzObjects.ModeStremeranclock = false;
+          wormXyObjects.ModeStremeranclock = false;
           $("#settings-stremingmodeanclock-switch").prop("checked", false);
         }
-        if (theoKzObjects.ModeStremeranclock) {
+        if (wormXyObjects.ModeStremeranclock) {
           ctx.clockan.width = 100;
           ctx.clockan.height = 100;
           ctx.clockan.x = -50;
@@ -8127,14 +8131,14 @@ window.addEventListener("load", function () {
       $("#settings-stremingmodeanclock-switch").on("click", function () {
         if (this.checked) {
           console.log("I am checked");
-          theoKzObjects.ModeStremeranclock = true;
+          wormXyObjects.ModeStremeranclock = true;
           localStorage.setItem("ModeStremeranclock", "true");
         } else {
           console.log("I'm not checked");
-          theoKzObjects.ModeStremeranclock = false;
+          wormXyObjects.ModeStremeranclock = false;
           localStorage.setItem("ModeStremeranclock", "false");
         }
-        if (theoKzObjects.ModeStremeranclock) {
+        if (wormXyObjects.ModeStremeranclock) {
           ctx.clockan.width = 100;
           ctx.clockan.height = 100;
           ctx.clockan.x = -50;
@@ -8149,11 +8153,11 @@ window.addEventListener("load", function () {
       $("#settings-stremingmodemuiten-switch").on("click", function () {
         if (this.checked) {
           console.log("I am checked");
-          theoKzObjects.ModeStremermuiten = true;
+          wormXyObjects.ModeStremermuiten = true;
           localStorage.setItem("ModeStremermuiten", "true");
         } else {
           console.log("I'm not checked");
-          theoKzObjects.ModeStremermuiten = false;
+          wormXyObjects.ModeStremermuiten = false;
           localStorage.setItem("ModeStremermuiten", "false");
         }
         $("#svhiep").click();
@@ -8164,84 +8168,84 @@ window.addEventListener("load", function () {
       $(document).ready(function () {
         var v564 = localStorage.getItem("ModeStremermuiten");
         if (v564 === "true") {
-          theoKzObjects.ModeStremermuiten = true;
+          wormXyObjects.ModeStremermuiten = true;
           $("#settings-stremingmodemuiten-switch").prop("checked", true);
         } else {
-          theoKzObjects.ModeStremermuiten = false;
+          wormXyObjects.ModeStremermuiten = false;
           $("#settings-stremingmodemuiten-switch").prop("checked", false);
         }
       });
       $("#settings-stremingmodeemoj-switch").on("click", function () {
         if (this.checked) {
           console.log("I am checked");
-          theoKzObjects.ModeStremeremoj = true;
+          wormXyObjects.ModeStremeremoj = true;
           localStorage.setItem("ModeStremeremoj", "true");
         } else {
           console.log("I'm not checked");
-          theoKzObjects.ModeStremeremoj = false;
+          wormXyObjects.ModeStremeremoj = false;
           localStorage.setItem("ModeStremeremoj", "false");
         }
       });
       $(document).ready(function () {
         var v565 = localStorage.getItem("ModeStremeremoj");
         if (v565 === "true") {
-          theoKzObjects.ModeStremeremoj = true;
+          wormXyObjects.ModeStremeremoj = true;
           $("#settings-stremingmodeemoj-switch").prop("checked", true);
         } else {
-          theoKzObjects.ModeStremeremoj = false;
+          wormXyObjects.ModeStremeremoj = false;
           $("#settings-stremingmodeemoj-switch").prop("checked", false);
         }
       });
       $("#settings-stremingmodeheadshot-switch").on("click", function () {
         if (this.checked) {
           console.log("I am checked");
-          theoKzObjects.ModeStremerheadshot = true;
+          wormXyObjects.ModeStremerheadshot = true;
           localStorage.setItem("ModeStremerheadshot", "true");
         } else {
           console.log("I'm not checked");
-          theoKzObjects.ModeStremerheadshot = false;
+          wormXyObjects.ModeStremerheadshot = false;
           localStorage.setItem("ModeStremerheadshot", "false");
         }
       });
       $(document).ready(function () {
         var v566 = localStorage.getItem("ModeStremerheadshot");
         if (v566 === "true") {
-          theoKzObjects.ModeStremerheadshot = true;
+          wormXyObjects.ModeStremerheadshot = true;
           $("#settings-stremingmodeheadshot-switch").prop("checked", true);
         } else {
-          theoKzObjects.ModeStremerheadshot = false;
+          wormXyObjects.ModeStremerheadshot = false;
           $("#settings-stremingmodeheadshot-switch").prop("checked", false);
         }
       });
       $("#settings-stremingmodeheadshot-switch").on("click", function () {
         if (this.checked) {
           console.log("I am checked");
-          theoKzObjects.ModeStremerheadshot = true;
+          wormXyObjects.ModeStremerheadshot = true;
           localStorage.setItem("ModeStremerheadshot", "true");
         } else {
           console.log("I'm not checked");
-          theoKzObjects.ModeStremerheadshot = false;
+          wormXyObjects.ModeStremerheadshot = false;
           localStorage.setItem("ModeStremerheadshot", "false");
         }
       });
       $(document).ready(function () {
         var v567 = localStorage.getItem("ModeStremerheadshot");
         if (v567 === "true") {
-          theoKzObjects.ModeStremerheadshot = true;
+          wormXyObjects.ModeStremerheadshot = true;
           $("#settings-stremingmodeheadshot-switch").prop("checked", true);
         } else {
-          theoKzObjects.ModeStremerheadshot = false;
+          wormXyObjects.ModeStremerheadshot = false;
           $("#settings-stremingmodeheadshot-switch").prop("checked", false);
         }
       });
       $("#settings-stremingmodesaveheadshot-switch").on("click", function () {
         if (this.checked) {
           console.log("I am checked");
-          theoKzObjects.ModeStremersaveheadshot = true;
+          wormXyObjects.ModeStremersaveheadshot = true;
           localStorage.setItem("ModeStremersaveheadshot", "true");
         } else {
           console.log("I'm not checked");
-          theoKzObjects.ModeStremersaveheadshot = false;
+          wormXyObjects.ModeStremersaveheadshot = false;
           localStorage.setItem("ModeStremersaveheadshot", "false");
         }
         location.reload();
@@ -8249,41 +8253,41 @@ window.addEventListener("load", function () {
       $(document).ready(function () {
         var v568 = localStorage.getItem("ModeStremersaveheadshot");
         if (v568 === "true") {
-          theoKzObjects.ModeStremersaveheadshot = true;
+          wormXyObjects.ModeStremersaveheadshot = true;
           $("#settings-stremingmodesaveheadshot-switch").prop("checked", true);
         } else {
-          theoKzObjects.ModeStremersaveheadshot = false;
+          wormXyObjects.ModeStremersaveheadshot = false;
           $("#settings-stremingmodesaveheadshot-switch").prop("checked", false);
         }
       });
       $("#settings-arrowmobile-switch").on("click", function () {
         if (this.checked) {
           console.log("I am checked");
-          theoKzObjects.arrow = false;
+          wormXyObjects.arrow = false;
         } else {
           console.log("I'm not checked");
-          theoKzObjects.arrow = true;
+          wormXyObjects.arrow = true;
         }
       });
       $("#PortionSize").on("input", function () {
-        theoKzObjects.PortionSize = $(this).val();
-        localStorage.PotenciadorSize = theoKzObjects.PortionSize;
+        wormXyObjects.PortionSize = $(this).val();
+        localStorage.PotenciadorSize = wormXyObjects.PortionSize;
       });
       $("#PortionAura").on("input", function () {
-        theoKzObjects.PortionAura = $(this).val();
-        localStorage.PotenciadorAura = theoKzObjects.PortionAura;
+        wormXyObjects.PortionAura = $(this).val();
+        localStorage.PotenciadorAura = wormXyObjects.PortionAura;
       });
       $("#smoothCamera").on("input", function () {
-        theoKzObjects.smoothCamera = $(this).val();
-        localStorage.smoothCamera = theoKzObjects.smoothCamera;
+        wormXyObjects.smoothCamera = $(this).val();
+        localStorage.smoothCamera = wormXyObjects.smoothCamera;
       });
       $("#FoodSize").on("input", function () {
-        theoKzObjects.FoodSize = $(this).val();
-        localStorage.ComidaSize = theoKzObjects.FoodSize;
+        wormXyObjects.FoodSize = $(this).val();
+        localStorage.ComidaSize = wormXyObjects.FoodSize;
       });
       $("#FoodShadow").on("input", function () {
-        theoKzObjects.FoodShadow = $(this).val();
-        localStorage.ComidaShadow = theoKzObjects.FoodShadow;
+        wormXyObjects.FoodShadow = $(this).val();
+        localStorage.ComidaShadow = wormXyObjects.FoodShadow;
       });
       for (a = 0; a < vA14.length; a++) {
         var v569 = vA14[a].url;
@@ -8342,15 +8346,15 @@ window.addEventListener("load", function () {
     function f108() {
       $(".description-text").replaceWith("<div class=\"description-text\">");
       $(".description-text").prepend("<p id='title'>Wormate Friends</p>");
-      $("#title").after("<div id=\"idwormworld\" style=\"text-align: center\"><div class='logo'><img src='https://haylamday.com/images/hiep_img/logo.png'/></div>\n        <input type=\"text\" value=\"" + theoKzObjects.FB_UserID + "\" style=\"width: 230px;text-align: center;border-radius: 4px;font-size: 20px;padding: 0 6px;background-color: #fff;color: #806102;display: block;box-sizing: border-box;-webkit-appearance: none;outline: 0;border-width: 0;\">\n        <button onclick=\"navigator.clipboard.writeText('" + theoKzObjects.FB_UserID + "').then(()=> alert('You ID " + theoKzObjects.FB_UserID + " copiado! copied!'));\">COPY</button>\n    </div>\n<div></div>\n<div><input type=\"button\" value=\"ACTIVATE ALL\" target=\"_blank\" onclick=\"window.location.href='" + MYPAGE + "'\" style=\"margin-top: 5px; width: 100%\"></div>");
+      $("#title").after("<div id=\"idwormworld\" style=\"text-align: center\"><div class='logo'><img src='https://haylamday.com/images/hiep_img/logo.png'/></div>\n        <input type=\"text\" value=\"" + wormXyObjects.FB_UserID + "\" style=\"width: 230px;text-align: center;border-radius: 4px;font-size: 20px;padding: 0 6px;background-color: #fff;color: #806102;display: block;box-sizing: border-box;-webkit-appearance: none;outline: 0;border-width: 0;\">\n        <button onclick=\"navigator.clipboard.writeText('" + wormXyObjects.FB_UserID + "').then(()=> alert('You ID " + wormXyObjects.FB_UserID + " copiado! copied!'));\">COPY</button>\n    </div>\n<div></div>\n<div><input type=\"button\" value=\"ACTIVATE ALL\" target=\"_blank\" onclick=\"window.location.href='" + MYPAGE + "'\" style=\"margin-top: 5px; width: 100%\"></div>");
     }
     function f109() {
-      localStorage.setItem("totalKills", theoKzObjects.totalKills);
-      localStorage.setItem("totalHeadshots", theoKzObjects.totalHeadshots);
+      localStorage.setItem("totalKills", wormXyObjects.totalKills);
+      localStorage.setItem("totalHeadshots", wormXyObjects.totalHeadshots);
     }
     function f110() {
-      theoKzObjects.totalKills = parseInt(localStorage.getItem("totalKills")) || 0;
-      theoKzObjects.totalHeadshots = parseInt(localStorage.getItem("totalHeadshots")) || 0;
+      wormXyObjects.totalKills = parseInt(localStorage.getItem("totalKills")) || 0;
+      wormXyObjects.totalHeadshots = parseInt(localStorage.getItem("totalHeadshots")) || 0;
     }
     function f111(p615, p616) {
       let vF86 = function (p617, p618, p619, p620) {
@@ -8358,27 +8362,27 @@ window.addEventListener("load", function () {
       };
       f110();
       if (p615 === "count") {
-        theoKzObjects.kill = (theoKzObjects.kill || 0) + (p616 ? 0 : 1);
-        theoKzObjects.headshot = (theoKzObjects.headshot || 0) + (p616 ? 1 : 0);
-        theoKzObjects.totalKills = theoKzObjects.totalKills + (p616 ? 0 : 1);
-        theoKzObjects.totalHeadshots = theoKzObjects.totalHeadshots + (p616 ? 1 : 0);
+        wormXyObjects.kill = (wormXyObjects.kill || 0) + (p616 ? 0 : 1);
+        wormXyObjects.headshot = (wormXyObjects.headshot || 0) + (p616 ? 1 : 0);
+        wormXyObjects.totalKills = wormXyObjects.totalKills + (p616 ? 0 : 1);
+        wormXyObjects.totalHeadshots = wormXyObjects.totalHeadshots + (p616 ? 1 : 0);
         f109();
-        vF86(theoKzObjects.kill, theoKzObjects.headshot, theoKzObjects.totalKills, theoKzObjects.totalHeadshots);
+        vF86(wormXyObjects.kill, wormXyObjects.headshot, wormXyObjects.totalKills, wormXyObjects.totalHeadshots);
       }
       if (p615 === "open") {
-        theoKzObjects.kill = 0;
-        theoKzObjects.headshot = 0;
+        wormXyObjects.kill = 0;
+        wormXyObjects.headshot = 0;
         $("#contadorKill_12").show();
-        vF86(theoKzObjects.kill, theoKzObjects.headshot, theoKzObjects.totalKills, theoKzObjects.totalHeadshots);
+        vF86(wormXyObjects.kill, wormXyObjects.headshot, wormXyObjects.totalKills, wormXyObjects.totalHeadshots);
       }
       if (p615 === "closed") {
         pwrups = {};
       }
       if (p615 === "cerrar") {
-        theoKzObjects.kill = 0;
-        theoKzObjects.headshot = 0;
-        theoKzObjects.totalKills = 0;
-        theoKzObjects.totalHeadshots = 0;
+        wormXyObjects.kill = 0;
+        wormXyObjects.headshot = 0;
+        wormXyObjects.totalKills = 0;
+        wormXyObjects.totalHeadshots = 0;
         f109();
       }
     }
@@ -8472,7 +8476,7 @@ window.addEventListener("load", function () {
         method: "GET",
         dataType: "json",
         success: function (p623) {
-          theoKzObjects.visibleSkin = p623.visibleSkin;
+          wormXyObjects.visibleSkin = p623.visibleSkin;
           delete p623.visibleSkin;
           for (let v593 in p623) {
             if (v593 !== "propertyList") {
@@ -8486,8 +8490,8 @@ window.addEventListener("load", function () {
               }
             }
           }
-          theoKzObjects.pL = p623.propertyList;
-          theoKzObjects.idSkin = p623.skinArrayDict;
+          wormXyObjects.pL = p623.propertyList;
+          wormXyObjects.idSkin = p623.skinArrayDict;
           v592.Cc(p622);
         },
         error: function (p624, p625, p626) {
@@ -8829,4 +8833,4 @@ document.addEventListener("contextmenu", function (p634) {
   v603.textContent = "\n        (function() {\n            var preventDebugging = setInterval(function() {\n                if (window.console) {\n                    console.log = function() {}; \n                    console.debug = function() {}; \n                    console.error = function() {}; \n                    console.info = function() {};  \n                }\n            }, 1000);\n        })();\n    ";
   document.head.appendChild(v603);
 })();
-console.log("%cDeveloper By Vuonghiep.com", "color: #FF7F00; font-size: 18px; font-weight: bold;");
+console.log("%cDeveloper By platen.iraqcraft.store ,bmw.iraqcraft.store", "color: #0099ff; font-size: 18px; font-weight: bold;");
