@@ -4131,10 +4131,121 @@ try {
     }();
     var vF34 = function () {
       function f73() {
-        this.fn_o = f74;
-        this.Fe = new vF._b(vF.$b.from("/images/bg-obstacle.png"));
-        var v326 = vF.$b.from("/images/confetti-xmas2022.png");
-        this.Ge = [new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128))];
+        this.fn_o = f75;
+this.Fe = new vF._b(vF.$b.from("/images/bg-obstacle.png"));
+
+if (!document.getElementById("wormate-bg-effect")) {
+  var vBgStyle = document.createElement("style");
+  vBgStyle.id = "wormate-bg-effect-style";
+  vBgStyle.innerHTML = `
+    #game-cont {
+      position: relative !important;
+      overflow: hidden !important;
+    }
+    #wormate-bg-effect {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(0, 255, 170, 0.22) 0%, transparent 32%),
+        radial-gradient(circle at 85% 25%, rgba(0, 170, 255, 0.20) 0%, transparent 34%),
+        radial-gradient(circle at 50% 75%, rgba(120, 0, 255, 0.16) 0%, transparent 38%),
+        radial-gradient(circle at 30% 80%, rgba(255, 0, 140, 0.14) 0%, transparent 30%),
+        linear-gradient(135deg, rgba(5,10,20,0.82) 0%, rgba(10,20,35,0.88) 50%, rgba(5,8,18,0.92) 100%);
+      mix-blend-mode: screen;
+      animation: wormateBgMove 12s ease-in-out infinite alternate, wormateHueShift 18s linear infinite;
+    }
+    #wormate-bg-effect::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          rgba(255,255,255,0.015) 0px,
+          rgba(255,255,255,0.015) 2px,
+          transparent 2px,
+          transparent 20px
+        );
+      opacity: .5;
+      animation: wormateLinesMove 16s linear infinite;
+    }
+    #wormate-bg-effect::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08) 0%, transparent 55%);
+      opacity: .8;
+      animation: wormatePulseGlow 6s ease-in-out infinite;
+    }
+    @keyframes wormateBgMove {
+      0% {
+        transform: scale(1) translate3d(0, 0, 0);
+      }
+      100% {
+        transform: scale(1.08) translate3d(-1.5%, -1%, 0);
+      }
+    }
+    @keyframes wormateHueShift {
+      0% { filter: hue-rotate(0deg) saturate(1.05); }
+      50% { filter: hue-rotate(25deg) saturate(1.15); }
+      100% { filter: hue-rotate(0deg) saturate(1.05); }
+    }
+    @keyframes wormateLinesMove {
+      0% { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(25px) translateY(15px); }
+    }
+    @keyframes wormatePulseGlow {
+      0%, 100% { opacity: .45; transform: scale(1); }
+      50% { opacity: .75; transform: scale(1.04); }
+    }
+  `;
+  document.head.appendChild(vBgStyle);
+
+  var vBgLayer = document.createElement("div");
+  vBgLayer.id = "wormate-bg-effect";
+  var vGameCont = document.getElementById("game-cont");
+  if (vGameCont) {
+    vGameCont.appendChild(vBgLayer);
+  }
+}
+
+var v424 = vF.$b.from("/images/confetti-xmas2022.png");
+this.Ge = [
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
+];
+
+for (var v425 = 0; v425 < this.Ge.length; v425++) {
+  this.Ge[v425].alpha = 0.72 + Math.random() * 0.28;
+  this.Ge[v425].tint = [
+    0x00e1ff,
+    0x00ff99,
+    0x7a5cff,
+    0xff4db8,
+    0xffffff,
+    0x5ce1ff,
+    0x66ffcc
+  ][v425 % 7];
+}
         this.Cf = new vF._b(f74());
         this.Df = new vF._b(function () {
           var v327 = vF.$b.from("/images/bg-pattern-pow2-TEAM2.png");
@@ -9152,42 +9263,6 @@ isValidHotkey = function (p629) {
     return false;
   }
 };
-window.onload = function () {
-  var vA17 = [{
-    gradient: "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><polygon points='50,5 61,35 95,35 67,57 76,91 50,70 24,91 33,57 5,35 39,35' fill='rgba(255, 255, 255, 0.3)'/></svg>\") repeat,linear-gradient(45deg, #32CD32 20%, #FFD700 100%)",
-    size: "120px 120px, 100% 100%"
-  }, {
-    gradient: "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect x='30' y='30' width='40' height='40' fill='rgba(255,255,255,0.2)'/></svg>\") repeat,linear-gradient(45deg, #0000FF 20%, #8A2BE2 100%)",
-    size: "100px 100px, 100% 100%"
-  }, {
-    gradient: "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><polygon points='50,10 90,50 50,90 10,50' fill='rgba(255,255,255,0.25)'/></svg>\") repeat,linear-gradient(45deg, #0000FF 20%, #8A2BE2 100%)",
-    size: "100px 100px, 100% 100%"
-  }];
-  var v598 = localStorage.getItem("lastSelected");
-  var v599 = vA17.map((p630, p631) => p631).filter(p632 => p632 != v598);
-  var v600 = v599[Math.floor(Math.random() * v599.length)];
-  var v601 = vA17[v600];
-  localStorage.setItem("lastSelected", v600);
-  var v602 = document.getElementById("game-wrap");
-  v602.style.background = v601.gradient;
-  v602.style.backgroundSize = v601.size;
-};
-window.addEventListener("keydown", (zkey) => {
-  const zkeysystem = zkey.key.toLocaleLowerCase();
-  if (zkeysystem === "z" || zkeysystem === "ئ") {
-    window.multiplier = 0.625;
-    if (typeof window.changedNf === "function") {
-      window.changedNf();
-    } else {
-      console.warn("changedNf not working")
-    }
-  }
-})
-(function () {
-  var vSetInterval2 = setInterval(function () {
-    try {} catch (e29) {}
-  }, 100);
-})();
 document.addEventListener("keydown", function (p633) {
   if (p633.key === "F12") {
     p633.preventDefault();
