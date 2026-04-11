@@ -8288,94 +8288,264 @@ return vF1417;
         wormXyObjects.FoodShadow = $(this).val();
         localStorage.ComidaShadow = wormXyObjects.FoodShadow;
       });
-    $("#mm-advice-cont").html("\
-<div class=\"vietnam\" style=\"display:grid!important;grid-template-columns:1fr 1fr 1fr;gap:8.5px;\">\
-<input type=\"button\" value=\"F.SCREEN\" class=\"fullscreen_button custom_game_btn\">\
-<input type=\"button\" value=\"RESPAWN\" id=\"hoisinh\" class=\"fullscreen_respawn custom_game_btn\">\
-<input type=\"button\" value=\"SKINS LAB\" onclick=\"window.location.href='https://skinlab.haylamday.com/'\" class=\"fullscreen_contact custom_game_btn\">\
-</div>\
-\
-<div class=\"vietnam\" style=\"display:grid!important;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;\">\
-<a href=\"https://www.youtube.com/@NonaMilano\" target=\"_blank\">\
-<img style=\"width:100%\" src=\"https://haylamday.com/images/hiep_img/nona.png\" alt=\"nona\"/>\
-</a>\
-<a href=\"https://thanhtoan.vuonghiep.com\" target=\"_blank\">\
-<img style=\"width:100%\" src=\"https://i.imgur.com/l1fWELC.png\" alt=\"W-XY\"/>\
-</a>\
-</div>\
-");
+    (function () {
+  function isAdActive(vAd) {
+    if (!vAd) return false;
+    if (vAd.enabled === false) return false;
 
-$(".mm-merchant-cont").html("\n ");
+    var vNow = new Date();
+    var vExpiry = null;
 
-if (!document.getElementById("custom-btn-style-absi")) {
-  $("head").append(`
-    <style id="custom-btn-style-absi">
-      .custom_game_btn{
-        height:42px !important;
-        border:1.5px solid #000 !important;
-        border-radius:8px !important;
-        font-size:14px !important;
-        font-weight:700 !important;
-        color:#fff !important;
-        text-align:center !important;
-        cursor:pointer !important;
-        outline:none !important;
-        box-sizing:border-box !important;
-        transition:transform .15s ease, filter .15s ease, box-shadow .15s ease !important;
-        box-shadow:0 2px 6px rgba(0,0,0,.25) !important;
-      }
-      .custom_game_btn:hover{
-        transform:translateY(-1px) !important;
-        filter:brightness(1.05) !important;
-      }
-      .custom_game_btn:active{
-        transform:translateY(0) scale(.98) !important;
-      }
-      .fullscreen_button{
-        background:#ffd400 !important;
-        color:#111 !important;
-      }
-      .fullscreen_respawn{
-        background:#2ecc40 !important;
-        color:#fff !important;
-      }
-      .fullscreen_contact{
-        background:#1e90ff !important;
-        color:#fff !important;
-      }
-      @media (max-width: 768px){
-        .custom_game_btn{
-          height:38px !important;
-          font-size:12px !important;
-          border-radius:7px !important;
-        }
-      }
-    </style>
-  `);
-}
-
-$(document).ready(function () {
-  $(".fullscreen_button").off("click").on("click", function () {
-    if (
-      document.fullScreenElement && document.fullScreenElement !== null ||
-      !document.mozFullScreen && !document.webkitIsFullScreen
-    ) {
-      if (document.documentElement.requestFullScreen) {
-        document.documentElement.requestFullScreen();
-      } else if (document.documentElement.mozRequestFullScreen) {
-        document.documentElement.mozRequestFullScreen();
-      } else if (document.documentElement.webkitRequestFullScreen) {
-        document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-      }
-    } else if (document.cancelFullScreen) {
-      document.cancelFullScreen();
-    } else if (document.mozCancelFullScreen) {
-      document.mozCancelFullScreen();
-    } else if (document.webkitCancelFullScreen) {
-      document.webkitCancelFullScreen();
+    if (vAd.expire_at) {
+      vExpiry = new Date(vAd.expire_at);
+    } else if (vAd.expiry) {
+      vExpiry = new Date(vAd.expiry);
+    } else if (vAd.end_date) {
+      vExpiry = new Date(vAd.end_date);
+    } else if (vAd.date_end) {
+      vExpiry = new Date(vAd.date_end);
     }
+
+    if (vExpiry && !isNaN(vExpiry.getTime()) && vNow > vExpiry) {
+      return false;
+    }
+
+    if (!vAd.image && !vAd.img && !vAd.banner) return false;
+    if (!vAd.link && !vAd.url && !vAd.href) return false;
+
+    return true;
+  }
+
+  function getAdImage(vAd) {
+    return vAd.image || vAd.img || vAd.banner || "";
+  }
+
+  function getAdLink(vAd) {
+    return vAd.link || vAd.url || vAd.href || "#";
+  }
+
+  function getAdTitle(vAd, vIndex) {
+    return vAd.title || vAd.name || ("ad-" + vIndex);
+  }
+
+  function escapeHtml(vText) {
+    return String(vText || "").replace(/[&<>"']/g, function (vChar) {
+      return ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[vChar];
+    });
+  }
+
+  function renderAds(vAds) {
+    var vAdsHtml = "";
+    if (vAds.length > 0) {
+      vAdsHtml += '<div class="vietnam ads-grid-absi" style="display:grid!important;grid-template-columns:' + (vAds.length === 1 ? '1fr' : '1fr 1fr') + ';gap:10px;margin-top:8px;">';
+      for (var i = 0; i < vAds.length; i++) {
+        var vAd = vAds[i];
+        var vImg = escapeHtml(getAdImage(vAd));
+        var vLink = escapeHtml(getAdLink(vAd));
+        var vTitle = escapeHtml(getAdTitle(vAd, i + 1));
+        vAdsHtml += ''
+          + '<a href="' + vLink + '" target="_blank" class="absi_ad_item" rel="noopener noreferrer">'
+          + '  <img class="absi_ad_img" style="width:100%;display:block;" src="' + vImg + '" alt="' + vTitle + '"/>'
+          + '</a>';
+      }
+      vAdsHtml += '</div>';
+    }
+    return vAdsHtml;
+  }
+
+  function renderMainBox(vAds) {
+    $("#mm-advice-cont").html(
+      '<div class="vietnam" style="display:grid!important;grid-template-columns:1fr 1fr 1fr;gap:8.5px;">'
+      + '<input type="button" value="F.SCREEN" class="fullscreen_button custom_game_btn">'
+      + '<input type="button" value="RESPAWN" id="hoisinh" class="fullscreen_respawn custom_game_btn">'
+      + '<input type="button" value="SKINS LAB" onclick="window.location.href=\'https://skinlab.haylamday.com/\'" class="fullscreen_contact custom_game_btn">'
+      + '</div>'
+      + renderAds(vAds)
+    );
+
+    $(".mm-merchant-cont").html("\n ");
+  }
+
+  function initAdsAndButtons() {
+    renderMainBox([]);
+
+    if (!document.getElementById("custom-btn-style-absi")) {
+      $("head").append(`
+        <style id="custom-btn-style-absi">
+          .custom_game_btn{
+            height:42px !important;
+            border:1.5px solid #000 !important;
+            border-radius:8px !important;
+            font-size:14px !important;
+            font-weight:700 !important;
+            color:#fff !important;
+            text-align:center !important;
+            cursor:pointer !important;
+            outline:none !important;
+            box-sizing:border-box !important;
+            transition:transform .15s ease, filter .15s ease, box-shadow .15s ease !important;
+            box-shadow:0 2px 6px rgba(0,0,0,.25) !important;
+          }
+          .custom_game_btn:hover{
+            transform:translateY(-1px) !important;
+            filter:brightness(1.05) !important;
+          }
+          .custom_game_btn:active{
+            transform:translateY(0) scale(.98) !important;
+          }
+          .fullscreen_button{
+            background:#ffd400 !important;
+            color:#111 !important;
+          }
+          .fullscreen_respawn{
+            background:#2ecc40 !important;
+            color:#fff !important;
+          }
+          .fullscreen_contact{
+            background:#1e90ff !important;
+            color:#fff !important;
+          }
+          .absi_ad_item{
+            display:block !important;
+            overflow:hidden !important;
+            border-radius:10px !important;
+            border:1.5px solid rgba(0,0,0,.35) !important;
+            background:rgba(255,255,255,.06) !important;
+            box-shadow:0 3px 10px rgba(0,0,0,.22) !important;
+            transition:transform .18s ease, box-shadow .18s ease, filter .18s ease !important;
+          }
+          .absi_ad_item:hover{
+            transform:translateY(-2px) scale(1.01) !important;
+            box-shadow:0 6px 16px rgba(0,0,0,.28) !important;
+            filter:brightness(1.04) !important;
+          }
+          .absi_ad_img{
+            width:100% !important;
+            height:auto !important;
+            object-fit:cover !important;
+            border-radius:10px !important;
+          }
+          @media (max-width: 768px){
+            .custom_game_btn{
+              height:38px !important;
+              font-size:12px !important;
+              border-radius:7px !important;
+            }
+            .ads-grid-absi{
+              grid-template-columns:1fr !important;
+            }
+          }
+        </style>
+      `);
+    }
+
+    $(".fullscreen_button").off("click").on("click", function () {
+      if (
+        document.fullScreenElement && document.fullScreenElement !== null ||
+        !document.mozFullScreen && !document.webkitIsFullScreen
+      ) {
+        if (document.documentElement.requestFullScreen) {
+          document.documentElement.requestFullScreen();
+        } else if (document.documentElement.mozRequestFullScreen) {
+          document.documentElement.mozRequestFullScreen();
+        } else if (document.documentElement.webkitRequestFullScreen) {
+          document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+        }
+      } else if (document.cancelFullScreen) {
+        document.cancelFullScreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen();
+      }
+    });
+
+    $.ajax({
+      url: "https://ii7modysmp-hue.github.io/extension/api/ads.json",
+      type: "GET",
+      dataType: "json",
+      cache: false,
+      success: function (vRes) {
+        var vList = [];
+
+        if (Array.isArray(vRes)) {
+          vList = vRes;
+        } else if (vRes && Array.isArray(vRes.ads)) {
+          vList = vRes.ads;
+        } else if (vRes && Array.isArray(vRes.Ads)) {
+          vList = vRes.Ads;
+        } else if (vRes && Array.isArray(vRes.data)) {
+          vList = vRes.data;
+        }
+
+        var vActiveAds = [];
+        for (var i = 0; i < vList.length; i++) {
+          if (isAdActive(vList[i])) {
+            vActiveAds.push(vList[i]);
+          }
+          if (vActiveAds.length >= 2) {
+            break;
+          }
+        }
+
+        renderMainBox(vActiveAds);
+        $(".fullscreen_button").off("click").on("click", function () {
+          if (
+            document.fullScreenElement && document.fullScreenElement !== null ||
+            !document.mozFullScreen && !document.webkitIsFullScreen
+          ) {
+            if (document.documentElement.requestFullScreen) {
+              document.documentElement.requestFullScreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+              document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullScreen) {
+              document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+            }
+          } else if (document.cancelFullScreen) {
+            document.cancelFullScreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          } else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+          }
+        });
+      },
+      error: function () {
+        renderMainBox([]);
+        $(".fullscreen_button").off("click").on("click", function () {
+          if (
+            document.fullScreenElement && document.fullScreenElement !== null ||
+            !document.mozFullScreen && !document.webkitIsFullScreen
+          ) {
+            if (document.documentElement.requestFullScreen) {
+              document.documentElement.requestFullScreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+              document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullScreen) {
+              document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+            }
+          } else if (document.cancelFullScreen) {
+            document.cancelFullScreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          } else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+          }
+        });
+      }
+    });
+  }
+
+  $(document).ready(function () {
+    initAdsAndButtons();
   });
-});
+})();
       $("#hoisinh").click(function () {
         let vHoisinhnhanh2 = hoisinhnhanh;
         if (vHoisinhnhanh2) {
