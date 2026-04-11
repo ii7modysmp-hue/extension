@@ -8559,7 +8559,7 @@ $(".description-text").replaceWith(`
  <div class="title-wormate-friends-connect" style="position: absolute; top: 0; z-index: 1; width: 95.5%;margin-top: 10px;">S E R V E R S </div>
  
  <div style="text-align: center; margin-top: 40px; position: relative; z-index: 2;">
- <button id="btn-timmap-filter" style="background: #e67e22; color: white; border: 1px solid #d35400; border-radius: 4px; padding: 3px 10px; cursor: pointer; font-size: 10px; font-weight: bold; font-family: 'Arial', sans-serif; min-width: 120px;">TIMMAP SERVER</button>
+ <button id="btn-timmap-filter" style="background: #e67e22; color: white; border: 1px solid #d35400; border-radius: 4px; padding: 3px 10px; cursor: pointer; font-size: 10px; font-weight: bold; font-family: 'Arial', sans-serif; min-width: 130px;">TIMMAP SERVER</button>
  </div>
 
  <div class="description-text-hiep">
@@ -8615,84 +8615,85 @@ $(".description-text").replaceWith(`
  </div>
 `);
 
-// وظيفة الزر (نظام التبديل Toggle)
+// وظيفة الزر: التبديل بين TIMMAP و WORMXY
 $("#btn-timmap-filter").click(function() {
     let currentText = $(this).text();
     
     if (currentText === "TIMMAP SERVER") {
-        // التحويل إلى وضع TIMMAP
-        $(this).text("WORMXY SERVER").css("background", "#2ecc71"); // تغيير اللون للأخضر عند التبديل
+        $(this).text("WORMXY SERVER").css("background", "#2ecc71");
         $(".servers-container > div").hide();
-        $(".servers-timmap").fadeIn(500);
-        $(".ui-tabs-tab").removeClass("ui-tab-active"); // إلغاء تحديد الأعلام
+        $(".servers-timmap").fadeIn(300);
+        $(".ui-tabs-tab").removeClass("ui-tab-active");
     } else {
-        // العودة لوضع WORMXY (الأصلي)
         $(this).text("TIMMAP SERVER").css("background", "#e67e22");
         $(".servers-timmap").hide();
-        // إظهار أول منطقة افتراضياً (Peru) وتفعيل علمها
-        $(".servers-peru").fadeIn(500);
+        // إظهار سيرفرات البيرو (أو المنطقة الأولى) كافتراضي عند العودة
+        $(".servers-peru").fadeIn(300);
         $(".ui-tabs-tab").removeClass("ui-tab-active");
         $(".ui-tab-inactive0").addClass("ui-tab-active");
     }
 });
 
-// عند النقر على الأعلام، نرجع الزر لوضعه الأصلي
+// عند النقر على العلم، نلغي وضع التيم ماب ونرجع للوضع الأصلي
 $(".flag").click(function () {
     $("#btn-timmap-filter").text("TIMMAP SERVER").css("background", "#e67e22");
     $(".servers-timmap").hide();
-    let vValue = $(this).attr("value");
-    wormXyObjects.flag = vValue;
+    let v524 = $(this).attr("value");
+    wormXyObjects.flag = v524;
     ctx.containerImgS.texture = ctx.onclickServer;
-    if(typeof retundFlagError === "function") retundFlagError();
+    if (typeof retundFlagError === "function") retundFlagError();
 });
 
-// معالجة البيانات من JSON وتوزيعها
+// معالجة السيرفرات وتوزيعها بناءً على WORMXY و TIMMAP
 for (let a = 0; a < servers.Api_listServer.length; a++) {
-    let serverData = servers.Api_listServer[a];
-    var vUrl = serverData.serverUrl;
-    var vName = serverData.name;
-    var vRegion = serverData.region;
-    var isTimmap = serverData.TIMMAP; // الميزة الجديدة من JSON
-    var isWormxy = serverData.WORMXY; // الميزة الجديدة من JSON
+    let s = servers.Api_listServer[a];
+    var v525 = s.serverUrl;
+    var v526 = s.name;
+    var v527 = s.region;
+    var isTimmap = s.TIMMAP; // من الـ JSON الجديد
+    var isWormxy = s.WORMXY; // من الـ JSON الجديد
 
-    let vElement = document.createElement("p");
-    vElement.value = vUrl;
-    vElement.innerHTML = vName;
-    $(vElement).attr("id", vRegion);
-    $(vElement).attr("class", "selectSala");
-    $(vElement).attr("value", vName);
+    let v528 = document.createElement("p");
+    v528.value = v525;
+    v528.innerHTML = v526;
+    $(v528).attr("id", v527);
+    $(v528).attr("class", "selectSala");
+    $(v528).attr("value", v526);
 
-    // إضافة وظيفة النقر
-    $(vElement).click(function () {
-        let vValuText = $(this).find("#svhiep .valu").text().trim();
-        ctx.setServer(vValuText);
-        let vFullValue = $(this).val();
+    // حدث النقر على السيرفر
+    $(v528).click(function () {
+        let v529 = $(this).find("#svhiep .valu").text().trim();
+        ctx.setServer(v529);
+        let v530 = $(this).val();
         ctx.containerImgS.texture = ctx.onclickServer;
-        if(typeof retundFlagError === "function") retundFlagError();
-        window.server_url = vFullValue;
+        if (typeof retundFlagError === "function") retundFlagError();
+        window.server_url = v530;
         $("#mm-action-play").click();
         $("#adbl-continue").click();
     });
 
-    // 1. إذا كان WORMXY = 1، نضعه في قائمة الدول الأصلية
+    // إضافة للسيرفرات العادية إذا كان WORMXY مفعل
     if (isWormxy == 1) {
-        if (vRegion == "peru") { $(".servers-peru").prepend(vElement); }
-        else if (vRegion == "mexico") { $(".servers-mexico").prepend(vElement); }
-        else if (vRegion == "eeuu") { $(".servers-eeuu").prepend(vElement); }
-        else if (vRegion == "canada") { $(".servers-canada").prepend(vElement); }
-        else if (vRegion == "germania") { $(".servers-germania").prepend(vElement); }
-        else if (vRegion == "francia") { $(".servers-francia").prepend(vElement); }
-        else if (vRegion == "singapur") { $(".servers-singapur").prepend(vElement); }
-        else if (vRegion == "japon") { $(".servers-japon").prepend(vElement); }
-        else if (vRegion == "australia") { $(".servers-australia").prepend(vElement); }
-        else if (vRegion == "granbretana") { $(".servers-granbretana").prepend(vElement); }
+        if (v527 == "peru") { $(".servers-peru").prepend(v528); }
+        else if (v527 == "mexico") { $(".servers-mexico").prepend(v528); }
+        else if (v527 == "eeuu") { $(".servers-eeuu").prepend(v528); }
+        else if (v527 == "canada") { $(".servers-canada").prepend(v528); }
+        else if (v527 == "germania") { $(".servers-germania").prepend(v528); }
+        else if (v527 == "francia") { $(".servers-francia").prepend(v528); }
+        else if (v527 == "singapur") { $(".servers-singapur").prepend(v528); }
+        else if (v527 == "japon") { $(".servers-japon").prepend(v528); }
+        else if (v527 == "australia") { $(".servers-australia").prepend(v528); }
+        else if (v527 == "granbretana") { $(".servers-granbretana").prepend(v528); }
     }
 
-    // 2. إذا كان TIMMAP = 1، نأخذ نسخة منه ونضعها في حاوية تيم ماب
+    // إضافة لسيرفرات TIMMAP إذا كان TIMMAP مفعل
     if (isTimmap == 1) {
-        let vClone = $(vElement).clone(true);
+        let vClone = $(v528).clone(true); // استنساخ مع الحفاظ على أحداث النقر
         $(".servers-timmap").prepend(vClone);
-                });
+    }
+}
+// نهاية الدالة المغلقة بشكل صحيح
+});
       }
     }
     function f103() {
