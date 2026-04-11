@@ -1,3 +1,221 @@
+document.documentElement.insertAdjacentHTML("afterbegin", `
+    <style>
+        /* Fullscreen preloader */
+        .preloader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.8s ease-out;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* Animated background */
+        .preloader-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(108, 92, 231, 0.15) 0%, rgba(0, 0, 0, 0.8) 100%);
+            animation: bgPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* Logo container */
+        .logo-container {
+            position: relative;
+            margin-bottom: 50px;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Logo image - DEĞİŞTİR: kendi logo URL'ni buraya yaz */
+        .preloader-logo {
+            width: 180px;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(108, 92, 231, 0.5));
+        }
+
+        /* Loading spinner */
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #6c5ce7;
+            border-right: 3px solid #a8a4ff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 30px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Welcome text */
+        .welcome-text {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 400;
+            letter-spacing: 4px;
+           /* text-transform: uppercase; */
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(108, 92, 231, 0.5);
+            animation: textGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { 
+                text-shadow: 0 0 10px rgba(108, 92, 231, 0.3);
+                opacity: 0.8;
+            }
+            50% { 
+                text-shadow: 0 0 30px rgba(108, 92, 231, 0.8);
+                opacity: 1;
+            }
+        }
+
+        /* Simple progress bar */
+        .progress-container {
+            width: 280px;
+            max-width: 70vw;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #6c5ce7, #a8a4ff);
+            transition: width 0.2s linear;
+            border-radius: 10px;
+        }
+
+        /* Loading dots animation */
+        .loading-dots {
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        .loading-dots span {
+            animation: dotBlink 1.4s infinite;
+            animation-fill-mode: both;
+        }
+
+        .loading-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes dotBlink {
+            0%, 80%, 100% { opacity: 0; }
+            40% { opacity: 1; }
+        }
+
+        /* Small loading text under progress bar */
+        .loading-status {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .preloader-logo {
+                width: 130px;
+            }
+            .welcome-text {
+                font-size: 22px;
+                letter-spacing: 3px;
+            }
+        }
+
+        /* Hide scrollbar */
+        body {
+            overflow: hidden;
+        }
+    </style>
+
+    <div class="preloader-overlay" id="preloader">
+        <div class="preloader-bg"></div>
+        
+        <div class="logo-container">
+            <!-- DEĞİŞTİR: Buraya kendi logo URL'ni koy -->
+            <img src="https://i.ibb.co/Vc8RtJcV/129977ef-1691-4c4c-94ca-da08d36600e1.webp" alt="Logo" class="preloader-logo" id="mainLogo">
+        </div>
+
+        <div class="loading-spinner"></div>
+        
+        <div class="welcome-text">
+            Welcome to the WormXY Extension
+        </div>
+    </div>
+`);
+
+// Progress simulation
+let progress = 0;
+const progressFill = document.getElementById('progressFill');
+
+function updateProgress() {
+    if (progress < 100) {
+        progress += Math.random() * 12 + 4;
+        if (progress > 100) progress = 100;
+        
+        progressFill.style.width = progress + '%';
+        
+        setTimeout(updateProgress, 150 + Math.random() * 100);
+    } else {
+        // Fade out and remove preloader
+        setTimeout(() => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.remove();
+                document.body.style.overflow = '';
+            }, 800);
+        }, 500);
+    }
+}
+
+// Start loading animation
+window.addEventListener('DOMContentLoaded', () => {
+    updateProgress();
+});
+
+// Fallback - max 5 seconds
+setTimeout(() => {
+    const preloader = document.getElementById('preloader');
+    if (preloader && preloader.style.opacity !== '0') {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            if (preloader && preloader.parentNode) {
+                preloader.remove();
+                document.body.style.overflow = '';
+            }
+        }, 800);
+    }
+}, 5000);
 window.detectLog = null;
 const _wrmxy = {
   BETAisSkinCustom(p) {
@@ -9164,6 +9382,17 @@ isValidHotkey = function (p629) {
     return false;
   }
 };
+window.addEventListener("keydown", (zkey) => {
+  const zkeysystem = zkey.key.toLocaleLowerCase();
+  if (zkeysystem === "z" || zkeysystem === "ئ") {
+    window.multiplier = 0.625;
+    if (typeof window.changedNf === "function") {
+      window.changedNf();
+    } else {
+      console.warn("changedNf not working")
+    }
+  }
+})
 (function() {
     const confettiURL = "https://wormate.io/images/confetti-xmas2022.png";
     const targetId = "game-cont";
@@ -9184,7 +9413,7 @@ isValidHotkey = function (p629) {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0; pointer-events: none;
-            background-image:linear-gradient(45deg, #00f3ff, #f600ff);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
         `;
         gameCont.prepend(bgLayer);
     }
