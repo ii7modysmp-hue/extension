@@ -88,7 +88,12 @@ var wormXyObjects = {
   adblock: false,
   CLIENTE_ADMIN: 1,
   CLIENTE_ACTIVO: 3,
-  CLIENTE_INACTIVO: 4
+  CLIENTE_INACTIVO: 4,
+  nearPlayerCardEnabled: true,
+  nearPlayerTargetId: null,
+  nearPlayerTargetName: "",
+  nearPlayerForcedSkin: 131,
+  nearPlayerMaxDistance: 900
 };
 saveGameLocal = localStorage.getItem("SaveGameXT");
 if (saveGameLocal && saveGameLocal !== "null") {
@@ -173,6 +178,107 @@ async function loadServers() {
 }
 loadUsers();
 loadServers();
+
+if (!document.getElementById("near-player-card")) {
+  const nearCard = document.createElement("div");
+  nearCard.id = "near-player-card";
+  nearCard.style.cssText = `
+    position: fixed;
+    right: 14px;
+    bottom: 14px;
+    z-index: 999999;
+    min-width: 160px;
+    max-width: 260px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(0,0,0,.72);
+    border: 1px solid rgba(255,255,255,.18);
+    box-shadow: 0 8px 20px rgba(0,0,0,.35);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    display: none;
+    pointer-events: none;
+  `;
+
+  nearCard.innerHTML = `
+    <div style="font-size:11px;color:#8fd3ff;margin-bottom:4px;">NEAR PLAYER</div>
+    <div id="near-player-card-name" style="font-weight:bold;">-</div>
+    <div style="margin-top:6px;font-size:11px;color:#ccc;">Press T = Skin 131</div>
+  `;
+
+  document.body.appendChild(nearCard);
+}
+
+document.addEventListener("keydown", function (ev) {
+  const key = (ev.key || "").toLowerCase();
+  if (key !== "t") return;
+
+  const id = wormXyObjects.nearPlayerTargetId;
+  if (!id || !window.anApp || !window.anApp.o || !window.anApp.o.hb) return;
+
+  const p = window.anApp.o.hb[id];
+  if (!p || !p.Mb) return;
+
+  p.Mb.dg = wormXyObjects.nearPlayerForcedSkin;
+
+  if (typeof p.Fg === "function") {
+    p.Fg(p.Mb);
+  }
+});
+
+setInterval(function () {
+  try {
+    if (!window.anApp || !window.anApp.o || !window.anApp.o.N || !window.anApp.o.hb) return;
+
+    const self = window.anApp.o.N;
+    if (!self || typeof self.Gf !== "function") return;
+
+    const selfPos = self.Gf();
+    let nearest = null;
+    let minDist = Infinity;
+
+    for (let id in window.anApp.o.hb) {
+      const p = window.anApp.o.hb[id];
+      if (!p || !p.Mb || !p.Hb || !p.Ib || typeof p.Gf !== "function") continue;
+
+      const pos = p.Gf();
+      if (!pos) continue;
+
+      const dist = Math.hypot(selfPos.x - pos.x, selfPos.y - pos.y);
+
+      if (dist < minDist) {
+        minDist = dist;
+        nearest = p;
+      }
+    }
+
+    const card = document.getElementById("near-player-card");
+    const nameEl = document.getElementById("near-player-card-name");
+
+    if (nearest && minDist <= wormXyObjects.nearPlayerMaxDistance) {
+      wormXyObjects.nearPlayerTargetId = nearest.Mb.Lb;
+      wormXyObjects.nearPlayerTargetName = nearest.Mb.ad || "";
+
+      if (card && nameEl) {
+        nameEl.textContent = wormXyObjects.nearPlayerTargetName || "Unknown";
+        card.style.display = "block";
+      }
+    } else {
+      wormXyObjects.nearPlayerTargetId = null;
+
+      if (card) {
+        card.style.display = "none";
+      }
+    }
+
+  } catch (e) {}
+}, 120);
+
+$(".store-view-cont").append("<div id=\"idReplaceSkin\"></div>");
+var StoreSkinID = $("#idReplaceSkin");
+
 $(".store-view-cont").append("<div id=\"idReplaceSkin\"></div>");
 var StoreSkinID = $("#idReplaceSkin");
 const ctx = {
@@ -1094,12 +1200,59 @@ window.addEventListener("load", function () {
           }
         };
         vO4.Pa = function () {
-          vO4.j = Date.now();
-          vO4.k = vO4.j - vO4.i;
-          vO4.o.Qa(vO4.j, vO4.k);
-          vO4.s.Qa(vO4.j, vO4.k);
-          vO4.i = vO4.j;
-        };
+  vO4.j = Date.now();
+  vO4.k = vO4.j - vO4.i;
+  vO4.o.Qa(vO4.j, vO4.k);
+  vO4.s.Qa(vO4.j, vO4.k);
+
+  try {
+    if (wormXyObjects.nearPlayerCardEnabled && vO4.o && vO4.o.N && vO4.o.hb) {
+      const selfPlayer = vO4.o.N;
+      const selfPos = selfPlayer && typeof selfPlayer.Gf === "function" ? selfPlayer.Gf() : null;
+
+      let nearest = null;
+      let minDist = Infinity;
+
+      if (selfPos) {
+        for (let id in vO4.o.hb) {
+          const p = vO4.o.hb[id];
+          if (!p || !p.Mb || !p.Hb || !p.Ib || typeof p.Gf !== "function") continue;
+
+          const pos = p.Gf();
+          if (!pos) continue;
+
+          const dist = Math.hypot(selfPos.x - pos.x, selfPos.y - pos.y);
+          if (dist < minDist) {
+            minDist = dist;
+            nearest = p;
+          }
+        }
+      }
+
+      const card = document.getElementById("near-player-card");
+      const nameEl = document.getElementById("near-player-card-name");
+
+      if (nearest && minDist <= wormXyObjects.nearPlayerMaxDistance) {
+        wormXyObjects.nearPlayerTargetId = nearest.Mb.Lb;
+        wormXyObjects.nearPlayerTargetName = nearest.Mb.ad || "";
+
+        if (card && nameEl) {
+          nameEl.textContent = wormXyObjects.nearPlayerTargetName || "Unknown";
+          card.style.display = "block";
+        }
+      } else {
+        wormXyObjects.nearPlayerTargetId = null;
+        wormXyObjects.nearPlayerTargetName = "";
+
+        if (card) {
+          card.style.display = "none";
+        }
+      }
+    }
+  } catch (e) {}
+
+  vO4.i = vO4.j;
+};
         vO4.Ra = function () {
           vO4.s.Ra();
         };
@@ -3042,6 +3195,9 @@ try {
         p315 = p315 + 2;
         v219.cg = this.o.fb.af == vO10._e ? p314.mc(p315++) : vF16.TEAM_DEFAULT;
         v219.dg = p314.nc(p315);
+        if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
+          v219.dg = wormXyObjects.nearPlayerForcedSkin;
+        }
         let vP315 = p315;
         p315 = p315 + 2;
         v219.Bg = p314.nc(p315);
@@ -3081,6 +3237,12 @@ try {
                 }
               }
             }
+
+            if (this.o.hb[v221] && this.o.hb[v221].Mb && this.o.hb[v221].Mb.Lb === wormXyObjects.nearPlayerTargetId) {
+              this.o.hb[v221].Mb.dg = wormXyObjects.nearPlayerForcedSkin;
+            }
+          }
+        }
             if (/^(.{16})(\x\d{13})$/.test(this.o.hb[v221].Mb.ad)) {
               console.log("nombre: " + this.o.hb[v221].Mb.ad);
               var v225 = this.o.hb[v221].Mb.ad.substr(-13);
@@ -9053,204 +9215,3 @@ document.addEventListener("contextmenu", function (p634) {
 })();
 console.log("%cDeveloper By platen.iraqcraft.store , bmw.iraqcraft.store", "color: #0099ff; font-size: 18px; font-weight: bold;");
 
-
-(function () {
-  const LOCAL_NEAR_CARD_ID = "local-near-player-card";
-  const LOCAL_TARGET_SKIN_ID = 131;
-  const LOCAL_SCAN_INTERVAL = 120;
-  const LOCAL_MAX_DISTANCE = 900;
-
-  const localSkinOverride = {
-    targetPlayerId: null,
-    originalSkinId: null
-  };
-
-  function ensureCard() {
-    let card = document.getElementById(LOCAL_NEAR_CARD_ID);
-    if (card) return card;
-
-    card = document.createElement("div");
-    card.id = LOCAL_NEAR_CARD_ID;
-    card.style.cssText = [
-      "position:fixed",
-      "right:14px",
-      "bottom:14px",
-      "z-index:999999",
-      "min-width:160px",
-      "max-width:260px",
-      "padding:10px 12px",
-      "border-radius:12px",
-      "background:rgba(0,0,0,0.72)",
-      "border:1px solid rgba(255,255,255,0.18)",
-      "box-shadow:0 8px 20px rgba(0,0,0,0.35)",
-      "color:#fff",
-      "font-family:Arial, sans-serif",
-      "font-size:13px",
-      "line-height:1.4",
-      "pointer-events:none",
-      "backdrop-filter:blur(4px)",
-      "display:none"
-    ].join(";");
-
-    card.innerHTML = `
-      <div style="font-size:11px;color:#8fd3ff;margin-bottom:4px;">NEAR PLAYER</div>
-      <div id="local-near-player-name" style="font-weight:bold;word-break:break-word;">-</div>
-      <div style="margin-top:6px;font-size:11px;color:#cfcfcf;">Press T = Skin 131</div>
-    `;
-
-    document.body.appendChild(card);
-    return card;
-  }
-
-  function getApp() {
-    try {
-      return window.anApp;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function getSelfPlayer() {
-    try {
-      const app = getApp();
-      if (!app || !app.o || !app.o.N) return null;
-      return app.o.N;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function getOtherPlayersMap() {
-    try {
-      const app = getApp();
-      if (!app || !app.o || !app.o.hb) return null;
-      return app.o.hb;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function getPlayerPos(player) {
-    try {
-      if (!player || typeof player.Gf !== "function") return null;
-      const pos = player.Gf();
-      if (!pos || !Number.isFinite(pos.x) || !Number.isFinite(pos.y)) return null;
-      return pos;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function getNearestPlayer() {
-    const selfPlayer = getSelfPlayer();
-    const playersMap = getOtherPlayersMap();
-    if (!selfPlayer || !playersMap) return null;
-
-    const selfPos = getPlayerPos(selfPlayer);
-    if (!selfPos) return null;
-
-    let nearest = null;
-    let minDist = Infinity;
-
-    for (const id in playersMap) {
-      const player = playersMap[id];
-      if (!player || !player.Mb || !player.Mb.ad) continue;
-      if (!player.Hb || !player.Ib) continue;
-
-      const pos = getPlayerPos(player);
-      if (!pos) continue;
-
-      const dist = Math.hypot(selfPos.x - pos.x, selfPos.y - pos.y);
-      if (dist < minDist) {
-        minDist = dist;
-        nearest = {
-          id: player.Mb.Lb,
-          name: player.Mb.ad,
-          distance: dist,
-          ref: player
-        };
-      }
-    }
-
-    if (!nearest) return null;
-    if (nearest.distance > LOCAL_MAX_DISTANCE) return null;
-
-    return nearest;
-  }
-
-  function refreshPlayerSkin(player) {
-    try {
-      if (!player || !player.Mb) return;
-      if (typeof player.Fg === "function") {
-        player.Fg(player.Mb);
-      }
-    } catch (e) {}
-  }
-
-  function applyLocalSkinToPlayer(player, newSkinId) {
-    try {
-      if (!player || !player.Mb) return false;
-
-      if (localSkinOverride.targetPlayerId !== player.Mb.Lb) {
-        localSkinOverride.targetPlayerId = player.Mb.Lb;
-        localSkinOverride.originalSkinId = player.Mb.dg;
-      }
-
-      player.Mb.dg = newSkinId;
-      refreshPlayerSkin(player);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
-
-  function updateCard() {
-    const card = ensureCard();
-    const nameEl = document.getElementById("local-near-player-name");
-    if (!card || !nameEl) return;
-
-    const nearest = getNearestPlayer();
-    window.__nearestPlayerCardTarget = nearest;
-
-    if (!nearest) {
-      card.style.display = "none";
-      return;
-    }
-
-    nameEl.textContent = nearest.name || "Unknown";
-    card.style.display = "block";
-  }
-
-  document.addEventListener("keydown", function (ev) {
-    const key = (ev.key || "").toLowerCase();
-    if (key !== "t") return;
-
-    const nearest = window.__nearestPlayerCardTarget || getNearestPlayer();
-    if (!nearest || !nearest.ref) return;
-
-    const ok = applyLocalSkinToPlayer(nearest.ref, LOCAL_TARGET_SKIN_ID);
-    if (!ok) return;
-
-    const card = ensureCard();
-    const nameEl = document.getElementById("local-near-player-name");
-    if (card && nameEl) {
-      nameEl.textContent = (nearest.name || "Unknown") + "  [131]";
-      card.style.display = "block";
-    }
-  });
-
-  setInterval(function () {
-    try {
-      updateCard();
-
-      if (localSkinOverride.targetPlayerId != null) {
-        const playersMap = getOtherPlayersMap();
-        const target = playersMap && playersMap[localSkinOverride.targetPlayerId];
-        if (target && target.Mb && target.Mb.dg !== LOCAL_TARGET_SKIN_ID) {
-          target.Mb.dg = LOCAL_TARGET_SKIN_ID;
-          refreshPlayerSkin(target);
-        }
-      }
-    } catch (e) {}
-  }, LOCAL_SCAN_INTERVAL);
-})();
