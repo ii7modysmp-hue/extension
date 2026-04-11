@@ -4129,78 +4129,52 @@ try {
       }
       return f72;
     }();
-    var vF34 = function () {
-      function f73() {
-        this.fn_o = f75;
-this.Fe = new vF._b(vF.$b.from("/images/bg-obstacle.png"));
-this.Fe.alpha = 0.35;
+   var vF34 = function () {
+  function f73() {
+    this.fn_o = f74;
+    this.Fe = new vF._b(vF.$b.from("/images/bg-obstacle.png"));
 
-// ❌ حذف الكونفيتي نهائيًا (كان سبب ثقل + مشاكل)
-this.Ge = [];
+    var v326 = vF.$b.from("/images/confetti-xmas2022.png");
+    this.Ge = [
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
+      new vF._b(v326, new vF.dc(0, 0, 128, 128))
+    ];
 
-// 🎨 خلفية احترافية خفيفة بدون تعارض
-if (!document.getElementById("wormate-bg-effect")) {
+    this.Cf = new vF._b(f74());
 
-  var vBgStyle = document.createElement("style");
-  vBgStyle.id = "wormate-bg-effect-style";
-  vBgStyle.innerHTML = `
-    #game-cont {
-      position: relative !important;
-      overflow: hidden !important;
-    }
-
-    #wormate-bg-effect {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1; /* 🔥 كان 0 ويسبب اختفاء */
-      background:
-        radial-gradient(circle at 15% 20%, rgba(0, 255, 170, 0.18), transparent 40%),
-        radial-gradient(circle at 85% 25%, rgba(0, 170, 255, 0.16), transparent 45%),
-        radial-gradient(circle at 50% 75%, rgba(120, 0, 255, 0.12), transparent 50%),
-        linear-gradient(135deg, rgba(5,10,20,0.7), rgba(10,20,35,0.75), rgba(5,8,18,0.8));
-      
-      animation: wormateBgMove 14s ease-in-out infinite alternate;
-      will-change: transform;
-    }
-
-    #wormate-bg-effect::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%);
-      opacity: .6;
-    }
-
-    @keyframes wormateBgMove {
-      0% {
-        transform: scale(1) translate3d(0, 0, 0);
+    this.Df = new vF._b((function () {
+      var v327 = vF.$b.from("/images/bg-pattern-pow2-TEAM2.png");
+      if (v327) {
+        v327.wrapMode = vF.kc.lc;
       }
-      100% {
-        transform: scale(1.05) translate3d(-1%, -1%, 0);
-      }
-    }
-  `;
-
-  document.head.appendChild(vBgStyle);
-
-  var vGameCont = document.getElementById("game-cont");
-
-  if (vGameCont) {
-    var vBgLayer = document.createElement("div");
-    vBgLayer.id = "wormate-bg-effect";
-
-    // 🔥 نضيفه بالبداية حتى ما يغطي UI
-    vGameCont.insertBefore(vBgLayer, vGameCont.firstChild);
+      return v327;
+    })());
   }
-}
-        this.Cf = new vF._b(f74());
-        this.Df = new vF._b(function () {
-          var v327 = vF.$b.from("/images/bg-pattern-pow2-TEAM2.png");
-          v327.wrapMode = vF.kc.lc;
-          return v327;
-        }());
+
+  function f74() {
+    var v328 = vF.$b.from("/images/bg-event-pattern-valday2023.png");
+    if (v328) {
+      v328.wrapMode = vF.kc.lc;
+    }
+    return v328;
+  }
+
+  return f73;
+}();
         this.Af = new vF._b(vF.$b.from("/images/lens.png"));
         var v328 = vF.$b.from("https://i.imgur.com/Nn8b8oj.png");
         var v329 = vF.$b.from("https://i.imgur.com/EDt862t.png");
