@@ -649,6 +649,12 @@
             903
         ],
         [
+            953
+        ],
+        [
+            968
+        ],
+        [
             983
         ],
         [
@@ -876,6 +882,34 @@
             "base": [
                 {
                     "region": "hat_992"
+                }
+            ],
+            "guest": false,
+            "price": 0,
+            "priceBefore": 0,
+            "nonbuyable": false,
+            "prime": "c___red"
+        },
+        "953": {
+            "id": 953,
+            "name": "Hat 953",
+            "base": [
+                {
+                    "region": "hat_953"
+                }
+            ],
+            "guest": false,
+            "price": 0,
+            "priceBefore": 0,
+            "nonbuyable": false,
+            "prime": "c___red"
+        },
+        "968": {
+            "id": 968,
+            "name": "Hat 968",
+            "base": [
+                {
+                    "region": "hat_968"
                 }
             ],
             "guest": false,
@@ -2683,6 +2717,14 @@
         "skin_bmw_1nsa": {
             "custom": true,
             "relativePath": "https:\/\/i.ibb.co\/FcxYpBZ\/KRmzx-UJz-png.png"
+        },
+        "hat_953": {
+            "custom": true,
+            "relativePath": "https:\/\/i.ibb.co\/GQjBsjL3\/hat-953.png"
+        },
+        "hat_968": {
+            "custom": true,
+            "relativePath": "https:\/\/i.ibb.co\/mFNSkT8b\/hat-968.png"
         }
     },
     "colorDict": {
@@ -7579,6 +7621,28 @@
             "w": 174,
             "x": 1396,
             "y": 0
+        },
+        "hat_953": {
+            "texture": "hat_953",
+            "x": 0,
+            "y": 0,
+            "w": 400,
+            "h": 250,
+            "px": 1,
+            "py": 64,
+            "pw": 128,
+            "ph": 128
+        },
+        "hat_968": {
+            "texture": "hat_968",
+            "x": 0,
+            "y": 0,
+            "w": 400,
+            "h": 250,
+            "px": 1,
+            "py": 64,
+            "pw": 128,
+            "ph": 128
         }
     }
 }
