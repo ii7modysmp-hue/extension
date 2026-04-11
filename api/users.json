@@ -1,29 +1,29 @@
 {
-    "success": true,
-    "Users": [
-        {
-            "id": 1,
-            "cliente_NOMBRE": "E",
-            "cliente_ID": "gg_106263452150533879793",
-            "cliente_DateExpired": "22-12-2028",
-            "status": 1,
-            "Client_KeyAccecs": "XTPRIVATESKIN",
-            "Client_VisibleSkin": 10004,
-            "Client_VisibleSkin1": 2351,
-            "Client_VisibleSkin2": 6912,
-            "Client_VisibleSkin3": 4478
-        },
-        {
-            "id": 2,
-            "cliente_NOMBRE": "BMWu",
-            "cliente_ID": "gg_115844072933581819130",
-            "cliente_DateExpired": "22-12-2028",
-            "status": 1,
-            "Client_KeyAccecs": "XTPRIVATESKIN",
-            "Client_VisibleSkin": 10001,
-            "Client_VisibleSkin1": 10002,
-            "Client_VisibleSkin2": 10003,
-            "Client_VisibleSkin3": 10009,
-        }
-    ]
+  "success": true,
+  "Users": [
+    {
+      "id": 1,
+      "cliente_NOMBRE": "E",
+      "cliente_ID": "gg_106263452150533879793",
+      "cliente_DateExpired": "22-12-2028",
+      "status": 1,
+      "Client_KeyAccecs": "XTPRIVATESKIN",
+      "Client_VisibleSkin": 10004,
+      "Client_VisibleSkin1": 2351,
+      "Client_VisibleSkin2": 6912,
+      "Client_VisibleSkin3": 4478
+    },
+    {
+      "id": 2,
+      "cliente_NOMBRE": "BMWu",
+      "cliente_ID": "gg_115844072933581819130",
+      "cliente_DateExpired": "22-12-2028",
+      "status": 1,
+      "Client_KeyAccecs": "XTPRIVATESKIN",
+      "Client_VisibleSkin": 10001,
+      "Client_VisibleSkin1": 10002,
+      "Client_VisibleSkin2": 10003,
+      "Client_VisibleSkin3": 10009
+    }
+  ]
 }
