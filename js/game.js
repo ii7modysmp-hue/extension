@@ -9413,7 +9413,7 @@ window.addEventListener("keydown", (zkey) => {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0; pointer-events: none;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            background-image:linear-gradient(45deg, #00f3ff, #f600ff);
         `;
         gameCont.prepend(bgLayer);
     }
