@@ -1,6 +1,7 @@
 {
     "revision": 80007,
     "visibleSkin": [
+        0,
         595,
         764,
         789,
@@ -2164,6 +2165,36 @@
                 "a_death",
                 "a_death"
             ]
+        },
+        {
+            "id": 0,
+            "guest": false,
+            "nonbuyable": false,
+            "price": 0,
+            "priceBefore": 0,
+            "prime": "c__yllw",
+            "base": [
+                "skin_sj7_8",
+                "skin_sj7_7",
+                "skin_sj7_6",
+                "skin_sj7_5",
+                "skin_sj7_4",
+                "skin_sj7_3",
+                "skin_sj7_2",
+                "skin_sj7_1",
+                "skin_sj7_0"
+            ],
+            "glow": [
+                "a_death",
+                "a_death",
+                "a_death",
+                "a_death",
+                "a_death",
+                "a_death",
+                "a_death",
+                "a_death",
+                "a_death"
+            ]
         }
     ],
     "skinGroupArrayDict": [
@@ -2205,7 +2236,8 @@
                 "6536",
                 "8421",
                 "9931",
-                "9275"
+                "9275",
+                "0"
             ]
         },
         {
@@ -2255,7 +2287,8 @@
                 "en": "fdz"
             },
             "list": [
-                "871"
+                "871",
+                "Sj7"
             ]
         }
     ],
@@ -2611,6 +2644,10 @@
         "skin_bmw_1cfd": {
             "custom": true,
             "relativePath": "https://i.ibb.co/9k3bvmwy/5272t0x-I-png.png"
+        },
+        "skin_sj7": {
+            "custom": true,
+            "relativePath": "https://i.ibb.co/PvW5bvcK/skin-Sj7-3pj6-PI39.png"
         }
     },
     "colorDict": {
@@ -7377,6 +7414,69 @@
         },
         "skin_bmw_1cfd_8": {
             "texture": "skin_bmw_1cfd",
+            "h": 170,
+            "w": 174,
+            "x": 1396,
+            "y": 0
+        },
+        "skin_sj7_0": {
+            "texture": "skin_sj7",
+            "h": 170,
+            "w": 174,
+            "x": 0,
+            "y": 0
+        },
+        "skin_sj7_1": {
+            "texture": "skin_sj7",
+            "h": 170,
+            "w": 174,
+            "x": 174,
+            "y": 0
+        },
+        "skin_sj7_2": {
+            "texture": "skin_sj7",
+            "h": 170,
+            "w": 174,
+            "x": 348,
+            "y": 0
+        },
+        "skin_sj7_3": {
+            "texture": "skin_sj7",
+            "h": 170,
+            "w": 174,
+            "x": 522,
+            "y": 0
+        },
+        "skin_sj7_4": {
+            "texture": "skin_sj7",
+            "h": 170,
+            "w": 174,
+            "x": 696,
+            "y": 0
+        },
+        "skin_sj7_5": {
+            "texture": "skin_sj7",
+            "h": 170,
+            "w": 174,
+            "x": 870,
+            "y": 0
+        },
+        "skin_sj7_6": {
+            "texture": "skin_sj7",
+            "h": 170,
+            "w": 174,
+            "x": 1044,
+            "y": 0
+        },
+        "skin_sj7_7": {
+            "texture": "skin_sj7",
+            "h": 170,
+            "w": 174,
+            "x": 1218,
+            "y": 0
+        },
+        "skin_sj7_8": {
+            "texture": "skin_sj7",
             "h": 170,
             "w": 174,
             "x": 1396,
