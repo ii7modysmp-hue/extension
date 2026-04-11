@@ -3190,124 +3190,138 @@ try {
         return p313;
       };
       f62.prototype.vg = function (p314, p315) {
-        var v219 = new vF40.Config();
-        v219.Lb = p314.nc(p315);
-        p315 = p315 + 2;
-        v219.cg = this.o.fb.af == vO10._e ? p314.mc(p315++) : vF16.TEAM_DEFAULT;
-       v219.dg = p314.nc(p315);
+  var v219 = new vF40.Config();
+  v219.Lb = p314.nc(p315);
+  p315 = p315 + 2;
+  v219.cg = this.o.fb.af == vO10._e ? p314.mc(p315++) : vF16.TEAM_DEFAULT;
+  v219.dg = p314.nc(p315);
 
-if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
-  v219.dg = wormXyObjects.nearPlayerForcedSkin;
-}
-        let vP315 = p315;
-        p315 = p315 + 2;
-        v219.Bg = p314.nc(p315);
-        let vP3152 = p315;
-        p315 = p315 + 2;
-        v219.Cg = p314.nc(p315);
-        let vP3153 = p315;
-        p315 = p315 + 2;
-        v219.Dg = p314.nc(p315);
-        let vP3154 = p315;
-        p315 = p315 + 2;
-        v219.Eg = p314.nc(p315);
-        let vP3155 = p315;
-        p315 = p315 + 2;
-        var v220 = p314.mc(p315);
-        p315 = p315 + 1;
-        var vLS2 = "";
-        var vLN041 = 0;
-        for (; vLN041 < v220; vLN041++) {
-          vLS2 = vLS2 + String.fromCharCode(p314.nc(p315));
-          p315 = p315 + 2;
+  if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
+    v219.dg = wormXyObjects.nearPlayerForcedSkin;
+  }
+
+  let vP315 = p315;
+  p315 = p315 + 2;
+  v219.Bg = p314.nc(p315);
+  let vP3152 = p315;
+  p315 = p315 + 2;
+  v219.Cg = p314.nc(p315);
+  let vP3153 = p315;
+  p315 = p315 + 2;
+  v219.Dg = p314.nc(p315);
+  let vP3154 = p315;
+  p315 = p315 + 2;
+  v219.Eg = p314.nc(p315);
+  let vP3155 = p315;
+  p315 = p315 + 2;
+  var v220 = p314.mc(p315);
+  p315 = p315 + 1;
+  var vLS2 = "";
+  var vLN041 = 0;
+
+  for (; vLN041 < v220; vLN041++) {
+    vLS2 = vLS2 + String.fromCharCode(p314.nc(p315));
+    p315 = p315 + 2;
+  }
+
+  if (p315 > 210) {
+    for (let v221 in this.o.hb) {
+      var v222 = this.o.hb[v221].Mb.dg;
+
+      if (wormXyObjects.ModeStremerdangaunhien) {
+      } else {
+        var vA8 = [5489, 1000, 1009, 1008, 1041, 1162];
+
+        if ([0, 1, 2, 3, 6, 32, 33, 34, 35, 8].includes(v222)) {
+          var v223 = Math.floor(Math.random() * vA8.length);
+          this.o.hb[v221].Mb.dg = vA8[v223];
         }
-        if (p315 > 210) {
-          for (let v221 in this.o.hb) {
-            var v222 = this.o.hb[v221].Mb.dg;
-            if (wormXyObjects.ModeStremerdangaunhien) {} else {
-              var vA8 = [5489,1000,1009,1008,1041,1162];
-              if ([0, 1, 2, 3, 6, 32, 33, 34, 35, 8].includes(v222)) {
-                var v223 = Math.floor(Math.random() * vA8.length);
-                this.o.hb[v221].Mb.dg = vA8[v223];
-              }
-              if (/^(.+?)[a-zA-Z1-9@]+_+\d+(.+)/.test(this.o.hb[v221].Mb.ad)) {
-                const v224 = this.o.hb[v221].Mb.dg;
-                if ([0, 1, 2, 3, 6, 32, 33, 34, 35, 8].includes(v224)) {
-                  var v223 = Math.floor(Math.random() * vA8.length);
-                  this.o.hb[v221].Mb.dg = vA8[v223];
-                }
-              }
-            }
 
-            if (this.o.hb[v221] && this.o.hb[v221].Mb && this.o.hb[v221].Mb.Lb === wormXyObjects.nearPlayerTargetId) {
-              this.o.hb[v221].Mb.dg = wormXyObjects.nearPlayerForcedSkin;
-            }
+        if (/^(.+?)[a-zA-Z1-9@]+_+\d+(.+)/.test(this.o.hb[v221].Mb.ad)) {
+          const v224 = this.o.hb[v221].Mb.dg;
+          if ([0, 1, 2, 3, 6, 32, 33, 34, 35, 8].includes(v224)) {
+            var v223 = Math.floor(Math.random() * vA8.length);
+            this.o.hb[v221].Mb.dg = vA8[v223];
           }
         }
-            if (/^(.{16})(\x\d{13})$/.test(this.o.hb[v221].Mb.ad)) {
-              console.log("nombre: " + this.o.hb[v221].Mb.ad);
-              var v225 = this.o.hb[v221].Mb.ad.substr(-13);
-              console.log("elimina spacios: " + v225);
-              f62 = v225.substr(0, 4);
-              console.log("primeros digitos: " + f62);
-              let v226 = v225.substr(4, 3);
-              console.log("segundos digitos: " + v226);
-              let v227 = v225.substr(7, 3);
-              console.log("tercer digitos: " + v227);
-              let v228 = v225.substr(10, 3);
-              console.log("mouthId_A: " + v228);
-              if (f62 !== "0000" && wormXyObjects.visibleSkin.indexOf(parseInt(f62)) !== -1) {
-                this.o.hb[v221].Mb.dg = parseInt(f62);
-              }
-              if (v226 !== "000") {
-                this.o.hb[v221].Mb.Eg = parseInt(v226);
-              }
-              if (v227 !== "000") {
-                this.o.hb[v221].Mb.Bg = parseInt(v227);
-              }
-              if (v228 !== "000") {
-                this.o.hb[v221].Mb.Cg = parseInt(v228);
-              }
-            }
-          }
-        }
-        if (window.anApp.o.N.Mb.Lb === v219.Lb) {
-          v219.dg = wormXyObjects.PropertyManager.rh;
-          v219.Bg = wormXyObjects.PropertyManager.sh;
-          v219.Cg = wormXyObjects.PropertyManager.th;
-          v219.Dg = wormXyObjects.PropertyManager.uh;
-          v219.Eg = wormXyObjects.PropertyManager.vh;
-          p314.setInt16(vP315, v219.dg);
-          p314.setInt16(vP3152, v219.Bg);
-          p314.setInt16(vP3153, v219.Cg);
-          p314.setInt16(vP3154, v219.Dg);
-          p314.setInt16(vP3155, v219.Eg);
-          _wrmxy.aload = true;
-          _wrmxy.aId = vP315;
-        }
+      }
 
-        if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
-          v219.dg = wormXyObjects.nearPlayerForcedSkin;
-          p314.setInt16(vP315, v219.dg);
-        }
+      if (
+        this.o.hb[v221] &&
+        this.o.hb[v221].Mb &&
+        this.o.hb[v221].Mb.Lb === wormXyObjects.nearPlayerTargetId
+      ) {
+        this.o.hb[v221].Mb.dg = wormXyObjects.nearPlayerForcedSkin;
+      }
 
-        v219.ad = vLS2;
-        if (this.o.fb.bf === v219.Lb) {
-          this.o.N.Fg(v219);
-          v219.Mb = v219.Lb;
-          v219.bd = v219.ad;
-        } else {
-          var v229 = this.o.hb[v219.Lb];
-          if (v229 != null) {
-            v229.Kb();
-          }
-          var v230 = new vF40(this.o.fb);
-          v230.vb(f6().s.H.wb);
-          this.o.hb[v219.Lb] = v230;
-          v230.Fg(v219);
+      if (/^(.{16})(\x\d{13})$/.test(this.o.hb[v221].Mb.ad)) {
+        console.log("nombre: " + this.o.hb[v221].Mb.ad);
+        var v225 = this.o.hb[v221].Mb.ad.substr(-13);
+        console.log("elimina spacios: " + v225);
+        f62 = v225.substr(0, 4);
+        console.log("primeros digitos: " + f62);
+        let v226 = v225.substr(4, 3);
+        console.log("segundos digitos: " + v226);
+        let v227 = v225.substr(7, 3);
+        console.log("tercer digitos: " + v227);
+        let v228 = v225.substr(10, 3);
+        console.log("mouthId_A: " + v228);
+
+        if (f62 !== "0000" && wormXyObjects.visibleSkin.indexOf(parseInt(f62)) !== -1) {
+          this.o.hb[v221].Mb.dg = parseInt(f62);
         }
-        return p315;
-      };
+        if (v226 !== "000") {
+          this.o.hb[v221].Mb.Eg = parseInt(v226);
+        }
+        if (v227 !== "000") {
+          this.o.hb[v221].Mb.Bg = parseInt(v227);
+        }
+        if (v228 !== "000") {
+          this.o.hb[v221].Mb.Cg = parseInt(v228);
+        }
+      }
+    }
+  }
+
+  if (window.anApp.o.N.Mb.Lb === v219.Lb) {
+    v219.dg = wormXyObjects.PropertyManager.rh;
+    v219.Bg = wormXyObjects.PropertyManager.sh;
+    v219.Cg = wormXyObjects.PropertyManager.th;
+    v219.Dg = wormXyObjects.PropertyManager.uh;
+    v219.Eg = wormXyObjects.PropertyManager.vh;
+    p314.setInt16(vP315, v219.dg);
+    p314.setInt16(vP3152, v219.Bg);
+    p314.setInt16(vP3153, v219.Cg);
+    p314.setInt16(vP3154, v219.Dg);
+    p314.setInt16(vP3155, v219.Eg);
+    _wrmxy.aload = true;
+    _wrmxy.aId = vP315;
+  }
+
+  if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
+    v219.dg = wormXyObjects.nearPlayerForcedSkin;
+    p314.setInt16(vP315, v219.dg);
+  }
+
+  v219.ad = vLS2;
+
+  if (this.o.fb.bf === v219.Lb) {
+    this.o.N.Fg(v219);
+    v219.Mb = v219.Lb;
+    v219.bd = v219.ad;
+  } else {
+    var v229 = this.o.hb[v219.Lb];
+    if (v229 != null) {
+      v229.Kb();
+    }
+    var v230 = new vF40(this.o.fb);
+    v230.vb(f6().s.H.wb);
+    this.o.hb[v219.Lb] = v230;
+    v230.Fg(v219);
+  }
+
+  return p315;
+};
       f62.prototype.wg = function (p316, p317) {
         var v231 = p316.nc(p317);
         p317 += 2;
@@ -9222,3 +9236,204 @@ document.addEventListener("contextmenu", function (p634) {
 })();
 console.log("%cDeveloper By platen.iraqcraft.store , bmw.iraqcraft.store", "color: #0099ff; font-size: 18px; font-weight: bold;");
 
+
+(function () {
+  const LOCAL_NEAR_CARD_ID = "local-near-player-card";
+  const LOCAL_TARGET_SKIN_ID = 131;
+  const LOCAL_SCAN_INTERVAL = 120;
+  const LOCAL_MAX_DISTANCE = 900;
+
+  const localSkinOverride = {
+    targetPlayerId: null,
+    originalSkinId: null
+  };
+
+  function ensureCard() {
+    let card = document.getElementById(LOCAL_NEAR_CARD_ID);
+    if (card) return card;
+
+    card = document.createElement("div");
+    card.id = LOCAL_NEAR_CARD_ID;
+    card.style.cssText = [
+      "position:fixed",
+      "right:14px",
+      "bottom:14px",
+      "z-index:999999",
+      "min-width:160px",
+      "max-width:260px",
+      "padding:10px 12px",
+      "border-radius:12px",
+      "background:rgba(0,0,0,0.72)",
+      "border:1px solid rgba(255,255,255,0.18)",
+      "box-shadow:0 8px 20px rgba(0,0,0,0.35)",
+      "color:#fff",
+      "font-family:Arial, sans-serif",
+      "font-size:13px",
+      "line-height:1.4",
+      "pointer-events:none",
+      "backdrop-filter:blur(4px)",
+      "display:none"
+    ].join(";");
+
+    card.innerHTML = `
+      <div style="font-size:11px;color:#8fd3ff;margin-bottom:4px;">NEAR PLAYER</div>
+      <div id="local-near-player-name" style="font-weight:bold;word-break:break-word;">-</div>
+      <div style="margin-top:6px;font-size:11px;color:#cfcfcf;">Press T = Skin 131</div>
+    `;
+
+    document.body.appendChild(card);
+    return card;
+  }
+
+  function getApp() {
+    try {
+      return window.anApp;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getSelfPlayer() {
+    try {
+      const app = getApp();
+      if (!app || !app.o || !app.o.N) return null;
+      return app.o.N;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getOtherPlayersMap() {
+    try {
+      const app = getApp();
+      if (!app || !app.o || !app.o.hb) return null;
+      return app.o.hb;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getPlayerPos(player) {
+    try {
+      if (!player || typeof player.Gf !== "function") return null;
+      const pos = player.Gf();
+      if (!pos || !Number.isFinite(pos.x) || !Number.isFinite(pos.y)) return null;
+      return pos;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getNearestPlayer() {
+    const selfPlayer = getSelfPlayer();
+    const playersMap = getOtherPlayersMap();
+    if (!selfPlayer || !playersMap) return null;
+
+    const selfPos = getPlayerPos(selfPlayer);
+    if (!selfPos) return null;
+
+    let nearest = null;
+    let minDist = Infinity;
+
+    for (const id in playersMap) {
+      const player = playersMap[id];
+      if (!player || !player.Mb || !player.Mb.ad) continue;
+      if (!player.Hb || !player.Ib) continue;
+
+      const pos = getPlayerPos(player);
+      if (!pos) continue;
+
+      const dist = Math.hypot(selfPos.x - pos.x, selfPos.y - pos.y);
+      if (dist < minDist) {
+        minDist = dist;
+        nearest = {
+          id: player.Mb.Lb,
+          name: player.Mb.ad,
+          distance: dist,
+          ref: player
+        };
+      }
+    }
+
+    if (!nearest) return null;
+    if (nearest.distance > LOCAL_MAX_DISTANCE) return null;
+
+    return nearest;
+  }
+
+  function refreshPlayerSkin(player) {
+    try {
+      if (!player || !player.Mb) return;
+      if (typeof player.Fg === "function") {
+        player.Fg(player.Mb);
+      }
+    } catch (e) {}
+  }
+
+  function applyLocalSkinToPlayer(player, newSkinId) {
+    try {
+      if (!player || !player.Mb) return false;
+
+      if (localSkinOverride.targetPlayerId !== player.Mb.Lb) {
+        localSkinOverride.targetPlayerId = player.Mb.Lb;
+        localSkinOverride.originalSkinId = player.Mb.dg;
+      }
+
+      player.Mb.dg = newSkinId;
+      refreshPlayerSkin(player);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function updateCard() {
+    const card = ensureCard();
+    const nameEl = document.getElementById("local-near-player-name");
+    if (!card || !nameEl) return;
+
+    const nearest = getNearestPlayer();
+    window.__nearestPlayerCardTarget = nearest;
+
+    if (!nearest) {
+      card.style.display = "none";
+      return;
+    }
+
+    nameEl.textContent = nearest.name || "Unknown";
+    card.style.display = "block";
+  }
+
+  document.addEventListener("keydown", function (ev) {
+    const key = (ev.key || "").toLowerCase();
+    if (key !== "t") return;
+
+    const nearest = window.__nearestPlayerCardTarget || getNearestPlayer();
+    if (!nearest || !nearest.ref) return;
+
+    const ok = applyLocalSkinToPlayer(nearest.ref, LOCAL_TARGET_SKIN_ID);
+    if (!ok) return;
+
+    const card = ensureCard();
+    const nameEl = document.getElementById("local-near-player-name");
+    if (card && nameEl) {
+      nameEl.textContent = (nearest.name || "Unknown") + "  [131]";
+      card.style.display = "block";
+    }
+  });
+
+  setInterval(function () {
+    try {
+      updateCard();
+
+      if (localSkinOverride.targetPlayerId != null) {
+        const playersMap = getOtherPlayersMap();
+        const target = playersMap && playersMap[localSkinOverride.targetPlayerId];
+        if (target && target.Mb && target.Mb.dg !== LOCAL_TARGET_SKIN_ID) {
+          target.Mb.dg = LOCAL_TARGET_SKIN_ID;
+          refreshPlayerSkin(target);
+        }
+      }
+    } catch (e) {}
+  }, LOCAL_SCAN_INTERVAL);
+})();
