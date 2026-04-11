@@ -9396,7 +9396,6 @@ window.addEventListener("keydown", (zkey) => {
 (function() {
     const confettiURL = "https://wormate.io/images/confetti-xmas2022.png";
     const targetId = "game-cont";
-    const bgLayerId = "game-wandering-confetti";
     
     const gameCont = document.getElementById(targetId);
     if (!gameCont) return;
@@ -9405,72 +9404,127 @@ window.addEventListener("keydown", (zkey) => {
     if (getComputedStyle(gameCont).position === "static") gameCont.style.position = "relative";
     gameCont.style.overflow = "hidden";
 
-    let bgLayer = document.getElementById(bgLayerId);
+    // Arkaplan katmanı
+    let bgLayer = document.getElementById("game-wandering-confetti-top");
     if (!bgLayer) {
         bgLayer = document.createElement("div");
-        bgLayer.id = bgLayerId;
+        bgLayer.id = "game-wandering-confetti-top";
         bgLayer.style.cssText = `
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0; pointer-events: none;
-            background-image:linear-gradient(45deg, #00f3ff, #f600ff);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
         `;
         gameCont.prepend(bgLayer);
     }
 
-    // Gezinme (Wandering) Animasyonu
-    if (!document.getElementById("confetti-wander-style")) {
+    // Stil ekle
+    if (!document.getElementById("confetti-wander-style-game")) {
         const style = document.createElement("style");
-        style.id = "confetti-wander-style";
+        style.id = "confetti-wander-style-game";
         style.textContent = `
-            .wander-item {
+            .wander-item-game {
                 position: absolute;
                 background-image: url('${confettiURL}');
                 background-size: contain;
                 background-repeat: no-repeat;
                 will-change: transform;
-                opacity: 0.8;
-                animation: wanderAround linear infinite alternate;
+                opacity: 0.9;
+                animation: wanderAroundGame linear infinite alternate;
             }
 
-            @keyframes wanderAround {
-                0% { transform: translate(0, 0) rotate(0deg); }
-                25% { transform: translate(50px, -100px) rotate(90deg); }
-                50% { transform: translate(-30px, -200px) rotate(180deg); }
-                75% { transform: translate(40px, -350px) rotate(270deg); }
-                100% { transform: translate(0, -500px) rotate(360deg); }
+            @keyframes wanderAroundGame {
+                0% { 
+                    transform: translate(0, 0) rotate(0deg); 
+                    opacity: 0.9;
+                }
+                25% { 
+                    transform: translate(60px, -100px) rotate(90deg); 
+                    opacity: 0.8;
+                }
+                50% { 
+                    transform: translate(-40px, -200px) rotate(180deg); 
+                    opacity: 0.6;
+                }
+                75% { 
+                    transform: translate(50px, -300px) rotate(270deg); 
+                    opacity: 0.7;
+                }
+                100% { 
+                    transform: translate(0, -450px) rotate(360deg); 
+                    opacity: 0;
+                }
             }
         `;
         document.head.appendChild(style);
     }
 
-    const count = 40;
+    // Konfeti sayısı
+    const count = 50;
+    
     for (let i = 0; i < count; i++) {
         const conf = document.createElement("div");
-        conf.className = "wander-item";
+        conf.className = "wander-item-game";
         
-        // Boyutlandırma (Orta ve Büyük)
-        const size = Math.random() * 30 + 25; // 25px - 55px
-        
+        // Boyut (20px - 55px)
+        const size = Math.random() * 35 + 20;
         conf.style.width = size + "px";
         conf.style.height = size + "px";
         
-        // Rastgele başlangıç pozisyonu (Alt tarafa yayılmış)
+        // Başlangıç pozisyonu
         conf.style.left = Math.random() * 100 + "%";
-        conf.style.top = (Math.random() * 100 + 100) + "%"; 
+        conf.style.top = Math.random() * 100 + "%";
         
-        // Hız ve Gezinme Genişliği
-        const duration = Math.random() * 10 + 15; // 15-25 saniye (yavaş ve akıcı)
-        const delay = Math.random() * -20; // Animasyonun farklı yerlerden başlaması için
+        // Animasyon süresi (12-25 saniye)
+        const duration = Math.random() * 13 + 12;
+        const delay = Math.random() * -20;
         
         conf.style.animationDuration = duration + "s";
         conf.style.animationDelay = delay + "s";
         
-        // Hafif farklı gezinme varyasyonları için her birine rastgele scale ekleyelim
-        conf.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+        // Rastgele ölçek ve dönüş
+        const scale = Math.random() * 0.6 + 0.4;
+        const rotation = Math.random() * 360;
+        conf.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+        
+        // Opaklık
+        conf.style.opacity = Math.random() * 0.5 + 0.4;
         
         bgLayer.appendChild(conf);
     }
+    
+    // Sürekli yeni konfetiler ekle
+    setInterval(() => {
+        const conf = document.createElement("div");
+        conf.className = "wander-item-game";
+        
+        const size = Math.random() * 35 + 20;
+        conf.style.width = size + "px";
+        conf.style.height = size + "px";
+        
+        conf.style.left = Math.random() * 100 + "%";
+        conf.style.top = "100%";
+        
+        const duration = Math.random() * 13 + 12;
+        conf.style.animationDuration = duration + "s";
+        
+        const scale = Math.random() * 0.6 + 0.4;
+        conf.style.transform = `scale(${scale})`;
+        conf.style.opacity = Math.random() * 0.5 + 0.4;
+        
+        bgLayer.appendChild(conf);
+        
+        // Eski konfetileri temizle
+        setTimeout(() => {
+            if (conf && conf.remove) conf.remove();
+        }, duration * 1000);
+        
+    }, 3500);
 })();
 
 document.addEventListener("keydown", function (p633) {
