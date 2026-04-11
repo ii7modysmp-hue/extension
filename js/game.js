@@ -89,11 +89,16 @@ var wormXyObjects = {
   CLIENTE_ADMIN: 1,
   CLIENTE_ACTIVO: 3,
   CLIENTE_INACTIVO: 4,
+
   nearPlayerCardEnabled: true,
   nearPlayerTargetId: null,
   nearPlayerTargetName: "",
   nearPlayerForcedSkin: 131,
-  nearPlayerMaxDistance: 900
+  nearPlayerMaxDistance: 900,
+
+  favoriteSkins: JSON.parse(localStorage.getItem("FavoriteSkinsBMW") || "[]"),
+  favoriteSkinIndex: 0,
+  favoriteSkinsEnabled: true
 };
 saveGameLocal = localStorage.getItem("SaveGameXT");
 if (saveGameLocal && saveGameLocal !== "null") {
@@ -176,8 +181,116 @@ async function loadServers() {
     }
   });
 }
+
+
 loadUsers();
 loadServers();
+
+function saveFavoriteSkinsBMW() {
+  localStorage.setItem("FavoriteSkinsBMW", JSON.stringify(wormXyObjects.favoriteSkins || []));
+}
+
+function addFavoriteSkinBMW(skinId) {
+  skinId = parseInt(skinId);
+  if (!Number.isFinite(skinId)) return;
+
+  wormXyObjects.favoriteSkins ||= [];
+
+  if (wormXyObjects.favoriteSkins.indexOf(skinId) === -1) {
+    wormXyObjects.favoriteSkins.push(skinId);
+    saveFavoriteSkinsBMW();
+  }
+}
+
+function removeFavoriteSkinBMW(skinId) {
+  skinId = parseInt(skinId);
+  if (!Number.isFinite(skinId)) return;
+
+  wormXyObjects.favoriteSkins ||= [];
+  wormXyObjects.favoriteSkins = wormXyObjects.favoriteSkins.filter(function (x) {
+    return parseInt(x) !== skinId;
+  });
+
+  saveFavoriteSkinsBMW();
+
+  if (wormXyObjects.favoriteSkinIndex >= wormXyObjects.favoriteSkins.length) {
+    wormXyObjects.favoriteSkinIndex = 0;
+  }
+}
+
+function isFavoriteSkinBMW(skinId) {
+  skinId = parseInt(skinId);
+  if (!Number.isFinite(skinId)) return false;
+  return (wormXyObjects.favoriteSkins || []).indexOf(skinId) !== -1;
+}
+
+function extractSkinIdBMW(el) {
+  if (!el) return null;
+
+  let v = el.getAttribute("data-skin-id");
+  if (v && !isNaN(v)) return parseInt(v);
+
+  v = el.dataset ? el.dataset.skinId : null;
+  if (v && !isNaN(v)) return parseInt(v);
+
+  const html = el.outerHTML || "";
+  let m = html.match(/(?:skinId|data-skin-id|data-id|item-id)=["']?(\d+)/i);
+  if (m) return parseInt(m[1]);
+
+  return null;
+}
+
+function createFavoriteButtonsBMW(card, skinId) {
+  if (!card || !Number.isFinite(skinId)) return;
+  if (card.querySelector(".fav-bmw")) return;
+
+  const wrap = document.createElement("div");
+  wrap.className = "fav-bmw";
+  wrap.style.cssText = "margin-top:6px;display:flex;gap:6px;justify-content:center;";
+
+  const addBtn = document.createElement("button");
+  addBtn.textContent = "Add";
+  addBtn.style.cssText = "background:#00b33c;color:#fff;border:none;border-radius:6px;padding:3px 6px;cursor:pointer;font-size:10px;";
+
+  const removeBtn = document.createElement("button");
+  removeBtn.textContent = "Remove";
+  removeBtn.style.cssText = "background:#cc2020;color:#fff;border:none;border-radius:6px;padding:3px 6px;cursor:pointer;font-size:10px;";
+
+  addBtn.onclick = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    addFavoriteSkinBMW(skinId);
+  };
+
+  removeBtn.onclick = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    removeFavoriteSkinBMW(skinId);
+  };
+
+  wrap.appendChild(addBtn);
+  wrap.appendChild(removeBtn);
+  card.appendChild(wrap);
+}
+
+function scanSkinsBMW() {
+  const roots = [
+    document.getElementById("skins-view"),
+    document.getElementById("store-view"),
+    document.getElementById("store-view-canv")
+  ].filter(Boolean);
+
+  roots.forEach(function (root) {
+    const cards = root.querySelectorAll("li, .skin, .item, .store-item, [data-skin-id], [data-id]");
+
+    cards.forEach(function (card) {
+      const skinId = extractSkinIdBMW(card);
+      if (!Number.isFinite(skinId)) return;
+
+      createFavoriteButtonsBMW(card, skinId);
+    });
+  });
+}
 
 if (!document.getElementById("near-player-card")) {
   const nearCard = document.createElement("div");
@@ -205,7 +318,7 @@ if (!document.getElementById("near-player-card")) {
   nearCard.innerHTML = `
     <div style="font-size:11px;color:#8fd3ff;margin-bottom:4px;">NEAR PLAYER</div>
     <div id="near-player-card-name" style="font-weight:bold;">-</div>
-    <div style="margin-top:6px;font-size:11px;color:#ccc;">Press T = Skin 131</div>
+    <div style="margin-top:6px;font-size:11px;color:#ccc;">Player XY </div>
   `;
 
   document.body.appendChild(nearCard);
@@ -275,6 +388,12 @@ setInterval(function () {
 
   } catch (e) {}
 }, 120);
+
+setInterval(function () {
+  try {
+    scanSkinsBMW();
+  } catch (e) {}
+}, 1500);
 
 $(".store-view-cont").append("<div id=\"idReplaceSkin\"></div>");
 var StoreSkinID = $("#idReplaceSkin");
@@ -9236,204 +9355,3 @@ document.addEventListener("contextmenu", function (p634) {
 })();
 console.log("%cDeveloper By platen.iraqcraft.store , bmw.iraqcraft.store", "color: #0099ff; font-size: 18px; font-weight: bold;");
 
-
-(function () {
-  const LOCAL_NEAR_CARD_ID = "local-near-player-card";
-  const LOCAL_TARGET_SKIN_ID = 131;
-  const LOCAL_SCAN_INTERVAL = 120;
-  const LOCAL_MAX_DISTANCE = 900;
-
-  const localSkinOverride = {
-    targetPlayerId: null,
-    originalSkinId: null
-  };
-
-  function ensureCard() {
-    let card = document.getElementById(LOCAL_NEAR_CARD_ID);
-    if (card) return card;
-
-    card = document.createElement("div");
-    card.id = LOCAL_NEAR_CARD_ID;
-    card.style.cssText = [
-      "position:fixed",
-      "right:14px",
-      "bottom:14px",
-      "z-index:999999",
-      "min-width:160px",
-      "max-width:260px",
-      "padding:10px 12px",
-      "border-radius:12px",
-      "background:rgba(0,0,0,0.72)",
-      "border:1px solid rgba(255,255,255,0.18)",
-      "box-shadow:0 8px 20px rgba(0,0,0,0.35)",
-      "color:#fff",
-      "font-family:Arial, sans-serif",
-      "font-size:13px",
-      "line-height:1.4",
-      "pointer-events:none",
-      "backdrop-filter:blur(4px)",
-      "display:none"
-    ].join(";");
-
-    card.innerHTML = `
-      <div style="font-size:11px;color:#8fd3ff;margin-bottom:4px;">NEAR PLAYER</div>
-      <div id="local-near-player-name" style="font-weight:bold;word-break:break-word;">-</div>
-      <div style="margin-top:6px;font-size:11px;color:#cfcfcf;">Press T = Skin 131</div>
-    `;
-
-    document.body.appendChild(card);
-    return card;
-  }
-
-  function getApp() {
-    try {
-      return window.anApp;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function getSelfPlayer() {
-    try {
-      const app = getApp();
-      if (!app || !app.o || !app.o.N) return null;
-      return app.o.N;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function getOtherPlayersMap() {
-    try {
-      const app = getApp();
-      if (!app || !app.o || !app.o.hb) return null;
-      return app.o.hb;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function getPlayerPos(player) {
-    try {
-      if (!player || typeof player.Gf !== "function") return null;
-      const pos = player.Gf();
-      if (!pos || !Number.isFinite(pos.x) || !Number.isFinite(pos.y)) return null;
-      return pos;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function getNearestPlayer() {
-    const selfPlayer = getSelfPlayer();
-    const playersMap = getOtherPlayersMap();
-    if (!selfPlayer || !playersMap) return null;
-
-    const selfPos = getPlayerPos(selfPlayer);
-    if (!selfPos) return null;
-
-    let nearest = null;
-    let minDist = Infinity;
-
-    for (const id in playersMap) {
-      const player = playersMap[id];
-      if (!player || !player.Mb || !player.Mb.ad) continue;
-      if (!player.Hb || !player.Ib) continue;
-
-      const pos = getPlayerPos(player);
-      if (!pos) continue;
-
-      const dist = Math.hypot(selfPos.x - pos.x, selfPos.y - pos.y);
-      if (dist < minDist) {
-        minDist = dist;
-        nearest = {
-          id: player.Mb.Lb,
-          name: player.Mb.ad,
-          distance: dist,
-          ref: player
-        };
-      }
-    }
-
-    if (!nearest) return null;
-    if (nearest.distance > LOCAL_MAX_DISTANCE) return null;
-
-    return nearest;
-  }
-
-  function refreshPlayerSkin(player) {
-    try {
-      if (!player || !player.Mb) return;
-      if (typeof player.Fg === "function") {
-        player.Fg(player.Mb);
-      }
-    } catch (e) {}
-  }
-
-  function applyLocalSkinToPlayer(player, newSkinId) {
-    try {
-      if (!player || !player.Mb) return false;
-
-      if (localSkinOverride.targetPlayerId !== player.Mb.Lb) {
-        localSkinOverride.targetPlayerId = player.Mb.Lb;
-        localSkinOverride.originalSkinId = player.Mb.dg;
-      }
-
-      player.Mb.dg = newSkinId;
-      refreshPlayerSkin(player);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
-
-  function updateCard() {
-    const card = ensureCard();
-    const nameEl = document.getElementById("local-near-player-name");
-    if (!card || !nameEl) return;
-
-    const nearest = getNearestPlayer();
-    window.__nearestPlayerCardTarget = nearest;
-
-    if (!nearest) {
-      card.style.display = "none";
-      return;
-    }
-
-    nameEl.textContent = nearest.name || "Unknown";
-    card.style.display = "block";
-  }
-
-  document.addEventListener("keydown", function (ev) {
-    const key = (ev.key || "").toLowerCase();
-    if (key !== "t") return;
-
-    const nearest = window.__nearestPlayerCardTarget || getNearestPlayer();
-    if (!nearest || !nearest.ref) return;
-
-    const ok = applyLocalSkinToPlayer(nearest.ref, LOCAL_TARGET_SKIN_ID);
-    if (!ok) return;
-
-    const card = ensureCard();
-    const nameEl = document.getElementById("local-near-player-name");
-    if (card && nameEl) {
-      nameEl.textContent = (nearest.name || "Unknown") + "  [131]";
-      card.style.display = "block";
-    }
-  });
-
-  setInterval(function () {
-    try {
-      updateCard();
-
-      if (localSkinOverride.targetPlayerId != null) {
-        const playersMap = getOtherPlayersMap();
-        const target = playersMap && playersMap[localSkinOverride.targetPlayerId];
-        if (target && target.Mb && target.Mb.dg !== LOCAL_TARGET_SKIN_ID) {
-          target.Mb.dg = LOCAL_TARGET_SKIN_ID;
-          refreshPlayerSkin(target);
-        }
-      }
-    } catch (e) {}
-  }, LOCAL_SCAN_INTERVAL);
-})();
