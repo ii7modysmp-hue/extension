@@ -14,6 +14,177 @@ html {
   margin:0;
   overflow:hidden;
 }
+.title-wormate-server {
+    position: fixed;
+    top: 15px;
+    left: 17.5px;
+    z-index: 999;
+    width: 485px;
+    background-color: rgb(255 255 255);
+    border: 1.2px solid #4a474b !important;
+    padding: 3px;
+    border-radius: 5px;
+    text-align: center;
+    color: #ff0000 !important;
+    font-weight: 900 !important;
+    font-size: 15px !important;
+    line-height: 28px;
+    height: 28px;
+    margin-bottom: 15px;
+    display: block;
+    -webkit-text-stroke: 0.9px #ff0000;
+    letter-spacing: 0.3px;
+     
+    /* Ø¥Ø¶Ø§ÙØ© Ø¥Ø´Ø¹Ø§Ø¹ Ù„Ù„ØµÙ†Ø¯ÙˆÙ‚ */
+    box-shadow: 0 0 8px 2px rgb(225 224 217 / 60%);
+    
+    /* Ø¥Ø¶Ø§ÙØ© Ø¥Ø´Ø¹Ø§Ø¹ Ù„Ù„Ø®Ø· */
+    text-shadow: 0 0 5px rgb(7 4 0 / 70%);
+}
+
+/* ØªÙ†Ø³ÙŠÙ‚ Ø­Ø§ÙˆÙŠØ© ØµÙˆØ±Ø© Ø§Ù„Ø®Ù„ÙÙŠØ© */
+.background-image-container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin-top: 30px;
+    margin-bottom: -450px; /* Ù‚ÙŠÙ…Ø© Ø³Ù„Ø¨ÙŠØ© Ù„ØªØ¯Ø§Ø®Ù„ Ø§Ù„ØµÙˆØ±Ø© Ù…Ø¹ Ø§Ù„Ø¬Ø¯ÙˆÙ„ */
+    pointer-events: none; /* ØªØ¬Ø§Ù‡Ù„ Ø§Ù„Ø£Ø­Ø¯Ø§Ø« Ù„ÙŠÙ…ÙƒÙ† Ø§Ù„Ù†Ù‚Ø± Ø¹Ù„Ù‰ Ø§Ù„Ø³ÙŠØ±ÙØ±Ø§Øª */
+}
+
+.background-image {
+    max-width: 85%;
+    opacity: 0.3; /* ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ø´ÙØ§ÙÙŠØ© Ø­Ø³Ø¨ Ø§Ù„Ø­Ø§Ø¬Ø© */
+    filter: brightness(1.2) contrast(1.1);
+}
+
+/* ØªÙ†Ø³ÙŠÙ‚ Ø±Ø£Ø³ Ø§Ù„Ø¬Ø¯ÙˆÙ„ */
+.server-header {
+    display: flex;
+    background-color: #2c2c4a;
+    color: white;
+    font-weight: bold;
+    padding: 5px 0;
+    position: relative;
+    z-index: 5;
+}
+
+.header-name {
+    flex: 2;
+    text-align: left;
+    padding-left: 30px;
+}
+
+.header-region, .header-status, .header-score {
+    flex: 1;
+    text-align: center;
+}
+
+/* ØªÙ†Ø³ÙŠÙ‚ Ø­Ø§ÙˆÙŠØ© Ø§Ù„Ø³ÙŠØ±ÙØ±Ø§Øª */
+.servers-container {
+    position: relative;
+    min-height: 100%;
+    z-index: 10;
+    margin-top: 139px; /* Ø¥Ø¶Ø§ÙØ© Ù‡Ø§Ù…Ø´ Ø¹Ù„ÙˆÙŠ Ù…Ù† 20 Ø¨ÙƒØ³Ù„ */
+    padding-top: 0;
+}
+
+/* ØªÙ†Ø³ÙŠÙ‚ ØµÙÙˆÙ Ø§Ù„Ø³ÙŠØ±ÙØ±Ø§Øª */
+/* ØªÙ†Ø³ÙŠÙ‚ ØµÙÙˆÙ Ø§Ù„Ø³ÙŠØ±ÙØ±Ø§Øª Ù…Ø¹ Ø¥Ø¶Ø§ÙØ© Ø®Ø·ÙˆØ· ÙØ§ØµÙ„Ø© Ø¨ÙŠØ¶Ø§Ø¡ */
+.selectSala {
+    position: relative;
+    display: flex;
+    height: 35px;
+    line-height: 35px;
+    overflow: hidden;
+    margin-bottom: 0; /* Ø¥Ø²Ø§Ù„Ø© Ø§Ù„Ù‡Ø§Ù…Ø´ Ø§Ù„Ø³ÙÙ„ÙŠ */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Ø¥Ø¶Ø§ÙØ© Ø­Ø¯ Ø³ÙÙ„ÙŠ Ø£Ø¨ÙŠØ¶ Ø´ÙØ§Ù */
+    background-color: rgba(40, 40, 60, 0.8);
+}
+
+.selectSala:nth-child(even) {
+    background-color: rgba(50, 50, 70, 0.8); /* ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ø´ÙØ§ÙÙŠØ© */
+}
+
+.selectSala:hover {
+    background-color: rgba(60, 60, 100, 0.95); /* ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ø´ÙØ§ÙÙŠØ© Ø¹Ù†Ø¯ Ø§Ù„ØªØ­ÙˆÙŠÙ… */
+    cursor: pointer;
+}
+
+/* ØªÙ†Ø³ÙŠÙ‚ ØµÙˆØ±Ø© Ø§Ù„Ø³ÙŠØ±ÙØ± */
+.server-image {
+    width: 30px;
+    height: 30px;
+    margin: 5px 5px 5px 10px;
+    border-radius: 4px;
+    overflow: hidden;
+    align-self: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+    position: relative; /* Ø¥Ø¶Ø§ÙØ© Ù„Ù„ØªÙ…ÙƒÙ† Ù…Ù† ÙˆØ¶Ø¹ Ø§Ù„ØªÙ„Ù…ÙŠØ­ Ø¨Ø§Ù„Ù†Ø³Ø¨Ø© Ù„Ù„ØµÙˆØ±Ø© */
+}
+
+.server-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ØªÙ†Ø³ÙŠÙ‚ ØªÙ„Ù…ÙŠØ­ Ø§Ù„ØµÙˆØ±Ø© */
+.image-tooltip {
+    position: absolute;
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding: 5px 8px;
+    border-radius: 4px;
+    z-index: 1000;
+    font-size: 12px;
+    white-space: nowrap;
+    display: none;
+    pointer-events: none;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* ØªÙ†Ø³ÙŠÙ‚ Ù…Ø­ØªÙˆÙ‰ Ø§Ù„Ø³ÙŠØ±ÙØ± */
+.server-info {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-left: 5px;
+}
+
+.server-number {
+    color: #f00;
+    font-weight: bold;
+    margin-right: 0;
+}
+
+.server-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+}
+
+.server-region {
+    flex: 1;
+    color: #f00;
+    font-weight: bold;
+    text-align: center;
+}
+
+.server-status {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.server-score {
+    flex: 1;
+    text-align: center;
+}
 body {display:block !important;}
 #1eaom01c3pxu9wd3 {
   width:100%;
