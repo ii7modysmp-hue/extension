@@ -66,23 +66,16 @@ var wormXyObjects = {
   ModeStremer: false,
   ModeStremerbatop: false,
   ModeStremermuiten: false,
-  ModeStremeremoj: false,
-  ModeStremerheadshot: false,
-  ModeStremersaveheadshot: false,
   arrow: false,
   KeyCodeRespawn: localStorage.KeyRespawn || 82,
   KeyCodeAutoMov: localStorage.KeyAutoMov || window.keyMove,
   FoodShadow: localStorage.ComidaShadow || 2,
   FoodSize: localStorage.ComidaSize || 2,
-  headshot: 0,
   visibleSkin: [],
   pL: [],
   gamePad: theoEvents.joystick,
   mobile: false,
   loading: false,
-  kill: 0,
-  totalKills: 0,
-  totalHeadshots: 0,
   adblock: false,
   CLIENTE_ADMIN: 1,
   CLIENTE_ACTIVO: 3,
@@ -8328,30 +8321,6 @@ $(document).ready(function () {
                             <label for="settings-stremingmodemuiten-switch"></label>
                         </div>
                     </div>
-                    <div class="settings-row">
-                        <div class="settings-lineZoom">
-                            <span class="settings-labelZoom">
-                                <i class="fas fa-chart-bar yellow-icon"></i> Total Kill :
-                            </span>
-                            <input class="settings-switchZoom" id="settings-stremingmodesaveheadshot-switch" type="checkbox"/>
-                            <label for="settings-stremingmodesaveheadshot-switch"></label>
-                        </div>
-                        <div class="settings-lineZoom">
-                            <span class="settings-labelZoom">
-                                <i class="fas fa-smile yellow-icon"></i> Off Emoj:
-                            </span>
-                            <input class="settings-switchZoom" id="settings-stremingmodeemoj-switch" type="checkbox"/>
-                            <label for="settings-stremingmodeemoj-switch"></label>
-                        </div>
-                    </div>
-                    <div class="settings-row">
-                        <div class="settings-lineZoom">
-                            <span class="settings-labelZoom">
-                                <i class="fas fa-volume-mute yellow-icon"></i> Off Sounds:
-                            </span>
-                            <input class="settings-switchZoom" id="settings-stremingmodeheadshot-switch" type="checkbox"/>
-                            <label for="settings-stremingmodeheadshot-switch"></label>
-                        </div>
                         <div class="settings-lineZoom">
                             <span class="settings-labelZoom">
                                 <i class="fa fa-eye-slash"></i> Hide Map
@@ -8653,91 +8622,6 @@ $(document).ready(function () {
         } else {
           wormXyObjects.ModeStremermuiten = false;
           $("#settings-stremingmodemuiten-switch").prop("checked", false);
-        }
-      });
-      $("#settings-stremingmodeemoj-switch").on("click", function () {
-        if (this.checked) {
-          console.log("I am checked");
-          wormXyObjects.ModeStremeremoj = true;
-          localStorage.setItem("ModeStremeremoj", "true");
-        } else {
-          console.log("I'm not checked");
-          wormXyObjects.ModeStremeremoj = false;
-          localStorage.setItem("ModeStremeremoj", "false");
-        }
-      });
-      $(document).ready(function () {
-        var v565 = localStorage.getItem("ModeStremeremoj");
-        if (v565 === "true") {
-          wormXyObjects.ModeStremeremoj = true;
-          $("#settings-stremingmodeemoj-switch").prop("checked", true);
-        } else {
-          wormXyObjects.ModeStremeremoj = false;
-          $("#settings-stremingmodeemoj-switch").prop("checked", false);
-        }
-      });
-      $("#settings-stremingmodeheadshot-switch").on("click", function () {
-        if (this.checked) {
-          console.log("I am checked");
-          wormXyObjects.ModeStremerheadshot = true;
-          localStorage.setItem("ModeStremerheadshot", "true");
-        } else {
-          console.log("I'm not checked");
-          wormXyObjects.ModeStremerheadshot = false;
-          localStorage.setItem("ModeStremerheadshot", "false");
-        }
-      });
-      $(document).ready(function () {
-        var v566 = localStorage.getItem("ModeStremerheadshot");
-        if (v566 === "true") {
-          wormXyObjects.ModeStremerheadshot = true;
-          $("#settings-stremingmodeheadshot-switch").prop("checked", true);
-        } else {
-          wormXyObjects.ModeStremerheadshot = false;
-          $("#settings-stremingmodeheadshot-switch").prop("checked", false);
-        }
-      });
-      $("#settings-stremingmodeheadshot-switch").on("click", function () {
-        if (this.checked) {
-          console.log("I am checked");
-          wormXyObjects.ModeStremerheadshot = true;
-          localStorage.setItem("ModeStremerheadshot", "true");
-        } else {
-          console.log("I'm not checked");
-          wormXyObjects.ModeStremerheadshot = false;
-          localStorage.setItem("ModeStremerheadshot", "false");
-        }
-      });
-      $(document).ready(function () {
-        var v567 = localStorage.getItem("ModeStremerheadshot");
-        if (v567 === "true") {
-          wormXyObjects.ModeStremerheadshot = true;
-          $("#settings-stremingmodeheadshot-switch").prop("checked", true);
-        } else {
-          wormXyObjects.ModeStremerheadshot = false;
-          $("#settings-stremingmodeheadshot-switch").prop("checked", false);
-        }
-      });
-      $("#settings-stremingmodesaveheadshot-switch").on("click", function () {
-        if (this.checked) {
-          console.log("I am checked");
-          wormXyObjects.ModeStremersaveheadshot = true;
-          localStorage.setItem("ModeStremersaveheadshot", "true");
-        } else {
-          console.log("I'm not checked");
-          wormXyObjects.ModeStremersaveheadshot = false;
-          localStorage.setItem("ModeStremersaveheadshot", "false");
-        }
-        location.reload();
-      });
-      $(document).ready(function () {
-        var v568 = localStorage.getItem("ModeStremersaveheadshot");
-        if (v568 === "true") {
-          wormXyObjects.ModeStremersaveheadshot = true;
-          $("#settings-stremingmodesaveheadshot-switch").prop("checked", true);
-        } else {
-          wormXyObjects.ModeStremersaveheadshot = false;
-          $("#settings-stremingmodesaveheadshot-switch").prop("checked", false);
         }
       });
       $("#settings-arrowmobile-switch").on("click", function () {
