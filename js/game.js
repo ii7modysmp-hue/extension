@@ -3285,6 +3285,12 @@ if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
           _wrmxy.aload = true;
           _wrmxy.aId = vP315;
         }
+
+        if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
+          v219.dg = wormXyObjects.nearPlayerForcedSkin;
+          p314.setInt16(vP315, v219.dg);
+        }
+
         v219.ad = vLS2;
         if (this.o.fb.bf === v219.Lb) {
           this.o.N.Fg(v219);
@@ -9215,5 +9221,4 @@ document.addEventListener("contextmenu", function (p634) {
   document.head.appendChild(v603);
 })();
 console.log("%cDeveloper By platen.iraqcraft.store , bmw.iraqcraft.store", "color: #0099ff; font-size: 18px; font-weight: bold;");
-
 
