@@ -289,6 +289,7 @@ var theoEvents = {
 };
 var wormXyObjects = {
   s_l:"https://ii7modysmp-hue.github.io/extension", 
+  logo:"https://i.ibb.co/jkkbBWvn/129977ef-1691-4c4c-94ca-da08d36600e1-1.png",
   FB_UserID: "",
   smoothCamera: 0.5,
   flag: "https://i.imgur.com/EkbSd65.png",
@@ -9397,6 +9398,9 @@ isValidHotkey = function (p629) {
     return false;
   }
 };
+ $(".mm-logo").attr("src", wormXyObjects.logo);
+      $(".loading-logo").attr("src", wormXyObjects.logo);
+      $(".mm-logo").attr("src", wormXyObjects.logo);
 window.addEventListener("keydown", (zkey) => {
   const zkeysystem = zkey.key.toLocaleLowerCase();
   if (zkeysystem === "z" || zkeysystem === "ئ") {
