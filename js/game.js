@@ -8252,6 +8252,7 @@ $(document).ready(function () {
     </div>
     <div id="popup" class="popup">
         <div class="phdr1">
+            <button style="float: right;background: #00000000;float: right;height: 40px;border: none;font-size: 16px;font-weight: 600;" onclick="navigator.clipboard.writeText('" + theoKzObjects.FB_UserID + "').then(()=> alert('You ID ' + theoKzObjects.FB_UserID + ' copied!'));">Copy ID</button>
         </div>
         <div class="close-button" onclick="closePopup()"></div>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -8269,14 +8270,20 @@ $(document).ready(function () {
                         <i class="fas fa-mouse"></i> Cursor
                     </li>
                     <li id="gioithieu-btn" onclick="displayContent('gioithieu', this)">
-                        <i class="fas fa-info-circle"></i> ID
+                        <i class="fas fa-info-circle"></i> Giới Thiệu
                     </li>
                 </ul>
             </div>
             <div class="main-content">
                 <div id="toolgame" class="content-section">
                     <div class="settings-row">
-                        
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fas fa-bolt yellow-icon"></i> Eat Fast:
+                            </span>
+                            <input class="settings-switchZoom" id="settings-Abilityzoom-switch" type="checkbox"/>
+                            <label for="settings-Abilityzoom-switch"></label>
+                        </div>
                         <div class="settings-lineZoom">
                             <span class="settings-labelZoom">
                                 <i class="fas fa-video yellow-icon"></i> Center Streamer :
@@ -8301,6 +8308,30 @@ $(document).ready(function () {
                             <label for="settings-stremingmodemuiten-switch"></label>
                         </div>
                     </div>
+                    <div class="settings-row">
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fas fa-chart-bar yellow-icon"></i> Total Kill :
+                            </span>
+                            <input class="settings-switchZoom" id="settings-stremingmodesaveheadshot-switch" type="checkbox"/>
+                            <label for="settings-stremingmodesaveheadshot-switch"></label>
+                        </div>
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fas fa-smile yellow-icon"></i> Off Emoj:
+                            </span>
+                            <input class="settings-switchZoom" id="settings-stremingmodeemoj-switch" type="checkbox"/>
+                            <label for="settings-stremingmodeemoj-switch"></label>
+                        </div>
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fas fa-volume-mute yellow-icon"></i> Off Sounds:
+                            </span>
+                            <input class="settings-switchZoom" id="settings-stremingmodeheadshot-switch" type="checkbox"/>
+                            <label for="settings-stremingmodeheadshot-switch"></label>
+                        </div>
                         <div class="settings-lineZoom">
                             <span class="settings-labelZoom">
                                 <i class="fa fa-eye-slash"></i> Hide Map
@@ -8352,6 +8383,7 @@ $(document).ready(function () {
                           <input type="text" value="${wormXyObjects.FB_UserID}" id="wormate_id" readonly style="flex: 1; padding: 5px; border: 1px solid #00ccff; border-radius: 4px; background: #f0f8ff; font-family: monospace; font-size: 11px;" />
                           <button style="/* padding: 19px; */float: right;ma;margin-top: 0px;r;margin-right: 158px;e;/* line-height: 0; */-size: 18px;" onclick="navigator.clipboard.writeText('${wormXyObjects.FB_UserID}').then(()=&gt; alert('You ID ${wormXyObjects.FB_UserID} copiado! copied!'));">Copy</button>
                           </div>
+            </div>
             </div>
         </div>
         <script>
