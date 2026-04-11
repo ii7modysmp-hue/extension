@@ -8486,7 +8486,7 @@ $(document).ready(function () {
     </div>
     <div id="popup" class="popup">
         <div class="phdr1">
-            <button style="float: right;background: #00000000;float: right;height: 40px;border: none;font-size: 16px;font-weight: 600;" onclick="navigator.clipboard.writeText('" + theoKzObjects.FB_UserID + "').then(()=> alert('You ID ' + theoKzObjects.FB_UserID + ' copied!'));">Copy ID</button>
+            <button style="float: right;background: #00000000;float: right;height: 40px;border: none;font-size: 16px;font-weight: 600;" onclick="navigator.clipboard.writeText(${wormXyObjects.FB_UserID})">Copy ID</button>
         </div>
         <div class="close-button" onclick="closePopup()"></div>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
