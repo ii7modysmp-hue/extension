@@ -9336,32 +9336,33 @@ $("#timmap-server-toggle").off("click").on("click", function () {
       f6().Pa();
     };
     v_0x569a61();
-    function f113() {
-      var v584 = v$105.width();
-      var v585 = v$105.height();
-      var v586 = v$106.outerWidth();
-      var v587 = v$106.outerHeight();
-      var v588 = v$107.outerHeight();
-      var v589 = v$108.outerHeight();
-      var v590 = Math.min(1, Math.min((v585 - v589 - v588) / v587, v584 / v586));
-      var v591 = "translate(-50%, -50%) scale(" + v590 + ")";
-      v$106.css({
-        "-webkit-transform": v591,
-        "-moz-transform": v591,
-        "-ms-transform": v591,
-        "-o-transform": v591,
-        transform: v591
-      });
-      f6().Ra();
-      window.scrollTo(0, 1);
-    }
-    var v$105 = $("body");
-    var v$106 = $("#stretch-box");
-    var v$107 = $("#markup-header");
-    var v$108 = $("#markup-footer");
-    f113();
-    $(window).resize(f113);
-  })();
+    (function () {
+  function f113() {
+    var v584 = v$105.width();
+    var v585 = v$105.height();
+    var v586 = v$106.outerWidth();
+    var v587 = v$106.outerHeight();
+    var v588 = v$107.outerHeight();
+    var v589 = v$108.outerHeight();
+    var v590 = Math.min(1, Math.min((v585 - v589 - v588) / v587, v584 / v586));
+    var v591 = "translate(-50%, -50%) scale(" + v590 + ")";
+    v$106.css({
+      "-webkit-transform": v591,
+      "-moz-transform": v591,
+      "-ms-transform": v591,
+      "-o-transform": v591,
+      transform: v591
+    });
+    f6().Ra();
+    window.scrollTo(0, 1);
+  }
+  var v$105 = $("body");
+  var v$106 = $("#stretch-box");
+  var v$107 = $("#markup-header");
+  var v$108 = $("#markup-footer");
+  f113();
+  $(window).resize(f113);
+})();
   window.anApp.p.Bc = function () {
     var v592 = window.anApp.p;
     var vO12 = {};
