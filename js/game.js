@@ -4133,8 +4133,14 @@ try {
       function f73() {
         this.fn_o = f75;
 this.Fe = new vF._b(vF.$b.from("/images/bg-obstacle.png"));
+this.Fe.alpha = 0.35;
 
+// ❌ حذف الكونفيتي نهائيًا (كان سبب ثقل + مشاكل)
+this.Ge = [];
+
+// 🎨 خلفية احترافية خفيفة بدون تعارض
 if (!document.getElementById("wormate-bg-effect")) {
+
   var vBgStyle = document.createElement("style");
   vBgStyle.id = "wormate-bg-effect-style";
   vBgStyle.innerHTML = `
@@ -4142,109 +4148,52 @@ if (!document.getElementById("wormate-bg-effect")) {
       position: relative !important;
       overflow: hidden !important;
     }
+
     #wormate-bg-effect {
       position: absolute;
       inset: 0;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1; /* 🔥 كان 0 ويسبب اختفاء */
       background:
-        radial-gradient(circle at 15% 20%, rgba(0, 255, 170, 0.22) 0%, transparent 32%),
-        radial-gradient(circle at 85% 25%, rgba(0, 170, 255, 0.20) 0%, transparent 34%),
-        radial-gradient(circle at 50% 75%, rgba(120, 0, 255, 0.16) 0%, transparent 38%),
-        radial-gradient(circle at 30% 80%, rgba(255, 0, 140, 0.14) 0%, transparent 30%),
-        linear-gradient(135deg, rgba(5,10,20,0.82) 0%, rgba(10,20,35,0.88) 50%, rgba(5,8,18,0.92) 100%);
-      mix-blend-mode: screen;
-      animation: wormateBgMove 12s ease-in-out infinite alternate, wormateHueShift 18s linear infinite;
+        radial-gradient(circle at 15% 20%, rgba(0, 255, 170, 0.18), transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(0, 170, 255, 0.16), transparent 45%),
+        radial-gradient(circle at 50% 75%, rgba(120, 0, 255, 0.12), transparent 50%),
+        linear-gradient(135deg, rgba(5,10,20,0.7), rgba(10,20,35,0.75), rgba(5,8,18,0.8));
+      
+      animation: wormateBgMove 14s ease-in-out infinite alternate;
+      will-change: transform;
     }
+
     #wormate-bg-effect::before {
       content: "";
       position: absolute;
       inset: 0;
-      pointer-events: none;
       background:
-        repeating-linear-gradient(
-          45deg,
-          rgba(255,255,255,0.015) 0px,
-          rgba(255,255,255,0.015) 2px,
-          transparent 2px,
-          transparent 20px
-        );
-      opacity: .5;
-      animation: wormateLinesMove 16s linear infinite;
+        radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%);
+      opacity: .6;
     }
-    #wormate-bg-effect::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08) 0%, transparent 55%);
-      opacity: .8;
-      animation: wormatePulseGlow 6s ease-in-out infinite;
-    }
+
     @keyframes wormateBgMove {
       0% {
         transform: scale(1) translate3d(0, 0, 0);
       }
       100% {
-        transform: scale(1.08) translate3d(-1.5%, -1%, 0);
+        transform: scale(1.05) translate3d(-1%, -1%, 0);
       }
     }
-    @keyframes wormateHueShift {
-      0% { filter: hue-rotate(0deg) saturate(1.05); }
-      50% { filter: hue-rotate(25deg) saturate(1.15); }
-      100% { filter: hue-rotate(0deg) saturate(1.05); }
-    }
-    @keyframes wormateLinesMove {
-      0% { transform: translateX(0) translateY(0); }
-      100% { transform: translateX(25px) translateY(15px); }
-    }
-    @keyframes wormatePulseGlow {
-      0%, 100% { opacity: .45; transform: scale(1); }
-      50% { opacity: .75; transform: scale(1.04); }
-    }
   `;
+
   document.head.appendChild(vBgStyle);
 
-  var vBgLayer = document.createElement("div");
-  vBgLayer.id = "wormate-bg-effect";
   var vGameCont = document.getElementById("game-cont");
+
   if (vGameCont) {
-    vGameCont.appendChild(vBgLayer);
+    var vBgLayer = document.createElement("div");
+    vBgLayer.id = "wormate-bg-effect";
+
+    // 🔥 نضيفه بالبداية حتى ما يغطي UI
+    vGameCont.insertBefore(vBgLayer, vGameCont.firstChild);
   }
-}
-
-var v424 = vF.$b.from("/images/confetti-xmas2022.png");
-this.Ge = [
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-  new vF._b(v424, new vF.dc(0, 0, 128, 128)),
-];
-
-for (var v425 = 0; v425 < this.Ge.length; v425++) {
-  this.Ge[v425].alpha = 0.72 + Math.random() * 0.28;
-  this.Ge[v425].tint = [
-    0x00e1ff,
-    0x00ff99,
-    0x7a5cff,
-    0xff4db8,
-    0xffffff,
-    0x5ce1ff,
-    0x66ffcc
-  ][v425 % 7];
 }
         this.Cf = new vF._b(f74());
         this.Df = new vF._b(function () {
