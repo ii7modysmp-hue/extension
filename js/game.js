@@ -58,7 +58,6 @@ var wormXyObjects = {
   s_l:"https://ii7modysmp-hue.github.io/extension", 
   FB_UserID: "",
   smoothCamera: 0.5,
-  eat_animation: 0.005,
   flag: "https://i.imgur.com/EkbSd65.png",
   PortionSize: localStorage.PotenciadorSize || 2,
   PortionAura: localStorage.PotenciadorAura || 1.2,
@@ -73,7 +72,6 @@ var wormXyObjects = {
   arrow: false,
   KeyCodeRespawn: localStorage.KeyRespawn || 82,
   KeyCodeAutoMov: localStorage.KeyAutoMov || window.keyMove,
-  AbilityZ: false,
   FoodShadow: localStorage.ComidaShadow || 2,
   FoodSize: localStorage.ComidaSize || 2,
   headshot: 0,
@@ -8357,13 +8355,7 @@ $(document).ready(function () {
             <div class="main-content">
                 <div id="toolgame" class="content-section">
                     <div class="settings-row">
-                        <div class="settings-lineZoom">
-                            <span class="settings-labelZoom">
-                                <i class="fas fa-bolt yellow-icon"></i> Eat Fast:
-                            </span>
-                            <input class="settings-switchZoom" id="settings-Abilityzoom-switch" type="checkbox"/>
-                            <label for="settings-Abilityzoom-switch"></label>
-                        </div>
+                        
                         <div class="settings-lineZoom">
                             <span class="settings-labelZoom">
                                 <i class="fas fa-video yellow-icon"></i> Center Streamer :
@@ -8584,27 +8576,6 @@ $(document).ready(function () {
           f106();
         }
       };
-      $("#settings-Abilityzoom-switch").on("click", function () {
-        if (this.checked) {
-          console.log("I am checked");
-          wormXyObjects.eat_animation = 1;
-          localStorage.setItem("mySwitch", "on");
-        } else {
-          console.log("I'm not checked");
-          wormXyObjects.eat_animation = 0.005;
-          localStorage.setItem("mySwitch", "off");
-        }
-      });
-      $(document).ready(function () {
-        var v559 = localStorage.getItem("mySwitch");
-        if (v559 === "on") {
-          $("#settings-Abilityzoom-switch").prop("checked", true);
-          wormXyObjects.eat_animation = 1;
-        } else {
-          $("#settings-Abilityzoom-switch").prop("checked", false);
-          wormXyObjects.eat_animation = 0.005;
-        }
-      });
       $("#settings-stremingmode-switch").on("click", function () {
         if (this.checked) {
           console.log("I am checked");
