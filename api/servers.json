@@ -2,21 +2,12 @@
     "success": true,
     "servers": [
         {
-            "id": 999,
-            "name": "01 .WormXY (TIMMAP)",
+            "id": 147,
+            "name": "<div id='svhiep'> <div class='ten'>01. WORM XY </div> <div class='valu'>Map: 01</div> <div class='mau-vang'>NULL</div> <div class='img-team'> <img src='https://haylamday.com/images/team/wfc.png'/> </div> </div>",
             "region": "peru",
-            "serverUrl": "wss://fra-c.wormate.io:32053/wormy",
-            "image": "https://wormatexy.up.railway.app/img/WormXY.png",
-            "timmap": 1, 
-            "status": 1
-        },
-        {
-            "id": 100,
-            "name": "Normal Server",
-            "region": "mexico",
-            "serverUrl": "wss://mex-a.wormate.io:32053/wormy",
-            "image": "https://wormatexy.up.railway.app/img/normal.png",
-            "timmap": 0,
+            "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
+            "TIMMAP": 1,
+            "WORMXY": 1,
             "status": 1
         }
     ]
