@@ -4129,52 +4129,7 @@ try {
       }
       return f72;
     }();
-   var vF34 = function () {
-  function f73() {
-    this.fn_o = f74;
-    this.Fe = new vF._b(vF.$b.from("/images/bg-obstacle.png"));
-
-    var v326 = vF.$b.from("/images/confetti-xmas2022.png");
-    this.Ge = [
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128)),
-      new vF._b(v326, new vF.dc(0, 0, 128, 128))
-    ];
-
-    this.Cf = new vF._b(f74());
-
-    this.Df = new vF._b((function () {
-      var v327 = vF.$b.from("/images/bg-pattern-pow2-TEAM2.png");
-      if (v327) {
-        v327.wrapMode = vF.kc.lc;
-      }
-      return v327;
-    })());
-  }
-
-  function f74() {
-    var v328 = vF.$b.from("/images/bg-event-pattern-valday2023.png");
-    if (v328) {
-      v328.wrapMode = vF.kc.lc;
-    }
-    return v328;
-  }
-
-  return f73;
-}();
+   var vF34 = function () { function f73() { this.fn_o = f74; this.Fe = new vF._b(vF.$b.from("/images/bg-obstacle.png")); var v326 = vF.$b.from("/images/confetti-xmas2022.png"); this.Ge = [new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128)), new vF._b(v326, new vF.dc(0, 0, 128, 128))]; this.Cf = new vF._b(f74()); this.Df = new vF._b(function () { var v327 = vF.$b.from("/images/bg-pattern-pow2-TEAM2.png"); v327.wrapMode = vF.kc.lc; return v327; }()); this.Cf = new vF._b(f74()); this.Df = new vF._b(function () { var v327 = vF.$b.from("/images/bg-pattern-pow2-TEAM2.png"); v327.wrapMode = vF.kc.lc; return v327; }());
         this.Af = new vF._b(vF.$b.from("/images/lens.png"));
         var v328 = vF.$b.from("https://i.imgur.com/Nn8b8oj.png");
         var v329 = vF.$b.from("https://i.imgur.com/EDt862t.png");
@@ -4209,53 +4164,28 @@ try {
         this.Th = null;
       }
       function f74(p395) {
-  var v333;
-  try {
-    v333 = vF.$b.from(p395 || "https://i.imgur.com/8ubx4RA.png");
-    if (v333 && vF.kc && vF.kc.lc !== undefined) {
-      v333.wrapMode = vF.kc.lc;
-    }
-  } catch (e) {
-    v333 = vF.$b.from("/images/bg-event-pattern-valday2023.png");
-    if (v333 && vF.kc && vF.kc.lc !== undefined) {
-      v333.wrapMode = vF.kc.lc;
-    }
-  }
-  return v333;
-}
-
-f73.prototype.a = function (p396) {
-  var vLN4 = 4;
-  var vDone = false;
-
-  function f75() {
-    if (vDone) {
-      return;
-    }
-    vLN4--;
-    if (vLN4 <= 0) {
-      vDone = true;
-      if (typeof p396 === "function") {
-        p396();
+        var v333 = vF.$b.from(p395 || "https://i.imgur.com/8ubx4RA.png");
+        v333.wrapMode = vF.kc.lc;
+        return v333;
       }
-    }
-  }
-
-  this.Bd = {};
-  f75();
-
-  this.yd = {};
-  f75();
-
-  this.Sh = [];
-  f75();
-
-  this.Th = null;
-  f75();
-};
-
-return f73;
-}();
+      f73.prototype.a = function (p396) {
+        function f75() {
+          if (--vLN4 == 0) {
+            p396();
+          }
+        }
+        var vLN4 = 4;
+        this.Bd = {};
+        f75();
+        this.yd = {};
+        f75();
+        this.Sh = [];
+        f75();
+        this.Th = null;
+        f75();
+      };
+      return f73;
+    }();
     var vF35 = function () {
       function f76() {
         this.H = new vF47();
