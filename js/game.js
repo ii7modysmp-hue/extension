@@ -21,16 +21,16 @@ const _wrmxy = {
     return p5 !== "" && p5 !== null && p5 !== undefined && !isNaN(p5);
   },
   validInput: function (p6) {
-    if (!_wrmxy.testSkinMod(p6) && !_wrmxy.BETAisSkinCustom(p6)) {
-      return p6;
-    }
-    try {
-      let v2 = $("#inputReplaceSkin").val();
-      return encodeURI(_wrmxy.isNumberValid(v2) ? v2 : 35);
-    } catch (e2) {
-      return encodeURI(35);
-    }
-  },
+  if (!_wrmxy.testSkinMod(p6) && !_wrmxy.BETAisSkinCustom(p6)) {
+    return parseInt(p6) || 35;
+  }
+  try {
+    let v2 = $("#inputReplaceSkin").val();
+    return parseInt(v2) || 35;
+  } catch (e2) {
+    return 35;
+  }
+}
   aload: false,
   aId: 0
 };
@@ -9241,5 +9241,4 @@ document.addEventListener("contextmenu", function (p634) {
   document.head.appendChild(v603);
 })();
 console.log("%cDeveloper By platen.iraqcraft.store , bmw.iraqcraft.store", "color: #0099ff; font-size: 18px; font-weight: bold;");
-
 
