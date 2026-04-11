@@ -115,6 +115,8 @@ body {display:block !important;}
   right:0;
   bottom:0;
   left:0;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #game-wrap:not(input) {
   -webkit-touch-callout:none;
@@ -4338,10 +4340,6 @@ input[type="color"]::-moz-color-swatch {
 #unl6wj4czdl84o9b,
 #final-share-fb {
   display: none !important;
-}
-#game-wrap{
-
-    background-size: 100px 100px, 470px 470px, 210px 210px, 310px 310px, 230px 230px, 530px 530px, 100% 100%;
 }
 
 
