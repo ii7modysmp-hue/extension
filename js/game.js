@@ -315,7 +315,7 @@ var wormXyObjects = {
   CLIENTE_ACTIVO: 3,
   CLIENTE_INACTIVO: 4,
 
-  nearPlayerCardEnabled: true,
+  nearPlayerCardEnabled: false,
   nearPlayerTargetId: null,
   nearPlayerTargetName: "",
   nearPlayerForcedSkin: 131,
@@ -9431,4 +9431,3 @@ document.addEventListener("contextmenu", function (p634) {
   document.head.appendChild(v603);
 })();
 console.log("%cDeveloper By platen.iraqcraft.store , bmw.iraqcraft.store", "color: #0099ff; font-size: 18px; font-weight: bold;");
-
