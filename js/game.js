@@ -380,62 +380,10 @@ document.addEventListener("keydown", function (ev) {
   }
 });
 
-setInterval(function () {
-  try {
-    if (!window.anApp || !window.anApp.o || !window.anApp.o.N || !window.anApp.o.hb) return;
-
-    const self = window.anApp.o.N;
-    if (!self || typeof self.Gf !== "function") return;
-
-    const selfPos = self.Gf();
-    let nearest = null;
-    let minDist = Infinity;
-
-    for (let id in window.anApp.o.hb) {
-      const p = window.anApp.o.hb[id];
-      if (!p || !p.Mb || !p.Hb || !p.Ib || typeof p.Gf !== "function") continue;
-
-      const pos = p.Gf();
-      if (!pos) continue;
-
-      const dist = Math.hypot(selfPos.x - pos.x, selfPos.y - pos.y);
-
-      if (dist < minDist) {
-        minDist = dist;
-        nearest = p;
-      }
-    }
-
-    const card = document.getElementById("near-player-card");
-    const nameEl = document.getElementById("near-player-card-name");
-
-    if (nearest && minDist <= wormXyObjects.nearPlayerMaxDistance) {
-      wormXyObjects.nearPlayerTargetId = nearest.Mb.Lb;
-      wormXyObjects.nearPlayerTargetName = nearest.Mb.ad || "";
-
-      if (card && nameEl) {
-        nameEl.textContent = wormXyObjects.nearPlayerTargetName || "Unknown";
-        card.style.display = "block";
-      }
-    } else {
-      wormXyObjects.nearPlayerTargetId = null;
-
-      if (card) {
-        card.style.display = "none";
-      }
-    }
-  } catch (e) {}
-}, 120);
 
 $(".store-view-cont").append("<div id=\"idReplaceSkin\"></div>");
 var StoreSkinID = $("#idReplaceSkin");
 
-setInterval(function () {
-  try {
-    mountFavoriteStoreButtonBMW();
-    refreshFavoriteStoreButtonBMW();
-  } catch (e) {}
-}, 500);
 
 $(".store-view-cont").append("<div id=\"idReplaceSkin\"></div>");
 var StoreSkinID = $("#idReplaceSkin");
