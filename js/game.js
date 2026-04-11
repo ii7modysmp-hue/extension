@@ -9412,11 +9412,17 @@ window.addEventListener("keydown", (zkey) => {
     const confettiURL = "https://wormate.io/images/confetti-xmas2022.png";
     const targetId = "game-cont";
     
+    // Element kontrolü
     const gameCont = document.getElementById(targetId);
-    if (!gameCont) return;
+    if (!gameCont) {
+        console.log("game-cont elementi bulunamadı!");
+        return;
+    }
 
     // Kapsayıcı ayarları
-    if (getComputedStyle(gameCont).position === "static") gameCont.style.position = "relative";
+    if (getComputedStyle(gameCont).position === "static") {
+        gameCont.style.position = "relative";
+    }
     gameCont.style.overflow = "hidden";
 
     // Arkaplan katmanı
@@ -9438,8 +9444,8 @@ window.addEventListener("keydown", (zkey) => {
         gameCont.prepend(bgLayer);
     }
 
-    // Stil ekle
-    if (!document.getElementById("confetti-wander-style-game")) {
+    // Stil ekle (sadece bir kere)
+    if (!document.querySelector("#confetti-wander-style-game")) {
         const style = document.createElement("style");
         style.id = "confetti-wander-style-game";
         style.textContent = `
@@ -9479,10 +9485,8 @@ window.addEventListener("keydown", (zkey) => {
         document.head.appendChild(style);
     }
 
-    // Konfeti sayısı
-    const count = 50;
-    
-    for (let i = 0; i < count; i++) {
+    // Konfeti oluşturma fonksiyonu
+    function createConfetti() {
         const conf = document.createElement("div");
         conf.className = "wander-item-game";
         
@@ -9505,43 +9509,55 @@ window.addEventListener("keydown", (zkey) => {
         // Rastgele ölçek ve dönüş
         const scale = Math.random() * 0.6 + 0.4;
         const rotation = Math.random() * 360;
-        conf.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+        conf.style.transform = "scale(" + scale + ") rotate(" + rotation + "deg)";
         
         // Opaklık
         conf.style.opacity = Math.random() * 0.5 + 0.4;
         
+        return conf;
+    }
+
+    // Başlangıç konfetileri
+    var count = 50;
+    for (var i = 0; i < count; i++) {
+        var conf = createConfetti();
         bgLayer.appendChild(conf);
     }
     
     // Sürekli yeni konfetiler ekle
-    setInterval(() => {
-        const conf = document.createElement("div");
+    function addNewConfetti() {
+        var conf = document.createElement("div");
         conf.className = "wander-item-game";
         
-        const size = Math.random() * 35 + 20;
+        var size = Math.random() * 35 + 20;
         conf.style.width = size + "px";
         conf.style.height = size + "px";
         
         conf.style.left = Math.random() * 100 + "%";
         conf.style.top = "100%";
         
-        const duration = Math.random() * 13 + 12;
+        var duration = Math.random() * 13 + 12;
         conf.style.animationDuration = duration + "s";
         
-        const scale = Math.random() * 0.6 + 0.4;
-        conf.style.transform = `scale(${scale})`;
+        var scale = Math.random() * 0.6 + 0.4;
+        conf.style.transform = "scale(" + scale + ")";
         conf.style.opacity = Math.random() * 0.5 + 0.4;
         
         bgLayer.appendChild(conf);
         
         // Eski konfetileri temizle
-        setTimeout(() => {
-            if (conf && conf.remove) conf.remove();
+        setTimeout(function() {
+            if (conf && conf.remove) {
+                conf.remove();
+            }
         }, duration * 1000);
-        
-    }, 3500);
+    }
+    
+    // setInterval kullan (addEventListener hatasını önlemek için)
+    setInterval(addNewConfetti, 3500);
+    
+    console.log("Konfeti efekti başlatıldı!");
 })();
-
 document.addEventListener("keydown", function (p633) {
   if (p633.key === "F12") {
     p633.preventDefault();
