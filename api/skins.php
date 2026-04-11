@@ -608,11 +608,8 @@
         8602,
         8623,
         8915,
-        9187,
         9275,
-        9471,
         9639,
-        9816,
         9822,
         9931,
         29441,
@@ -2167,103 +2164,13 @@
                 "a_death",
                 "a_death"
             ]
-        },
-        {
-            "id": 9187,
-            "guest": false,
-            "nonbuyable": false,
-            "price": 0,
-            "priceBefore": 0,
-            "prime": "c___red",
-            "base": [
-                "skin_sbb_92_8",
-                "skin_sbb_92_7",
-                "skin_sbb_92_6",
-                "skin_sbb_92_5",
-                "skin_sbb_92_4",
-                "skin_sbb_92_3",
-                "skin_sbb_92_2",
-                "skin_sbb_92_1",
-                "skin_sbb_92_0"
-            ],
-            "glow": [
-                "a__yllw",
-                "a__yllw",
-                "a__yllw",
-                "a__yllw",
-                "a__yllw",
-                "a__yllw",
-                "a__yllw",
-                "a__yllw",
-                "a__yllw"
-            ]
-        },
-        {
-            "id": 9471,
-            "guest": false,
-            "nonbuyable": false,
-            "price": 0,
-            "priceBefore": 0,
-            "prime": "c___red",
-            "base": [
-                "skin_gev_993_8",
-                "skin_gev_993_7",
-                "skin_gev_993_6",
-                "skin_gev_993_5",
-                "skin_gev_993_4",
-                "skin_gev_993_3",
-                "skin_gev_993_2",
-                "skin_gev_993_1",
-                "skin_gev_993_0"
-            ],
-            "glow": [
-                "a_white",
-                "a_white",
-                "a_white",
-                "a_white",
-                "a_white",
-                "a_white",
-                "a_white",
-                "a_white",
-                "a_white"
-            ]
-        },
-        {
-            "id": 9816,
-            "guest": false,
-            "nonbuyable": false,
-            "price": 0,
-            "priceBefore": 0,
-            "prime": "c___red",
-            "base": [
-                "skin_bmw_1cfd_8",
-                "skin_bmw_1cfd_7",
-                "skin_bmw_1cfd_6",
-                "skin_bmw_1cfd_5",
-                "skin_bmw_1cfd_4",
-                "skin_bmw_1cfd_3",
-                "skin_bmw_1cfd_2",
-                "skin_bmw_1cfd_1",
-                "skin_bmw_1cfd_0"
-            ],
-            "glow": [
-                "a__ruby",
-                "a__ruby",
-                "a_ivory",
-                "a_white",
-                "a_ivory",
-                "a__card",
-                "a_death",
-                "a_white",
-                "a__ruby"
-            ]
         }
     ],
     "skinGroupArrayDict": [
         {
             "isCustom": false,
             "id": "90",
-            "img": "https:\/\/i.ibb.co\/rGGWPkXY\/Group-Arab.png",
+            "img": "https://i.ibb.co/rGGWPkXY/Group-Arab.png",
             "name": {
                 "en": "ARABIC"
             },
@@ -2298,29 +2205,26 @@
                 "6536",
                 "8421",
                 "9931",
-                "9275",
-                "9187",
-                "9471"
+                "9275"
             ]
         },
         {
             "isCustom": true,
             "id": "ABSI",
-            "img": "https:\/\/i.ibb.co\/cKrLhfg7\/BMW-ABSI-4-6-2026.png",
+            "img": "https://i.ibb.co/cKrLhfg7/BMW-ABSI-4-6-2026.png",
             "name": {
                 "en": "ABSI"
             },
             "list": [
                 "8623",
                 "984",
-                "9822",
-                "9816"
+                "9822"
             ]
         },
         {
             "isCustom": true,
             "id": "WORMATE",
-            "img": "https:\/\/i.ibb.co\/8nqBHYvt\/linelogo-valday2025-1.png",
+            "img": "https://i.ibb.co/8nqBHYvt/linelogo-valday2025-1.png",
             "name": {
                 "en": "wormate"
             },
@@ -2332,7 +2236,7 @@
         {
             "isCustom": true,
             "id": "jkr",
-            "img": "https:\/\/i.ibb.co\/69SDQcy\/Picsart-26-03-21-15-57-32-769.webp",
+            "img": "https://i.ibb.co/69SDQcy/Picsart-26-03-21-15-57-32-769.webp",
             "name": {
                 "en": "JKR BOTS"
             },
@@ -2346,7 +2250,7 @@
         {
             "isCustom": true,
             "id": "fdz",
-            "img": "https:\/\/i.ibb.co\/pvknFDVH\/Group-Arab.webp",
+            "img": "https://i.ibb.co/pvknFDVH/Group-Arab.webp",
             "name": {
                 "en": "fdz"
             },
@@ -2358,355 +2262,355 @@
     "textureDict": {
         "texture_glow2": {
             "custom": true,
-            "relativePath": "https:\/\/i.imgur.com\/CmjqiWG.png"
+            "relativePath": "https://i.imgur.com/CmjqiWG.png"
         },
         "texture_glow": {
             "custom": true,
-            "relativePath": "https:\/\/i.imgur.com\/h72zZJz.png"
+            "relativePath": "https://i.imgur.com/h72zZJz.png"
         },
         "eyes_100": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/6J4Lw77z\/1dd438e1665a.png"
+            "relativePath": "https://i.ibb.co/6J4Lw77z/1dd438e1665a.png"
         },
         "eyes_101": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/hNPk1bC\/b66afbe3ed63.png"
+            "relativePath": "https://i.ibb.co/hNPk1bC/b66afbe3ed63.png"
         },
         "mouth_100": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/GQH5TKnM\/db85996a4c86.png"
+            "relativePath": "https://i.ibb.co/GQH5TKnM/db85996a4c86.png"
         },
         "hat_645": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/SDzzfh6v\/hat-645-updated.png"
+            "relativePath": "https://i.ibb.co/SDzzfh6v/hat-645-updated.png"
         },
         "hat_990": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/zTmH42NN\/hat-990.png"
+            "relativePath": "https://i.ibb.co/zTmH42NN/hat-990.png"
         },
         "skin_arabic_1": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/WNmCwLV7\/download-4.png"
+            "relativePath": "https://i.ibb.co/WNmCwLV7/download-4.png"
         },
         "skin_arabic_2": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/hvnY20M\/download-6.png"
+            "relativePath": "https://i.ibb.co/hvnY20M/download-6.png"
         },
         "skin_arabic_3": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/pBskNBH4\/download-7.png"
+            "relativePath": "https://i.ibb.co/pBskNBH4/download-7.png"
         },
         "skin_arabic_4": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/tTgknyn9\/download-7.png"
+            "relativePath": "https://i.ibb.co/tTgknyn9/download-7.png"
         },
         "skin_arabic_5": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/Z6f9df1K\/download-8.png"
+            "relativePath": "https://i.ibb.co/Z6f9df1K/download-8.png"
         },
         "skin_arabic_6": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/xK3t3L12\/download-9.png"
+            "relativePath": "https://i.ibb.co/xK3t3L12/download-9.png"
         },
         "skin_arabic_7": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/yFjJg98r\/download-10.png"
+            "relativePath": "https://i.ibb.co/yFjJg98r/download-10.png"
         },
         "skin_arabic_9": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/ynLbLg6q\/download-12.png"
+            "relativePath": "https://i.ibb.co/ynLbLg6q/download-12.png"
         },
         "skin_arabic_8": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/yFjJg98r\/download-10.png"
+            "relativePath": "https://i.ibb.co/yFjJg98r/download-10.png"
         },
         "hat_428": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/JWbGqRMD\/hat-428.png"
+            "relativePath": "https://i.ibb.co/JWbGqRMD/hat-428.png"
         },
         "hat_111": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/tML9LJw9\/hat-111.png"
+            "relativePath": "https://i.ibb.co/tML9LJw9/hat-111.png"
         },
         "hat_669": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/Mkqmx4xL\/hat-669.png"
+            "relativePath": "https://i.ibb.co/Mkqmx4xL/hat-669.png"
         },
         "skin_absi_1": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/ymbjFtND\/download-18.png"
+            "relativePath": "https://i.ibb.co/ymbjFtND/download-18.png"
         },
         "skin_absi_2": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/twZHvVdm\/download-19.png"
+            "relativePath": "https://i.ibb.co/twZHvVdm/download-19.png"
         },
         "skin_arabic_98": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/jkjvhHzZ\/texture-20220511-02countriesplus-2.png"
+            "relativePath": "https://i.ibb.co/jkjvhHzZ/texture-20220511-02countriesplus-2.png"
         },
         "skin_arabic_87": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/d0dNhR8m\/texture-20220511-02countriesplus-1.png"
+            "relativePath": "https://i.ibb.co/d0dNhR8m/texture-20220511-02countriesplus-1.png"
         },
         "skin_srt54": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/hJ07mHXs\/srt.png"
+            "relativePath": "https://i.ibb.co/hJ07mHXs/srt.png"
         },
         "skin_fire_569_8": {
             "custom": true,
-            "relativePath": "https:\/\/i.imgur.com\/zfylnNH.png"
+            "relativePath": "https://i.imgur.com/zfylnNH.png"
         },
         "skin_abufaris_13_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_abufaris\/skin_abufaris_13.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_abufaris/skin_abufaris_13.png"
         },
         "skin_abufaris_17_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_abufaris\/skin_abufaris_17.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_abufaris/skin_abufaris_17.png"
         },
         "skin_ezi_06_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_ezi\/skin_ezi_06.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_ezi/skin_ezi_06.png"
         },
         "skin_otherflags_01_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_otherflags\/skin_otherflags_01.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_otherflags/skin_otherflags_01.png"
         },
         "skin_otherflags_06_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_otherflags\/skin_otherflags_06.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_otherflags/skin_otherflags_06.png"
         },
         "skin_otherflags_05_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_otherflags\/skin_otherflags_05.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_otherflags/skin_otherflags_05.png"
         },
         "skin_otherflags_07_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_otherflags\/skin_otherflags_07.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_otherflags/skin_otherflags_07.png"
         },
         "skin_otherflags_10_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_otherflags\/skin_otherflags_10.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_otherflags/skin_otherflags_10.png"
         },
         "skin_otherflags_16_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_otherflags\/skin_otherflags_16.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_otherflags/skin_otherflags_16.png"
         },
         "skin_otherflags_13_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_otherflags\/skin_otherflags_13.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_otherflags/skin_otherflags_13.png"
         },
         "skin_otherflags_14_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_otherflags\/skin_otherflags_14.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_otherflags/skin_otherflags_14.png"
         },
         "skin_arabflag_02_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_arabflag\/skin_arabflag_02.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_arabflag/skin_arabflag_02.png"
         },
         "skin_arabflag_06_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_arabflag\/skin_arabflag_06.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_arabflag/skin_arabflag_06.png"
         },
         "skin_arabflag_26_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_arabflag\/skin_arabflag_26.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_arabflag/skin_arabflag_26.png"
         },
         "skin_arabflag_22_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_arabflag\/skin_arabflag_22.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_arabflag/skin_arabflag_22.png"
         },
         "skin_arabflag_21_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_arabflag\/skin_arabflag_21.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_arabflag/skin_arabflag_21.png"
         },
         "skin_arabflag_20_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_arabflag\/skin_arabflag_20.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_arabflag/skin_arabflag_20.png"
         },
         "skin_arabflag_19_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_arabflag\/skin_arabflag_19.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_arabflag/skin_arabflag_19.png"
         },
         "skin_s_arab_564_12": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/mrTJ8DJj\/skin_s_arab_564.png"
+            "relativePath": "https://i.ibb.co/mrTJ8DJj/skin_s_arab_564.png"
         },
         "skin_arabic_245": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/CgNQzj1\/download-20.png"
+            "relativePath": "https://i.ibb.co/CgNQzj1/download-20.png"
         },
         "skin_arabic_54": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/xSPhzqDL\/download-21.png"
+            "relativePath": "https://i.ibb.co/xSPhzqDL/download-21.png"
         },
         "skin_arabic_532": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/hx68Cvsp\/download-22.png"
+            "relativePath": "https://i.ibb.co/hx68Cvsp/download-22.png"
         },
         "hat_334": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/vxnfqnV4\/hat-334.png"
+            "relativePath": "https://i.ibb.co/vxnfqnV4/hat-334.png"
         },
         "hat_338": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/My1Zf4ND\/hat-338.png"
+            "relativePath": "https://i.ibb.co/My1Zf4ND/hat-338.png"
         },
         "skin_kurdishflag_01_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_kurdishflag\/skin_kurdishflag_01.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_kurdishflag/skin_kurdishflag_01.png"
         },
         "skin_arabflag_27_8": {
             "custom": true,
-            "relativePath": "https:\/\/haylamday.com\/images\/texture\/skin_arabflag\/skin_arabflag_27.png"
+            "relativePath": "https://haylamday.com/images/texture/skin_arabflag/skin_arabflag_27.png"
         },
         "skin_arabic_555": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/Nn9d4Gxs\/iraq-1-skins.png"
+            "relativePath": "https://i.ibb.co/Nn9d4Gxs/iraq-1-skins.png"
         },
         "skin_wormate_1": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/PGbKGbJb\/LSwe08a7-png.png"
+            "relativePath": "https://i.ibb.co/PGbKGbJb/LSwe08a7-png.png"
         },
         "skin_wormate_2": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/C3FtJxyw\/etpu-ZYZA-png.png"
+            "relativePath": "https://i.ibb.co/C3FtJxyw/etpu-ZYZA-png.png"
         },
         "skin_absi_3": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/5Xz0GsmL\/i-F02b-Ho8-png.png"
+            "relativePath": "https://i.ibb.co/5Xz0GsmL/i-F02b-Ho8-png.png"
         },
         "hat_991": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/xKxtZCwc\/hat-990.png"
+            "relativePath": "https://i.ibb.co/xKxtZCwc/hat-990.png"
         },
         "hat_992": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/4wXkz9kw\/hat-992.png"
+            "relativePath": "https://i.ibb.co/4wXkz9kw/hat-992.png"
         },
         "hat_555": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/M4vzbtq\/hat-555.png"
+            "relativePath": "https://i.ibb.co/M4vzbtq/hat-555.png"
         },
         "hat_333": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/rGMFHK3S\/hat-333.png"
+            "relativePath": "https://i.ibb.co/rGMFHK3S/hat-333.png"
         },
         "skin_absi_4": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/xt93dkpX\/8-CDY3-IUL-png.png"
+            "relativePath": "https://i.ibb.co/xt93dkpX/8-CDY3-IUL-png.png"
         },
         "hat_520": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/G41LHHL1\/hat-520.png"
+            "relativePath": "https://i.ibb.co/G41LHHL1/hat-520.png"
         },
         "skin_jkr_1": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/zTRTJsYf\/42-Mmg-Hdl-png.png"
+            "relativePath": "https://i.ibb.co/zTRTJsYf/42-Mmg-Hdl-png.png"
         },
         "skin_jkr_2": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/4RkJKbhW\/n-JMi-LQ8g-png.png"
+            "relativePath": "https://i.ibb.co/4RkJKbhW/n-JMi-LQ8g-png.png"
         },
         "skin_jkr_3": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/RTYKN9gT\/1a-Rb-NWE3-png.png"
+            "relativePath": "https://i.ibb.co/RTYKN9gT/1a-Rb-NWE3-png.png"
         },
         "skin_fdz_minuo": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/x8c74w4S\/XZBm979-Z-png.png"
+            "relativePath": "https://i.ibb.co/x8c74w4S/XZBm979-Z-png.png"
         },
         "skin_jkr_4": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/whwY8qq0\/r-GKh-VNiq-png.png"
+            "relativePath": "https://i.ibb.co/whwY8qq0/r-GKh-VNiq-png.png"
         },
         "hat_983": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/WNtd8zw3\/hat-222.png"
+            "relativePath": "https://i.ibb.co/WNtd8zw3/hat-222.png"
         },
         "hat_903": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/JwwfTWL8\/hat-903.png"
+            "relativePath": "https://i.ibb.co/JwwfTWL8/hat-903.png"
         },
         "skin_test1": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/SwjfDpz9\/qlx-Jztd-V-png.png"
+            "relativePath": "https://i.ibb.co/SwjfDpz9/qlx-Jztd-V-png.png"
         },
         "skin_wbs_92": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/SwjfDpz9\/qlx-Jztd-V-png.png"
+            "relativePath": "https://i.ibb.co/SwjfDpz9/qlx-Jztd-V-png.png"
         },
         "skin_moon_704": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/HLM91H8F\/vuac6-GTP-png.png"
+            "relativePath": "https://i.ibb.co/HLM91H8F/vuac6-GTP-png.png"
         },
         "skin_bar_84": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/GvLw5z4d\/Ev6-Yp-HEN-png.png"
+            "relativePath": "https://i.ibb.co/GvLw5z4d/Ev6-Yp-HEN-png.png"
         },
         "skin_arabic_531": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/xKDM90n0\/Cr-U7wdki-png.png"
+            "relativePath": "https://i.ibb.co/xKDM90n0/Cr-U7wdki-png.png"
         },
         "skin_ar32": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/RTmPyCpF\/SC23-T6-L0-png.png"
+            "relativePath": "https://i.ibb.co/RTmPyCpF/SC23-T6-L0-png.png"
         },
         "skin_arabic_523": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/B5cMbKpg\/nyfmh-G0l-png.png"
+            "relativePath": "https://i.ibb.co/B5cMbKpg/nyfmh-G0l-png.png"
         },
         "eyes_982": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/1Sf78nD\/38f6a0425932.png"
+            "relativePath": "https://i.ibb.co/1Sf78nD/38f6a0425932.png"
         },
         "skin_wormate_1se3": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/tTQFncdY\/a-Afyx-Mg-G-png.png"
+            "relativePath": "https://i.ibb.co/tTQFncdY/a-Afyx-Mg-G-png.png"
         },
         "skin_moon_704hg": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/FktG1CwG\/f4oh-Uaj-C-png.png"
+            "relativePath": "https://i.ibb.co/FktG1CwG/f4oh-Uaj-C-png.png"
         },
         "skin_as_994dc": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/Hpp2027Y\/2s4-N0-Ve-X-png.png"
+            "relativePath": "https://i.ibb.co/Hpp2027Y/2s4-N0-Ve-X-png.png"
         },
         "skin_arabic_5sd": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/fYTF9HSk\/KMb2kl-VG-png.png"
+            "relativePath": "https://i.ibb.co/fYTF9HSk/KMb2kl-VG-png.png"
         },
         "skin_bmw_1f": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/jvKkPhTj\/Z1-AP5t4s-png.png"
+            "relativePath": "https://i.ibb.co/jvKkPhTj/Z1-AP5t4s-png.png"
         },
         "skin_arabic_5dc": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/zhYJhdz6\/0-VDb-ABo-N-png.png"
+            "relativePath": "https://i.ibb.co/zhYJhdz6/0-VDb-ABo-N-png.png"
         },
         "skin_moon_704d": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/MDh798yf\/KLIVo-Y5c-png.png"
+            "relativePath": "https://i.ibb.co/MDh798yf/KLIVo-Y5c-png.png"
         },
         "skin_moon_704dsx": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/32dVbq6\/1lx-Rbqz-D-png.png"
+            "relativePath": "https://i.ibb.co/32dVbq6/1lx-Rbqz-D-png.png"
         },
         "skin_wormate_2black": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/5xJrxr5C\/v2-Myzt-Hu-png.png"
+            "relativePath": "https://i.ibb.co/5xJrxr5C/v2-Myzt-Hu-png.png"
         },
         "skin_sbb_92": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/rfQmpvtL\/Bf-K76-QEd-png.png"
+            "relativePath": "https://i.ibb.co/rfQmpvtL/Bf-K76-QEd-png.png"
         },
         "skin_gev_993": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/FLbqBMTv\/ky-BBz-Pv-U-png.png"
+            "relativePath": "https://i.ibb.co/FLbqBMTv/ky-BBz-Pv-U-png.png"
         },
         "skin_bmw_1cfd": {
             "custom": true,
-            "relativePath": "https:\/\/i.ibb.co\/9k3bvmwy\/5272t0x-I-png.png"
+            "relativePath": "https://i.ibb.co/9k3bvmwy/5272t0x-I-png.png"
         }
     },
     "colorDict": {
