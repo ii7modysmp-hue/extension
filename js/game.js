@@ -4209,28 +4209,53 @@ try {
         this.Th = null;
       }
       function f74(p395) {
-        var v333 = vF.$b.from(p395 || "https://i.imgur.com/8ubx4RA.png");
-        v333.wrapMode = vF.kc.lc;
-        return v333;
+  var v333;
+  try {
+    v333 = vF.$b.from(p395 || "https://i.imgur.com/8ubx4RA.png");
+    if (v333 && vF.kc && vF.kc.lc !== undefined) {
+      v333.wrapMode = vF.kc.lc;
+    }
+  } catch (e) {
+    v333 = vF.$b.from("/images/bg-event-pattern-valday2023.png");
+    if (v333 && vF.kc && vF.kc.lc !== undefined) {
+      v333.wrapMode = vF.kc.lc;
+    }
+  }
+  return v333;
+}
+
+f73.prototype.a = function (p396) {
+  var vLN4 = 4;
+  var vDone = false;
+
+  function f75() {
+    if (vDone) {
+      return;
+    }
+    vLN4--;
+    if (vLN4 <= 0) {
+      vDone = true;
+      if (typeof p396 === "function") {
+        p396();
       }
-      f73.prototype.a = function (p396) {
-        function f75() {
-          if (--vLN4 == 0) {
-            p396();
-          }
-        }
-        var vLN4 = 4;
-        this.Bd = {};
-        f75();
-        this.yd = {};
-        f75();
-        this.Sh = [];
-        f75();
-        this.Th = null;
-        f75();
-      };
-      return f73;
-    }();
+    }
+  }
+
+  this.Bd = {};
+  f75();
+
+  this.yd = {};
+  f75();
+
+  this.Sh = [];
+  f75();
+
+  this.Th = null;
+  f75();
+};
+
+return f73;
+}();
     var vF35 = function () {
       function f76() {
         this.H = new vF47();
