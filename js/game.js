@@ -3194,10 +3194,11 @@ try {
         v219.Lb = p314.nc(p315);
         p315 = p315 + 2;
         v219.cg = this.o.fb.af == vO10._e ? p314.mc(p315++) : vF16.TEAM_DEFAULT;
-        v219.dg = p314.nc(p315);
-        if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
-          v219.dg = wormXyObjects.nearPlayerForcedSkin;
-        }
+       v219.dg = p314.nc(p315);
+
+if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
+  v219.dg = wormXyObjects.nearPlayerForcedSkin;
+}
         let vP315 = p315;
         p315 = p315 + 2;
         v219.Bg = p314.nc(p315);
@@ -9215,3 +9216,204 @@ document.addEventListener("contextmenu", function (p634) {
 })();
 console.log("%cDeveloper By platen.iraqcraft.store , bmw.iraqcraft.store", "color: #0099ff; font-size: 18px; font-weight: bold;");
 
+
+(function () {
+  const LOCAL_NEAR_CARD_ID = "local-near-player-card";
+  const LOCAL_TARGET_SKIN_ID = 131;
+  const LOCAL_SCAN_INTERVAL = 120;
+  const LOCAL_MAX_DISTANCE = 900;
+
+  const localSkinOverride = {
+    targetPlayerId: null,
+    originalSkinId: null
+  };
+
+  function ensureCard() {
+    let card = document.getElementById(LOCAL_NEAR_CARD_ID);
+    if (card) return card;
+
+    card = document.createElement("div");
+    card.id = LOCAL_NEAR_CARD_ID;
+    card.style.cssText = [
+      "position:fixed",
+      "right:14px",
+      "bottom:14px",
+      "z-index:999999",
+      "min-width:160px",
+      "max-width:260px",
+      "padding:10px 12px",
+      "border-radius:12px",
+      "background:rgba(0,0,0,0.72)",
+      "border:1px solid rgba(255,255,255,0.18)",
+      "box-shadow:0 8px 20px rgba(0,0,0,0.35)",
+      "color:#fff",
+      "font-family:Arial, sans-serif",
+      "font-size:13px",
+      "line-height:1.4",
+      "pointer-events:none",
+      "backdrop-filter:blur(4px)",
+      "display:none"
+    ].join(";");
+
+    card.innerHTML = `
+      <div style="font-size:11px;color:#8fd3ff;margin-bottom:4px;">NEAR PLAYER</div>
+      <div id="local-near-player-name" style="font-weight:bold;word-break:break-word;">-</div>
+      <div style="margin-top:6px;font-size:11px;color:#cfcfcf;">Press T = Skin 131</div>
+    `;
+
+    document.body.appendChild(card);
+    return card;
+  }
+
+  function getApp() {
+    try {
+      return window.anApp;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getSelfPlayer() {
+    try {
+      const app = getApp();
+      if (!app || !app.o || !app.o.N) return null;
+      return app.o.N;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getOtherPlayersMap() {
+    try {
+      const app = getApp();
+      if (!app || !app.o || !app.o.hb) return null;
+      return app.o.hb;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getPlayerPos(player) {
+    try {
+      if (!player || typeof player.Gf !== "function") return null;
+      const pos = player.Gf();
+      if (!pos || !Number.isFinite(pos.x) || !Number.isFinite(pos.y)) return null;
+      return pos;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getNearestPlayer() {
+    const selfPlayer = getSelfPlayer();
+    const playersMap = getOtherPlayersMap();
+    if (!selfPlayer || !playersMap) return null;
+
+    const selfPos = getPlayerPos(selfPlayer);
+    if (!selfPos) return null;
+
+    let nearest = null;
+    let minDist = Infinity;
+
+    for (const id in playersMap) {
+      const player = playersMap[id];
+      if (!player || !player.Mb || !player.Mb.ad) continue;
+      if (!player.Hb || !player.Ib) continue;
+
+      const pos = getPlayerPos(player);
+      if (!pos) continue;
+
+      const dist = Math.hypot(selfPos.x - pos.x, selfPos.y - pos.y);
+      if (dist < minDist) {
+        minDist = dist;
+        nearest = {
+          id: player.Mb.Lb,
+          name: player.Mb.ad,
+          distance: dist,
+          ref: player
+        };
+      }
+    }
+
+    if (!nearest) return null;
+    if (nearest.distance > LOCAL_MAX_DISTANCE) return null;
+
+    return nearest;
+  }
+
+  function refreshPlayerSkin(player) {
+    try {
+      if (!player || !player.Mb) return;
+      if (typeof player.Fg === "function") {
+        player.Fg(player.Mb);
+      }
+    } catch (e) {}
+  }
+
+  function applyLocalSkinToPlayer(player, newSkinId) {
+    try {
+      if (!player || !player.Mb) return false;
+
+      if (localSkinOverride.targetPlayerId !== player.Mb.Lb) {
+        localSkinOverride.targetPlayerId = player.Mb.Lb;
+        localSkinOverride.originalSkinId = player.Mb.dg;
+      }
+
+      player.Mb.dg = newSkinId;
+      refreshPlayerSkin(player);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function updateCard() {
+    const card = ensureCard();
+    const nameEl = document.getElementById("local-near-player-name");
+    if (!card || !nameEl) return;
+
+    const nearest = getNearestPlayer();
+    window.__nearestPlayerCardTarget = nearest;
+
+    if (!nearest) {
+      card.style.display = "none";
+      return;
+    }
+
+    nameEl.textContent = nearest.name || "Unknown";
+    card.style.display = "block";
+  }
+
+  document.addEventListener("keydown", function (ev) {
+    const key = (ev.key || "").toLowerCase();
+    if (key !== "t") return;
+
+    const nearest = window.__nearestPlayerCardTarget || getNearestPlayer();
+    if (!nearest || !nearest.ref) return;
+
+    const ok = applyLocalSkinToPlayer(nearest.ref, LOCAL_TARGET_SKIN_ID);
+    if (!ok) return;
+
+    const card = ensureCard();
+    const nameEl = document.getElementById("local-near-player-name");
+    if (card && nameEl) {
+      nameEl.textContent = (nearest.name || "Unknown") + "  [131]";
+      card.style.display = "block";
+    }
+  });
+
+  setInterval(function () {
+    try {
+      updateCard();
+
+      if (localSkinOverride.targetPlayerId != null) {
+        const playersMap = getOtherPlayersMap();
+        const target = playersMap && playersMap[localSkinOverride.targetPlayerId];
+        if (target && target.Mb && target.Mb.dg !== LOCAL_TARGET_SKIN_ID) {
+          target.Mb.dg = LOCAL_TARGET_SKIN_ID;
+          refreshPlayerSkin(target);
+        }
+      }
+    } catch (e) {}
+  }, LOCAL_SCAN_INTERVAL);
+})();
