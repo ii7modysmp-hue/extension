@@ -610,6 +610,7 @@
         8915,
         9275,
         9287,
+        9487,
         9639,
         9822,
         9875,
@@ -2260,6 +2261,36 @@
                 "a_white",
                 "a_white"
             ]
+        },
+        {
+            "id": 9487,
+            "guest": false,
+            "nonbuyable": false,
+            "price": 0,
+            "priceBefore": 0,
+            "prime": "c___red",
+            "base": [
+                "skin_abood_984_8",
+                "skin_abood_984_7",
+                "skin_abood_984_6",
+                "skin_abood_984_5",
+                "skin_abood_984_4",
+                "skin_abood_984_3",
+                "skin_abood_984_2",
+                "skin_abood_984_1",
+                "skin_abood_984_0"
+            ],
+            "glow": [
+                "a__yllw",
+                "a__yllw",
+                "a__yllw",
+                "a__yllw",
+                "a__yllw",
+                "a__yllw",
+                "a__yllw",
+                "a__yllw",
+                "a__yllw"
+            ]
         }
     ],
     "skinGroupArrayDict": [
@@ -2316,7 +2347,8 @@
             "list": [
                 "8623",
                 "984",
-                "9822"
+                "9822",
+                "9487"
             ]
         },
         {
@@ -2725,6 +2757,10 @@
         "hat_968": {
             "custom": true,
             "relativePath": "https:\/\/i.ibb.co\/mFNSkT8b\/hat-968.png"
+        },
+        "skin_abood_984": {
+            "custom": true,
+            "relativePath": "https:\/\/i.ibb.co\/TDSW2Fp2\/j-Hk4m-R6-U-png.png"
         }
     },
     "colorDict": {
@@ -7643,6 +7679,69 @@
             "py": 64,
             "pw": 128,
             "ph": 128
+        },
+        "skin_abood_984_0": {
+            "texture": "skin_abood_984",
+            "h": 170,
+            "w": 174,
+            "x": 0,
+            "y": 0
+        },
+        "skin_abood_984_1": {
+            "texture": "skin_abood_984",
+            "h": 170,
+            "w": 174,
+            "x": 174,
+            "y": 0
+        },
+        "skin_abood_984_2": {
+            "texture": "skin_abood_984",
+            "h": 170,
+            "w": 174,
+            "x": 348,
+            "y": 0
+        },
+        "skin_abood_984_3": {
+            "texture": "skin_abood_984",
+            "h": 170,
+            "w": 174,
+            "x": 522,
+            "y": 0
+        },
+        "skin_abood_984_4": {
+            "texture": "skin_abood_984",
+            "h": 170,
+            "w": 174,
+            "x": 696,
+            "y": 0
+        },
+        "skin_abood_984_5": {
+            "texture": "skin_abood_984",
+            "h": 170,
+            "w": 174,
+            "x": 870,
+            "y": 0
+        },
+        "skin_abood_984_6": {
+            "texture": "skin_abood_984",
+            "h": 170,
+            "w": 174,
+            "x": 1044,
+            "y": 0
+        },
+        "skin_abood_984_7": {
+            "texture": "skin_abood_984",
+            "h": 170,
+            "w": 174,
+            "x": 1218,
+            "y": 0
+        },
+        "skin_abood_984_8": {
+            "texture": "skin_abood_984",
+            "h": 170,
+            "w": 174,
+            "x": 1396,
+            "y": 0
         }
     }
 }
