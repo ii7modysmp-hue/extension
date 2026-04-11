@@ -1,7 +1,10 @@
-document.documentElement.insertAdjacentHTML("afterbegin", `
+
+(function() {
+    // Benzersiz ID'ler ile çakışmayı önle
+    const preloaderHTML = `
     <style>
         /* Fullscreen preloader */
-        .preloader-overlay {
+        .custom-preloader-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -18,68 +21,68 @@ document.documentElement.insertAdjacentHTML("afterbegin", `
         }
 
         /* Animated background */
-        .preloader-bg {
+        .custom-preloader-bg {
             position: absolute;
             width: 100%;
             height: 100%;
             background: radial-gradient(circle at center, rgba(108, 92, 231, 0.15) 0%, rgba(0, 0, 0, 0.8) 100%);
-            animation: bgPulse 3s ease-in-out infinite;
+            animation: customBgPulse 3s ease-in-out infinite;
         }
 
-        @keyframes bgPulse {
+        @keyframes customBgPulse {
             0%, 100% { opacity: 0.6; }
             50% { opacity: 1; }
         }
 
         /* Logo container */
-        .logo-container {
+        .custom-logo-container {
             position: relative;
             margin-bottom: 50px;
-            animation: logoFloat 3s ease-in-out infinite;
+            animation: customLogoFloat 3s ease-in-out infinite;
         }
 
-        @keyframes logoFloat {
+        @keyframes customLogoFloat {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
         }
 
-        /* Logo image - DEĞİŞTİR: kendi logo URL'ni buraya yaz */
-        .preloader-logo {
+        /* Logo image */
+        .custom-preloader-logo {
             width: 180px;
             height: auto;
             filter: drop-shadow(0 0 20px rgba(108, 92, 231, 0.5));
         }
 
         /* Loading spinner */
-        .loading-spinner {
+        .custom-loading-spinner {
             width: 50px;
             height: 50px;
             border: 3px solid rgba(255, 255, 255, 0.1);
             border-top: 3px solid #6c5ce7;
             border-right: 3px solid #a8a4ff;
             border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+            animation: customSpin 0.8s linear infinite;
             margin-bottom: 30px;
         }
 
-        @keyframes spin {
+        @keyframes customSpin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
         /* Welcome text */
-        .welcome-text {
+        .custom-welcome-text {
             color: #ffffff;
             font-size: 28px;
             font-weight: 400;
             letter-spacing: 4px;
-           /* text-transform: uppercase; */
+            text-transform: uppercase;
             margin-bottom: 40px;
             text-shadow: 0 0 20px rgba(108, 92, 231, 0.5);
-            animation: textGlow 2s ease-in-out infinite;
+            animation: customTextGlow 2s ease-in-out infinite;
         }
 
-        @keyframes textGlow {
+        @keyframes customTextGlow {
             0%, 100% { 
                 text-shadow: 0 0 10px rgba(108, 92, 231, 0.3);
                 opacity: 0.8;
@@ -91,7 +94,7 @@ document.documentElement.insertAdjacentHTML("afterbegin", `
         }
 
         /* Simple progress bar */
-        .progress-container {
+        .custom-progress-container {
             width: 280px;
             max-width: 70vw;
             height: 3px;
@@ -100,7 +103,7 @@ document.documentElement.insertAdjacentHTML("afterbegin", `
             overflow: hidden;
         }
 
-        .progress-fill {
+        .custom-progress-fill {
             width: 0%;
             height: 100%;
             background: linear-gradient(90deg, #6c5ce7, #a8a4ff);
@@ -109,31 +112,31 @@ document.documentElement.insertAdjacentHTML("afterbegin", `
         }
 
         /* Loading dots animation */
-        .loading-dots {
+        .custom-loading-dots {
             display: inline-block;
             margin-left: 5px;
         }
 
-        .loading-dots span {
-            animation: dotBlink 1.4s infinite;
+        .custom-loading-dots span {
+            animation: customDotBlink 1.4s infinite;
             animation-fill-mode: both;
         }
 
-        .loading-dots span:nth-child(2) {
+        .custom-loading-dots span:nth-child(2) {
             animation-delay: 0.2s;
         }
 
-        .loading-dots span:nth-child(3) {
+        .custom-loading-dots span:nth-child(3) {
             animation-delay: 0.4s;
         }
 
-        @keyframes dotBlink {
+        @keyframes customDotBlink {
             0%, 80%, 100% { opacity: 0; }
             40% { opacity: 1; }
         }
 
         /* Small loading text under progress bar */
-        .loading-status {
+        .custom-loading-status {
             color: rgba(255, 255, 255, 0.5);
             font-size: 12px;
             margin-top: 15px;
@@ -142,80 +145,92 @@ document.documentElement.insertAdjacentHTML("afterbegin", `
 
         /* Responsive */
         @media (max-width: 768px) {
-            .preloader-logo {
+            .custom-preloader-logo {
                 width: 130px;
             }
-            .welcome-text {
+            .custom-welcome-text {
                 font-size: 22px;
                 letter-spacing: 3px;
             }
         }
-
-        /* Hide scrollbar */
-        body {
-            overflow: hidden;
-        }
     </style>
 
-    <div class="preloader-overlay" id="preloader">
-        <div class="preloader-bg"></div>
+    <div class="custom-preloader-overlay" id="customPreloader">
+        <div class="custom-preloader-bg"></div>
         
-        <div class="logo-container">
-            <!-- DEĞİŞTİR: Buraya kendi logo URL'ni koy -->
-            <img src="https://i.ibb.co/Vc8RtJcV/129977ef-1691-4c4c-94ca-da08d36600e1.webp" alt="Logo" class="preloader-logo" id="mainLogo">
+        <div class="custom-logo-container">
+            <img src="https://i.ibb.co/Vc8RtJcV/129977ef-1691-4c4c-94ca-da08d36600e1.webp" alt="Logo" class="custom-preloader-logo" id="customLogo">
         </div>
 
-        <div class="loading-spinner"></div>
+        <div class="custom-loading-spinner"></div>
         
-        <div class="welcome-text">
-            Welcome to the WormXY Extension
+        <div class="custom-welcome-text">
+            Welcome to the Wormate XY Extension
         </div>
     </div>
-`);
+    `;
 
-// Progress simulation
-let progress = 0;
-const progressFill = document.getElementById('progressFill');
+    // Preloader'ı ekle
+    document.documentElement.insertAdjacentHTML("afterbegin", preloaderHTML);
 
-function updateProgress() {
-    if (progress < 100) {
-        progress += Math.random() * 12 + 4;
-        if (progress > 100) progress = 100;
-        
-        progressFill.style.width = progress + '%';
-        
-        setTimeout(updateProgress, 150 + Math.random() * 100);
+    // Tüm değişkenleri fonksiyon scope'unda tut
+    let loadingProgress = 0;
+    const progressFill = document.getElementById('customProgressFill');
+    
+    // Body scroll'u engelle
+    document.body.style.overflow = 'hidden';
+    
+    function updateLoadingProgress() {
+        if (loadingProgress < 100) {
+            loadingProgress += Math.random() * 12 + 4;
+            if (loadingProgress > 100) loadingProgress = 100;
+            
+            if (progressFill) {
+                progressFill.style.width = loadingProgress + '%';
+            }
+            
+            setTimeout(updateLoadingProgress, 150 + Math.random() * 100);
+        } else {
+            // Preloader'ı kaldır
+            setTimeout(() => {
+                const preloader = document.getElementById('customPreloader');
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        if (preloader && preloader.parentNode) {
+                            preloader.remove();
+                            document.body.style.overflow = '';
+                        }
+                    }, 800);
+                }
+            }, 500);
+        }
+    }
+    
+    // Başlat
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            updateLoadingProgress();
+        });
     } else {
-        // Fade out and remove preloader
-        setTimeout(() => {
-            const preloader = document.getElementById('preloader');
+        updateLoadingProgress();
+    }
+    
+    // Fallback - max 5 saniye
+    setTimeout(() => {
+        const preloader = document.getElementById('customPreloader');
+        if (preloader && preloader.style.opacity !== '0') {
             preloader.style.opacity = '0';
             setTimeout(() => {
-                preloader.remove();
-                document.body.style.overflow = '';
+                if (preloader && preloader.parentNode) {
+                    preloader.remove();
+                    document.body.style.overflow = '';
+                }
             }, 800);
-        }, 500);
-    }
-}
+        }
+    }, 5000);
+})();
 
-// Start loading animation
-window.addEventListener('DOMContentLoaded', () => {
-    updateProgress();
-});
-
-// Fallback - max 5 seconds
-setTimeout(() => {
-    const preloader = document.getElementById('preloader');
-    if (preloader && preloader.style.opacity !== '0') {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            if (preloader && preloader.parentNode) {
-                preloader.remove();
-                document.body.style.overflow = '';
-            }
-        }, 800);
-    }
-}, 5000);
 window.detectLog = null;
 const _wrmxy = {
   BETAisSkinCustom(p) {
