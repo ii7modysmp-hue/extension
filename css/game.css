@@ -103,6 +103,21 @@ body {display:block !important;}
 }
 #JDHnkHtYwyXyVgG9>div #adbl-continue-container #adbl-continue:focus {outline:none;}
 #JDHnkHtYwyXyVgG9>div #adbl-continue-container #adbl-continue * {vertical-align:middle;}
+#game-wrap {
+  background-image: url(https://i.ibb.co/0RdK9SPt/Gemini-Generated-mage-1h53h41h53h41h53.png);
+  min-width:320px;
+  min-height:320px;
+  height:100%;
+  width:100%;
+  overflow:hidden;
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 #game-wrap:not(input) {
   -webkit-touch-callout:none;
   -webkit-user-select:none;
