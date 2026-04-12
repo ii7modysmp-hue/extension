@@ -710,7 +710,26 @@ const ctx = {
       fontWeight: "bold",
       fontFamily: "vuonghiep",
       wordWrap: true
-    })
+    }),
+    a: new PIXI.TextStyle({
+      align: "center",
+            fill: "#fff",
+            fontSize: 12,
+            lineJoin: "round",
+            stroke: "#FFF",
+            whiteSpace: "normal",
+            wordWrap: true
+    }),
+    b: new PIXI.TextStyle({
+      align: "center",
+            fill: "#f8d968",
+            fontSize: 12,
+            lineJoin: "round",
+            stroke: "red",
+            strokeThickness: 1,
+            whiteSpace: "normal",
+            wordWrap: true
+    }),
   }
 };
 ctx.clock = PIXI.Sprite.fromImage("https://i.imgur.com/v6szE9c.png");
@@ -733,16 +752,16 @@ if (wormXyObjects.ModeStremeranclock) {
 ctx.value_server = new PIXI.Text("W-XY", ctx.fontStyle.name);
 ctx.value_server.x = 55;
 ctx.value_server.y = 0;
-ctx.label_hs = new PIXI.Text("HS", ctx.fontStyle.amarillo);
-ctx.value1_hs = new PIXI.Text("0", ctx.fontStyle.amarillo);
-ctx.label_kill = new PIXI.Text("KL", ctx.fontStyle.morado);
-ctx.value1_kill = new PIXI.Text("0", ctx.fontStyle.morado);
+ctx.label_hs = new PIXI.Text("HS", ctx.fontStyle.b);
+ctx.value1_hs = new PIXI.Text("0", ctx.fontStyle.b);
+ctx.label_kill = new PIXI.Text("KILL", ctx.fontStyle.a);
+ctx.value1_kill = new PIXI.Text("0", ctx.fontStyle.a);
 if (wormXyObjects.ModeStremersaveheadshot) {
-  ctx.value2_hs = new PIXI.Text("", ctx.fontStyle.amarillo1);
-  ctx.value2_kill = new PIXI.Text("", ctx.fontStyle.morado1);
+  ctx.value2_hs = new PIXI.Text("", ctx.fontStyle.b);
+  ctx.value2_kill = new PIXI.Text("", ctx.fontStyle.a);
 } else {
-  ctx.value2_hs = new PIXI.Text("", ctx.fontStyle.amarillo1);
-  ctx.value2_kill = new PIXI.Text("", ctx.fontStyle.morado1);
+  ctx.value2_hs = new PIXI.Text("", ctx.fontStyle.baseVal);
+  ctx.value2_kill = new PIXI.Text("", ctx.fontStyle.a);
 }
 ;
 ctx.label_hs.x = 15;
@@ -3164,7 +3183,7 @@ try {
           v196.beginFill("black", 0.4);
           v196.drawCircle(0, 0, this.Kf);
           v196.endFill();
-          v196.lineStyle(2, 16777215);
+          v196.lineStyle(2, 16225317);
           v196.drawCircle(0, 0, this.Kf);
           v196.moveTo(0, -this.Kf);
           v196.lineTo(0, +this.Kf);
@@ -3174,7 +3193,7 @@ try {
           this.Sf.alpha = 0.55;
           this.Jf.zIndex = 2;
           this.Jf.alpha = 0.9;
-          this.Jf.beginFill(16711680);
+          this.Jf.beginFill(16225317);
           this.Jf.drawCircle(0, 0, this.Kf * 0.12);
           this.Jf.endFill();
           this.Jf.lineStyle(1, "black");
@@ -6059,7 +6078,7 @@ try {
           if (p555.keyCode == 32) {
             vThis14.rk = true;
           }
-          if (p555.keyCode == 49) {
+          if (p555.keyCode == 71) {
             wormXyObjects.emoji = true;
             setTimeout(() => {
               wormXyObjects.emoji = false;
