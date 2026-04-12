@@ -8553,7 +8553,8 @@ return vF1417;
           anApp.sa(vHoisinhnhanh2);
         }
       });
-      $(".mm-merchant").replaceWith("");
+      // تنظيف الواجهة القديمة
+$(".mm-merchant").replaceWith("");
 $(".description-text").replaceWith(`
 <div class="description-text">
     <div class="title-wormate-friends-connect" style="position: absolute; top: 0; z-index: 1; width: 95.5%; margin-top: 10px;">S E R V E R S</div>
@@ -8602,6 +8603,7 @@ $(".description-text").replaceWith(`
 </div>
 `);
 
+// المتغيرات والتحكم بالتبديل
 var isTimMapActive = false;
 
 $('#sort-toggle').on('click', function() {
@@ -8618,64 +8620,65 @@ $('#sort-toggle').on('click', function() {
     }
 });
 
-$(".ui-tab").on("click", account);
+// التعامل مع الأعلام والتبويبات
+$(".ui-tab").on("click", function() {
+    if (typeof account === "function") account();
+});
 
 $(".flag").click(function() {
     var v524 = $(this).attr("value");
-    wormXyObjects.flag = v524;
-    ctx.containerImgS.texture = ctx.onclickServer;
+    if (window.wormXyObjects) wormXyObjects.flag = v524;
+    if (window.ctx && ctx.containerImgS) ctx.containerImgS.texture = ctx.onclickServer;
     if (typeof retundFlagError === "function") retundFlagError();
 });
 
-for (var a = 0; a < servers.Api_listServer.length; a++) {
-    var server = servers.Api_listServer[a];
-    var serverUrl = server.serverUrl;
-    var serverName = server.name;
-    var serverRegion = server.region;
-    var isTimmap = server.TIMMAP;
-    var isWormxy = server.WORMXY;
-    
-    var serverElement = document.createElement("p");
-    serverElement.value = serverUrl;
-    serverElement.innerHTML = serverName;
-    
-    $(serverElement).attr("id", serverRegion);
-    $(serverElement).attr("class", "selectSala");
-    $(serverElement).attr("value", serverName);
-    
-    $(serverElement).click(function() {
-        var roomValue = $(this).find("#svhiep .valu").text().trim();
-        ctx.setServer(roomValue);
-        var fullUrl = $(this).val();
-        ctx.containerImgS.texture = ctx.onclickServer;
-        if (typeof retundFlagError === "function") retundFlagError();
-        window.server_url = fullUrl;
-        $("#mm-action-play").click();
-        $("#adbl-continue").click();
-    });
-    
-    if (isWormxy == 1) {
-        if (serverRegion == "peru") { $(".servers-peru").prepend(serverElement); }
-        else if (serverRegion == "mexico") { $(".servers-mexico").prepend(serverElement); }
-        else if (serverRegion == "eeuu") { $(".servers-eeuu").prepend(serverElement); }
-        else if (serverRegion == "canada") { $(".servers-canada").prepend(serverElement); }
-        else if (serverRegion == "germania") { $(".servers-germania").prepend(serverElement); }
-        else if (serverRegion == "francia") { $(".servers-francia").prepend(serverElement); }
-        else if (serverRegion == "singapur") { $(".servers-singapur").prepend(serverElement); }
-        else if (serverRegion == "japon") { $(".servers-japon").prepend(serverElement); }
-        else if (serverRegion == "australia") { $(".servers-australia").prepend(serverElement); }
-        else if (serverRegion == "granbretana") { $(".servers-granbretana").prepend(serverElement); }
-    }
-    
-    if (isTimmap == 1) {
-        var clonedElement = $(serverElement).clone(true);
-        $(".servers-timmap-list").prepend(clonedElement);
+// معالجة قائمة السيرفرات
+if (window.servers && servers.Api_listServer) {
+    for (var a = 0; a < servers.Api_listServer.length; a++) {
+        var server = servers.Api_listServer[a];
+        var serverUrl = server.serverUrl;
+        var serverName = server.name;
+        var serverRegion = server.region;
+        var isTimmap = server.TIMMAP;
+        var isWormxy = server.WORMXY;
+        
+        var serverElement = document.createElement("p");
+        serverElement.value = serverUrl;
+        serverElement.innerHTML = serverName;
+        
+        $(serverElement).attr({
+            "id": serverRegion,
+            "class": "selectSala",
+            "value": serverName
+        });
+        
+        $(serverElement).click(function() {
+            var roomValue = $(this).find("#svhiep .valu").text().trim();
+            if (window.ctx) {
+                if (typeof ctx.setServer === "function") ctx.setServer(roomValue);
+                if (ctx.containerImgS) ctx.containerImgS.texture = ctx.onclickServer;
+            }
+            if (typeof retundFlagError === "function") retundFlagError();
+            window.server_url = $(this).attr("value");
+            $("#mm-action-play").click();
+            $("#adbl-continue").click();
+        });
+        
+        // توزيع السيرفرات حسب المنطقة (Wormxy)
+        if (isWormxy == 1) {
+            var targetClass = ".servers-" + serverRegion;
+            if ($(targetClass).length) {
+                $(targetClass).prepend(serverElement);
+            }
+        }
+        
+        // إضافة للسيرفرات Timmap
+        if (isTimmap == 1) {
+            var clonedElement = $(serverElement).clone(true);
+            $(".servers-timmap-list").prepend(clonedElement);
+        }
     }
 }
-
-});
-      }
-    }
     function f103() {
       $("#getskin").on("click", function () {
         for (var vLN092 = 0; vLN092 < clientes.clientesActivos.length; vLN092++) {
