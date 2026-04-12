@@ -5314,6 +5314,21 @@ try {
       });
     }();
     var vF42 = function () {
+      // vF42 constructor içine EKLE
+      this.xxx5 = new vF39();
+      this.xxx5.kh(f6().q.X_x5);
+      this.xxx5.jh.zIndex = 0.001;
+      this.addChild(this.xxx5.jh);
+
+      this.xxx10 = new vF39();
+      this.xxx10.kh(f6().q.X_x10);
+      this.xxx10.jh.zIndex = 0.001;
+      this.addChild(this.xxx10.jh);
+
+      this.xxxLupatype = new vF39();
+      this.xxxLupatype.kh(f6().q.X_xxlupa);
+      this.xxxLupatype.jh.zIndex = 0.001;
+      this.addChild(this.xxxLupatype.jh);
       function f90() {
         this.Rf = new vF.Zb();
         this.Rf.sortableChildren = true;
@@ -5402,17 +5417,6 @@ try {
           this.guia_mobile.kh(f6().q.Id_mobileguia);
           this.guia_mobile.jh.zIndex = 0.001;
           this.addChild(this.guia_mobile.jh);
-        // x5 efekti
-        this.xxx5 = new vF39();
-        this.xxx5.kh(f6().q.X_x5);
-
-        // x10 efekti  
-        this.xxx10 = new vF39();
-        this.xxx10.kh(f6().q.X_x10);
-
-        // zoom/büyüteç efekti
-        this.xxxLupatype = new vF39();
-        this.xxxLupatype.kh(f6().q.X_xxlupa);
         });
         vF145.prototype.hh = function (p484, p485, p486, p487) {
           this.Lj(0.002, this.Cj, p484.Zc);
