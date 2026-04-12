@@ -4347,11 +4347,11 @@ try {
         var v329 = vF.$b.from("https://i.imgur.com/EDt862t.png");
         var v330 = vF.$b.from("https://i.imgur.com/U5sTlhC.png");
         var v331 = vF.$b.from("https://i.imgur.com/ub4ed3R.png");
-        var zigzag = vF.$b.from("https://i.imgur.com/LFiCido.png");
-        this.Rh = new vF32(zigzag, 156, 140, 87, 60, 170, 128.5, 128, 128);
-        this.X_x5 = new vF32(zigzag, 156, 80, 87, 60, 170, 1.5, 128, 128);
-        this.X_x10 = new vF32(zigzag, 158, 200, 95, 55, 265, 128.5, 128, 128);
-        this.X_xxlupa = new vF32(zigzag, 79, 8, 75, 77, 265, 1.5, 128, 128);
+        var v430 = vF.$b.from("https://i.imgur.com/LFiCido.png");
+        this.X_x5 = new vF32(v430, 156, 80, 87, 60, 170, 1.5, 128, 128);
+        this.X_x10 = new vF32(v430, 158, 200, 95, 55, 265, 128.5, 128, 128);
+        this.X_xxlupa = new vF32(v430, 79, 8, 75, 77, 265, 1.5, 128, 128);
+        this.Rh = new vF32(v430, 156, 140, 87, 60, 170, 128.5, 128, 128);        
         this.Id_mobileguia = new vF32(v331, 0, 0, 87, 74, 350, 63, 128, 128);
         this.emoji_headshot = new vF32(v329, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
         this.emoji_kill = new vF32(v330, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
@@ -5279,7 +5279,7 @@ try {
         this.pj.hh(vF66.o.fb.af, vF66.p.Dc().ed(this.Mb.cg), vF66.p.Dc().dd(this.Mb.dg), vF66.p.Dc().fd(this.Mb.Bg), vF66.p.Dc().gd(this.Mb.Cg), vF66.p.Dc().hd(this.Mb.Dg), vF66.p.Dc().jd(this.Mb.Eg));
         if (this.qj == null) {
           this.qj = new vF41("");
-          this.qj.style.fontFamily = "vuonghiep";
+          this.qj.style.fontFamily = "Arial";
           this.qj.anchor.set(0.5);
         } else {
           f23(this.qj);
@@ -5402,32 +5402,17 @@ try {
           this.guia_mobile.kh(f6().q.Id_mobileguia);
           this.guia_mobile.jh.zIndex = 0.001;
           this.addChild(this.guia_mobile.jh);
-          // zigzag
-          this.flx = new vF39();
-          this.flx.kh(f6().q.Rh);
-          this.flx.jh.zIndex = 0.001;
-          this.addChild(this.flx.jh);
-          this.flexx();
-          this.xxx5 = new vF39();
-          this.xxx5.kh(f6().q.X_x5);
-          this.xxx5.jh.zIndex = 0.001;
-          this.addChild(this.xxx5.jh);
-          this.xXx5();
-          this.xxx2 = new vF39();
-          this.xxx2.kh(f6().q.X_x2);
-          this.xxx2.jh.zIndex = 0.001;
-          this.addChild(this.xxx2.jh);
-          this.xXx2();
-          this.xxx10 = new vF39();
-          this.xxx10.kh(f6().q.X_x10);
-          this.xxx10.jh.zIndex = 0.001;
-          this.addChild(this.xxx10.jh);
-          this.xXx10();
-          this.xxxLupatype = new vF39();
-          this.xxxLupatype.kh(f6().q.X_xxlupa);
-          this.xxxLupatype.jh.zIndex = 0.001;
-          this.addChild(this.xxxLupatype.jh);
-          this.xXxLupaZ();
+        // x5 efekti
+        this.xxx5 = new vF39();
+        this.xxx5.kh(f6().q.X_x5);
+
+        // x10 efekti  
+        this.xxx10 = new vF39();
+        this.xxx10.kh(f6().q.X_x10);
+
+        // zoom/büyüteç efekti
+        this.xxxLupatype = new vF39();
+        this.xxxLupatype.kh(f6().q.X_xxlupa);
         });
         vF145.prototype.hh = function (p484, p485, p486, p487) {
           this.Lj(0.002, this.Cj, p484.Zc);
@@ -5493,67 +5478,32 @@ try {
         vF145.prototype.Kj = function () {
           this.Jj.jh.visible = false;
         };
-        vF145.prototype.Nflex = function (p510, p511, p512, p513) {
-          this.flx.jh.visible = true;
-          this.flx.jh.alpha = f18(
-            this.Jj.jh.alpha,
-            p510.hj ? 0.9 : 0.2,
-            p513,
-            0.0025
-          );
-          this.flx.oh(p511);
+        // DOĞRU SYNTAX - Prototype üzerine ekleme
+        vF43.prototype.ActiveX5 = function(p514, p515, p516, p517) {
+            this.xxx5.jh.visible = true;
+            this.xxx5.oh(p515);
         };
-        vF145.prototype.flexx = function () {
-          this.flx.jh.visible = false;
+
+        vF43.prototype.xXx5 = function() {
+            this.xxx5.jh.visible = false;
         };
-        vF145.prototype.ActiveX5 = function (p514, p515, p516, p517) {
-          this.xxx5.jh.visible = true;
-          this.xxx5.jh.alpha = f18(
-            this.Jj.jh.alpha,
-            p514.hj ? 0.9 : 0.2,
-            p517,
-            0.0025
-          );
-          this.xxx5.oh(p515);
+
+        vF43.prototype.ActiveX10 = function(p522, p523, p524, p525) {
+            this.xxx10.jh.visible = true;
+            this.xxx10.oh(p523);
         };
-        vF145.prototype.xXx5 = function () {
-          this.xxx5.jh.visible = false;
+
+        vF43.prototype.xXx10 = function() {
+            this.xxx10.jh.visible = false;
         };
-        vF145.prototype.ActiveX2 = function (p518, p519, p520, p521) {
-          this.xxx2.jh.visible = true;
-          this.xxx2.jh.alpha = f18(
-            this.Jj.jh.alpha,
-            p518.hj ? 0.9 : 0.2,
-            p521,
-            0.0025
-          );
-          this.xxx2.oh(p519);
+
+        vF43.prototype.ActiveZlupa = function(p526, p527, p528, p529) {
+            this.xxxLupatype.jh.visible = true;
+            this.xxxLupatype.oh(p527);
         };
-        vF145.prototype.xXx2 = function () {
-          this.xxx2.jh.visible = false;
-        };
-        vF145.prototype.ActiveX10 = function (p522, p523, p524, p525) {
-          this.xxx10.jh.visible = true;
-          this.xxx10.jh.alpha = f18(
-            this.Jj.jh.alpha,
-            p522.hj ? 0.9 : 0.2,
-            p525,
-            0.0025
-          );
-          this.xxx10.oh(p523);
-        };
-        vF145.prototype.xXx10 = function () {
-          this.xxx10.jh.visible = false;
-        };
-        vF145.prototype.ActiveZlupa = function (p526, p527, p528, p529) {
-          this.xxxLupatype.jh.visible = true;
-          this.xxxLupatype.jh.alpha = f18(
-            this.Jj.jh.alpha,
-            p526.hj ? 0.9 : 0.2,
-            p529,
-            0.0025
-          );
-          this.xxxLupatype.oh(p527);
+
+        vF43.prototype.xXxLupaZ = function() {
+            this.xxxLupatype.jh.visible = false;
         };
         vF145.prototype.xXxLupaZ = function () {
           this.xxxLupatype.jh.visible = false;
@@ -5707,36 +5657,27 @@ try {
           } else {
             this.vj.zas();
           }
-       var v577 = p516.Ff[vF2.FLEXIBLE_TYPE];
-        if (this.xj[0].gj() && v577 != null && v577.sc) {
-          this.vj.Nflex(p516, v433, p517, p518);
-        } else {
-          this.vj.flexx();
-        }
-        var v578 = p516.Ff[vF2.X5_TYPE];
-        if (this.xj[0].gj() && v578 != null && v578.sc) {
-          this.vj.ActiveX5(p516, v433, p517, p518);
-        } else {
-          this.vj.xXx5();
-        }
-        var v579 = p516.Ff[vF2.X2_TYPE];
-        if (this.xj[0].gj() && v579 != null && v579.sc) {
-          this.vj.ActiveX2(p516, v433, p517, p518);
-        } else {
-          this.vj.xXx2();
-        }
-        var v580 = p516.Ff[vF2.X10_TYPE];
-        if (this.xj[0].gj() && v580 != null && v580.sc) {
-          this.vj.ActiveX10(p516, v433, p517, p518);
-        } else {
-          this.vj.xXx10();
-        }
-        var v581 = p516.Ff[vF2.ZOOM_TYPE];
-        if (this.xj[0].gj() && v581 != null && v581.sc) {
-          this.vj.ActiveZlupa(p516, v433, p517, p518);
-        } else {
-          this.vj.xXxLupaZ();
-        }
+          // Mevcut efekt kontrolleri (x5, x10, zoom)
+    var v578 = p543.Ff[vF2.X5_TYPE];
+    if (this.xj[0].gj() && v578 != null && v578.sc) {
+        this.vj.ActiveX5(p543, v567, p544, p545);
+    } else {
+        this.vj.xXx5();
+    }
+    
+    var v580 = p543.Ff[vF2.X10_TYPE];
+    if (this.xj[0].gj() && v580 != null && v580.sc) {
+        this.vj.ActiveX10(p543, v567, p544, p545);
+    } else {
+        this.vj.xXx10();
+    }
+    
+    var v581 = p543.Ff[vF2.ZOOM_TYPE];
+    if (this.xj[0].gj() && v581 != null && v581.sc) {
+        this.vj.ActiveZlupa(p543, v567, p544, p545);
+    } else {
+        this.vj.xXxLupaZ();
+    }
         }
         ;
         if (wormXyObjects.mobile && wormXyObjects.arrow && p516 && p516.Mb && p516.Mb.Mb) {
@@ -8535,7 +8476,7 @@ return vF1417;
 $(".description-text").replaceWith(`
  <div class="description-text" style="position: relative; overflow: hidden;">
  <!-- خلفية شفافة -->
- <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('https://i.ibb.co/PvJsX7pm/Head.png'); background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0.08; z-index: 0; pointer-events: none;"></div>
+ <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('https://i.ibb.co/NngChRhX/56aa63df-2ca1-4713-941b-eb1598cab3d7.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0.08; z-index: 0; pointer-events: none;"></div>
  
  <div class="title-wormate-friends-connect" style="position: absolute; top: 0; z-index: 1; width: 95.5%;margin-top: 10px;">S E R V E R S </div>
  
