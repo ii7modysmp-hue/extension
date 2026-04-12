@@ -610,6 +610,10 @@ document.addEventListener("keydown", function (ev) {
 
 $(".store-view-cont").append("<div id=\"idReplaceSkin\"></div>");
 var StoreSkinID = $("#idReplaceSkin");
+
+
+$(".store-view-cont").append("<div id=\"idReplaceSkin\"></div>");
+var StoreSkinID = $("#idReplaceSkin");
 const ctx = {
   fontStyle: {
     name: new PIXI.TextStyle({
@@ -3554,12 +3558,26 @@ try {
   }
 
   if (p315 > 210) {
-  for (let v221 in this.o.hb) {
-    if (!this.o.hb[v221] || !this.o.hb[v221].Mb) {
-      continue;
-    }
-  }
-}
+    for (let v221 in this.o.hb) {
+      var v222 = this.o.hb[v221].Mb.dg;
+
+      if (wormXyObjects.ModeStremerdangaunhien) {
+      } else {
+        var vA8 = [5489, 1000, 1009, 1008, 1041, 1162];
+
+        if ([0, 1, 2, 3, 6, 32, 33, 34, 35, 8].includes(v222)) {
+          var v223 = Math.floor(Math.random() * vA8.length);
+          this.o.hb[v221].Mb.dg = vA8[v223];
+        }
+
+        if (/^(.+?)[a-zA-Z1-9@]+_+\d+(.+)/.test(this.o.hb[v221].Mb.ad)) {
+          const v224 = this.o.hb[v221].Mb.dg;
+          if ([0, 1, 2, 3, 6, 32, 33, 34, 35, 8].includes(v224)) {
+            var v223 = Math.floor(Math.random() * vA8.length);
+            this.o.hb[v221].Mb.dg = vA8[v223];
+          }
+        }
+      }
 
       if (
         this.o.hb[v221] &&
@@ -3598,8 +3616,7 @@ try {
     }
   }
 
-  try {
-  if (window.anApp && window.anApp.o && window.anApp.o.N && window.anApp.o.N.Mb && window.anApp.o.N.Mb.Lb === v219.Lb) {
+  if (window.anApp.o.N.Mb.Lb === v219.Lb) {
     v219.dg = wormXyObjects.PropertyManager.rh;
     v219.Bg = wormXyObjects.PropertyManager.sh;
     v219.Cg = wormXyObjects.PropertyManager.th;
@@ -3621,22 +3638,22 @@ try {
 
   v219.ad = vLS2;
 
-if (this.o && this.o.fb && this.o.fb.bf != null && this.o.fb.bf === v219.Lb) {
-  this.o.N.Fg(v219);
-  v219.Mb = v219.Lb;
-  v219.bd = v219.ad;
-} else {
-  var v229 = this.o.hb[v219.Lb];
-  if (v229 != null) {
-    v229.Kb();
+  if (this.o.fb.bf === v219.Lb) {
+    this.o.N.Fg(v219);
+    v219.Mb = v219.Lb;
+    v219.bd = v219.ad;
+  } else {
+    var v229 = this.o.hb[v219.Lb];
+    if (v229 != null) {
+      v229.Kb();
+    }
+    var v230 = new vF40(this.o.fb);
+    v230.vb(f6().s.H.wb);
+    this.o.hb[v219.Lb] = v230;
+    v230.Fg(v219);
   }
-  var v230 = new vF40(this.o.fb);
-  v230.vb(f6().s.H.wb);
-  this.o.hb[v219.Lb] = v230;
-  v230.Fg(v219);
-}
 
-return p315;
+  return p315;
 };
       f62.prototype.wg = function (p316, p317) {
         var v231 = p316.nc(p317);
