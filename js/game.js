@@ -8553,130 +8553,143 @@ return vF1417;
           anApp.sa(vHoisinhnhanh2);
         }
       });
-      // تنظيف الواجهة القديمة
+      // استبدال القسم القديم بقسم السيرفرات الجديد
 $(".mm-merchant").replaceWith("");
 $(".description-text").replaceWith(`
-<div class="description-text">
-    <div class="title-wormate-friends-connect" style="position: absolute; top: 0; z-index: 1; width: 95.5%; margin-top: 10px;">S E R V E R S</div>
-    
-    <div style="text-align: center; margin-top: 40px; position: relative; z-index: 2;">
-        <button id="sort-toggle" style="background: #e67e22; color: white; border: 1px solid #d35400; border-radius: 4px; padding: 5px 15px; cursor: pointer; font-size: 11px; font-weight: bold; min-width: 150px; text-transform: uppercase;">Tim Map Servers</button>
-    </div>
+    <div class="description-text">
+        <div class="title-wormate-friends-connect" style="position: absolute; top: 0; z-index: 1; width: 95.5%; margin-top: 10px;">
+            S E R V E R S
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; position: relative; z-index: 2;">
+            <button id="sort-toggle" style="background: #e67e22; color: white; border: 1px solid #d35400; border-radius: 4px; padding: 6px 18px; cursor: pointer; font-size: 11px; font-weight: bold; min-width: 160px; text-transform: uppercase;">
+                Tim Map Servers
+            </button>
+        </div>
 
-    <div class="description-text-hiep">
-        <div id="content-version-1" class="content-version active">
-            <ul class="ui-tabs-nav">
-                <li class="ui-tabs-tab ui-tab ui-tab-inactive0 ui-tab-active" style="margin: -5px"><a><span class="flag br" value="https://i.imgur.com/dixYLjk.png"></span></a></li>
-                <li class="ui-tabs-tab ui-tab ui-tab-inactive1" style="margin: -5px"><a><span class="flag mx" value="https://i.imgur.com/JMAvuFN.png"></span></a></li>
-                <li class="ui-tabs-tab ui-tab ui-tab-inactive2" style="margin: -5px"><a><span class="flag us" value="https://i.imgur.com/Jb2FF0y.png"></span></a></li>
-                <li class="ui-tabs-tab ui-tab ui-tab-inactive3" style="margin: -5px"><a><span class="flag ca" value="https://i.imgur.com/m1skEsB.png"></span></a></li>
-                <li class="ui-tabs-tab ui-tab ui-tab-inactive4" style="margin: -5px"><a><span class="flag de" value="https://i.imgur.com/VgCH8iy.png"></span></a></li>
-                <li class="ui-tabs-tab ui-tab ui-tab-inactive5" style="margin: -5px"><a><span class="flag fr" value="https://i.imgur.com/QuEjBr0.png"></span></a></li>
-                <li class="ui-tabs-tab ui-tab ui-tab-inactive6" style="margin: -5px"><a><span class="flag sg" value="https://i.imgur.com/bT3xWqF.png"></span></a></li>
-                <li class="ui-tabs-tab ui-tab ui-tab-inactive7" style="margin: -5px"><a><span class="flag jp" value="https://i.imgur.com/P2rYk1k.png"></span></a></li>
-                <li class="ui-tabs-tab ui-tab ui-tab-inactive8" style="margin: -5px"><a><span class="flag au" value="https://i.imgur.com/X0co8Ao.png"></span></a></li>
-                <li class="ui-tabs-tab ui-tab ui-tab-inactive9" style="margin: -5px"><a><span class="flag gb" value="https://i.imgur.com/8pQY6RW.png"></span></a></li>
-            </ul>
-            <div class="gachngang"></div>
-            <div id='mapsv'><div class='tensv'>Name</div><div class='valusv'>Region</div><div class='onlinesv'>On/Off</div><div class='img-teamsv'>Streamer</div></div>
-            <div class="gachngang"></div>
-            <div class="servers-container">
-                <div class="servers-peru"></div>
-                <div class="servers-mexico" style="display: none;"></div>
-                <div class="servers-eeuu" style="display: none;"></div>
-                <div class="servers-canada" style="display: none;"></div>
-                <div class="servers-germania" style="display: none;"></div>
-                <div class="servers-francia" style="display: none;"></div>
-                <div class="servers-singapur" style="display: none;"></div>
-                <div class="servers-japon" style="display: none;"></div>
-                <div class="servers-australia" style="display: none;"></div>
-                <div class="servers-granbretana" style="display: none;"></div>
+        <div class="description-text-hiep">
+            <!-- النسخة الأولى (السيرفرات حسب الدول) -->
+            <div id="content-version-1" class="content-version active">
+                <ul class="ui-tabs-nav">
+                    <li class="ui-tabs-tab ui-tab ui-tab-active" style="margin: -5px"><a><span class="flag br" value="https://i.imgur.com/dixYLjk.png"></span></a></li>
+                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag mx" value="https://i.imgur.com/JMAvuFN.png"></span></a></li>
+                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag us" value="https://i.imgur.com/Jb2FF0y.png"></span></a></li>
+                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag ca" value="https://i.imgur.com/m1skEsB.png"></span></a></li>
+                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag de" value="https://i.imgur.com/VgCH8iy.png"></span></a></li>
+                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag fr" value="https://i.imgur.com/QuEjBr0.png"></span></a></li>
+                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag sg" value="https://i.imgur.com/bT3xWqF.png"></span></a></li>
+                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag jp" value="https://i.imgur.com/P2rYk1k.png"></span></a></li>
+                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag au" value="https://i.imgur.com/X0co8Ao.png"></span></a></li>
+                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag gb" value="https://i.imgur.com/8pQY6RW.png"></span></a></li>
+                </ul>
+                
+                <div class="gachngang"></div>
+                
+                <div id="mapsv">
+                    <div class="tensv">Name</div>
+                    <div class="valusv">Region</div>
+                    <div class="onlinesv">On/Off</div>
+                    <div class="img-teamsv">Streamer</div>
+                </div>
+                
+                <div class="gachngang"></div>
+                
+                <div class="servers-container">
+                    <div class="servers-peru"></div>
+                    <div class="servers-mexico" style="display: none;"></div>
+                    <div class="servers-eeuu" style="display: none;"></div>
+                    <div class="servers-canada" style="display: none;"></div>
+                    <div class="servers-germania" style="display: none;"></div>
+                    <div class="servers-francia" style="display: none;"></div>
+                    <div class="servers-singapur" style="display: none;"></div>
+                    <div class="servers-japon" style="display: none;"></div>
+                    <div class="servers-australia" style="display: none;"></div>
+                    <div class="servers-granbretana" style="display: none;"></div>
+                </div>
+            </div>
+
+            <!-- النسخة الثانية (Tim Map Servers) -->
+            <div id="content-version-2" class="content-version" style="display: none;">
+                <div style="padding: 12px; color: #f1c40f; font-weight: bold; text-align: center; font-size: 14px;">
+                    TIM MAP SERVER LIST
+                </div>
+                <div class="gachngang"></div>
+                <div class="servers-timmap-list"></div>
             </div>
         </div>
-
-        <div id="content-version-2" class="content-version" style="display: none;">
-            <div style="padding: 10px; color: #f1c40f; font-weight: bold; text-align: center;">TIM MAP SERVER LIST</div>
-            <div class="gachngang"></div>
-            <div class="servers-timmap-list"></div>
-        </div>
     </div>
-</div>
 `);
 
-// المتغيرات والتحكم بالتبديل
-var isTimMapActive = false;
-
-$('#sort-toggle').on('click', function() {
-    if (isTimMapActive) {
+// ====================== منطق التبديل بين النسختين ======================
+$('#sort-toggle').on('click', function () {
+    if ($('#content-version-2').is(':visible')) {
         $('#content-version-2').hide();
-        $('#content-version-1').fadeIn().addClass('active');
+        $('#content-version-1').fadeIn(200).addClass('active');
         $(this).text('Tim Map Servers').css("background", "#e67e22");
-        isTimMapActive = false;
     } else {
         $('#content-version-1').hide().removeClass('active');
-        $('#content-version-2').fadeIn().addClass('active');
+        $('#content-version-2').fadeIn(200).addClass('active');
         $(this).text('WormWorld Servers').css("background", "#2ecc71");
-        isTimMapActive = true;
     }
 });
 
-// التعامل مع الأعلام والتبويبات
-$(".ui-tab").on("click", function() {
-    if (typeof account === "function") account();
-});
+// ====================== أحداث النقر على الأعلام ======================
+$(".ui-tab").on("click", account);
 
-$(".flag").click(function() {
-    var v524 = $(this).attr("value");
-    if (window.wormXyObjects) wormXyObjects.flag = v524;
-    if (window.ctx && ctx.containerImgS) ctx.containerImgS.texture = ctx.onclickServer;
+$(".flag").on("click", function () {
+    let flagUrl = $(this).attr("value");
+    wormXyObjects.flag = flagUrl;
+    ctx.containerImgS.texture = ctx.onclickServer;
     if (typeof retundFlagError === "function") retundFlagError();
 });
 
-// معالجة قائمة السيرفرات
-if (window.servers && servers.Api_listServer) {
-    for (var a = 0; a < servers.Api_listServer.length; a++) {
-        var server = servers.Api_listServer[a];
-        var serverUrl = server.serverUrl;
-        var serverName = server.name;
-        var serverRegion = server.region;
-        var isTimmap = server.TIMMAP;
-        var isWormxy = server.WORMXY;
+// ====================== توزيع السيرفرات من الـ API ======================
+for (let i = 0; i < servers.Api_listServer.length; i++) {
+    let s = servers.Api_listServer[i];
+
+    let vElement = document.createElement("p");
+    vElement.value = s.serverUrl;
+    vElement.innerHTML = s.name;
+    $(vElement).attr({
+        "id": s.region,
+        "class": "selectSala",
+        "value": s.name
+    });
+
+    // حدث النقر على السيرفر (موحد)
+    $(vElement).on("click", function () {
+        let vRoom = $(this).find("#svhiep .valu").text().trim() || s.name;
         
-        var serverElement = document.createElement("p");
-        serverElement.value = serverUrl;
-        serverElement.innerHTML = serverName;
+        ctx.setServer(vRoom);
+        ctx.containerImgS.texture = ctx.onclickServer;
         
-        $(serverElement).attr({
-            "id": serverRegion,
-            "class": "selectSala",
-            "value": serverName
-        });
+        if (typeof retundFlagError === "function") retundFlagError();
         
-        $(serverElement).click(function() {
-            var roomValue = $(this).find("#svhiep .valu").text().trim();
-            if (window.ctx) {
-                if (typeof ctx.setServer === "function") ctx.setServer(roomValue);
-                if (ctx.containerImgS) ctx.containerImgS.texture = ctx.onclickServer;
-            }
-            if (typeof retundFlagError === "function") retundFlagError();
-            window.server_url = $(this).attr("value");
-            $("#mm-action-play").click();
-            $("#adbl-continue").click();
-        });
-        
-        // توزيع السيرفرات حسب المنطقة (Wormxy)
-        if (isWormxy == 1) {
-            var targetClass = ".servers-" + serverRegion;
-            if ($(targetClass).length) {
-                $(targetClass).prepend(serverElement);
-            }
+        window.server_url = s.serverUrl;
+        $("#mm-action-play").click();
+        $("#adbl-continue").click();
+    });
+
+    // إضافة إلى السيرفرات الطبيعية (WORMXY)
+    if (s.WORMXY == 1) {
+        switch (s.region) {
+            case "peru":       $(".servers-peru").prepend(vElement); break;
+            case "mexico":     $(".servers-mexico").prepend(vElement); break;
+            case "eeuu":       $(".servers-eeuu").prepend(vElement); break;
+            case "canada":     $(".servers-canada").prepend(vElement); break;
+            case "germania":   $(".servers-germania").prepend(vElement); break;
+            case "francia":    $(".servers-francia").prepend(vElement); break;
+            case "singapur":   $(".servers-singapur").prepend(vElement); break;
+            case "japon":      $(".servers-japon").prepend(vElement); break;
+            case "australia":  $(".servers-australia").prepend(vElement); break;
+            case "granbretana": $(".servers-granbretana").prepend(vElement); break;
         }
-        
-        // إضافة للسيرفرات Timmap
-        if (isTimmap == 1) {
-            var clonedElement = $(serverElement).clone(true);
-            $(".servers-timmap-list").prepend(clonedElement);
-        }
+    }
+
+    // إضافة إلى قائمة Tim Map
+    if (s.TIMMAP == 1) {
+        let clone = $(vElement).clone(true);
+        $(".servers-timmap-list").prepend(clone);
     }
 }
     function f103() {
