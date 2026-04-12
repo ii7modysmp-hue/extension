@@ -3598,7 +3598,7 @@ try {
     }
   }
 
-  if (window.anApp.o.N.Mb.Lb === v219.Lb) {
+  if (window.anApp && window.anApp.o && window.anApp.o.N && window.anApp.o.N.Mb && window.anApp.o.N.Mb.Lb === v219.Lb) {
     v219.dg = wormXyObjects.PropertyManager.rh;
     v219.Bg = wormXyObjects.PropertyManager.sh;
     v219.Cg = wormXyObjects.PropertyManager.th;
@@ -3620,7 +3620,7 @@ try {
 
   v219.ad = vLS2;
 
-  if (this.o.fb.bf === v219.Lb) {
+  if (this.o && this.o.fb && this.o.fb.bf === v219.Lb) {
     this.o.N.Fg(v219);
     v219.Mb = v219.Lb;
     v219.bd = v219.ad;
