@@ -8553,22 +8553,16 @@ return vF1417;
           anApp.sa(vHoisinhnhanh2);
         }
       });
-      // استبدال القسم القديم بقسم السيرفرات الجديد
-$(".mm-merchant").replaceWith("");
+      $(".mm-merchant").replaceWith("");
 $(".description-text").replaceWith(`
     <div class="description-text">
-        <div class="title-wormate-friends-connect" style="position: absolute; top: 0; z-index: 1; width: 95.5%; margin-top: 10px;">
-            S E R V E R S
-        </div>
+        <div class="title-wormate-friends-connect" style="position: absolute; top: 0; z-index: 1; width: 95.5%; margin-top: 10px;">S E R V E R S </div>
         
         <div style="text-align: center; margin-top: 40px; position: relative; z-index: 2;">
-            <button id="sort-toggle" style="background: #e67e22; color: white; border: 1px solid #d35400; border-radius: 4px; padding: 6px 18px; cursor: pointer; font-size: 11px; font-weight: bold; min-width: 160px; text-transform: uppercase;">
-                Tim Map Servers
-            </button>
+            <button id="sort-toggle" style="background: #e67e22; color: white; border: 1px solid #d35400; border-radius: 4px; padding: 6px 18px; cursor: pointer; font-size: 11px; font-weight: bold; min-width: 160px; text-transform: uppercase;">Tim Map Servers</button>
         </div>
 
         <div class="description-text-hiep">
-            <!-- النسخة الأولى (السيرفرات حسب الدول) -->
             <div id="content-version-1" class="content-version active">
                 <ul class="ui-tabs-nav">
                     <li class="ui-tabs-tab ui-tab ui-tab-active" style="margin: -5px"><a><span class="flag br" value="https://i.imgur.com/dixYLjk.png"></span></a></li>
@@ -8582,18 +8576,9 @@ $(".description-text").replaceWith(`
                     <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag au" value="https://i.imgur.com/X0co8Ao.png"></span></a></li>
                     <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag gb" value="https://i.imgur.com/8pQY6RW.png"></span></a></li>
                 </ul>
-                
                 <div class="gachngang"></div>
-                
-                <div id="mapsv">
-                    <div class="tensv">Name</div>
-                    <div class="valusv">Region</div>
-                    <div class="onlinesv">On/Off</div>
-                    <div class="img-teamsv">Streamer</div>
-                </div>
-                
+                <div id='mapsv'><div class='tensv'>Name</div><div class='valusv'>Region</div><div class='onlinesv'>On/Off</div><div class='img-teamsv'>Streamer</div></div>
                 <div class="gachngang"></div>
-                
                 <div class="servers-container">
                     <div class="servers-peru"></div>
                     <div class="servers-mexico" style="display: none;"></div>
@@ -8608,11 +8593,8 @@ $(".description-text").replaceWith(`
                 </div>
             </div>
 
-            <!-- النسخة الثانية (Tim Map Servers) -->
             <div id="content-version-2" class="content-version" style="display: none;">
-                <div style="padding: 12px; color: #f1c40f; font-weight: bold; text-align: center; font-size: 14px;">
-                    TIM MAP SERVER LIST
-                </div>
+                <div style="padding: 12px; color: #f1c40f; font-weight: bold; text-align: center;">TIM MAP SERVER LIST</div>
                 <div class="gachngang"></div>
                 <div class="servers-timmap-list"></div>
             </div>
@@ -8620,7 +8602,6 @@ $(".description-text").replaceWith(`
     </div>
 `);
 
-// ====================== منطق التبديل بين النسختين ======================
 $('#sort-toggle').on('click', function () {
     if ($('#content-version-2').is(':visible')) {
         $('#content-version-2').hide();
@@ -8633,65 +8614,67 @@ $('#sort-toggle').on('click', function () {
     }
 });
 
-// ====================== أحداث النقر على الأعلام ======================
 $(".ui-tab").on("click", account);
 
 $(".flag").on("click", function () {
-    let flagUrl = $(this).attr("value");
-    wormXyObjects.flag = flagUrl;
+    let v524 = $(this).attr("value");
+    wormXyObjects.flag = v524;
     ctx.containerImgS.texture = ctx.onclickServer;
     if (typeof retundFlagError === "function") retundFlagError();
 });
 
-// ====================== توزيع السيرفرات من الـ API ======================
-for (let i = 0; i < servers.Api_listServer.length; i++) {
-    let s = servers.Api_listServer[i];
-
+for (let a = 0; a < servers.Api_listServer.length; a++) {
+    let s = servers.Api_listServer[a];
+    
     let vElement = document.createElement("p");
     vElement.value = s.serverUrl;
     vElement.innerHTML = s.name;
-    $(vElement).attr({
-        "id": s.region,
-        "class": "selectSala",
-        "value": s.name
-    });
+    $(vElement).attr("id", s.region);
+    $(vElement).attr("class", "selectSala");
+    $(vElement).attr("value", s.name);
 
-    // حدث النقر على السيرفر (موحد)
     $(vElement).on("click", function () {
-        let vRoom = $(this).find("#svhiep .valu").text().trim() || s.name;
-        
-        ctx.setServer(vRoom);
+        let v529 = $(this).find("#svhiep .valu").text().trim();
+        ctx.setServer(v529);
+        let v530 = $(this).val();
         ctx.containerImgS.texture = ctx.onclickServer;
-        
         if (typeof retundFlagError === "function") retundFlagError();
-        
-        window.server_url = s.serverUrl;
+        window.server_url = v530;
         $("#mm-action-play").click();
         $("#adbl-continue").click();
     });
 
-    // إضافة إلى السيرفرات الطبيعية (WORMXY)
     if (s.WORMXY == 1) {
-        switch (s.region) {
-            case "peru":       $(".servers-peru").prepend(vElement); break;
-            case "mexico":     $(".servers-mexico").prepend(vElement); break;
-            case "eeuu":       $(".servers-eeuu").prepend(vElement); break;
-            case "canada":     $(".servers-canada").prepend(vElement); break;
-            case "germania":   $(".servers-germania").prepend(vElement); break;
-            case "francia":    $(".servers-francia").prepend(vElement); break;
-            case "singapur":   $(".servers-singapur").prepend(vElement); break;
-            case "japon":      $(".servers-japon").prepend(vElement); break;
-            case "australia":  $(".servers-australia").prepend(vElement); break;
-            case "granbretana": $(".servers-granbretana").prepend(vElement); break;
-        }
+        if (s.region == "peru") $(".servers-peru").prepend(vElement);
+        else if (s.region == "mexico") $(".servers-mexico").prepend(vElement);
+        else if (s.region == "eeuu") $(".servers-eeuu").prepend(vElement);
+        else if (s.region == "canada") $(".servers-canada").prepend(vElement);
+        else if (s.region == "germania") $(".servers-germania").prepend(vElement);
+        else if (s.region == "francia") $(".servers-francia").prepend(vElement);
+        else if (s.region == "singapur") $(".servers-singapur").prepend(vElement);
+        else if (s.region == "japon") $(".servers-japon").prepend(vElement);
+        else if (s.region == "australia") $(".servers-australia").prepend(vElement);
+        else if (s.region == "granbretana") $(".servers-granbretana").prepend(vElement);
     }
 
-    // إضافة إلى قائمة Tim Map
     if (s.TIMMAP == 1) {
-        let clone = $(vElement).clone(true);
-        $(".servers-timmap-list").prepend(clone);
+        let vClone = $(vElement).clone(true);
+        $(".servers-timmap-list").prepend(vClone);
     }
 }
+
+$(v528).click(function () {
+ let v529 = $(this).find("#svhiep .valu").text().trim();
+ ctx.setServer(v529);
+ let v530 = $(this).val();
+ ctx.containerImgS.texture = ctx.onclickServer;
+ if(typeof retundFlagError === "function") retundFlagError();
+ window.server_url = v530;
+ $("#mm-action-play").click();
+ $("#adbl-continue").click();
+         });
+      }
+    }
     function f103() {
       $("#getskin").on("click", function () {
         for (var vLN092 = 0; vLN092 < clientes.clientesActivos.length; vLN092++) {
