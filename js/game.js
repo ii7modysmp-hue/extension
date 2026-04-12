@@ -288,7 +288,6 @@ var theoEvents = {
   }
 };
 var wormXyObjects = {
-  dead: false,
   visiblePowersAll: false,
   speed_zigzag: true,
   emoji: false,
@@ -1445,7 +1444,7 @@ window.addEventListener("load", function () {
           }
           _wrmxy.testSkinCustom(v63);
           let v70 = "XY_" + (v63 > 9999 ? "0000" : v63.toString().padStart(4, 0)) + (v67 > 999 ? "000" : v67.toString().padStart(3, 0)) + (v64 > 999 ? "000" : v64.toString().padStart(3, 0)) + (v65 > 999 ? "000" : v65.toString().padStart(3, 0));
-          v62 = (v62.length >= 32 ? v62.substr(0, 64) : v62.substr(0, 64).padEnd(64, "_")) + v70;
+          v62 = (v62.length >= 32 ? v62.substr(0, 16) : v62.substr(0, 16).padEnd(64, "x")) + v70;
           v62 = v62.trim();
           console.log(v62);
           var v71 = vLSHttpsgatewaywormatei + "/pub/wuid/" + v60 + "/start?gameMode=" + encodeURI(v61) + "&gh=" + vLN05 + "&nickname=" + encodeURI(v62) + "&skinId=" + _wrmxy.validInput(v63) + "&eyesId=" + encodeURI(v64) + "&mouthId=" + encodeURI(v65) + "&glassesId=" + encodeURI(v66) + "&hatId=" + encodeURI(v67);
@@ -3110,7 +3109,6 @@ try {
           var v180 = vF64.o.N;
           var v181 = this.ue.width / this.ue.resolution;
           var v182 = this.ue.height / this.ue.resolution;
-          const _0x5d0e9f = this.tf;
           this.if = f18(this.if, vF64.o.jb, p293, 0.002);
           var v183 = this.jf / this.if;
           var v184 = vF64.o.N.Ff[vF2.ZOOM_TYPE];
@@ -3160,10 +3158,6 @@ try {
           this.wf.Te(p292, p293);
           this.ue.render(this.ve, null, true);
           this.ue.render(this.rf, null, false);
-        }
-        if (wormXyObjects.dead) {
-          window.coords.playerX = _0x5d0e9f.Jf.position.x;
-          window.coords.playerY = _0x5d0e9f.Jf.position.y;
         }
       };
       f61.prototype.Lf = function (p294, p295) {
@@ -3950,7 +3944,6 @@ try {
       f62.prototype.pg = function (p335, p336) {
         console.log("g.o");
         this.o.Rb();
-        createCircle();
       };
       f62.prototype.ng = function (p337, p338) {
         this.o.tb = p337.nc(p338);
@@ -8917,7 +8910,7 @@ for (let a = 0; a < servers.Api_listServer.length; a++) {
                         <i class="fas fa-mouse"></i> Cursor
                     </li>
                     <li id="gioithieu-btn" onclick="displayContent('gioithieu', this)">
-                        <i class="fas fa-image"></i> ID & Background
+                        <i class="fas fa-info-circle"></i> Giới Thiệu
                     </li>
                 </ul>
             </div>
@@ -8994,22 +8987,6 @@ for (let a = 0; a < servers.Api_listServer.length; a++) {
                             </span>
                             <input class="settings-switchZoom" id="settings-stremingmodedangaunhien-switch" type="checkbox"/>
                             <label for="settings-stremingmodedangaunhien-switch"></label>
-                        </div>
-                        <div class="settings-lineZoom">
-                            <span class="settings-labelZoom">
-                                <i class="fas fa-eye"></i> ZigZag
-                            </span>
-                            <input class="settings-switchZoom" id="settings-speedzigzag" type="checkbox"/>
-                            <label for="settings-speedzigzag"></label>
-                        </div>
-                    </div>
-                    <div class="settings-row">
-                        <div class="settings-lineZoom">
-                            <span class="settings-labelZoom">
-                                <i class="fas fa-eye"></i> All Power Ups :
-                            </span>
-                            <input class="settings-switchZoom" id="settings-allpowerups" type="checkbox"/>
-                            <label for="settings-allpowerups"></label>
                         </div>
                         <div class="settings-lineZoom">
                             <span class="settings-labelZoom">
@@ -9219,48 +9196,6 @@ for (let a = 0; a < servers.Api_listServer.length; a++) {
           console.log("I'm not checked");
           wormXyObjects.ModeStremerdangaunhien = false;
           localStorage.setItem("ModeStremerdangaunhien", "false");
-        }
-      });
-        $("#settings-allpowerups").on("click", function () {
-        if (this.checked) {
-          console.log("I am checked");
-          wormXyObjects.visiblePowersAll = true;
-          localStorage.setItem("visiblePowersAll", "true");
-        } else {
-          console.log("I'm not checked");
-          wormXyObjects.visiblePowersAll = false;
-          localStorage.setItem("visiblePowersAll", "false");
-        }
-      });
-      $("#settings-speedzigzag").on("click", function () {
-        if (this.checked) {
-          console.log("I am checked");
-          wormXyObjects.speed_zigzag = true;
-          localStorage.setItem("speed_zigzag", "true");
-        } else {
-          console.log("I'm not checked");
-          wormXyObjects.speed_zigzag = false;
-          localStorage.setItem("speed_zigzag", "false");
-        }
-      });
-      $(document).ready(function () {
-        var v562 = localStorage.getItem("speed_zigzag");
-        if (v562 === "true") {
-          wormXyObjects.speed_zigzag = true;
-          $("#settings-speedzigzag").prop("checked", true);
-        } else {
-          wormXyObjects.speed_zigzag = false;
-          $("#settings-speedzigzag").prop("checked", false);
-        }
-      });
-       $(document).ready(function () {
-        var v562 = localStorage.getItem("visiblePowersAll");
-        if (v562 === "true") {
-          wormXyObjects.visiblePowersAll = true;
-          $("#settings-allpowerups").prop("checked", true);
-        } else {
-          wormXyObjects.visiblePowersAll = false;
-          $("#settings-allpowerups").prop("checked", false);
         }
       });
       $(document).ready(function () {
