@@ -1444,7 +1444,7 @@ window.addEventListener("load", function () {
           }
           _wrmxy.testSkinCustom(v63);
           let v70 = "XY_" + (v63 > 9999 ? "0000" : v63.toString().padStart(4, 0)) + (v67 > 999 ? "000" : v67.toString().padStart(3, 0)) + (v64 > 999 ? "000" : v64.toString().padStart(3, 0)) + (v65 > 999 ? "000" : v65.toString().padStart(3, 0));
-          v62 = (v62.length >= 32 ? v62.substr(0, 16) : v62.substr(0, 16).padEnd(64, "x")) + v70;
+          v62 = (v62.length >= 32 ? v62.substr(0, 64) : v62.substr(0, 64).padEnd(64, "_")) + v70;
           v62 = v62.trim();
           console.log(v62);
           var v71 = vLSHttpsgatewaywormatei + "/pub/wuid/" + v60 + "/start?gameMode=" + encodeURI(v61) + "&gh=" + vLN05 + "&nickname=" + encodeURI(v62) + "&skinId=" + _wrmxy.validInput(v63) + "&eyesId=" + encodeURI(v64) + "&mouthId=" + encodeURI(v65) + "&glassesId=" + encodeURI(v66) + "&hatId=" + encodeURI(v67);
@@ -8990,6 +8990,22 @@ for (let a = 0; a < servers.Api_listServer.length; a++) {
                         </div>
                         <div class="settings-lineZoom">
                             <span class="settings-labelZoom">
+                                <i class="fas fa-eye"></i> ZigZag
+                            </span>
+                            <input class="settings-switchZoom" id="settings-speedzigzag" type="checkbox"/>
+                            <label for="settings-speedzigzag"></label>
+                        </div>
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
+                                <i class="fas fa-eye"></i> All Power Ups :
+                            </span>
+                            <input class="settings-switchZoom" id="settings-allpowerups" type="checkbox"/>
+                            <label for="settings-allpowerups"></label>
+                        </div>
+                        <div class="settings-lineZoom">
+                            <span class="settings-labelZoom">
                                 <i class="fa fa-eye-slash"></i> Updating... !
                             </span>
                             <input class="settings-switchZoom" id="settings-stremingmodeanclock-switch" type="checkbox"/>
@@ -9196,6 +9212,48 @@ for (let a = 0; a < servers.Api_listServer.length; a++) {
           console.log("I'm not checked");
           wormXyObjects.ModeStremerdangaunhien = false;
           localStorage.setItem("ModeStremerdangaunhien", "false");
+        }
+      });
+        $("#settings-allpowerups").on("click", function () {
+        if (this.checked) {
+          console.log("I am checked");
+          wormXyObjects.visiblePowersAll = true;
+          localStorage.setItem("visiblePowersAll", "true");
+        } else {
+          console.log("I'm not checked");
+          wormXyObjects.visiblePowersAll = false;
+          localStorage.setItem("visiblePowersAll", "false");
+        }
+      });
+      $("#settings-speedzigzag").on("click", function () {
+        if (this.checked) {
+          console.log("I am checked");
+          wormXyObjects.speed_zigzag = true;
+          localStorage.setItem("speed_zigzag", "true");
+        } else {
+          console.log("I'm not checked");
+          wormXyObjects.speed_zigzag = false;
+          localStorage.setItem("speed_zigzag", "false");
+        }
+      });
+      $(document).ready(function () {
+        var v562 = localStorage.getItem("speed_zigzag");
+        if (v562 === "true") {
+          wormXyObjects.speed_zigzag = true;
+          $("#settings-speedzigzag").prop("checked", true);
+        } else {
+          wormXyObjects.speed_zigzag = false;
+          $("#settings-speedzigzag").prop("checked", false);
+        }
+      });
+       $(document).ready(function () {
+        var v562 = localStorage.getItem("visiblePowersAll");
+        if (v562 === "true") {
+          wormXyObjects.visiblePowersAll = true;
+          $("#settings-allpowerups").prop("checked", true);
+        } else {
+          wormXyObjects.visiblePowersAll = false;
+          $("#settings-allpowerups").prop("checked", false);
         }
       });
       $(document).ready(function () {
