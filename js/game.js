@@ -288,6 +288,7 @@ var theoEvents = {
   }
 };
 var wormXyObjects = {
+  
   s_l:"https://ii7modysmp-hue.github.io/extension", 
   logo:"https://i.ibb.co/jkkbBWvn/129977ef-1691-4c4c-94ca-da08d36600e1-1.png",
   FB_UserID: "",
@@ -5718,6 +5719,23 @@ try {
           this.xj[this.wj].Pf.ih();
           this.xj[this.wj].Nf.ih();
         }
+                const _0xa5434b = wormXyObjects.emoji && p516?.Mb?.Mb;
+        if (_0xa5434b) {
+          this.vj.ActiveEmoji(p516, _0x4e37ba, _0x32c08d, _0x534f27);
+        } else {
+          this.vj.x_emoji();
+        }
+        const _0x5c6d51 = this.xj[0].gj();
+        if (!_0x5c6d51) {
+          this.vj.Ij();
+          this.vj.Kj();
+          this.vj.flexx();
+          this.vj.xXx2();
+          this.vj.xXx5();
+          this.vj.xXx10();
+          this.vj.xXxLupaZ();
+          return;
+        }
         var v439 = p516.Ff[vF2.MAGNETIC_TYPE];
         if (this.xj[0].gj() && v439 != null && v439.sc) {
           this.vj.Mj(p516, v433, p517, p518);
@@ -5988,6 +6006,12 @@ try {
         $("html").keydown(function (p555) {
           if (p555.keyCode == 32) {
             vThis14.rk = true;
+          }
+          if (p555.keyCode == 49) {
+            wormXyObjects.emoji = true;
+            setTimeout(() => {
+              wormXyObjects.emoji = false;
+            }, 2000);
           }
           if (p555.keyCode == 107) {
             detecNewCodeAndPacth();
