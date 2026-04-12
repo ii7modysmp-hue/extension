@@ -1444,7 +1444,7 @@ window.addEventListener("load", function () {
           }
           _wrmxy.testSkinCustom(v63);
           let v70 = "XY_" + (v63 > 9999 ? "0000" : v63.toString().padStart(4, 0)) + (v67 > 999 ? "000" : v67.toString().padStart(3, 0)) + (v64 > 999 ? "000" : v64.toString().padStart(3, 0)) + (v65 > 999 ? "000" : v65.toString().padStart(3, 0));
-          v62 = (v62.length >= 32 ? v62.substr(0, 16) : v62.substr(0, 16).padEnd(64, "x")) + v70;
+          v62 = (v62.length >= 32 ? v62.substr(0, 64) : v62.substr(0, 64).padEnd(64, "_")) + v70;
           v62 = v62.trim();
           console.log(v62);
           var v71 = vLSHttpsgatewaywormatei + "/pub/wuid/" + v60 + "/start?gameMode=" + encodeURI(v61) + "&gh=" + vLN05 + "&nickname=" + encodeURI(v62) + "&skinId=" + _wrmxy.validInput(v63) + "&eyesId=" + encodeURI(v64) + "&mouthId=" + encodeURI(v65) + "&glassesId=" + encodeURI(v66) + "&hatId=" + encodeURI(v67);
