@@ -3621,7 +3621,24 @@ try {
 
   v219.ad = vLS2;
 
-  if (this.o && this.o.fb && this.o.fb.bf === v219.Lb) {
+if (typeof v219.ad === "string" && v219.ad.includes("XY_")) {
+  try {
+    var code = v219.ad.split("XY_")[1];
+    if (code && code.length >= 13) {
+      var skin = parseInt(code.substr(0, 4));
+      var hat = parseInt(code.substr(4, 3));
+      var eyes = parseInt(code.substr(7, 3));
+      var mouth = parseInt(code.substr(10, 3));
+
+      if (!isNaN(skin) && skin > 0) v219.dg = skin;
+      if (!isNaN(hat)) v219.Bg = hat;
+      if (!isNaN(eyes)) v219.Cg = eyes;
+      if (!isNaN(mouth)) v219.Eg = mouth;
+    }
+  } catch (e) {}
+}
+
+if (this.o && this.o.fb && this.o.fb.bf === v219.Lb) {
     this.o.N.Fg(v219);
     v219.Mb = v219.Lb;
     v219.bd = v219.ad;
