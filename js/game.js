@@ -5498,61 +5498,6 @@ try {
           );
           this.flx.oh(p511);
         };
-        vF145.prototype.flexx = function () {
-          this.flx.jh.visible = false;
-        };
-        vF145.prototype.ActiveX5 = function (p514, p515, p516, p517) {
-          this.xxx5.jh.visible = true;
-          this.xxx5.jh.alpha = f18(
-            this.Jj.jh.alpha,
-            p514.hj ? 0.9 : 0.2,
-            p517,
-            0.0025
-          );
-          this.xxx5.oh(p515);
-        };
-        vF145.prototype.xXx5 = function () {
-          this.xxx5.jh.visible = false;
-        };
-        vF145.prototype.ActiveX2 = function (p518, p519, p520, p521) {
-          this.xxx2.jh.visible = true;
-          this.xxx2.jh.alpha = f18(
-            this.Jj.jh.alpha,
-            p518.hj ? 0.9 : 0.2,
-            p521,
-            0.0025
-          );
-          this.xxx2.oh(p519);
-        };
-        vF145.prototype.xXx2 = function () {
-          this.xxx2.jh.visible = false;
-        };
-        vF145.prototype.ActiveX10 = function (p522, p523, p524, p525) {
-          this.xxx10.jh.visible = true;
-          this.xxx10.jh.alpha = f18(
-            this.Jj.jh.alpha,
-            p522.hj ? 0.9 : 0.2,
-            p525,
-            0.0025
-          );
-          this.xxx10.oh(p523);
-        };
-        vF145.prototype.xXx10 = function () {
-          this.xxx10.jh.visible = false;
-        };
-        vF145.prototype.ActiveZlupa = function (p526, p527, p528, p529) {
-          this.xxxLupatype.jh.visible = true;
-          this.xxxLupatype.jh.alpha = f18(
-            this.Jj.jh.alpha,
-            p526.hj ? 0.9 : 0.2,
-            p529,
-            0.0025
-          );
-          this.xxxLupatype.oh(p527);
-        };
-        vF145.prototype.xXxLupaZ = function () {
-          this.xxxLupatype.jh.visible = false;
-        };
         vF145.prototype.xzs = function () {
           this.xEmojiType_headshot.jh.visible = false;
         };
