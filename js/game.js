@@ -5314,21 +5314,6 @@ try {
       });
     }();
     var vF42 = function () {
-      // vF42 constructor içine EKLE
-      this.xxx5 = new vF39();
-      this.xxx5.kh(f6().q.X_x5);
-      this.xxx5.jh.zIndex = 0.001;
-      this.addChild(this.xxx5.jh);
-
-      this.xxx10 = new vF39();
-      this.xxx10.kh(f6().q.X_x10);
-      this.xxx10.jh.zIndex = 0.001;
-      this.addChild(this.xxx10.jh);
-
-      this.xxxLupatype = new vF39();
-      this.xxxLupatype.kh(f6().q.X_xxlupa);
-      this.xxxLupatype.jh.zIndex = 0.001;
-      this.addChild(this.xxxLupatype.jh);
       function f90() {
         this.Rf = new vF.Zb();
         this.Rf.sortableChildren = true;
