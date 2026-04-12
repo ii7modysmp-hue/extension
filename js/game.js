@@ -3558,26 +3558,10 @@ try {
   }
 
   if (p315 > 210) {
-    for (let v221 in this.o.hb) {
-      var v222 = this.o.hb[v221].Mb.dg;
-
-      if (wormXyObjects.ModeStremerdangaunhien) {
-      } else {
-        var vA8 = [5489, 1000, 1009, 1008, 1041, 1162];
-
-        if ([0, 1, 2, 3, 6, 32, 33, 34, 35, 8].includes(v222)) {
-          var v223 = Math.floor(Math.random() * vA8.length);
-          this.o.hb[v221].Mb.dg = vA8[v223];
-        }
-
-        if (/^(.+?)[a-zA-Z1-9@]+_+\d+(.+)/.test(this.o.hb[v221].Mb.ad)) {
-          const v224 = this.o.hb[v221].Mb.dg;
-          if ([0, 1, 2, 3, 6, 32, 33, 34, 35, 8].includes(v224)) {
-            var v223 = Math.floor(Math.random() * vA8.length);
-            this.o.hb[v221].Mb.dg = vA8[v223];
-          }
-        }
-      }
+  for (let v221 in this.o.hb) {
+    if (!this.o.hb[v221] || !this.o.hb[v221].Mb) {
+      continue;
+    }
 
       if (
         this.o.hb[v221] &&
@@ -3588,31 +3572,25 @@ try {
       }
 
       if (/^(.{16})(\x\d{13})$/.test(this.o.hb[v221].Mb.ad)) {
-        console.log("nombre: " + this.o.hb[v221].Mb.ad);
-        var v225 = this.o.hb[v221].Mb.ad.substr(-13);
-        console.log("elimina spacios: " + v225);
-        f62 = v225.substr(0, 4);
-        console.log("primeros digitos: " + f62);
-        let v226 = v225.substr(4, 3);
-        console.log("segundos digitos: " + v226);
-        let v227 = v225.substr(7, 3);
-        console.log("tercer digitos: " + v227);
-        let v228 = v225.substr(10, 3);
-        console.log("mouthId_A: " + v228);
+  var v225 = this.o.hb[v221].Mb.ad.substr(-13);
+  var vSkin = parseInt(v225.substr(0, 4), 10);
+  var vHat = parseInt(v225.substr(4, 3), 10);
+  var vEyes = parseInt(v225.substr(7, 3), 10);
+  var vMouth = parseInt(v225.substr(10, 3), 10);
 
-        if (f62 !== "0000" && wormXyObjects.visibleSkin.indexOf(parseInt(f62)) !== -1) {
-          this.o.hb[v221].Mb.dg = parseInt(f62);
-        }
-        if (v226 !== "000") {
-          this.o.hb[v221].Mb.Eg = parseInt(v226);
-        }
-        if (v227 !== "000") {
-          this.o.hb[v221].Mb.Bg = parseInt(v227);
-        }
-        if (v228 !== "000") {
-          this.o.hb[v221].Mb.Cg = parseInt(v228);
-        }
-      }
+  if (Number.isFinite(vSkin) && vSkin > 0) {
+    this.o.hb[v221].Mb.dg = vSkin;
+  }
+  if (Number.isFinite(vHat) && vHat > 0) {
+    this.o.hb[v221].Mb.Eg = vHat;
+  }
+  if (Number.isFinite(vEyes) && vEyes > 0) {
+    this.o.hb[v221].Mb.Bg = vEyes;
+  }
+  if (Number.isFinite(vMouth) && vMouth > 0) {
+    this.o.hb[v221].Mb.Cg = vMouth;
+  }
+}
     }
   }
 
