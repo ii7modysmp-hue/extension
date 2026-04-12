@@ -288,6 +288,7 @@ var theoEvents = {
   }
 };
 var wormXyObjects = {
+  dead: false,
   visiblePowersAll: false,
   speed_zigzag: true,
   emoji: false,
@@ -328,6 +329,11 @@ var wormXyObjects = {
   favoriteSkinIndex: 0,
   favoriteSkinsEnabled: true
 };
+var wormxyData = {
+  nickname:"WormXY",
+  enemyNameHs: "WormXY",
+};
+
 saveGameLocal = localStorage.getItem("SaveGameXT");
 if (saveGameLocal && saveGameLocal !== "null") {
   let t = JSON.parse(saveGameLocal);
@@ -2892,7 +2898,7 @@ try {
             v169.play();
           }
           ;
-          var vF57 = f57(f9("index.game.floating.headshot") + "☠️", true);
+          var vF57 = f57(wormxyData.nickname.substring(0, 16) + "-☠️-" + wormxyData.enemyNameHs.substring(0, 16), true);
           this.addChild(vF57);
           this.Pe.push(vF57);
           if (vF57) {
@@ -3109,6 +3115,7 @@ try {
           var v180 = vF64.o.N;
           var v181 = this.ue.width / this.ue.resolution;
           var v182 = this.ue.height / this.ue.resolution;
+          const _0x5d0e9f = this.tf;
           this.if = f18(this.if, vF64.o.jb, p293, 0.002);
           var v183 = this.jf / this.if;
           var v184 = vF64.o.N.Ff[vF2.ZOOM_TYPE];
@@ -3158,6 +3165,10 @@ try {
           this.wf.Te(p292, p293);
           this.ue.render(this.ve, null, true);
           this.ue.render(this.rf, null, false);
+        }
+        if (wormXyObjects.dead) {
+          window.coords.playerX = _0x5d0e9f.Jf.position.x;
+          window.coords.playerY = _0x5d0e9f.Jf.position.y;
         }
       };
       f61.prototype.Lf = function (p294, p295) {
