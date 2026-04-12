@@ -3556,23 +3556,7 @@ try {
     for (let v221 in this.o.hb) {
       var v222 = this.o.hb[v221].Mb.dg;
 
-      if (wormXyObjects.ModeStremerdangaunhien) {
-      } else {
-        var vA8 = [5489, 1000, 1009, 1008, 1041, 1162];
-
-        if ([0, 1, 2, 3, 6, 32, 33, 34, 35, 8].includes(v222)) {
-          var v223 = Math.floor(Math.random() * vA8.length);
-          this.o.hb[v221].Mb.dg = vA8[v223];
-        }
-
-        if (/^(.+?)[a-zA-Z1-9@]+_+\d+(.+)/.test(this.o.hb[v221].Mb.ad)) {
-          const v224 = this.o.hb[v221].Mb.dg;
-          if ([0, 1, 2, 3, 6, 32, 33, 34, 35, 8].includes(v224)) {
-            var v223 = Math.floor(Math.random() * vA8.length);
-            this.o.hb[v221].Mb.dg = vA8[v223];
-          }
-        }
-      }
+      
 
       if (
         this.o.hb[v221] &&
@@ -3582,49 +3566,22 @@ try {
         this.o.hb[v221].Mb.dg = wormXyObjects.nearPlayerForcedSkin;
       }
 
-      if (/^(.{16})(\x\d{13})$/.test(this.o.hb[v221].Mb.ad)) {
-        console.log("nombre: " + this.o.hb[v221].Mb.ad);
-        var v225 = this.o.hb[v221].Mb.ad.substr(-13);
-        console.log("elimina spacios: " + v225);
-        f62 = v225.substr(0, 4);
-        console.log("primeros digitos: " + f62);
-        let v226 = v225.substr(4, 3);
-        console.log("segundos digitos: " + v226);
-        let v227 = v225.substr(7, 3);
-        console.log("tercer digitos: " + v227);
-        let v228 = v225.substr(10, 3);
-        console.log("mouthId_A: " + v228);
-
-        if (f62 !== "0000" && wormXyObjects.visibleSkin.indexOf(parseInt(f62)) !== -1) {
-          this.o.hb[v221].Mb.dg = parseInt(f62);
-        }
-        if (v226 !== "000") {
-          this.o.hb[v221].Mb.Eg = parseInt(v226);
-        }
-        if (v227 !== "000") {
-          this.o.hb[v221].Mb.Bg = parseInt(v227);
-        }
-        if (v228 !== "000") {
-          this.o.hb[v221].Mb.Cg = parseInt(v228);
-        }
-      }
-    }
-  }
+     
 
   if (window.anApp.o.N.Mb.Lb === v219.Lb) {
-    v219.dg = wormXyObjects.PropertyManager.rh;
-    v219.Bg = wormXyObjects.PropertyManager.sh;
-    v219.Cg = wormXyObjects.PropertyManager.th;
-    v219.Dg = wormXyObjects.PropertyManager.uh;
-    v219.Eg = wormXyObjects.PropertyManager.vh;
-    p314.setInt16(vP315, v219.dg);
-    p314.setInt16(vP3152, v219.Bg);
-    p314.setInt16(vP3153, v219.Cg);
-    p314.setInt16(vP3154, v219.Dg);
-    p314.setInt16(vP3155, v219.Eg);
-    _wrmxy.aload = true;
-    _wrmxy.aId = vP315;
-  }
+  v219.dg = wormXyObjects.PropertyManager.rh;
+  v219.Bg = wormXyObjects.PropertyManager.sh;
+  v219.Cg = wormXyObjects.PropertyManager.th;
+  v219.Dg = wormXyObjects.PropertyManager.uh;
+  v219.Eg = wormXyObjects.PropertyManager.vh;
+  p314.setInt16(vP315, v219.dg);
+  p314.setInt16(vP3152, v219.Bg);
+  p314.setInt16(vP3153, v219.Cg);
+  p314.setInt16(vP3154, v219.Dg);
+  p314.setInt16(vP3155, v219.Eg);
+  _wrmxy.aload = true;
+  _wrmxy.aId = vP315;
+}
 
   if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
     v219.dg = wormXyObjects.nearPlayerForcedSkin;
