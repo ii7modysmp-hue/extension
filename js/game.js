@@ -3598,6 +3598,7 @@ try {
     }
   }
 
+  try {
   if (window.anApp && window.anApp.o && window.anApp.o.N && window.anApp.o.N.Mb && window.anApp.o.N.Mb.Lb === v219.Lb) {
     v219.dg = wormXyObjects.PropertyManager.rh;
     v219.Bg = wormXyObjects.PropertyManager.sh;
@@ -3634,8 +3635,9 @@ try {
     this.o.hb[v219.Lb] = v230;
     v230.Fg(v219);
   }
+} catch (e) {}
 
-  return p315;
+return p315;
 };
       f62.prototype.wg = function (p316, p317) {
         var v231 = p316.nc(p317);
