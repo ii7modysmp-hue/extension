@@ -8675,6 +8675,7 @@ $(v528).click(function () {
          });
       }
     }
+    
     function f103() {
       $("#getskin").on("click", function () {
         for (var vLN092 = 0; vLN092 < clientes.clientesActivos.length; vLN092++) {
