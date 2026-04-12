@@ -3583,29 +3583,27 @@ try {
   _wrmxy.aId = vP315;
 }
 
-  if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
-    v219.dg = wormXyObjects.nearPlayerForcedSkin;
-    p314.setInt16(vP315, v219.dg);
+if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
+  v219.dg = wormXyObjects.nearPlayerForcedSkin;
+  p314.setInt16(vP315, v219.dg);
+}
+
+v219.ad = vLS2;
+if (this.o.fb.bf === v219.Lb) {
+  this.o.N.Fg(v219);
+  v219.Mb = v219.Lb;
+  v219.bd = v219.ad;
+} else {
+  var v229 = this.o.hb[v219.Lb];
+  if (v229 != null) {
+    v229.Kb();
   }
-
-  v219.ad = vLS2;
-
-  if (this.o.fb.bf === v219.Lb) {
-    this.o.N.Fg(v219);
-    v219.Mb = v219.Lb;
-    v219.bd = v219.ad;
-  } else {
-    var v229 = this.o.hb[v219.Lb];
-    if (v229 != null) {
-      v229.Kb();
-    }
-    var v230 = new vF40(this.o.fb);
-    v230.vb(f6().s.H.wb);
-    this.o.hb[v219.Lb] = v230;
-    v230.Fg(v219);
-  }
-
-  return p315;
+  var v230 = new vF40(this.o.fb);
+  v230.vb(f6().s.H.wb);
+  this.o.hb[v219.Lb] = v230;
+  v230.Fg(v219);
+}
+return p315;
 };
       f62.prototype.wg = function (p316, p317) {
         var v231 = p316.nc(p317);
