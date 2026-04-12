@@ -4348,10 +4348,13 @@ try {
         var v330 = vF.$b.from("https://i.imgur.com/U5sTlhC.png");
         var v331 = vF.$b.from("https://i.imgur.com/ub4ed3R.png");
         var zigzag = vF.$b.from("https://i.imgur.com/LFiCido.png");
+        
+        // ========== LFiCido.png SPRITE BÖLGELERİ (POWER-UP EFEKTLERİ) ==========
         this.Rh = new vF32(zigzag, 156, 140, 87, 60, 170, 128.5, 128, 128);
         this.X_x5 = new vF32(zigzag, 156, 80, 87, 60, 170, 1.5, 128, 128);
         this.X_x10 = new vF32(zigzag, 158, 200, 95, 55, 265, 128.5, 128, 128);
         this.X_xxlupa = new vF32(zigzag, 79, 8, 75, 77, 265, 1.5, 128, 128);
+          // ... devam eden kodlar
         this.Id_mobileguia = new vF32(v331, 0, 0, 87, 74, 350, 63, 128, 128);
         this.emoji_headshot = new vF32(v329, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
         this.emoji_kill = new vF32(v330, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
@@ -5402,7 +5405,7 @@ try {
           this.guia_mobile.kh(f6().q.Id_mobileguia);
           this.guia_mobile.jh.zIndex = 0.001;
           this.addChild(this.guia_mobile.jh);
-                 // ========== LFiCido.png POWER-UP EFEKTLERİ ==========
+        // ========== LFiCido.png EFEKT OBJELERİ ==========
         this.xxx5 = new vF39();
         this.xxx5.kh(f6().q.X_x5);
         this.xxx5.jh.zIndex = 0.001;
@@ -5568,10 +5571,9 @@ try {
           this.xEmojiType_kill.jh.visible = true;
           this.xEmojiType_kill.oh(p512);
         };
-                // ========== x5 EFEKTİ ==========
+        // ========== x5 EFEKTİ ==========
         vF145.prototype.ActiveX5 = function(p514, p515, p516, p517) {
             this.xxx5.jh.visible = true;
-            this.xxx5.jh.alpha = f18(this.Jj.jh.alpha, p514.hj ? 0.9 : 0.2, p517, 0.0025);
             this.xxx5.oh(p515);
         };
         vF145.prototype.xXx5 = function() {
@@ -5581,7 +5583,6 @@ try {
         // ========== x10 EFEKTİ ==========
         vF145.prototype.ActiveX10 = function(p522, p523, p524, p525) {
             this.xxx10.jh.visible = true;
-            this.xxx10.jh.alpha = f18(this.Jj.jh.alpha, p522.hj ? 0.9 : 0.2, p525, 0.0025);
             this.xxx10.oh(p523);
         };
         vF145.prototype.xXx10 = function() {
@@ -5591,7 +5592,6 @@ try {
         // ========== ZOOM EFEKTİ ==========
         vF145.prototype.ActiveZlupa = function(p526, p527, p528, p529) {
             this.xxxLupatype.jh.visible = true;
-            this.xxxLupatype.jh.alpha = f18(this.Jj.jh.alpha, p526.hj ? 0.9 : 0.2, p529, 0.0025);
             this.xxxLupatype.oh(p527);
         };
         vF145.prototype.xXxLupaZ = function() {
@@ -5728,30 +5728,7 @@ try {
           } else {
             this.vj.zas();
           }
-               // ========== LFiCido.png POWER-UP EFEKT KONTROLLERİ ==========
-        // x5 kontrolü
-        var v578 = p516.Ff[vF2.X5_TYPE];
-        if (this.xj[0].gj() && v578 != null && v578.sc) {
-            this.vj.ActiveX5(p516, v433, p517, p518);
-        } else {
-            this.vj.xXx5();
-        }
-
-        // x10 kontrolü
-        var v580 = p516.Ff[vF2.X10_TYPE];
-        if (this.xj[0].gj() && v580 != null && v580.sc) {
-            this.vj.ActiveX10(p516, v433, p517, p518);
-        } else {
-            this.vj.xXx10();
-        }
-
-        // zoom kontrolü
-        var v581 = p516.Ff[vF2.ZOOM_TYPE];
-        if (this.xj[0].gj() && v581 != null && v581.sc) {
-            this.vj.ActiveZlupa(p516, v433, p517, p518);
-        } else {
-            this.vj.xXxLupaZ();
-        }
+      
         }
         ;
         if (wormXyObjects.mobile && wormXyObjects.arrow && p516 && p516.Mb && p516.Mb.Mb) {
