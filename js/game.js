@@ -1541,34 +1541,40 @@ window.addEventListener("load", function () {
         const head = self.Gf();
 
         if (head && laserCtx) {
-          const rect = laserCanvas.getBoundingClientRect();
+  const rect = laserCanvas.getBoundingClientRect();
 
-          const startX = rect.width * 0.5;
-          const startY = rect.height * 0.5;
+  const mapCenterX = (vO4.o.lb + vO4.o.mb) * 0.5;
+  const mapCenterY = (vO4.o.nb + vO4.o.ob) * 0.5;
 
-          const endX = rect.width * 0.5;
-          const endY = rect.height * 0.5;
+  const camX = vO4.o.N.M;
+  const camY = vO4.o.N.O;
 
-          laserCtx.save();
-          laserCtx.lineCap = "round";
-          laserCtx.lineJoin = "round";
-          laserCtx.strokeStyle = wormXyObjects.laserColor || "rgba(0,255,255,0.95)";
-          laserCtx.lineWidth = wormXyObjects.laserWidth || 4;
-          laserCtx.shadowBlur = 14;
-          laserCtx.shadowColor = wormXyObjects.laserColor || "rgba(0,255,255,0.95)";
-          laserCtx.beginPath();
-          laserCtx.moveTo(startX, startY);
-          laserCtx.lineTo(endX, endY);
-          laserCtx.stroke();
+  const startX = rect.width * 0.5;
+  const startY = rect.height * 0.5;
 
-          laserCtx.lineWidth = Math.max(1, (wormXyObjects.laserWidth || 4) * 0.45);
-          laserCtx.strokeStyle = "rgba(255,255,255,0.95)";
-          laserCtx.beginPath();
-          laserCtx.moveTo(startX, startY);
-          laserCtx.lineTo(endX, endY);
-          laserCtx.stroke();
-          laserCtx.restore();
-        }
+  const endX = rect.width * 0.5 + (mapCenterX - camX);
+  const endY = rect.height * 0.5 + (mapCenterY - camY);
+
+  laserCtx.save();
+  laserCtx.lineCap = "round";
+  laserCtx.lineJoin = "round";
+  laserCtx.strokeStyle = wormXyObjects.laserColor || "rgba(0,255,255,0.95)";
+  laserCtx.lineWidth = wormXyObjects.laserWidth || 4;
+  laserCtx.shadowBlur = 14;
+  laserCtx.shadowColor = wormXyObjects.laserColor || "rgba(0,255,255,0.95)";
+  laserCtx.beginPath();
+  laserCtx.moveTo(startX, startY);
+  laserCtx.lineTo(endX, endY);
+  laserCtx.stroke();
+
+  laserCtx.lineWidth = Math.max(1, (wormXyObjects.laserWidth || 4) * 0.45);
+  laserCtx.strokeStyle = "rgba(255,255,255,0.95)";
+  laserCtx.beginPath();
+  laserCtx.moveTo(startX, startY);
+  laserCtx.lineTo(endX, endY);
+  laserCtx.stroke();
+  laserCtx.restore();
+}
       }
     }
   } catch (e) {}
