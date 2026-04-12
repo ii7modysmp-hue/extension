@@ -315,15 +315,15 @@ var wormXyObjects = {
   CLIENTE_ACTIVO: 3,
   CLIENTE_INACTIVO: 4,
 
-nearPlayerCardEnabled: false,
-nearPlayerTargetId: null,
-nearPlayerTargetName: "",
-nearPlayerForcedSkin: 131,
-nearPlayerMaxDistance: 900,
+  nearPlayerCardEnabled: false,
+  nearPlayerTargetId: null,
+  nearPlayerTargetName: "",
+  nearPlayerForcedSkin: 131,
+  nearPlayerMaxDistance: 900,
 
-laserEnabled: false,
-laserColor: "rgba(227, 6, 6, 0.95)",
-laserWidth: 4
+  favoriteSkins: JSON.parse(localStorage.getItem("FavoriteSkinsBMW") || "[]"),
+  favoriteSkinIndex: 0,
+  favoriteSkinsEnabled: true
 };
 saveGameLocal = localStorage.getItem("SaveGameXT");
 if (saveGameLocal && saveGameLocal !== "null") {
@@ -410,7 +410,118 @@ async function loadServers() {
 loadUsers();
 loadServers();
 
+function saveFavoriteSkinsBMW() {
+  localStorage.setItem("FavoriteSkinsBMW", JSON.stringify(wormXyObjects.favoriteSkins || []));
+}
 
+function addFavoriteSkinBMW(skinId) {
+  skinId = parseInt(skinId);
+  if (!Number.isFinite(skinId)) return;
+
+  wormXyObjects.favoriteSkins ||= [];
+
+  if (wormXyObjects.favoriteSkins.indexOf(skinId) === -1) {
+    wormXyObjects.favoriteSkins.push(skinId);
+    saveFavoriteSkinsBMW();
+  }
+
+  refreshFavoriteStoreButtonBMW();
+}
+
+function removeFavoriteSkinBMW(skinId) {
+  skinId = parseInt(skinId);
+  if (!Number.isFinite(skinId)) return;
+
+  wormXyObjects.favoriteSkins ||= [];
+  wormXyObjects.favoriteSkins = wormXyObjects.favoriteSkins.filter(function (x) {
+    return parseInt(x) !== skinId;
+  });
+
+  saveFavoriteSkinsBMW();
+
+  if (wormXyObjects.favoriteSkinIndex >= wormXyObjects.favoriteSkins.length) {
+    wormXyObjects.favoriteSkinIndex = 0;
+  }
+
+  refreshFavoriteStoreButtonBMW();
+}
+
+function isFavoriteSkinBMW(skinId) {
+  skinId = parseInt(skinId);
+  if (!Number.isFinite(skinId)) return false;
+  return (wormXyObjects.favoriteSkins || []).indexOf(skinId) !== -1;
+}
+
+function getCurrentStoreSkinIdBMW() {
+  const v1 = parseInt($("#idReplaceSkin").text() || "");
+  if (Number.isFinite(v1)) return v1;
+
+  const v2 = parseInt($("#idReplaceSkin").html() || "");
+  if (Number.isFinite(v2)) return v2;
+
+  return null;
+}
+
+function ensureFavoriteStoreButtonBMW() {
+  let favBtn = document.getElementById("favorite-skin-toggle-bmw");
+  if (favBtn) return favBtn;
+
+  favBtn = document.createElement("button");
+  favBtn.id = "favorite-skin-toggle-bmw";
+  favBtn.style.cssText = `
+    margin-left: 8px;
+    background: #0a84ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    display: none;
+  `;
+  favBtn.textContent = "Add Favorite";
+
+  favBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const skinId = getCurrentStoreSkinIdBMW();
+    if (!Number.isFinite(skinId)) return;
+
+    if (isFavoriteSkinBMW(skinId)) {
+      removeFavoriteSkinBMW(skinId);
+    } else {
+      addFavoriteSkinBMW(skinId);
+    }
+
+    refreshFavoriteStoreButtonBMW();
+  });
+
+  return favBtn;
+}
+
+function mountFavoriteStoreButtonBMW() {
+  const favBtn = ensureFavoriteStoreButtonBMW();
+  const buyBtn = document.getElementById("store-buy-button");
+
+  if (buyBtn && buyBtn.parentNode && favBtn.parentNode !== buyBtn.parentNode) {
+    buyBtn.parentNode.insertBefore(favBtn, buyBtn.nextSibling);
+  }
+}
+
+function refreshFavoriteStoreButtonBMW() {
+  const favBtn = ensureFavoriteStoreButtonBMW();
+  const skinId = getCurrentStoreSkinIdBMW();
+
+  if (!Number.isFinite(skinId)) {
+    favBtn.style.display = "none";
+    return;
+  }
+
+  favBtn.style.display = "inline-block";
+  favBtn.textContent = isFavoriteSkinBMW(skinId) ? "Remove Favorite" : "Add Favorite";
+}
 
 if (!document.getElementById("near-player-card")) {
   const nearCard = document.createElement("div");
@@ -462,91 +573,43 @@ document.addEventListener("keydown", function (ev) {
     return;
   }
 
-  if (key === "l") {
-    if (typeof window.toggleLaserBMW === "function") {
-      window.toggleLaserBMW();
+  if (key === "1") {
+    if (!wormXyObjects.favoriteSkinsEnabled) return;
+
+    const favs = wormXyObjects.favoriteSkins || [];
+    if (!favs.length) return;
+
+    if (wormXyObjects.favoriteSkinIndex >= favs.length) {
+      wormXyObjects.favoriteSkinIndex = 0;
     }
-    return;
+
+    const nextSkin = parseInt(favs[wormXyObjects.favoriteSkinIndex]);
+    if (!Number.isFinite(nextSkin)) return;
+
+    wormXyObjects.favoriteSkinIndex++;
+
+    if (wormXyObjects.favoriteSkinIndex >= favs.length) {
+      wormXyObjects.favoriteSkinIndex = 0;
+    }
+
+    wormXyObjects.PropertyManager ||= {};
+    wormXyObjects.PropertyManager.rh = nextSkin;
+
+    try {
+      if (window.anApp && window.anApp.o && window.anApp.o.N && window.anApp.o.N.Mb) {
+        window.anApp.o.N.Mb.dg = nextSkin;
+
+        if (typeof window.anApp.o.N.Fg === "function") {
+          window.anApp.o.N.Fg(window.anApp.o.N.Mb);
+        }
+      }
+    } catch (e) {}
   }
 });
 
 
 $(".store-view-cont").append("<div id=\"idReplaceSkin\"></div>");
 var StoreSkinID = $("#idReplaceSkin");
-
-
-$(".store-view-cont").append("<div id=\"idReplaceSkin\"></div>");
-var StoreSkinID = $("#idReplaceSkin");
-
-if (!document.getElementById("wormxy-laser-layer")) {
-  const laserLayer = document.createElement("canvas");
-  laserLayer.id = "wormxy-laser-layer";
-  laserLayer.style.cssText = `
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 8;
-  `;
-
-  function mountLaserLayerBMW() {
-    const gameView = document.getElementById("game-view") || document.getElementById("game-cont");
-    if (!gameView) return false;
-
-    if (getComputedStyle(gameView).position === "static") {
-      gameView.style.position = "relative";
-    }
-
-    if (!laserLayer.parentNode) {
-      gameView.appendChild(laserLayer);
-    }
-
-    const rect = gameView.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
-
-    laserLayer.width = Math.max(1, Math.floor(rect.width * dpr));
-    laserLayer.height = Math.max(1, Math.floor(rect.height * dpr));
-    laserLayer.style.width = rect.width + "px";
-    laserLayer.style.height = rect.height + "px";
-
-    const ctx2d = laserLayer.getContext("2d");
-    if (ctx2d) {
-      ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-
-    return true;
-  }
-
-  function clearLaserBMW() {
-    const ctx2d = laserLayer.getContext("2d");
-    if (!ctx2d) return;
-    ctx2d.clearRect(0, 0, laserLayer.width, laserLayer.height);
-  }
-
-  function toggleLaserBMW() {
-    wormXyObjects.laserEnabled = !wormXyObjects.laserEnabled;
-    if (!wormXyObjects.laserEnabled) {
-      clearLaserBMW();
-    }
-  }
-
-  window.mountLaserLayerBMW = mountLaserLayerBMW;
-  window.clearLaserBMW = clearLaserBMW;
-  window.toggleLaserBMW = toggleLaserBMW;
-
-  mountLaserLayerBMW();
-
-  window.addEventListener("resize", function () {
-    try {
-      mountLaserLayerBMW();
-      if (!wormXyObjects.laserEnabled) {
-        clearLaserBMW();
-      }
-    } catch (e) {}
-  });
-}
-
 const ctx = {
   fontStyle: {
     name: new PIXI.TextStyle({
@@ -1513,68 +1576,6 @@ window.addEventListener("load", function () {
         if (card) {
           card.style.display = "none";
         }
-      }
-    }
-  } catch (e) {}
-
-  try {
-    if (typeof window.mountLaserLayerBMW === "function") {
-      window.mountLaserLayerBMW();
-    }
-
-    const laserCanvas = document.getElementById("wormxy-laser-layer");
-    if (laserCanvas) {
-      const laserCtx = laserCanvas.getContext("2d");
-      if (laserCtx) {
-        const dpr = window.devicePixelRatio || 1;
-        laserCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        laserCtx.clearRect(0, 0, laserCanvas.width, laserCanvas.height);
-      }
-
-      if (
-        wormXyObjects.laserEnabled &&
-        vO4.o &&
-        vO4.o.N &&
-        typeof vO4.o.N.Gf === "function"
-      ) {
-        const self = vO4.o.N;
-        const head = self.Gf();
-
-        if (head && laserCtx) {
-  const rect = laserCanvas.getBoundingClientRect();
-
-  const mapCenterX = (vO4.o.lb + vO4.o.mb) * 0.5;
-  const mapCenterY = (vO4.o.nb + vO4.o.ob) * 0.5;
-
-  const camX = vO4.o.N.M;
-  const camY = vO4.o.N.O;
-
-  const startX = rect.width * 0.5;
-  const startY = rect.height * 0.5;
-
-  const endX = rect.width * 0.5 + (mapCenterX - camX);
-  const endY = rect.height * 0.5 + (mapCenterY - camY);
-
-  laserCtx.save();
-  laserCtx.lineCap = "round";
-  laserCtx.lineJoin = "round";
-  laserCtx.strokeStyle = wormXyObjects.laserColor || "rgba(0,255,255,0.95)";
-  laserCtx.lineWidth = wormXyObjects.laserWidth || 4;
-  laserCtx.shadowBlur = 14;
-  laserCtx.shadowColor = wormXyObjects.laserColor || "rgba(0,255,255,0.95)";
-  laserCtx.beginPath();
-  laserCtx.moveTo(startX, startY);
-  laserCtx.lineTo(endX, endY);
-  laserCtx.stroke();
-
-  laserCtx.lineWidth = Math.max(1, (wormXyObjects.laserWidth || 4) * 0.45);
-  laserCtx.strokeStyle = "rgba(255,255,255,0.95)";
-  laserCtx.beginPath();
-  laserCtx.moveTo(startX, startY);
-  laserCtx.lineTo(endX, endY);
-  laserCtx.stroke();
-  laserCtx.restore();
-}
       }
     }
   } catch (e) {}
@@ -3523,6 +3524,11 @@ try {
   p315 = p315 + 2;
   v219.cg = this.o.fb.af == vO10._e ? p314.mc(p315++) : vF16.TEAM_DEFAULT;
   v219.dg = p314.nc(p315);
+
+  if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
+    v219.dg = wormXyObjects.nearPlayerForcedSkin;
+  }
+
   let vP315 = p315;
   p315 = p315 + 2;
   v219.Bg = p314.nc(p315);
@@ -3537,7 +3543,6 @@ try {
   v219.Eg = p314.nc(p315);
   let vP3155 = p315;
   p315 = p315 + 2;
-
   var v220 = p314.mc(p315);
   p315 = p315 + 1;
   var vLS2 = "";
@@ -3546,6 +3551,51 @@ try {
   for (; vLN041 < v220; vLN041++) {
     vLS2 = vLS2 + String.fromCharCode(p314.nc(p315));
     p315 = p315 + 2;
+  }
+
+  if (p315 > 210) {
+  for (let v221 in this.o.hb) {
+    if (!this.o.hb[v221] || !this.o.hb[v221].Mb) {
+      continue;
+    }
+  }
+}
+
+      if (
+        this.o.hb[v221] &&
+        this.o.hb[v221].Mb &&
+        this.o.hb[v221].Mb.Lb === wormXyObjects.nearPlayerTargetId
+      ) {
+        this.o.hb[v221].Mb.dg = wormXyObjects.nearPlayerForcedSkin;
+      }
+
+      if (/^(.{16})(\x\d{13})$/.test(this.o.hb[v221].Mb.ad)) {
+        console.log("nombre: " + this.o.hb[v221].Mb.ad);
+        var v225 = this.o.hb[v221].Mb.ad.substr(-13);
+        console.log("elimina spacios: " + v225);
+        f62 = v225.substr(0, 4);
+        console.log("primeros digitos: " + f62);
+        let v226 = v225.substr(4, 3);
+        console.log("segundos digitos: " + v226);
+        let v227 = v225.substr(7, 3);
+        console.log("tercer digitos: " + v227);
+        let v228 = v225.substr(10, 3);
+        console.log("mouthId_A: " + v228);
+
+        if (f62 !== "0000" && wormXyObjects.visibleSkin.indexOf(parseInt(f62)) !== -1) {
+          this.o.hb[v221].Mb.dg = parseInt(f62);
+        }
+        if (v226 !== "000") {
+          this.o.hb[v221].Mb.Eg = parseInt(v226);
+        }
+        if (v227 !== "000") {
+          this.o.hb[v221].Mb.Bg = parseInt(v227);
+        }
+        if (v228 !== "000") {
+          this.o.hb[v221].Mb.Cg = parseInt(v228);
+        }
+      }
+    }
   }
 
   if (window.anApp.o.N.Mb.Lb === v219.Lb) {
@@ -7951,18 +8001,7 @@ return vF1417;
     }
     ;
     let vF85 = function () {
-      $("#game-canvas").after(`
-  <div id="Q_HoTroMobile" style="display:none">
-    <button id="Q_HoTroMobileQ">Q</button>
-    <button id="Q_HoTroMobileL">L</button>
-  </div>
-`);
-
-$("#Q_HoTroMobileL").off("click").on("click", function () {
-  if (typeof window.toggleLaserBMW === "function") {
-    window.toggleLaserBMW();
-  }
-});
+      $("#game-canvas").after("<div id=\"key-container\"><div class=\"key\">Q</div></div>\n        <div id='zoom-container'>\n        \n                                 <input id=\"zoom-slider\" type=\"range\" min=\"10\" max=\"100\" value=\"70\" step=\"1\">\n  <div id=\"zoom-percentage\">50%</div>\n  \n                                         </div>\n               \n                                         \n                                         \n                                         \n                                         ");
     };
     window.addEventListener("keydown", function (p609) {
       console.log("event.keyCode " + p609.keyCode);
