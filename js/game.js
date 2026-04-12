@@ -4935,7 +4935,7 @@ try {
             if (p430 && p430.code === 1485 && p430.error === "expired_token") {
               vLN059++;
               console.log("auto login attempt:", vLN059);
-              $("#login-view").html("<h2>Auto Login Google Wormate Friends Conncet : " + vLN059 + "</h2>");
+              $("#login-view").html("<h2>Auto Login Google Wormate XY : " + vLN059 + "</h2>");
               f84();
             } else {
               f85(p430);
@@ -8672,6 +8672,10 @@ for (var a = 0; a < servers.Api_listServer.length; a++) {
         $(".servers-timmap-list").prepend(clonedElement);
     }
 }
+
+});
+      }
+    }
     function f103() {
       $("#getskin").on("click", function () {
         for (var vLN092 = 0; vLN092 < clientes.clientesActivos.length; vLN092++) {
@@ -9190,7 +9194,7 @@ for (var a = 0; a < servers.Api_listServer.length; a++) {
     }
     function f108() {
       $(".description-text").replaceWith("<div class=\"description-text\">");
-      $(".description-text").prepend("<p id='title'>Wormate Friends</p>");
+      $(".description-text").prepend("<p id='title'>Wormate XY</p>");
       $("#title").after("<div id=\"idwormworld\" style=\"text-align: center\"><div class='logo'><img src='https://haylamday.com/images/hiep_img/logo.png'/></div>\n        <input type=\"text\" value=\"" + wormXyObjects.FB_UserID + "\" style=\"width: 230px;text-align: center;border-radius: 4px;font-size: 20px;padding: 0 6px;background-color: #fff;color: #806102;display: block;box-sizing: border-box;-webkit-appearance: none;outline: 0;border-width: 0;\">\n        <button onclick=\"navigator.clipboard.writeText('" + wormXyObjects.FB_UserID + "').then(()=> alert('You ID " + wormXyObjects.FB_UserID + " copiado! copied!'));\">COPY</button>\n    </div>\n<div></div>\n<div><input type=\"button\" value=\"ACTIVATE ALL\" target=\"_blank\" onclick=\"window.location.href='" + MYPAGE + "'\" style=\"margin-top: 5px; width: 100%\"></div>");
     }
     function f109() {
