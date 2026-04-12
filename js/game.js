@@ -5721,7 +5721,7 @@ try {
         }
                 const _0xa5434b = wormXyObjects.emoji && p516?.Mb?.Mb;
         if (_0xa5434b) {
-          this.vj.ActiveEmoji(p516, _0x4e37ba, _0x32c08d, _0x534f27);
+          this.vj.ActiveEmoji(p516, v433, p517, p518);
         } else {
           this.vj.x_emoji();
         }
