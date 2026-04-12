@@ -5329,6 +5329,10 @@ try {
       this.xxxLupatype.kh(f6().q.X_xxlupa);
       this.xxxLupatype.jh.zIndex = 0.001;
       this.addChild(this.xxxLupatype.jh);
+
+        this.xxx5 = null;
+        this.xxx10 = null;
+        this.xxxLupatype = null;
       function f90() {
         this.Rf = new vF.Zb();
         this.Rf.sortableChildren = true;
@@ -5418,6 +5422,15 @@ try {
           this.guia_mobile.jh.zIndex = 0.001;
           this.addChild(this.guia_mobile.jh);
         });
+            
+          this.xxx5 = new vF39();
+          this.xxx5.kh(f6().q.X_x5);  // ✅ ÇALIŞIR
+          
+          this.xxx10 = new vF39();
+          this.xxx10.kh(f6().q.X_x10); // ✅ ÇALIŞIR
+          
+          this.xxxLupatype = new vF39();
+          this.xxxLupatype.kh(f6().q.X_xxlupa); // ✅ ÇALIŞIR
         vF145.prototype.hh = function (p484, p485, p486, p487) {
           this.Lj(0.002, this.Cj, p484.Zc);
           this.Lj(0.003, this.Dj, p485.Zc);
