@@ -3523,11 +3523,6 @@ try {
   p315 = p315 + 2;
   v219.cg = this.o.fb.af == vO10._e ? p314.mc(p315++) : vF16.TEAM_DEFAULT;
   v219.dg = p314.nc(p315);
-
-  if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
-    v219.dg = wormXyObjects.nearPlayerForcedSkin;
-  }
-
   let vP315 = p315;
   p315 = p315 + 2;
   v219.Bg = p314.nc(p315);
@@ -3542,6 +3537,7 @@ try {
   v219.Eg = p314.nc(p315);
   let vP3155 = p315;
   p315 = p315 + 2;
+
   var v220 = p314.mc(p315);
   p315 = p315 + 1;
   var vLS2 = "";
@@ -3552,58 +3548,44 @@ try {
     p315 = p315 + 2;
   }
 
-  if (p315 > 210) {
-    for (let v221 in this.o.hb) {
-      var v222 = this.o.hb[v221].Mb.dg;
-
-      
-
-      if (
-        this.o.hb[v221] &&
-        this.o.hb[v221].Mb &&
-        this.o.hb[v221].Mb.Lb === wormXyObjects.nearPlayerTargetId
-      ) {
-        this.o.hb[v221].Mb.dg = wormXyObjects.nearPlayerForcedSkin;
-      }
-
-     
-
   if (window.anApp.o.N.Mb.Lb === v219.Lb) {
-  v219.dg = wormXyObjects.PropertyManager.rh;
-  v219.Bg = wormXyObjects.PropertyManager.sh;
-  v219.Cg = wormXyObjects.PropertyManager.th;
-  v219.Dg = wormXyObjects.PropertyManager.uh;
-  v219.Eg = wormXyObjects.PropertyManager.vh;
-  p314.setInt16(vP315, v219.dg);
-  p314.setInt16(vP3152, v219.Bg);
-  p314.setInt16(vP3153, v219.Cg);
-  p314.setInt16(vP3154, v219.Dg);
-  p314.setInt16(vP3155, v219.Eg);
-  _wrmxy.aload = true;
-  _wrmxy.aId = vP315;
-}
-
-if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
-  v219.dg = wormXyObjects.nearPlayerForcedSkin;
-  p314.setInt16(vP315, v219.dg);
-}
-
-v219.ad = vLS2;
-if (this.o.fb.bf === v219.Lb) {
-  this.o.N.Fg(v219);
-  v219.Mb = v219.Lb;
-  v219.bd = v219.ad;
-} else {
-  var v229 = this.o.hb[v219.Lb];
-  if (v229 != null) {
-    v229.Kb();
+    v219.dg = wormXyObjects.PropertyManager.rh;
+    v219.Bg = wormXyObjects.PropertyManager.sh;
+    v219.Cg = wormXyObjects.PropertyManager.th;
+    v219.Dg = wormXyObjects.PropertyManager.uh;
+    v219.Eg = wormXyObjects.PropertyManager.vh;
+    p314.setInt16(vP315, v219.dg);
+    p314.setInt16(vP3152, v219.Bg);
+    p314.setInt16(vP3153, v219.Cg);
+    p314.setInt16(vP3154, v219.Dg);
+    p314.setInt16(vP3155, v219.Eg);
+    _wrmxy.aload = true;
+    _wrmxy.aId = vP315;
   }
-  var v230 = new vF40(this.o.fb);
-  v230.vb(f6().s.H.wb);
-  this.o.hb[v219.Lb] = v230;
-  v230.Fg(v219);
-}
-return p315;
+
+  if (v219.Lb === wormXyObjects.nearPlayerTargetId) {
+    v219.dg = wormXyObjects.nearPlayerForcedSkin;
+    p314.setInt16(vP315, v219.dg);
+  }
+
+  v219.ad = vLS2;
+
+  if (this.o.fb.bf === v219.Lb) {
+    this.o.N.Fg(v219);
+    v219.Mb = v219.Lb;
+    v219.bd = v219.ad;
+  } else {
+    var v229 = this.o.hb[v219.Lb];
+    if (v229 != null) {
+      v229.Kb();
+    }
+    var v230 = new vF40(this.o.fb);
+    v230.vb(f6().s.H.wb);
+    this.o.hb[v219.Lb] = v230;
+    v230.Fg(v219);
+  }
+
+  return p315;
 };
       f62.prototype.wg = function (p316, p317) {
         var v231 = p316.nc(p317);
