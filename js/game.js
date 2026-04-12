@@ -3989,6 +3989,7 @@ try {
       f62.prototype.pg = function (p335, p336) {
         console.log("g.o");
         this.o.Rb();
+        createCircle();
       };
       f62.prototype.ng = function (p337, p338) {
         this.o.tb = p337.nc(p338);
