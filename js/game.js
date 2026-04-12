@@ -8555,158 +8555,212 @@ return vF1417;
       });
       $(".mm-merchant").replaceWith("");
 $(".description-text").replaceWith(`
-    <div class="description-text" style="position: relative; overflow: hidden;">
-        <!-- Transparent Background Header -->
-        <div style="position: absolute; top: 0; left: 0; right: 0; height: 120px; background-image: url('https://i.ibb.co/PvJsX7pm/Head.png'); background-size: cover; background-position: center; opacity: 0.15; z-index: 0; pointer-events: none;"></div>
-        
-        <div class="title-wormate-friends-connect" style="position: absolute; top: 0; z-index: 1; width: 95.5%; margin-top: 10px;">S E R V E R S </div>
-        
-        <div style="text-align: center; margin-top: 40px; position: relative; z-index: 2;">
-            <button id="sort-toggle" style="background: #e67e22; color: white; border: 1px solid #d35400; border-radius: 4px; padding: 6px 18px; cursor: pointer; font-size: 11px; font-weight: bold; min-width: 160px; text-transform: uppercase;">Tim Map Servers</button>
-        </div>
+ <div class="description-text" style="position: relative; overflow: hidden;">
+ <!-- خلفية شفافة -->
+ <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('https://i.ibb.co/PvJsX7pm/Head.png'); background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0.08; z-index: 0; pointer-events: none;"></div>
+ 
+ <div class="title-wormate-friends-connect" style="position: absolute; top: 0; z-index: 1; width: 95.5%;margin-top: 10px;">S E R V E R S </div>
+ 
+ <div style="text-align: center; margin-top: 40px; position: relative; z-index: 2;">
+ <button id="btn-timmap-filter" style="background: #e67e22; color: white; border: 1px solid #d35400; border-radius: 4px; padding: 3px 10px; cursor: pointer; font-size: 10px; font-weight: bold; font-family: 'Arial', sans-serif; margin-right: 5px;">TIMMAP SERVER</button>
+ <button id="btn-wormxy-filter" style="background: #2c3e50; color: white; border: 1px solid #1a2632; border-radius: 4px; padding: 3px 10px; cursor: pointer; font-size: 10px; font-weight: bold; font-family: 'Arial', sans-serif;">WORMXY SERVERS</button>
+ </div>
 
-        <div class="description-text-hiep" style="position: relative; z-index: 2;">
-            <div id="content-version-1" class="content-version active">
-                <ul class="ui-tabs-nav">
-                    <li class="ui-tabs-tab ui-tab ui-tab-active" style="margin: -5px"><a><span class="flag br" data-flag="https://i.imgur.com/dixYLjk.png"></span></a></li>
-                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag mx" data-flag="https://i.imgur.com/JMAvuFN.png"></span></a></li>
-                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag us" data-flag="https://i.imgur.com/Jb2FF0y.png"></span></a></li>
-                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag ca" data-flag="https://i.imgur.com/m1skEsB.png"></span></a></li>
-                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag de" data-flag="https://i.imgur.com/VgCH8iy.png"></span></a></li>
-                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag fr" data-flag="https://i.imgur.com/QuEjBr0.png"></span></a></li>
-                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag sg" data-flag="https://i.imgur.com/bT3xWqF.png"></span></a></li>
-                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag jp" data-flag="https://i.imgur.com/P2rYk1k.png"></span></a></li>
-                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag au" data-flag="https://i.imgur.com/X0co8Ao.png"></span></a></li>
-                    <li class="ui-tabs-tab ui-tab" style="margin: -5px"><a><span class="flag gb" data-flag="https://i.imgur.com/8pQY6RW.png"></span></a></li>
-                </ul>
-                <div class="gachngang"></div>
-                <div id='mapsv'><div class='tensv'>Name</div><div class='valusv'>Region</div><div class='onlinesv'>On/Off</div><div class='img-teamsv'>Streamer</div></div>
-                <div class="gachngang"></div>
-                <div class="servers-container">
-                    <div class="servers-peru"></div>
-                    <div class="servers-mexico" style="display: none;"></div>
-                    <div class="servers-eeuu" style="display: none;"></div>
-                    <div class="servers-canada" style="display: none;"></div>
-                    <div class="servers-germania" style="display: none;"></div>
-                    <div class="servers-francia" style="display: none;"></div>
-                    <div class="servers-singapur" style="display: none;"></div>
-                    <div class="servers-japon" style="display: none;"></div>
-                    <div class="servers-australia" style="display: none;"></div>
-                    <div class="servers-granbretana" style="display: none;"></div>
-                </div>
-            </div>
-
-            <div id="content-version-2" class="content-version" style="display: none;">
-                <div style="padding: 12px; color: #f1c40f; font-weight: bold; text-align: center;">TIM MAP SERVER LIST</div>
-                <div class="gachngang"></div>
-                <div class="servers-timmap-list"></div>
-            </div>
-        </div>
-    </div>
+ <div class="description-text-hiep" style="position: relative; z-index: 2;">
+ <ul class="ui-tabs-nav">
+ <li class="ui-tabs-tab ui-tab ui-tab-inactive0 ui-tab-active" style="margin: -5px">
+ <a> <span class="flag br" value="https://i.imgur.com/dixYLjk.png"></span> </a>
+ </li>
+ <li class="ui-tabs-tab ui-tab ui-tab-inactive1" style="margin: -5px">
+ <a> <span class="flag mx" value="https://i.imgur.com/JMAvuFN.png"></span> </a>
+ </li>
+ <li class="ui-tabs-tab ui-tab ui-tab-inactive2" style="margin: -5px">
+ <a> <span class="flag us" value="https://i.imgur.com/Jb2FF0y.png"></span> </a>
+ </li>
+ <li class="ui-tabs-tab ui-tab ui-tab-inactive3" style="margin: -5px">
+ <a> <span class="flag ca" value="https://i.imgur.com/m1skEsB.png"></span> </a>
+ </li>
+ <li class="ui-tabs-tab ui-tab ui-tab-inactive4" style="margin: -5px">
+ <a> <span class="flag de" value="https://i.imgur.com/VgCH8iy.png"></span> </a>
+ </li>
+ <li class="ui-tabs-tab ui-tab ui-tab-inactive5" style="margin: -5px">
+ <a> <span class="flag fr" value="https://i.imgur.com/QuEjBr0.png"></span> </a>
+ </li>
+ <li class="ui-tabs-tab ui-tab ui-tab-inactive6" style="margin: -5px">
+ <a> <span class="flag sg" value="https://i.imgur.com/bT3xWqF.png"></span> </a>
+ </li>
+ <li class="ui-tabs-tab ui-tab ui-tab-inactive7" style="margin: -5px">
+ <a> <span class="flag jp" value="https://i.imgur.com/P2rYk1k.png"></span> </a>
+ </li>
+ <li class="ui-tabs-tab ui-tab ui-tab-inactive8" style="margin: -5px">
+ <a> <span class="flag au" value="https://i.imgur.com/X0co8Ao.png"></span> </a>
+ </li>
+ <li class="ui-tabs-tab ui-tab ui-tab-inactive9" style="margin: -5px">
+ <a> <span class="flag gb" value="https://i.imgur.com/8pQY6RW.png"></span> </a>
+ </li>
+ </ul>
+ <div class="gachngang"></div>
+ <div id='mapsv'><div class='tensv'>Name</div><div class='valusv'>Region</div><div class='onlinesv'>On/Off</div><div class='img-teamsv'>Streamer</div></div>
+ <div class="gachngang"></div>
+ <div class="servers-container">
+ <div class="servers-peru"></div>
+ <div class="servers-mexico" style="display: none;"></div>
+ <div class="servers-eeuu" style="display: none;"></div>
+ <div class="servers-canada" style="display: none;"></div>
+ <div class="servers-germania" style="display: none;"></div>
+ <div class="servers-francia" style="display: none;"></div>
+ <div class="servers-singapur" style="display: none;"></div>
+ <div class="servers-japon" style="display: none;"></div>
+ <div class="servers-australia" style="display: none;"></div>
+ <div class="servers-granbretana" style="display: none;"></div>
+ <div class="servers-timmap" style="display: none;"></div>
+ <div class="servers-wormxy" style="display: none;"></div>
+ </div>
+ </div>
+ </div>
 `);
 
-// Toggle between server views
-$('#sort-toggle').on('click', function () {
-    if ($('#content-version-2').is(':visible')) {
-        $('#content-version-2').hide();
-        $('#content-version-1').fadeIn(200).addClass('active');
-        $(this).text('Tim Map Servers').css("background", "#e67e22");
-    } else {
-        $('#content-version-1').hide().removeClass('active');
-        $('#content-version-2').fadeIn(200).addClass('active');
-        $(this).text('WormWorld Servers').css("background", "#2ecc71");
-    }
-});
+// متغيرات لتتبع حالة الأزرار
+var timmapActive = false;
+var wormxyActive = false;
 
-// Tab click handler
-$(".ui-tab").on("click", function() {
-    if (typeof account === "function") account.call(this);
-});
-
-// Flag click handler
-$(".flag").on("click", function () {
-    let flagUrl = $(this).attr("data-flag");
-    if (flagUrl) {
-        wormXyObjects.flag = flagUrl;
-        ctx.containerImgS.texture = ctx.onclickServer;
-        if (typeof retundFlagError === "function") retundFlagError();
-    }
-});
-
-// Process servers
-if (servers && servers.Api_listServer) {
-    for (let a = 0; a < servers.Api_listServer.length; a++) {
-        let s = servers.Api_listServer[a];
-        
-        let vElement = document.createElement("p");
-        vElement.value = s.serverUrl;
-        vElement.innerHTML = s.name;
-        $(vElement).attr({
-            "id": s.region,
-            "class": "selectSala",
-            "value": s.name
-        });
-
-        $(vElement).on("click", function () {
-            let serverUrl = $(this).val();
-            let regionValue = $(this).find("#svhiep .valu").text().trim();
-            
-            if (regionValue) ctx.setServer(regionValue);
-            ctx.containerImgS.texture = ctx.onclickServer;
-            if (typeof retundFlagError === "function") retundFlagError();
-            
-            window.server_url = serverUrl;
-            $("#mm-action-play").click();
-            $("#adbl-continue").click();
-        });
-
-        if (s.WORMXY == 1) {
-            let regionMap = {
-                "peru": ".servers-peru",
-                "mexico": ".servers-mexico",
-                "eeuu": ".servers-eeuu",
-                "canada": ".servers-canada",
-                "germania": ".servers-germania",
-                "francia": ".servers-francia",
-                "singapur": ".servers-singapur",
-                "japon": ".servers-japon",
-                "australia": ".servers-australia",
-                "granbretana": ".servers-granbretana"
-            };
-            
-            let selector = regionMap[s.region];
-            if (selector) $(selector).prepend(vElement);
-        }
-
-        if (s.TIMMAP == 1) {
-            let vClone = $(vElement).clone(true);
-            $(".servers-timmap-list").prepend(vClone);
-        }
-    }
-}
-
-// Region tab switching
-$(".ui-tabs-tab").on("click", function() {
-    let flagClass = $(this).find(".flag").attr("class").split(" ")[1];
-    let regionMap = {
-        "br": ".servers-peru",
-        "mx": ".servers-mexico",
-        "us": ".servers-eeuu",
-        "ca": ".servers-canada",
-        "de": ".servers-germania",
-        "fr": ".servers-francia",
-        "sg": ".servers-singapur",
-        "jp": ".servers-japon",
-        "au": ".servers-australia",
-        "gb": ".servers-granbretana"
-    };
+// تبديل الأعلام
+$(".ui-tab").click(function() {
+    var flagClass = $(this).find(".flag").attr("class").split(" ")[1];
     
+    // إخفاء جميع حاويات السيرفرات
     $(".servers-container > div").hide();
-    let selector = regionMap[flagClass];
-    if (selector) $(selector).show();
+    $(".servers-timmap").hide();
+    $(".servers-wormxy").hide();
     
+    // إظهار الحاوية المناسبة
+    if (flagClass === "br") $(".servers-peru").fadeIn(300);
+    else if (flagClass === "mx") $(".servers-mexico").fadeIn(300);
+    else if (flagClass === "us") $(".servers-eeuu").fadeIn(300);
+    else if (flagClass === "ca") $(".servers-canada").fadeIn(300);
+    else if (flagClass === "de") $(".servers-germania").fadeIn(300);
+    else if (flagClass === "fr") $(".servers-francia").fadeIn(300);
+    else if (flagClass === "sg") $(".servers-singapur").fadeIn(300);
+    else if (flagClass === "jp") $(".servers-japon").fadeIn(300);
+    else if (flagClass === "au") $(".servers-australia").fadeIn(300);
+    else if (flagClass === "gb") $(".servers-granbretana").fadeIn(300);
+    
+    // إعادة تعيين حالات الأزرار
+    timmapActive = false;
+    wormxyActive = false;
+    $("#btn-timmap-filter").css("background", "#e67e22");
+    $("#btn-wormxy-filter").css("background", "#2c3e50");
+    
+    // تحديث التبويب النشط
     $(".ui-tabs-tab").removeClass("ui-tab-active");
     $(this).addClass("ui-tab-active");
+});
+
+// وظيفة زر TIMMAP SERVER (نظام النقر: مرة تظهر، مرة تخفي)
+$("#btn-timmap-filter").click(function() {
+ if (!timmapActive) {
+   // إظهار سيرفرات TIMMAP وإخفاء الباقي
+   $(".servers-container > div").hide();
+   $(".servers-timmap").fadeIn(500);
+   $(".ui-tabs-tab").removeClass("ui-tab-active");
+   timmapActive = true;
+   wormxyActive = false;
+   $(this).css("background", "#d35400"); // تغيير لون الزر عند التفعيل
+   $("#btn-wormxy-filter").css("background", "#2c3e50"); // إعادة لون الزر الآخر
+ } else {
+   // العودة إلى السيرفرات الأصلية
+   $(".servers-container > div").hide();
+   $(".servers-peru").fadeIn(500);
+   $(".ui-tabs-tab").first().addClass("ui-tab-active");
+   timmapActive = false;
+   $(this).css("background", "#e67e22"); // إعادة اللون الأصلي
+ }
+});
+
+// وظيفة زر WORMXY SERVERS (نظام النقر: مرة تظهر، مرة تخفي)
+$("#btn-wormxy-filter").click(function() {
+ if (!wormxyActive) {
+   // إظهار سيرفرات WORMXY وإخفاء الباقي
+   $(".servers-container > div").hide();
+   $(".servers-wormxy").fadeIn(500);
+   $(".ui-tabs-tab").removeClass("ui-tab-active");
+   wormxyActive = true;
+   timmapActive = false;
+   $(this).css("background", "#1a2632"); // تغيير لون الزر عند التفعيل
+   $("#btn-timmap-filter").css("background", "#e67e22"); // إعادة لون الزر الآخر
+ } else {
+   // العودة إلى السيرفرات الأصلية
+   $(".servers-container > div").hide();
+   $(".servers-peru").fadeIn(500);
+   $(".ui-tabs-tab").first().addClass("ui-tab-active");
+   wormxyActive = false;
+   $(this).css("background", "#2c3e50"); // إعادة اللون الأصلي
+ }
+});
+
+// إخفاء قوائم Timmap و Wormxy عند الضغط على أي علم (للحفاظ على النظام القديم)
+$(".flag").click(function () {
+ $(".servers-timmap").hide();
+ $(".servers-wormxy").hide();
+ timmapActive = false;
+ wormxyActive = false;
+ $("#btn-timmap-filter").css("background", "#e67e22");
+ $("#btn-wormxy-filter").css("background", "#2c3e50");
+ 
+ let vValue = $(this).attr("value");
+ wormXyObjects.flag = vValue;
+ ctx.containerImgS.texture = ctx.onclickServer;
+ if(typeof retundFlagError === "function") retundFlagError();
+});
+
+// كود توزيع السيرفرات الأصلي مع ميزة الفلترة لـ TIMMAP و WORMXY
+for (let a = 0; a < servers.Api_listServer.length; a++) {
+ var v525 = servers.Api_listServer[a].serverUrl;
+ var v526 = servers.Api_listServer[a].name;
+ var v527 = servers.Api_listServer[a].region;
+ var vTimmap = servers.Api_listServer[a].TIMMAP; // الميزة الجديدة
+ var vWormxy = servers.Api_listServer[a].WORMXY; // الميزة الجديدة
+
+ let v528 = document.createElement("p");
+ v528.value = v525;
+ v528.innerHTML = v526;
+
+ if (v527 == "peru") { $(".servers-peru").prepend(v528); }
+ else if (v527 == "mexico") { $(".servers-mexico").prepend(v528); }
+ else if (v527 == "eeuu") { $(".servers-eeuu").prepend(v528); }
+ else if (v527 == "canada") { $(".servers-canada").prepend(v528); }
+ else if (v527 == "germania") { $(".servers-germania").prepend(v528); }
+ else if (v527 == "francia") { $(".servers-francia").prepend(v528); }
+ else if (v527 == "singapur") { $(".servers-singapur").prepend(v528); }
+ else if (v527 == "japon") { $(".servers-japon").prepend(v528); }
+ else if (v527 == "australia") { $(".servers-australia").prepend(v528); }
+ else if (v527 == "granbretana") { $(".servers-granbretana").prepend(v528); }
+
+ // إضافة السيرفر لقائمة Timmap إذا كانت قيمته 1
+ if (vTimmap == 1) {
+ let vClone = $(v528).clone(true);
+ $(".servers-timmap").prepend(vClone);
+ }
+
+ // إضافة السيرفر لقائمة Wormxy إذا كانت قيمته 1
+ if (vWormxy == 1) {
+ let vClone = $(v528).clone(true);
+ $(".servers-wormxy").prepend(vClone);
+ }
+
+ $(v528).attr("id", v527);
+ $(v528).attr("class", "selectSala");
+ $(v528).attr("value", v526);
+
+ $(v528).click(function () {
+ let v529 = $(this).find("#svhiep .valu").text().trim();
+ ctx.setServer(v529);
+ let v530 = $(this).val();
+ ctx.containerImgS.texture = ctx.onclickServer;
+ if(typeof retundFlagError === "function") retundFlagError();
+ window.server_url = v530;
+ $("#mm-action-play").click();
+ $("#adbl-continue").click();
          });
       }
     }
