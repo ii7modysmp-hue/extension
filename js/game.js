@@ -8909,6 +8909,9 @@ for (let a = 0; a < servers.Api_listServer.length; a++) {
                     <li id="chuot-btn" onclick="displayContent('chuot', this)">
                         <i class="fas fa-mouse"></i> Cursor
                     </li>
+                    <li id="background-btn" onclick="displayContent('background', this)">
+                        <i class="bi bi-eye"></i> Background
+                    </li>
                     <li id="gioithieu-btn" onclick="displayContent('gioithieu', this)">
                         <i class="fas fa-info-circle"></i> Giới Thiệu
                     </li>
@@ -9011,8 +9014,9 @@ for (let a = 0; a < servers.Api_listServer.length; a++) {
                             <input class="settings-switchZoom" id="settings-stremingmodeanclock-switch" type="checkbox"/>
                             <label for="settings-stremingmodeanclock-switch"></label>
                         </div>
-                    </div>
-                    <div class="spancursor"> Select Background</div>
+                </div>
+                 <div id="background" class="content-section">
+                                    <div class="spancursor"> Select Background</div>
                     <div class="background-container"></div>
                 </div>
                 <div id="skins" class="content-section">
