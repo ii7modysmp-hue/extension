@@ -329,45 +329,6 @@ var wormXyObjects = {
   favoriteSkinIndex: 0,
   favoriteSkinsEnabled: true
 };
-var wormxyData = {
-  nickname:"WormXY",
-  enemyNameHs: "HeadShot",
-  enemyNameKill: "Well Done",
-};
-const createCircle = function () {
-  const RED_COLOR = 16711680; // 0xFF0000
-  
-  if (!window.coords || typeof window.coords.playerX === "undefined" || typeof window.coords.playerY === "undefined") {
-    console.error("Error: window.coords is not defined correctly or missing playerX/playerY");
-    return;
-  }
-  
-  const teamId = "team_2";
-  
-  if (!ctx[teamId]) {
-    ctx[teamId] = new PIXI.Graphics();
-    ctx[teamId].zIndex = 2;
-    ctx[teamId].alpha = 0.9;
-    
-    // İçi dolu daire
-    ctx[teamId].beginFill(RED_COLOR);
-    ctx[teamId].drawCircle(0, 0, 2.4);
-    ctx[teamId].endFill();
-    
-    // Kenarlık
-    ctx[teamId].lineStyle(1, "black");
-    ctx[teamId].drawCircle(0, 0, 2.4);
-  }
-  
-  ctx[teamId].x = window.coords.playerX;
-  ctx[teamId].y = window.coords.playerY;
-  
-  if (ctx.pointsContainer) {
-    ctx.pointsContainer.addChild(ctx[teamId]);
-  } else {
-    console.error("Error: ctx.pointsContainer is not defined.");
-  }
-}
 saveGameLocal = localStorage.getItem("SaveGameXT");
 if (saveGameLocal && saveGameLocal !== "null") {
   let t = JSON.parse(saveGameLocal);
@@ -2932,7 +2893,7 @@ try {
             v169.play();
           }
           ;
-          var vF57 = f57(wormxyData.nickname.substring(0, 16) + "-☠️-" + wormxyData.enemyNameHs.substring(0, 16), true);
+          var vF57 = f57(f9("index.game.floating.headshot") + "☠️", true);
           this.addChild(vF57);
           this.Pe.push(vF57);
           if (vF57) {
@@ -2942,7 +2903,7 @@ try {
             }, 3000);
           }
         } else {
-          var vF57 = f57(wormxyData.nickname.substring(0, 16) + "-☠️-" + wormxyData.enemyNameKill.substring(0, 16), true);
+          var vF57 = f57(f9("index.game.floating.wellDone") + "🔪", false);
           this.addChild(vF57);
           this.Pe.push(vF57);
           if (vF57) {
