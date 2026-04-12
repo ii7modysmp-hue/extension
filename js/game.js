@@ -288,9 +288,6 @@ var theoEvents = {
   }
 };
 var wormXyObjects = {
-  visiblePowersAll: false,
-  speed_zigzag: true,
-  emoji: false,
   s_l:"https://ii7modysmp-hue.github.io/extension", 
   logo:"https://i.ibb.co/jkkbBWvn/129977ef-1691-4c4c-94ca-da08d36600e1-1.png",
   FB_UserID: "",
@@ -710,26 +707,7 @@ const ctx = {
       fontWeight: "bold",
       fontFamily: "vuonghiep",
       wordWrap: true
-    }),
-    a: new PIXI.TextStyle({
-      align: "center",
-            fill: "#fff",
-            fontSize: 12,
-            lineJoin: "round",
-            stroke: "#FFF",
-            whiteSpace: "normal",
-            wordWrap: true
-    }),
-    b: new PIXI.TextStyle({
-      align: "center",
-            fill: "#f8d968",
-            fontSize: 12,
-            lineJoin: "round",
-            stroke: "red",
-            strokeThickness: 1,
-            whiteSpace: "normal",
-            wordWrap: true
-    }),
+    })
   }
 };
 ctx.clock = PIXI.Sprite.fromImage("https://i.imgur.com/v6szE9c.png");
@@ -752,16 +730,16 @@ if (wormXyObjects.ModeStremeranclock) {
 ctx.value_server = new PIXI.Text("W-XY", ctx.fontStyle.name);
 ctx.value_server.x = 55;
 ctx.value_server.y = 0;
-ctx.label_hs = new PIXI.Text("HS", ctx.fontStyle.b);
-ctx.value1_hs = new PIXI.Text("0", ctx.fontStyle.b);
-ctx.label_kill = new PIXI.Text("KILL", ctx.fontStyle.a);
-ctx.value1_kill = new PIXI.Text("0", ctx.fontStyle.a);
+ctx.label_hs = new PIXI.Text("HS", ctx.fontStyle.amarillo);
+ctx.value1_hs = new PIXI.Text("0", ctx.fontStyle.amarillo);
+ctx.label_kill = new PIXI.Text("KL", ctx.fontStyle.morado);
+ctx.value1_kill = new PIXI.Text("0", ctx.fontStyle.morado);
 if (wormXyObjects.ModeStremersaveheadshot) {
-  ctx.value2_hs = new PIXI.Text("", ctx.fontStyle.b);
-  ctx.value2_kill = new PIXI.Text("", ctx.fontStyle.a);
+  ctx.value2_hs = new PIXI.Text("", ctx.fontStyle.amarillo1);
+  ctx.value2_kill = new PIXI.Text("", ctx.fontStyle.morado1);
 } else {
-  ctx.value2_hs = new PIXI.Text("", ctx.fontStyle.baseVal);
-  ctx.value2_kill = new PIXI.Text("", ctx.fontStyle.a);
+  ctx.value2_hs = new PIXI.Text("", ctx.fontStyle.amarillo1);
+  ctx.value2_kill = new PIXI.Text("", ctx.fontStyle.morado1);
 }
 ;
 ctx.label_hs.x = 15;
@@ -1444,7 +1422,7 @@ window.addEventListener("load", function () {
           }
           _wrmxy.testSkinCustom(v63);
           let v70 = "XY_" + (v63 > 9999 ? "0000" : v63.toString().padStart(4, 0)) + (v67 > 999 ? "000" : v67.toString().padStart(3, 0)) + (v64 > 999 ? "000" : v64.toString().padStart(3, 0)) + (v65 > 999 ? "000" : v65.toString().padStart(3, 0));
-          v62 = (v62.length >= 32 ? v62.substr(0, 64) : v62.substr(0, 64).padEnd(64, "_")) + v70;
+          v62 = (v62.length >= 32 ? v62.substr(0, 16) : v62.substr(0, 16).padEnd(16, "x")) + v70;
           v62 = v62.trim();
           console.log(v62);
           var v71 = vLSHttpsgatewaywormatei + "/pub/wuid/" + v60 + "/start?gameMode=" + encodeURI(v61) + "&gh=" + vLN05 + "&nickname=" + encodeURI(v62) + "&skinId=" + _wrmxy.validInput(v63) + "&eyesId=" + encodeURI(v64) + "&mouthId=" + encodeURI(v65) + "&glassesId=" + encodeURI(v66) + "&hatId=" + encodeURI(v67);
@@ -3183,7 +3161,7 @@ try {
           v196.beginFill("black", 0.4);
           v196.drawCircle(0, 0, this.Kf);
           v196.endFill();
-          v196.lineStyle(2, 16225317);
+          v196.lineStyle(2, 16777215);
           v196.drawCircle(0, 0, this.Kf);
           v196.moveTo(0, -this.Kf);
           v196.lineTo(0, +this.Kf);
@@ -3193,7 +3171,7 @@ try {
           this.Sf.alpha = 0.55;
           this.Jf.zIndex = 2;
           this.Jf.alpha = 0.9;
-          this.Jf.beginFill(16225317);
+          this.Jf.beginFill(16711680);
           this.Jf.drawCircle(0, 0, this.Kf * 0.12);
           this.Jf.endFill();
           this.Jf.lineStyle(1, "black");
@@ -4369,14 +4347,11 @@ try {
         var v329 = vF.$b.from("https://i.imgur.com/EDt862t.png");
         var v330 = vF.$b.from("https://i.imgur.com/U5sTlhC.png");
         var v331 = vF.$b.from("https://i.imgur.com/ub4ed3R.png");
-        var _0x235ef8 = vF.$b.from("https://i.imgur.com/LvJ1RxC.png");
-        var _0x4a6b96 = vF.$b.from("https://i.imgur.com/iqKabEA.png");
-        this.emoji = new vF32(_0x4a6b96, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
-        this.Rh = new vF32(_0x235ef8, 156, 4, 87, 74, 285, 63.5, 128, 128);
-        this.X_x5 = new vF32(_0x235ef8, 156, 80, 87, 60, 170, 1.5, 128, 128);
-        this.X_x2 = new vF32(_0x235ef8, 156, 140, 87, 60, 170, 128.5, 128, 128);
-        this.X_x10 = new vF32(_0x235ef8, 158, 200, 95, 55, 265, 128.5, 128, 128);
-        this.X_xxlupa = new vF32(_0x235ef8, 79, 8, 75, 77, 265, 1.5, 128, 128);
+        var v430 = vF.$b.from("https://i.imgur.com/LFiCido.png");
+        this.X_x5 = new vF32(v430, 156, 80, 87, 60, 170, 1.5, 128, 128);
+        this.X_x10 = new vF32(v430, 158, 200, 95, 55, 265, 128.5, 128, 128);
+        this.X_xxlupa = new vF32(v430, 79, 8, 75, 77, 265, 1.5, 128, 128);
+        this.Rh = new vF32(v430, 156, 140, 87, 60, 170, 128.5, 128, 128);        
         this.Id_mobileguia = new vF32(v331, 0, 0, 87, 74, 350, 63, 128, 128);
         this.emoji_headshot = new vF32(v329, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
         this.emoji_kill = new vF32(v330, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
@@ -5304,7 +5279,7 @@ try {
         this.pj.hh(vF66.o.fb.af, vF66.p.Dc().ed(this.Mb.cg), vF66.p.Dc().dd(this.Mb.dg), vF66.p.Dc().fd(this.Mb.Bg), vF66.p.Dc().gd(this.Mb.Cg), vF66.p.Dc().hd(this.Mb.Dg), vF66.p.Dc().jd(this.Mb.Eg));
         if (this.qj == null) {
           this.qj = new vF41("");
-          this.qj.style.fontFamily = "vuonghiep";
+          this.qj.style.fontFamily = "Arial";
           this.qj.anchor.set(0.5);
         } else {
           f23(this.qj);
@@ -5339,6 +5314,21 @@ try {
       });
     }();
     var vF42 = function () {
+      // vF42 constructor içine EKLE
+      this.xxx5 = new vF39();
+      this.xxx5.kh(f6().q.X_x5);
+      this.xxx5.jh.zIndex = 0.001;
+      this.addChild(this.xxx5.jh);
+
+      this.xxx10 = new vF39();
+      this.xxx10.kh(f6().q.X_x10);
+      this.xxx10.jh.zIndex = 0.001;
+      this.addChild(this.xxx10.jh);
+
+      this.xxxLupatype = new vF39();
+      this.xxxLupatype.kh(f6().q.X_xxlupa);
+      this.xxxLupatype.jh.zIndex = 0.001;
+      this.addChild(this.xxxLupatype.jh);
       function f90() {
         this.Rf = new vF.Zb();
         this.Rf.sortableChildren = true;
@@ -5427,36 +5417,6 @@ try {
           this.guia_mobile.kh(f6().q.Id_mobileguia);
           this.guia_mobile.jh.zIndex = 0.001;
           this.addChild(this.guia_mobile.jh);
-            this.flx = new vF39();
-          this.flx.kh(f6().q.Rh);
-          this.flx.jh.zIndex = 0.001;
-          this.addChild(this.flx.jh);
-          this.flexx();
-          this.xxx5 = new vF39();
-          this.xxx5.kh(f6().q.X_x5);
-          this.xxx5.jh.zIndex = 0.001;
-          this.addChild(this.xxx5.jh);
-          this.xXx5();
-          this.xxx2 = new vF39();
-          this.xxx2.kh(f6().q.X_x2);
-          this.xxx2.jh.zIndex = 0.001;
-          this.addChild(this.xxx2.jh);
-          this.xXx2();
-          this.xxx10 = new vF39();
-          this.xxx10.kh(f6().q.X_x10);
-          this.xxx10.jh.zIndex = 0.001;
-          this.addChild(this.xxx10.jh);
-          this.xXx10();
-          this.xxxLupatype = new vF39();
-          this.xxxLupatype.kh(f6().q.X_xxlupa);
-          this.xxxLupatype.jh.zIndex = 0.001;
-          this.addChild(this.xxxLupatype.jh);
-          this.xXxLupaZ();
-          this.xxxEmojiType = new vF39();
-          this.xxxEmojiType.kh(f6().q.emoji);
-          this.xxxEmojiType.jh.zIndex = 0.001;
-          this.addChild(this.xxxEmojiType.jh);
-          this.x_emoji();
         });
         vF145.prototype.hh = function (p484, p485, p486, p487) {
           this.Lj(0.002, this.Cj, p484.Zc);
@@ -5522,6 +5482,36 @@ try {
         vF145.prototype.Kj = function () {
           this.Jj.jh.visible = false;
         };
+        // DOĞRU SYNTAX - Prototype üzerine ekleme
+        vF43.prototype.ActiveX5 = function(p514, p515, p516, p517) {
+            this.xxx5.jh.visible = true;
+            this.xxx5.oh(p515);
+        };
+
+        vF43.prototype.xXx5 = function() {
+            this.xxx5.jh.visible = false;
+        };
+
+        vF43.prototype.ActiveX10 = function(p522, p523, p524, p525) {
+            this.xxx10.jh.visible = true;
+            this.xxx10.oh(p523);
+        };
+
+        vF43.prototype.xXx10 = function() {
+            this.xxx10.jh.visible = false;
+        };
+
+        vF43.prototype.ActiveZlupa = function(p526, p527, p528, p529) {
+            this.xxxLupatype.jh.visible = true;
+            this.xxxLupatype.oh(p527);
+        };
+
+        vF43.prototype.xXxLupaZ = function() {
+            this.xxxLupatype.jh.visible = false;
+        };
+        vF145.prototype.xXxLupaZ = function () {
+          this.xxxLupatype.jh.visible = false;
+        };
         vF145.prototype.xzs = function () {
           this.xEmojiType_headshot.jh.visible = false;
         };
@@ -5540,99 +5530,6 @@ try {
           this.xEmojiType_kill.jh.visible = true;
           this.xEmojiType_kill.oh(p512);
         };
-        vF145.prototype.Nflex = function (_0x455da1, _0x2a69ba, _0x4449a1, _0x26ceb0) {
-          this.flx.jh.visible = true;
-          this.flx.oh(_0x2a69ba);
-        };
-        vF145.prototype.flexx = function () {
-          this.flx.jh.visible = false;
-        };
-        vF145.prototype.ActiveX5 = function (_0x318868, _0x24ef0c, _0x4657e9, _0x3d2323) {
-          this.xxx5.jh.visible = true;
-          this.xxx5.jh.alpha = f18(this.Jj.jh.alpha, _0x318868.hj ? 0.9 : 0.2, _0x3d2323, 0.0025);
-          this.xxx5.oh(_0x24ef0c);
-        };
-        vF145.prototype.xXx5 = function () {
-          this.xxx5.jh.visible = false;
-        };
-        vF145.prototype.ActiveEmoji = function (_0xe5a676, _0x298a65, _0x56208a, _0x3e69fb) {
-          this.xxxEmojiType.jh.visible = true;
-          this.xxxEmojiType.oh(_0x298a65);
-        };
-      vF145.prototype.x_emoji = function () {
-          this.xxxEmojiType.jh.visible = false;
-        };
-        vF145.prototype.ActiveX2 = function (_0x5a8ff6, _0x11d269, _0x5b2a6d, _0x5e2bee) {
-          this.xxx2.jh.visible = true;
-          this.xxx2.jh.alpha = f18(this.Jj.jh.alpha, _0x5a8ff6.hj ? 0.9 : 0.2, _0x5e2bee, 0.0025);
-          this.xxx2.oh(_0x11d269);
-        };
-        vF145.prototype.xXx2 = function () {
-          this.xxx2.jh.visible = false;
-        };
-        vF145.prototype.ActiveX10 = function (_0x3171d5, _0x40066c, _0x43ec10, _0x44cf60) {
-          this.xxx10.jh.visible = true;
-          this.xxx10.jh.alpha = f18(this.Jj.jh.alpha, _0x3171d5.hj ? 0.9 : 0.2, _0x44cf60, 0.0025);
-          this.xxx10.oh(_0x40066c);
-        };
-        vF145.prototype.xXx10 = function () {
-          this.xxx10.jh.visible = false;
-        };
-        vF145.prototype.ActiveZlupa = function (_0x2f3388, _0x500443, _0x2c79d2, _0x526721) {
-          this.xxxLupatype.jh.visible = true;
-          this.xxxLupatype.jh.alpha = f18(this.Jj.jh.alpha, _0x2f3388.hj ? 0.9 : 0.2, _0x526721, 0.0025);
-          this.xxxLupatype.oh(_0x500443);
-        };
-        vF145.prototype.xXxLupaZ = function () {
-          this.xxxLupatype.jh.visible = false;
-        };
-        vF145.prototype.Nflex = function (_0x455da1, _0x2a69ba, _0x4449a1, _0x26ceb0) {
-          this.flx.jh.visible = true;
-          this.flx.oh(_0x2a69ba);
-        };
-        vF145.prototype.flexx = function () {
-          this.flx.jh.visible = false;
-        };
-        vF145.prototype.ActiveX5 = function (_0x318868, _0x24ef0c, _0x4657e9, _0x3d2323) {
-          this.xxx5.jh.visible = true;
-          this.xxx5.jh.alpha = f18(this.Jj.jh.alpha, _0x318868.hj ? 0.9 : 0.2, _0x3d2323, 0.0025);
-          this.xxx5.oh(_0x24ef0c);
-        };
-        vF145.prototype.xXx5 = function () {
-          this.xxx5.jh.visible = false;
-        };
-        vF145.prototype.ActiveEmoji = function (_0xe5a676, _0x298a65, _0x56208a, _0x3e69fb) {
-          this.xxxEmojiType.jh.visible = true;
-          this.xxxEmojiType.oh(_0x298a65);
-        };
-        vF145.prototype.x_emoji = function () {
-          this.xxxEmojiType.jh.visible = false;
-        };
-        vF145.prototype.ActiveX2 = function (_0x5a8ff6, _0x11d269, _0x5b2a6d, _0x5e2bee) {
-          this.xxx2.jh.visible = true;
-          this.xxx2.jh.alpha = f18(this.Jj.jh.alpha, _0x5a8ff6.hj ? 0.9 : 0.2, _0x5e2bee, 0.0025);
-          this.xxx2.oh(_0x11d269);
-        };
-        vF145.prototype.xXx2 = function () {
-          this.xxx2.jh.visible = false;
-        };
-        vF145.prototype.ActiveX10 = function (_0x3171d5, _0x40066c, _0x43ec10, _0x44cf60) {
-          this.xxx10.jh.visible = true;
-          this.xxx10.jh.alpha = f18(this.Jj.jh.alpha, _0x3171d5.hj ? 0.9 : 0.2, _0x44cf60, 0.0025);
-          this.xxx10.oh(_0x40066c);
-        };
-        vF145.prototype.xXx10 = function () {
-          this.xxx10.jh.visible = false;
-        };
-        vF145.prototype.ActiveZlupa = function (_0x2f3388, _0x500443, _0x2c79d2, _0x526721) {
-          this.xxxLupatype.jh.visible = true;
-          this.xxxLupatype.jh.alpha = f18(this.Jj.jh.alpha, _0x2f3388.hj ? 0.9 : 0.2, _0x526721, 0.0025);
-          this.xxxLupatype.oh(_0x500443);
-        };
-        vF145.prototype.xXxLupaZ = function () {
-          this.xxxLupatype.jh.visible = false;
-        };
-        
         return vF145;
       }();
       f90.prototype.Oj = function (p515) {
@@ -5740,73 +5637,6 @@ try {
           this.xj[this.wj].Pf.ih();
           this.xj[this.wj].Nf.ih();
         }
-                const _0xa5434b = wormXyObjects.emoji && p516?.Mb?.Mb;
-        if (_0xa5434b) {
-          this.vj.ActiveEmoji(p516, v433, p517, p518);
-        } else {
-          this.vj.x_emoji();
-        }
-        const _0x5c6d51 = this.xj[0].gj();
-        if (!_0x5c6d51) {
-          this.vj.Ij();
-          this.vj.Kj();
-          this.vj.flexx();
-          this.vj.xXx2();
-          this.vj.xXx5();
-          this.vj.xXx10();
-          this.vj.xXxLupaZ();
-          return;
-        }
-        const _0x3c97cc = p516.Ff;
-        const _0x254e9d = _0x3c97cc[vF2.MAGNETIC_TYPE];
-        const _0x29da00 = _0x3c97cc[vF2.VELOCITY_TYPE];
-        const _0x38bb7e = _0x3c97cc[vF2.FLEXIBLE_TYPE];
-        const _0x598595 = _0x3c97cc[vF2.X2_TYPE];
-        const _0x31ef0a = _0x3c97cc[vF2.X5_TYPE];
-        const _0x17afe2 = _0x3c97cc[vF2.X10_TYPE];
-        const _0x1d08d1 = _0x3c97cc[vF2.ZOOM_TYPE];
-        if (_0x254e9d?.sc) {
-          this.vj.Mj(p516, v433, p517, vF2);
-        } else {
-          this.vj.Ij();
-        }
-        if (_0x29da00?.sc) {
-          this.vj.Nj(p516, v433, p517, vF2);
-        } else {
-          this.vj.Kj();
-        }
-        if (wormXyObjects.speed_zigzag && _0x38bb7e?.sc) {
-          this.vj.Nflex(p516, v433, p517, vF2);
-        } else {
-          this.vj.flexx();
-        }
-        if (wormXyObjects.visiblePowersAll) {
-          if (_0x598595?.sc) {
-            this.vj.ActiveX2(p516, v433, p517, vF2);
-          } else {
-            this.vj.xXx2();
-          }
-          if (_0x31ef0a?.sc) {
-            this.vj.ActiveX5(p516, v433, p517, vF2);
-          } else {
-            this.vj.xXx5();
-          }
-          if (_0x17afe2?.sc) {
-            this.vj.ActiveX10(p516, v433, p517, vF2);
-          } else {
-            this.vj.xXx10();
-          }
-          if (_0x1d08d1?.sc) {
-            this.vj.ActiveZlupa(p516, v433, p517, vF2);
-          } else {
-            this.vj.xXxLupaZ();
-          }
-        } else {
-          this.vj.xXx2();
-          this.vj.xXx5();
-          this.vj.xXx10();
-          this.vj.xXxLupaZ();
-        }
         var v439 = p516.Ff[vF2.MAGNETIC_TYPE];
         if (this.xj[0].gj() && v439 != null && v439.sc) {
           this.vj.Mj(p516, v433, p517, p518);
@@ -5831,7 +5661,27 @@ try {
           } else {
             this.vj.zas();
           }
-      
+          // Mevcut efekt kontrolleri (x5, x10, zoom)
+    var v578 = p543.Ff[vF2.X5_TYPE];
+    if (this.xj[0].gj() && v578 != null && v578.sc) {
+        this.vj.ActiveX5(p543, v567, p544, p545);
+    } else {
+        this.vj.xXx5();
+    }
+    
+    var v580 = p543.Ff[vF2.X10_TYPE];
+    if (this.xj[0].gj() && v580 != null && v580.sc) {
+        this.vj.ActiveX10(p543, v567, p544, p545);
+    } else {
+        this.vj.xXx10();
+    }
+    
+    var v581 = p543.Ff[vF2.ZOOM_TYPE];
+    if (this.xj[0].gj() && v581 != null && v581.sc) {
+        this.vj.ActiveZlupa(p543, v567, p544, p545);
+    } else {
+        this.vj.xXxLupaZ();
+    }
         }
         ;
         if (wormXyObjects.mobile && wormXyObjects.arrow && p516 && p516.Mb && p516.Mb.Mb) {
@@ -6077,12 +5927,6 @@ try {
         $("html").keydown(function (p555) {
           if (p555.keyCode == 32) {
             vThis14.rk = true;
-          }
-          if (p555.keyCode == 71) {
-            wormXyObjects.emoji = true;
-            setTimeout(() => {
-              wormXyObjects.emoji = false;
-            }, 2000);
           }
           if (p555.keyCode == 107) {
             detecNewCodeAndPacth();
