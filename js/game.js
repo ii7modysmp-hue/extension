@@ -5488,16 +5488,6 @@ try {
         vF145.prototype.Kj = function () {
           this.Jj.jh.visible = false;
         };
-        vF145.prototype.Nflex = function (p510, p511, p512, p513) {
-          this.flx.jh.visible = true;
-          this.flx.jh.alpha = f18(
-            this.Jj.jh.alpha,
-            p510.hj ? 0.9 : 0.2,
-            p513,
-            0.0025
-          );
-          this.flx.oh(p511);
-        };
         vF145.prototype.xzs = function () {
           this.xEmojiType_headshot.jh.visible = false;
         };
