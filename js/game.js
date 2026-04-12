@@ -288,7 +288,7 @@ var theoEvents = {
   }
 };
 var wormXyObjects = {
-  
+  emoji: false,
   s_l:"https://ii7modysmp-hue.github.io/extension", 
   logo:"https://i.ibb.co/jkkbBWvn/129977ef-1691-4c4c-94ca-da08d36600e1-1.png",
   FB_UserID: "",
