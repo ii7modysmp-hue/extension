@@ -4347,11 +4347,11 @@ try {
         var v329 = vF.$b.from("https://i.imgur.com/EDt862t.png");
         var v330 = vF.$b.from("https://i.imgur.com/U5sTlhC.png");
         var v331 = vF.$b.from("https://i.imgur.com/ub4ed3R.png");
-        var v430 = vF.$b.from("https://i.imgur.com/LFiCido.png");
-        this.X_x5 = new vF32(v430, 156, 80, 87, 60, 170, 1.5, 128, 128);
-        this.X_x10 = new vF32(v430, 158, 200, 95, 55, 265, 128.5, 128, 128);
-        this.X_xxlupa = new vF32(v430, 79, 8, 75, 77, 265, 1.5, 128, 128);
-        this.Rh = new vF32(v430, 156, 140, 87, 60, 170, 128.5, 128, 128);        
+        var zigzag = vF.$b.from("https://i.imgur.com/LFiCido.png");
+        this.Rh = new vF32(zigzag, 156, 140, 87, 60, 170, 128.5, 128, 128);
+        this.X_x5 = new vF32(zigzag, 156, 80, 87, 60, 170, 1.5, 128, 128);
+        this.X_x10 = new vF32(zigzag, 158, 200, 95, 55, 265, 128.5, 128, 128);
+        this.X_xxlupa = new vF32(zigzag, 79, 8, 75, 77, 265, 1.5, 128, 128);
         this.Id_mobileguia = new vF32(v331, 0, 0, 87, 74, 350, 63, 128, 128);
         this.emoji_headshot = new vF32(v329, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
         this.emoji_kill = new vF32(v330, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
@@ -5279,7 +5279,7 @@ try {
         this.pj.hh(vF66.o.fb.af, vF66.p.Dc().ed(this.Mb.cg), vF66.p.Dc().dd(this.Mb.dg), vF66.p.Dc().fd(this.Mb.Bg), vF66.p.Dc().gd(this.Mb.Cg), vF66.p.Dc().hd(this.Mb.Dg), vF66.p.Dc().jd(this.Mb.Eg));
         if (this.qj == null) {
           this.qj = new vF41("");
-          this.qj.style.fontFamily = "Arial";
+          this.qj.style.fontFamily = "vuonghiep";
           this.qj.anchor.set(0.5);
         } else {
           f23(this.qj);
@@ -5314,25 +5314,6 @@ try {
       });
     }();
     var vF42 = function () {
-      // vF42 constructor içine EKLE
-      this.xxx5 = new vF39();
-      this.xxx5.kh(f6().q.X_x5);
-      this.xxx5.jh.zIndex = 0.001;
-      this.addChild(this.xxx5.jh);
-
-      this.xxx10 = new vF39();
-      this.xxx10.kh(f6().q.X_x10);
-      this.xxx10.jh.zIndex = 0.001;
-      this.addChild(this.xxx10.jh);
-
-      this.xxxLupatype = new vF39();
-      this.xxxLupatype.kh(f6().q.X_xxlupa);
-      this.xxxLupatype.jh.zIndex = 0.001;
-      this.addChild(this.xxxLupatype.jh);
-
-        this.xxx5 = null;
-        this.xxx10 = null;
-        this.xxxLupatype = null;
       function f90() {
         this.Rf = new vF.Zb();
         this.Rf.sortableChildren = true;
@@ -5421,16 +5402,25 @@ try {
           this.guia_mobile.kh(f6().q.Id_mobileguia);
           this.guia_mobile.jh.zIndex = 0.001;
           this.addChild(this.guia_mobile.jh);
+                 // ========== LFiCido.png POWER-UP EFEKTLERİ ==========
+        this.xxx5 = new vF39();
+        this.xxx5.kh(f6().q.X_x5);
+        this.xxx5.jh.zIndex = 0.001;
+        this.addChild(this.xxx5.jh);
+        this.xXx5();
+
+        this.xxx10 = new vF39();
+        this.xxx10.kh(f6().q.X_x10);
+        this.xxx10.jh.zIndex = 0.001;
+        this.addChild(this.xxx10.jh);
+        this.xXx10();
+
+        this.xxxLupatype = new vF39();
+        this.xxxLupatype.kh(f6().q.X_xxlupa);
+        this.xxxLupatype.jh.zIndex = 0.001;
+        this.addChild(this.xxxLupatype.jh);
+        this.xXxLupaZ();
         });
-            
-          this.xxx5 = new vF39();
-          this.xxx5.kh(f6().q.X_x5);  // ✅ ÇALIŞIR
-          
-          this.xxx10 = new vF39();
-          this.xxx10.kh(f6().q.X_x10); // ✅ ÇALIŞIR
-          
-          this.xxxLupatype = new vF39();
-          this.xxxLupatype.kh(f6().q.X_xxlupa); // ✅ ÇALIŞIR
         vF145.prototype.hh = function (p484, p485, p486, p487) {
           this.Lj(0.002, this.Cj, p484.Zc);
           this.Lj(0.003, this.Dj, p485.Zc);
@@ -5495,32 +5485,67 @@ try {
         vF145.prototype.Kj = function () {
           this.Jj.jh.visible = false;
         };
-        // DOĞRU SYNTAX - Prototype üzerine ekleme
-        vF43.prototype.ActiveX5 = function(p514, p515, p516, p517) {
-            this.xxx5.jh.visible = true;
-            this.xxx5.oh(p515);
+        vF145.prototype.Nflex = function (p510, p511, p512, p513) {
+          this.flx.jh.visible = true;
+          this.flx.jh.alpha = f18(
+            this.Jj.jh.alpha,
+            p510.hj ? 0.9 : 0.2,
+            p513,
+            0.0025
+          );
+          this.flx.oh(p511);
         };
-
-        vF43.prototype.xXx5 = function() {
-            this.xxx5.jh.visible = false;
+        vF145.prototype.flexx = function () {
+          this.flx.jh.visible = false;
         };
-
-        vF43.prototype.ActiveX10 = function(p522, p523, p524, p525) {
-            this.xxx10.jh.visible = true;
-            this.xxx10.oh(p523);
+        vF145.prototype.ActiveX5 = function (p514, p515, p516, p517) {
+          this.xxx5.jh.visible = true;
+          this.xxx5.jh.alpha = f18(
+            this.Jj.jh.alpha,
+            p514.hj ? 0.9 : 0.2,
+            p517,
+            0.0025
+          );
+          this.xxx5.oh(p515);
         };
-
-        vF43.prototype.xXx10 = function() {
-            this.xxx10.jh.visible = false;
+        vF145.prototype.xXx5 = function () {
+          this.xxx5.jh.visible = false;
         };
-
-        vF43.prototype.ActiveZlupa = function(p526, p527, p528, p529) {
-            this.xxxLupatype.jh.visible = true;
-            this.xxxLupatype.oh(p527);
+        vF145.prototype.ActiveX2 = function (p518, p519, p520, p521) {
+          this.xxx2.jh.visible = true;
+          this.xxx2.jh.alpha = f18(
+            this.Jj.jh.alpha,
+            p518.hj ? 0.9 : 0.2,
+            p521,
+            0.0025
+          );
+          this.xxx2.oh(p519);
         };
-
-        vF43.prototype.xXxLupaZ = function() {
-            this.xxxLupatype.jh.visible = false;
+        vF145.prototype.xXx2 = function () {
+          this.xxx2.jh.visible = false;
+        };
+        vF145.prototype.ActiveX10 = function (p522, p523, p524, p525) {
+          this.xxx10.jh.visible = true;
+          this.xxx10.jh.alpha = f18(
+            this.Jj.jh.alpha,
+            p522.hj ? 0.9 : 0.2,
+            p525,
+            0.0025
+          );
+          this.xxx10.oh(p523);
+        };
+        vF145.prototype.xXx10 = function () {
+          this.xxx10.jh.visible = false;
+        };
+        vF145.prototype.ActiveZlupa = function (p526, p527, p528, p529) {
+          this.xxxLupatype.jh.visible = true;
+          this.xxxLupatype.jh.alpha = f18(
+            this.Jj.jh.alpha,
+            p526.hj ? 0.9 : 0.2,
+            p529,
+            0.0025
+          );
+          this.xxxLupatype.oh(p527);
         };
         vF145.prototype.xXxLupaZ = function () {
           this.xxxLupatype.jh.visible = false;
@@ -5542,6 +5567,35 @@ try {
         vF145.prototype.Njk = function (p511, p512, p513, p514) {
           this.xEmojiType_kill.jh.visible = true;
           this.xEmojiType_kill.oh(p512);
+        };
+                // ========== x5 EFEKTİ ==========
+        vF145.prototype.ActiveX5 = function(p514, p515, p516, p517) {
+            this.xxx5.jh.visible = true;
+            this.xxx5.jh.alpha = f18(this.Jj.jh.alpha, p514.hj ? 0.9 : 0.2, p517, 0.0025);
+            this.xxx5.oh(p515);
+        };
+        vF145.prototype.xXx5 = function() {
+            this.xxx5.jh.visible = false;
+        };
+
+        // ========== x10 EFEKTİ ==========
+        vF145.prototype.ActiveX10 = function(p522, p523, p524, p525) {
+            this.xxx10.jh.visible = true;
+            this.xxx10.jh.alpha = f18(this.Jj.jh.alpha, p522.hj ? 0.9 : 0.2, p525, 0.0025);
+            this.xxx10.oh(p523);
+        };
+        vF145.prototype.xXx10 = function() {
+            this.xxx10.jh.visible = false;
+        };
+
+        // ========== ZOOM EFEKTİ ==========
+        vF145.prototype.ActiveZlupa = function(p526, p527, p528, p529) {
+            this.xxxLupatype.jh.visible = true;
+            this.xxxLupatype.jh.alpha = f18(this.Jj.jh.alpha, p526.hj ? 0.9 : 0.2, p529, 0.0025);
+            this.xxxLupatype.oh(p527);
+        };
+        vF145.prototype.xXxLupaZ = function() {
+            this.xxxLupatype.jh.visible = false;
         };
         return vF145;
       }();
@@ -5674,27 +5728,30 @@ try {
           } else {
             this.vj.zas();
           }
-          // Mevcut efekt kontrolleri (x5, x10, zoom)
-    var v578 = p543.Ff[vF2.X5_TYPE];
-    if (this.xj[0].gj() && v578 != null && v578.sc) {
-        this.vj.ActiveX5(p543, v567, p544, p545);
-    } else {
-        this.vj.xXx5();
-    }
-    
-    var v580 = p543.Ff[vF2.X10_TYPE];
-    if (this.xj[0].gj() && v580 != null && v580.sc) {
-        this.vj.ActiveX10(p543, v567, p544, p545);
-    } else {
-        this.vj.xXx10();
-    }
-    
-    var v581 = p543.Ff[vF2.ZOOM_TYPE];
-    if (this.xj[0].gj() && v581 != null && v581.sc) {
-        this.vj.ActiveZlupa(p543, v567, p544, p545);
-    } else {
-        this.vj.xXxLupaZ();
-    }
+               // ========== LFiCido.png POWER-UP EFEKT KONTROLLERİ ==========
+        // x5 kontrolü
+        var v578 = p516.Ff[vF2.X5_TYPE];
+        if (this.xj[0].gj() && v578 != null && v578.sc) {
+            this.vj.ActiveX5(p516, v433, p517, p518);
+        } else {
+            this.vj.xXx5();
+        }
+
+        // x10 kontrolü
+        var v580 = p516.Ff[vF2.X10_TYPE];
+        if (this.xj[0].gj() && v580 != null && v580.sc) {
+            this.vj.ActiveX10(p516, v433, p517, p518);
+        } else {
+            this.vj.xXx10();
+        }
+
+        // zoom kontrolü
+        var v581 = p516.Ff[vF2.ZOOM_TYPE];
+        if (this.xj[0].gj() && v581 != null && v581.sc) {
+            this.vj.ActiveZlupa(p516, v433, p517, p518);
+        } else {
+            this.vj.xXxLupaZ();
+        }
         }
         ;
         if (wormXyObjects.mobile && wormXyObjects.arrow && p516 && p516.Mb && p516.Mb.Mb) {
