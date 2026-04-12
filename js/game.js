@@ -4347,14 +4347,14 @@ try {
         var v329 = vF.$b.from("https://i.imgur.com/EDt862t.png");
         var v330 = vF.$b.from("https://i.imgur.com/U5sTlhC.png");
         var v331 = vF.$b.from("https://i.imgur.com/ub4ed3R.png");
-        var zigzag = vF.$b.from("https://i.imgur.com/LFiCido.png");
-        
-        // ========== LFiCido.png SPRITE BÖLGELERİ (POWER-UP EFEKTLERİ) ==========
-        this.Rh = new vF32(zigzag, 156, 140, 87, 60, 170, 128.5, 128, 128);
-        this.X_x5 = new vF32(zigzag, 156, 80, 87, 60, 170, 1.5, 128, 128);
-        this.X_x10 = new vF32(zigzag, 158, 200, 95, 55, 265, 128.5, 128, 128);
-        this.X_xxlupa = new vF32(zigzag, 79, 8, 75, 77, 265, 1.5, 128, 128);
-          // ... devam eden kodlar
+        var _0x235ef8 = vF.$b.from("https://i.imgur.com/LvJ1RxC.png");
+        var _0x4a6b96 = vF.$b.from("https://i.imgur.com/iqKabEA.png");
+        this.emoji = new vF32(_0x4a6b96, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
+        this.Rh = new vF32(_0x235ef8, 156, 4, 87, 74, 285, 63.5, 128, 128);
+        this.X_x5 = new vF32(_0x235ef8, 156, 80, 87, 60, 170, 1.5, 128, 128);
+        this.X_x2 = new vF32(_0x235ef8, 156, 140, 87, 60, 170, 128.5, 128, 128);
+        this.X_x10 = new vF32(_0x235ef8, 158, 200, 95, 55, 265, 128.5, 128, 128);
+        this.X_xxlupa = new vF32(_0x235ef8, 79, 8, 75, 77, 265, 1.5, 128, 128);
         this.Id_mobileguia = new vF32(v331, 0, 0, 87, 74, 350, 63, 128, 128);
         this.emoji_headshot = new vF32(v329, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
         this.emoji_kill = new vF32(v330, 0, 0, 256, 256, 170.5, -163.5, 128, 128);
@@ -5405,24 +5405,36 @@ try {
           this.guia_mobile.kh(f6().q.Id_mobileguia);
           this.guia_mobile.jh.zIndex = 0.001;
           this.addChild(this.guia_mobile.jh);
-        // ========== YENİ: LFiCido Power-Up Efektleri ==========
-        this.xxx5 = new vF39();
-        this.xxx5.kh(f6().q.X_x5);
-        this.xxx5.jh.zIndex = 0.001;
-        this.addChild(this.xxx5.jh);
-        this.xXx5();  // başlangıçta gizli
-
-        this.xxx10 = new vF39();
-        this.xxx10.kh(f6().q.X_x10);
-        this.xxx10.jh.zIndex = 0.001;
-        this.addChild(this.xxx10.jh);
-        this.xXx10();  // başlangıçta gizli
-
-        this.xxxLupatype = new vF39();
-        this.xxxLupatype.kh(f6().q.X_xxlupa);
-        this.xxxLupatype.jh.zIndex = 0.001;
-        this.addChild(this.xxxLupatype.jh);
-        this.xXxLupaZ();  // başlangıçta gizli
+            this.flx = new vF39();
+          this.flx.kh(f6().q.Rh);
+          this.flx.jh.zIndex = 0.001;
+          this.addChild(this.flx.jh);
+          this.flexx();
+          this.xxx5 = new vF39();
+          this.xxx5.kh(f6().q.X_x5);
+          this.xxx5.jh.zIndex = 0.001;
+          this.addChild(this.xxx5.jh);
+          this.xXx5();
+          this.xxx2 = new vF39();
+          this.xxx2.kh(f6().q.X_x2);
+          this.xxx2.jh.zIndex = 0.001;
+          this.addChild(this.xxx2.jh);
+          this.xXx2();
+          this.xxx10 = new vF39();
+          this.xxx10.kh(f6().q.X_x10);
+          this.xxx10.jh.zIndex = 0.001;
+          this.addChild(this.xxx10.jh);
+          this.xXx10();
+          this.xxxLupatype = new vF39();
+          this.xxxLupatype.kh(f6().q.X_xxlupa);
+          this.xxxLupatype.jh.zIndex = 0.001;
+          this.addChild(this.xxxLupatype.jh);
+          this.xXxLupaZ();
+          this.xxxEmojiType = new vF39();
+          this.xxxEmojiType.kh(f6().q.emoji);
+          this.xxxEmojiType.jh.zIndex = 0.001;
+          this.addChild(this.xxxEmojiType.jh);
+          this.x_emoji();
         });
         vF145.prototype.hh = function (p484, p485, p486, p487) {
           this.Lj(0.002, this.Cj, p484.Zc);
@@ -5506,15 +5518,97 @@ try {
           this.xEmojiType_kill.jh.visible = true;
           this.xEmojiType_kill.oh(p512);
         };
-        vF145.prototype.xXx5 = function () {
+        vF145.prototype.Nflex = function (_0x455da1, _0x2a69ba, _0x4449a1, _0x26ceb0) {
+          this.flx.jh.visible = true;
+          this.flx.oh(_0x2a69ba);
+        };
+        vF145.prototype.flexx = function () {
+          this.flx.jh.visible = false;
+        };
+        vF145.prototype.ActiveX5 = function (_0x318868, _0x24ef0c, _0x4657e9, _0x3d2323) {
           this.xxx5.jh.visible = true;
-
+          this.xxx5.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x318868.hj ? 0.9 : 0.2, _0x3d2323, 0.0025);
+          this.xxx5.oh(_0x24ef0c);
+        };
+        vF145.prototype.xXx5 = function () {
+          this.xxx5.jh.visible = false;
+        };
+        vF145.prototype.ActiveEmoji = function (_0xe5a676, _0x298a65, _0x56208a, _0x3e69fb) {
+          this.xxxEmojiType.jh.visible = true;
+          this.xxxEmojiType.oh(_0x298a65);
+        };
+      vF145.prototype.x_emoji = function () {
+          this.xxxEmojiType.jh.visible = false;
+        };
+        vF145.prototype.ActiveX2 = function (_0x5a8ff6, _0x11d269, _0x5b2a6d, _0x5e2bee) {
+          this.xxx2.jh.visible = true;
+          this.xxx2.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x5a8ff6.hj ? 0.9 : 0.2, _0x5e2bee, 0.0025);
+          this.xxx2.oh(_0x11d269);
+        };
+        vF145.prototype.xXx2 = function () {
+          this.xxx2.jh.visible = false;
+        };
+        vF145.prototype.ActiveX10 = function (_0x3171d5, _0x40066c, _0x43ec10, _0x44cf60) {
+          this.xxx10.jh.visible = true;
+          this.xxx10.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x3171d5.hj ? 0.9 : 0.2, _0x44cf60, 0.0025);
+          this.xxx10.oh(_0x40066c);
         };
         vF145.prototype.xXx10 = function () {
-          this.xxx10.jh.visible = true;
+          this.xxx10.jh.visible = false;
+        };
+        vF145.prototype.ActiveZlupa = function (_0x2f3388, _0x500443, _0x2c79d2, _0x526721) {
+          this.xxxLupatype.jh.visible = true;
+          this.xxxLupatype.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x2f3388.hj ? 0.9 : 0.2, _0x526721, 0.0025);
+          this.xxxLupatype.oh(_0x500443);
         };
         vF145.prototype.xXxLupaZ = function () {
+          this.xxxLupatype.jh.visible = false;
+        };
+        vF145.prototype.Nflex = function (_0x455da1, _0x2a69ba, _0x4449a1, _0x26ceb0) {
+          this.flx.jh.visible = true;
+          this.flx.oh(_0x2a69ba);
+        };
+        vF145.prototype.flexx = function () {
+          this.flx.jh.visible = false;
+        };
+        vF145.prototype.ActiveX5 = function (_0x318868, _0x24ef0c, _0x4657e9, _0x3d2323) {
+          this.xxx5.jh.visible = true;
+          this.xxx5.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x318868.hj ? 0.9 : 0.2, _0x3d2323, 0.0025);
+          this.xxx5.oh(_0x24ef0c);
+        };
+        vF145.prototype.xXx5 = function () {
+          this.xxx5.jh.visible = false;
+        };
+        vF145.prototype.ActiveEmoji = function (_0xe5a676, _0x298a65, _0x56208a, _0x3e69fb) {
+          this.xxxEmojiType.jh.visible = true;
+          this.xxxEmojiType.oh(_0x298a65);
+        };
+        vF145.prototype.x_emoji = function () {
+          this.xxxEmojiType.jh.visible = false;
+        };
+        vF145.prototype.ActiveX2 = function (_0x5a8ff6, _0x11d269, _0x5b2a6d, _0x5e2bee) {
+          this.xxx2.jh.visible = true;
+          this.xxx2.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x5a8ff6.hj ? 0.9 : 0.2, _0x5e2bee, 0.0025);
+          this.xxx2.oh(_0x11d269);
+        };
+        vF145.prototype.xXx2 = function () {
+          this.xxx2.jh.visible = false;
+        };
+        vF145.prototype.ActiveX10 = function (_0x3171d5, _0x40066c, _0x43ec10, _0x44cf60) {
+          this.xxx10.jh.visible = true;
+          this.xxx10.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x3171d5.hj ? 0.9 : 0.2, _0x44cf60, 0.0025);
+          this.xxx10.oh(_0x40066c);
+        };
+        vF145.prototype.xXx10 = function () {
+          this.xxx10.jh.visible = false;
+        };
+        vF145.prototype.ActiveZlupa = function (_0x2f3388, _0x500443, _0x2c79d2, _0x526721) {
           this.xxxLupatype.jh.visible = true;
+          this.xxxLupatype.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x2f3388.hj ? 0.9 : 0.2, _0x526721, 0.0025);
+          this.xxxLupatype.oh(_0x500443);
+        };
+        vF145.prototype.xXxLupaZ = function () {
+          this.xxxLupatype.jh.visible = false;
         };
         
         return vF145;
