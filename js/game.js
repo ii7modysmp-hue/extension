@@ -5530,7 +5530,7 @@ try {
         };
         vF145.prototype.ActiveX5 = function (_0x318868, _0x24ef0c, _0x4657e9, _0x3d2323) {
           this.xxx5.jh.visible = true;
-          this.xxx5.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x318868.hj ? 0.9 : 0.2, _0x3d2323, 0.0025);
+          this.xxx5.jh.alpha = f18(this.Jj.jh.alpha, _0x318868.hj ? 0.9 : 0.2, _0x3d2323, 0.0025);
           this.xxx5.oh(_0x24ef0c);
         };
         vF145.prototype.xXx5 = function () {
@@ -5545,7 +5545,7 @@ try {
         };
         vF145.prototype.ActiveX2 = function (_0x5a8ff6, _0x11d269, _0x5b2a6d, _0x5e2bee) {
           this.xxx2.jh.visible = true;
-          this.xxx2.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x5a8ff6.hj ? 0.9 : 0.2, _0x5e2bee, 0.0025);
+          this.xxx2.jh.alpha = f18(this.Jj.jh.alpha, _0x5a8ff6.hj ? 0.9 : 0.2, _0x5e2bee, 0.0025);
           this.xxx2.oh(_0x11d269);
         };
         vF145.prototype.xXx2 = function () {
@@ -5553,7 +5553,7 @@ try {
         };
         vF145.prototype.ActiveX10 = function (_0x3171d5, _0x40066c, _0x43ec10, _0x44cf60) {
           this.xxx10.jh.visible = true;
-          this.xxx10.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x3171d5.hj ? 0.9 : 0.2, _0x44cf60, 0.0025);
+          this.xxx10.jh.alpha = f18(this.Jj.jh.alpha, _0x3171d5.hj ? 0.9 : 0.2, _0x44cf60, 0.0025);
           this.xxx10.oh(_0x40066c);
         };
         vF145.prototype.xXx10 = function () {
@@ -5561,7 +5561,7 @@ try {
         };
         vF145.prototype.ActiveZlupa = function (_0x2f3388, _0x500443, _0x2c79d2, _0x526721) {
           this.xxxLupatype.jh.visible = true;
-          this.xxxLupatype.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x2f3388.hj ? 0.9 : 0.2, _0x526721, 0.0025);
+          this.xxxLupatype.jh.alpha = f18(this.Jj.jh.alpha, _0x2f3388.hj ? 0.9 : 0.2, _0x526721, 0.0025);
           this.xxxLupatype.oh(_0x500443);
         };
         vF145.prototype.xXxLupaZ = function () {
@@ -5576,7 +5576,7 @@ try {
         };
         vF145.prototype.ActiveX5 = function (_0x318868, _0x24ef0c, _0x4657e9, _0x3d2323) {
           this.xxx5.jh.visible = true;
-          this.xxx5.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x318868.hj ? 0.9 : 0.2, _0x3d2323, 0.0025);
+          this.xxx5.jh.alpha = f18(this.Jj.jh.alpha, _0x318868.hj ? 0.9 : 0.2, _0x3d2323, 0.0025);
           this.xxx5.oh(_0x24ef0c);
         };
         vF145.prototype.xXx5 = function () {
@@ -5591,7 +5591,7 @@ try {
         };
         vF145.prototype.ActiveX2 = function (_0x5a8ff6, _0x11d269, _0x5b2a6d, _0x5e2bee) {
           this.xxx2.jh.visible = true;
-          this.xxx2.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x5a8ff6.hj ? 0.9 : 0.2, _0x5e2bee, 0.0025);
+          this.xxx2.jh.alpha = f18(this.Jj.jh.alpha, _0x5a8ff6.hj ? 0.9 : 0.2, _0x5e2bee, 0.0025);
           this.xxx2.oh(_0x11d269);
         };
         vF145.prototype.xXx2 = function () {
@@ -5599,7 +5599,7 @@ try {
         };
         vF145.prototype.ActiveX10 = function (_0x3171d5, _0x40066c, _0x43ec10, _0x44cf60) {
           this.xxx10.jh.visible = true;
-          this.xxx10.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x3171d5.hj ? 0.9 : 0.2, _0x44cf60, 0.0025);
+          this.xxx10.jh.alpha = f18(this.Jj.jh.alpha, _0x3171d5.hj ? 0.9 : 0.2, _0x44cf60, 0.0025);
           this.xxx10.oh(_0x40066c);
         };
         vF145.prototype.xXx10 = function () {
@@ -5607,7 +5607,7 @@ try {
         };
         vF145.prototype.ActiveZlupa = function (_0x2f3388, _0x500443, _0x2c79d2, _0x526721) {
           this.xxxLupatype.jh.visible = true;
-          this.xxxLupatype.jh.alpha = _0x2c6321(this.Jj.jh.alpha, _0x2f3388.hj ? 0.9 : 0.2, _0x526721, 0.0025);
+          this.xxxLupatype.jh.alpha = f18(this.Jj.jh.alpha, _0x2f3388.hj ? 0.9 : 0.2, _0x526721, 0.0025);
           this.xxxLupatype.oh(_0x500443);
         };
         vF145.prototype.xXxLupaZ = function () {
