@@ -5467,36 +5467,6 @@ try {
         vF145.prototype.Kj = function () {
           this.Jj.jh.visible = false;
         };
-        // DOĞRU SYNTAX - Prototype üzerine ekleme
-        vF43.prototype.ActiveX5 = function(p514, p515, p516, p517) {
-            this.xxx5.jh.visible = true;
-            this.xxx5.oh(p515);
-        };
-
-        vF43.prototype.xXx5 = function() {
-            this.xxx5.jh.visible = false;
-        };
-
-        vF43.prototype.ActiveX10 = function(p522, p523, p524, p525) {
-            this.xxx10.jh.visible = true;
-            this.xxx10.oh(p523);
-        };
-
-        vF43.prototype.xXx10 = function() {
-            this.xxx10.jh.visible = false;
-        };
-
-        vF43.prototype.ActiveZlupa = function(p526, p527, p528, p529) {
-            this.xxxLupatype.jh.visible = true;
-            this.xxxLupatype.oh(p527);
-        };
-
-        vF43.prototype.xXxLupaZ = function() {
-            this.xxxLupatype.jh.visible = false;
-        };
-        vF145.prototype.xXxLupaZ = function () {
-          this.xxxLupatype.jh.visible = false;
-        };
         vF145.prototype.xzs = function () {
           this.xEmojiType_headshot.jh.visible = false;
         };
