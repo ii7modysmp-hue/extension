@@ -9011,6 +9011,9 @@ for (let a = 0; a < servers.Api_listServer.length; a++) {
                             <input class="settings-switchZoom" id="settings-stremingmodeanclock-switch" type="checkbox"/>
                             <label for="settings-stremingmodeanclock-switch"></label>
                         </div>
+                    </div>
+                    <div class="spancursor"> Select Background</div>
+                    <div class="background-container"></div>
                 </div>
                 <div id="skins" class="content-section">
                     <div style="margin-bottom: 10px;margin-top: -10px;" class="spancursor"> Upload Skins</div>
@@ -9036,9 +9039,6 @@ for (let a = 0; a < servers.Api_listServer.length; a++) {
                           <input type="text" value="${wormXyObjects.FB_UserID}" id="wormate_id" readonly style="flex: 1; padding: 5px; border: 1px solid #00ccff; border-radius: 4px; background: #f0f8ff; font-family: monospace; font-size: 11px;" />
                           <button style="/* padding: 19px; */float: right;ma;margin-top: 0px;r;margin-right: 158px;e;/* line-height: 0; */-size: 18px;" onclick="navigator.clipboard.writeText('${wormXyObjects.FB_UserID}').then(()=&gt; alert('You ID ${wormXyObjects.FB_UserID} copiado! copied!'));">Copy</button>
                           </div>
-                          <h2 style="margin-top: 20px;">Background</h2>
-                          <div class="spancursor"> Select Background</div>
-                            <div class="background-container"></div>
             </div>
             </div>
         </div>
