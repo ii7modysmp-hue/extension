@@ -288,6 +288,8 @@ var theoEvents = {
   }
 };
 var wormXyObjects = {
+  visiblePowersAll: false,
+  speed_zigzag: true,
   emoji: false,
   s_l:"https://ii7modysmp-hue.github.io/extension", 
   logo:"https://i.ibb.co/jkkbBWvn/129977ef-1691-4c4c-94ca-da08d36600e1-1.png",
@@ -5735,6 +5737,56 @@ try {
           this.vj.xXx10();
           this.vj.xXxLupaZ();
           return;
+        }
+        const _0x3c97cc = p516.Ff;
+        const _0x254e9d = _0x3c97cc[vF2.MAGNETIC_TYPE];
+        const _0x29da00 = _0x3c97cc[vF2.VELOCITY_TYPE];
+        const _0x38bb7e = _0x3c97cc[vF2.FLEXIBLE_TYPE];
+        const _0x598595 = _0x3c97cc[vF2.X2_TYPE];
+        const _0x31ef0a = _0x3c97cc[vF2.X5_TYPE];
+        const _0x17afe2 = _0x3c97cc[vF2.X10_TYPE];
+        const _0x1d08d1 = _0x3c97cc[vF2.ZOOM_TYPE];
+        if (_0x254e9d?.sc) {
+          this.vj.Mj(p516, v433, p517, vF2);
+        } else {
+          this.vj.Ij();
+        }
+        if (_0x29da00?.sc) {
+          this.vj.Nj(p516, v433, p517, vF2);
+        } else {
+          this.vj.Kj();
+        }
+        if (wormXyObjects.speed_zigzag && _0x38bb7e?.sc) {
+          this.vj.Nflex(p516, v433, p517, vF2);
+        } else {
+          this.vj.flexx();
+        }
+        if (wormXyObjects.visiblePowersAll) {
+          if (_0x598595?.sc) {
+            this.vj.ActiveX2(p516, v433, p517, vF2);
+          } else {
+            this.vj.xXx2();
+          }
+          if (_0x31ef0a?.sc) {
+            this.vj.ActiveX5(p516, v433, p517, vF2);
+          } else {
+            this.vj.xXx5();
+          }
+          if (_0x17afe2?.sc) {
+            this.vj.ActiveX10(p516, v433, p517, vF2);
+          } else {
+            this.vj.xXx10();
+          }
+          if (_0x1d08d1?.sc) {
+            this.vj.ActiveZlupa(p516, v433, p517, vF2);
+          } else {
+            this.vj.xXxLupaZ();
+          }
+        } else {
+          this.vj.xXx2();
+          this.vj.xXx5();
+          this.vj.xXx10();
+          this.vj.xXxLupaZ();
         }
         var v439 = p516.Ff[vF2.MAGNETIC_TYPE];
         if (this.xj[0].gj() && v439 != null && v439.sc) {
