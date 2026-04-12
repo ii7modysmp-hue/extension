@@ -8555,8 +8555,8 @@ return vF1417;
       });
       $(".mm-merchant").replaceWith("");
 $(".description-text").replaceWith(`
- <div class="description-text">
-    <div class="title-wormate-friends-connect" style="position: absolute; top: 0; z-index: 1; width: 95.5%; margin-top: 10px;">S E R V E R S </div>
+<div class="description-text">
+    <div class="title-wormate-friends-connect" style="position: absolute; top: 0; z-index: 1; width: 95.5%; margin-top: 10px;">S E R V E R S</div>
     
     <div style="text-align: center; margin-top: 40px; position: relative; z-index: 2;">
         <button id="sort-toggle" style="background: #e67e22; color: white; border: 1px solid #d35400; border-radius: 4px; padding: 5px 15px; cursor: pointer; font-size: 11px; font-weight: bold; min-width: 150px; text-transform: uppercase;">Tim Map Servers</button>
@@ -8599,84 +8599,79 @@ $(".description-text").replaceWith(`
             <div class="servers-timmap-list"></div>
         </div>
     </div>
- </div>
+</div>
 `);
 
-// منطق التبديل بين النسختين (Toggle Logic)
-$('#sort-toggle').on('click', function () {
-    if ($('#content-version-2').is(':visible')) {
-        // العودة للنسخة الأصلية
+var isTimMapActive = false;
+
+$('#sort-toggle').on('click', function() {
+    if (isTimMapActive) {
         $('#content-version-2').hide();
         $('#content-version-1').fadeIn().addClass('active');
         $(this).text('Tim Map Servers').css("background", "#e67e22");
+        isTimMapActive = false;
     } else {
-        // الذهاب لنسخة Tim Map
         $('#content-version-1').hide().removeClass('active');
         $('#content-version-2').fadeIn().addClass('active');
         $(this).text('WormWorld Servers').css("background", "#2ecc71");
+        isTimMapActive = true;
     }
 });
 
 $(".ui-tab").on("click", account);
-$(".flag").click(function () {
-    let v524 = $(this).attr("value");
+
+$(".flag").click(function() {
+    var v524 = $(this).attr("value");
     wormXyObjects.flag = v524;
     ctx.containerImgS.texture = ctx.onclickServer;
     if (typeof retundFlagError === "function") retundFlagError();
 });
 
-// توزيع السيرفرات بناءً على القيم الجديدة في JSON
-for (let a = 0; a < servers.Api_listServer.length; a++) {
-    let s = servers.Api_listServer[a];
-    var vUrl = s.serverUrl;
-    var vName = s.name;
-    var vRegion = s.region;
-    var isTimmap = s.TIMMAP; // القيمة الجديدة
-    var isWormxy = s.WORMXY; // القيمة الجديدة
-
-    let vElement = document.createElement("p");
-    vElement.value = vUrl;
-    vElement.innerHTML = vName;
-    $(vElement).attr("id", vRegion);
-    $(vElement).attr("class", "selectSala");
-    $(vElement).attr("value", vName);
-
-    // حدث النقر الموحد للسيرفر
-    $(vElement).click(function () {
-        let vRoom = $(this).find("#svhiep .valu").text().trim();
-        ctx.setServer(vRoom);
-        let vFullVal = $(this).val();
+for (var a = 0; a < servers.Api_listServer.length; a++) {
+    var server = servers.Api_listServer[a];
+    var serverUrl = server.serverUrl;
+    var serverName = server.name;
+    var serverRegion = server.region;
+    var isTimmap = server.TIMMAP;
+    var isWormxy = server.WORMXY;
+    
+    var serverElement = document.createElement("p");
+    serverElement.value = serverUrl;
+    serverElement.innerHTML = serverName;
+    
+    $(serverElement).attr("id", serverRegion);
+    $(serverElement).attr("class", "selectSala");
+    $(serverElement).attr("value", serverName);
+    
+    $(serverElement).click(function() {
+        var roomValue = $(this).find("#svhiep .valu").text().trim();
+        ctx.setServer(roomValue);
+        var fullUrl = $(this).val();
         ctx.containerImgS.texture = ctx.onclickServer;
         if (typeof retundFlagError === "function") retundFlagError();
-        window.server_url = vFullVal;
+        window.server_url = fullUrl;
         $("#mm-action-play").click();
         $("#adbl-continue").click();
     });
-
-    // إضافة للسيرفرات الأصلية إذا كان WORMXY مفعل
+    
     if (isWormxy == 1) {
-        if (vRegion == "peru") { $(".servers-peru").prepend(vElement); }
-        else if (vRegion == "mexico") { $(".servers-mexico").prepend(vElement); }
-        else if (vRegion == "eeuu") { $(".servers-eeuu").prepend(vElement); }
-        else if (vRegion == "canada") { $(".servers-canada").prepend(vElement); }
-        else if (vRegion == "germania") { $(".servers-germania").prepend(vElement); }
-        else if (vRegion == "francia") { $(".servers-francia").prepend(vElement); }
-        else if (vRegion == "singapur") { $(".servers-singapur").prepend(vElement); }
-        else if (vRegion == "japon") { $(".servers-japon").prepend(vElement); }
-        else if (vRegion == "australia") { $(".servers-australia").prepend(vElement); }
-        else if (vRegion == "granbretana") { $(".servers-granbretana").prepend(vElement); }
+        if (serverRegion == "peru") { $(".servers-peru").prepend(serverElement); }
+        else if (serverRegion == "mexico") { $(".servers-mexico").prepend(serverElement); }
+        else if (serverRegion == "eeuu") { $(".servers-eeuu").prepend(serverElement); }
+        else if (serverRegion == "canada") { $(".servers-canada").prepend(serverElement); }
+        else if (serverRegion == "germania") { $(".servers-germania").prepend(serverElement); }
+        else if (serverRegion == "francia") { $(".servers-francia").prepend(serverElement); }
+        else if (serverRegion == "singapur") { $(".servers-singapur").prepend(serverElement); }
+        else if (serverRegion == "japon") { $(".servers-japon").prepend(serverElement); }
+        else if (serverRegion == "australia") { $(".servers-australia").prepend(serverElement); }
+        else if (serverRegion == "granbretana") { $(".servers-granbretana").prepend(serverElement); }
     }
-
-    // إضافة لقائمة Tim Map إذا كان TIMMAP مفعل
+    
     if (isTimmap == 1) {
-        let vClone = $(vElement).clone(true); // استنساخ العنصر مع أحداث النقر
-        $(".servers-timmap-list").prepend(vClone);
+        var clonedElement = $(serverElement).clone(true);
+        $(".servers-timmap-list").prepend(clonedElement);
     }
 }
-// نهاية الدالة كما في الكود القديم
-});
-      }
-    }
     function f103() {
       $("#getskin").on("click", function () {
         for (var vLN092 = 0; vLN092 < clientes.clientesActivos.length; vLN092++) {
