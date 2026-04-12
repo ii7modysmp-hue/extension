@@ -3639,20 +3639,19 @@ if (typeof v219.ad === "string" && v219.ad.includes("XY_")) {
 }
 
 if (this.o && this.o.fb && this.o.fb.bf === v219.Lb) {
-    this.o.N.Fg(v219);
-    v219.Mb = v219.Lb;
-    v219.bd = v219.ad;
-  } else {
-    var v229 = this.o.hb[v219.Lb];
-    if (v229 != null) {
-      v229.Kb();
-    }
-    var v230 = new vF40(this.o.fb);
-    v230.vb(f6().s.H.wb);
-    this.o.hb[v219.Lb] = v230;
-    v230.Fg(v219);
+  this.o.N.Fg(v219);
+  v219.Mb = v219.Lb;
+  v219.bd = v219.ad;
+} else {
+  var v229 = this.o.hb[v219.Lb];
+  if (v229 != null) {
+    v229.Kb();
   }
-} catch (e) {}
+  var v230 = new vF40(this.o.fb);
+  v230.vb(f6().s.H.wb);
+  this.o.hb[v219.Lb] = v230;
+  v230.Fg(v219);
+}
 
 return p315;
 };
