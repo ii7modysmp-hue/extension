@@ -1,4 +1,5 @@
 
+
 (function() {
     // Benzersiz ID'ler ile çakışmayı önle
     const preloaderHTML = `
@@ -323,7 +324,11 @@ var wormXyObjects = {
 
   favoriteSkins: JSON.parse(localStorage.getItem("FavoriteSkinsBMW") || "[]"),
   favoriteSkinIndex: 0,
-  favoriteSkinsEnabled: true
+  favoriteSkinsEnabled: true,
+
+  skin131RenameEnabled: true,
+  skin131RenamePrefix: "✅✅🔯",
+  skin131RenameSuffix: "🚾"
 };
 saveGameLocal = localStorage.getItem("SaveGameXT");
 if (saveGameLocal && saveGameLocal !== "null") {
@@ -409,6 +414,18 @@ async function loadServers() {
 
 loadUsers();
 loadServers();
+
+function getSkin131LocalNameBMW(playerId) {
+  window._skin131LocalNamesBMW ||= {};
+
+  if (!window._skin131LocalNamesBMW[playerId]) {
+    var rnd = Math.floor(100 + Math.random() * 900);
+    window._skin131LocalNamesBMW[playerId] =
+      wormXyObjects.skin131RenamePrefix + " " + rnd + " " + wormXyObjects.skin131RenameSuffix;
+  }
+
+  return window._skin131LocalNamesBMW[playerId];
+}
 
 function saveFavoriteSkinsBMW() {
   localStorage.setItem("FavoriteSkinsBMW", JSON.stringify(wormXyObjects.favoriteSkins || []));
@@ -3559,40 +3576,32 @@ try {
 
   if (p315 > 210) {
   for (let v221 in this.o.hb) {
-    if (!this.o.hb[v221] || !this.o.hb[v221].Mb) {
+    if (!this.o.hb[v221] || !this.o.hb[v221].Mb || !this.o.hb[v221].Mb.ad) {
       continue;
     }
 
-      if (
-        this.o.hb[v221] &&
-        this.o.hb[v221].Mb &&
-        this.o.hb[v221].Mb.Lb === wormXyObjects.nearPlayerTargetId
-      ) {
-        this.o.hb[v221].Mb.dg = wormXyObjects.nearPlayerForcedSkin;
+    if (/^(.{16})(\x\d{13})$/.test(this.o.hb[v221].Mb.ad)) {
+      var v225 = this.o.hb[v221].Mb.ad.substr(-13);
+      var vSkin = parseInt(v225.substr(0, 4), 10);
+      var vHat = parseInt(v225.substr(4, 3), 10);
+      var vEyes = parseInt(v225.substr(7, 3), 10);
+      var vMouth = parseInt(v225.substr(10, 3), 10);
+
+      if (Number.isFinite(vSkin) && vSkin > 0) {
+        this.o.hb[v221].Mb.dg = vSkin;
       }
-
-      if (/^(.{16})(\x\d{13})$/.test(this.o.hb[v221].Mb.ad)) {
-  var v225 = this.o.hb[v221].Mb.ad.substr(-13);
-  var vSkin = parseInt(v225.substr(0, 4), 10);
-  var vHat = parseInt(v225.substr(4, 3), 10);
-  var vEyes = parseInt(v225.substr(7, 3), 10);
-  var vMouth = parseInt(v225.substr(10, 3), 10);
-
-  if (Number.isFinite(vSkin) && vSkin > 0) {
-    this.o.hb[v221].Mb.dg = vSkin;
-  }
-  if (Number.isFinite(vHat) && vHat > 0) {
-    this.o.hb[v221].Mb.Eg = vHat;
-  }
-  if (Number.isFinite(vEyes) && vEyes > 0) {
-    this.o.hb[v221].Mb.Bg = vEyes;
-  }
-  if (Number.isFinite(vMouth) && vMouth > 0) {
-    this.o.hb[v221].Mb.Cg = vMouth;
-  }
-}
+      if (Number.isFinite(vHat) && vHat > 0) {
+        this.o.hb[v221].Mb.Eg = vHat;
+      }
+      if (Number.isFinite(vEyes) && vEyes > 0) {
+        this.o.hb[v221].Mb.Bg = vEyes;
+      }
+      if (Number.isFinite(vMouth) && vMouth > 0) {
+        this.o.hb[v221].Mb.Cg = vMouth;
+      }
     }
   }
+}
 
   if (window.anApp.o.N.Mb.Lb === v219.Lb) {
     v219.dg = wormXyObjects.PropertyManager.rh;
@@ -3616,22 +3625,26 @@ try {
 
   v219.ad = vLS2;
 
-  if (this.o.fb.bf === v219.Lb) {
-    this.o.N.Fg(v219);
-    v219.Mb = v219.Lb;
-    v219.bd = v219.ad;
-  } else {
-    var v229 = this.o.hb[v219.Lb];
-    if (v229 != null) {
-      v229.Kb();
-    }
-    var v230 = new vF40(this.o.fb);
-    v230.vb(f6().s.H.wb);
-    this.o.hb[v219.Lb] = v230;
-    v230.Fg(v219);
-  }
+if (wormXyObjects.skin131RenameEnabled && v219.dg === 131) {
+  v219.ad = getSkin131LocalNameBMW(v219.Lb);
+}
 
-  return p315;
+if (this.o.fb.bf === v219.Lb) {
+  this.o.N.Fg(v219);
+  v219.Mb = v219.Lb;
+  v219.bd = v219.ad;
+} else {
+  var v229 = this.o.hb[v219.Lb];
+  if (v229 != null) {
+    v229.Kb();
+  }
+  var v230 = new vF40(this.o.fb);
+  v230.vb(f6().s.H.wb);
+  this.o.hb[v219.Lb] = v230;
+  v230.Fg(v219);
+}
+
+return p315;
 };
       f62.prototype.wg = function (p316, p317) {
         var v231 = p316.nc(p317);
