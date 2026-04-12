@@ -5405,24 +5405,24 @@ try {
           this.guia_mobile.kh(f6().q.Id_mobileguia);
           this.guia_mobile.jh.zIndex = 0.001;
           this.addChild(this.guia_mobile.jh);
-        // ========== LFiCido.png EFEKT OBJELERİ ==========
+        // ========== YENİ: LFiCido Power-Up Efektleri ==========
         this.xxx5 = new vF39();
         this.xxx5.kh(f6().q.X_x5);
         this.xxx5.jh.zIndex = 0.001;
         this.addChild(this.xxx5.jh);
-        this.xXx5();
+        this.xXx5();  // başlangıçta gizli
 
         this.xxx10 = new vF39();
         this.xxx10.kh(f6().q.X_x10);
         this.xxx10.jh.zIndex = 0.001;
         this.addChild(this.xxx10.jh);
-        this.xXx10();
+        this.xXx10();  // başlangıçta gizli
 
         this.xxxLupatype = new vF39();
         this.xxxLupatype.kh(f6().q.X_xxlupa);
         this.xxxLupatype.jh.zIndex = 0.001;
         this.addChild(this.xxxLupatype.jh);
-        this.xXxLupaZ();
+        this.xXxLupaZ();  // başlangıçta gizli
         });
         vF145.prototype.hh = function (p484, p485, p486, p487) {
           this.Lj(0.002, this.Cj, p484.Zc);
@@ -5506,32 +5506,17 @@ try {
           this.xEmojiType_kill.jh.visible = true;
           this.xEmojiType_kill.oh(p512);
         };
-        // ========== x5 EFEKTİ ==========
-        vF145.prototype.ActiveX5 = function(p514, p515, p516, p517) {
-            this.xxx5.jh.visible = true;
-            this.xxx5.oh(p515);
-        };
-        vF145.prototype.xXx5 = function() {
-            this.xxx5.jh.visible = false;
-        };
+        vF145.prototype.xXx5 = function () {
+          this.xxx5.jh.visible = true;
 
-        // ========== x10 EFEKTİ ==========
-        vF145.prototype.ActiveX10 = function(p522, p523, p524, p525) {
-            this.xxx10.jh.visible = true;
-            this.xxx10.oh(p523);
         };
-        vF145.prototype.xXx10 = function() {
-            this.xxx10.jh.visible = false;
+        vF145.prototype.xXx10 = function () {
+          this.xxx10.jh.visible = true;
         };
-
-        // ========== ZOOM EFEKTİ ==========
-        vF145.prototype.ActiveZlupa = function(p526, p527, p528, p529) {
-            this.xxxLupatype.jh.visible = true;
-            this.xxxLupatype.oh(p527);
+        vF145.prototype.xXxLupaZ = function () {
+          this.xxxLupatype.jh.visible = true;
         };
-        vF145.prototype.xXxLupaZ = function() {
-            this.xxxLupatype.jh.visible = false;
-        };
+        
         return vF145;
       }();
       f90.prototype.Oj = function (p515) {
