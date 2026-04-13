@@ -18,15 +18,6 @@
             "TIMMAP": 1,
             "WORMXY": 0,
             "status": 1
-        },
-        {
-            "id": 3,
-            "name": "WORM XY",
-            "region": "peru",
-            "serverUrl": "wss:\/\/fra-c.wormate.io:32053\/wormy",
-            "TIMMAP": 1,
-            "WORMXY": 1,
-            "status": 1
         }
     ]
 }
