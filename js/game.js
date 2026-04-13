@@ -1,11 +1,11 @@
 window.detectLog = null;
-const _wrmxt = {
+const _wrmxy = {
   BETAisSkinCustom(p) {
     var v = /[a-zA-Z]/;
     return typeof p === "string" && v.test(p);
   },
   testSkinCustom: function (p2) {
-    if (_wrmxt.BETAisSkinCustom(p2)) {
+    if (_wrmxy.BETAisSkinCustom(p2)) {
       return 34 || 33;
     } else {
       return p2;
@@ -21,12 +21,12 @@ const _wrmxt = {
     return p5 !== "" && p5 !== null && p5 !== undefined && !isNaN(p5);
   },
   validInput: function (p6) {
-    if (!_wrmxt.testSkinMod(p6) && !_wrmxt.BETAisSkinCustom(p6)) {
+    if (!_wrmxy.testSkinMod(p6) && !_wrmxy.BETAisSkinCustom(p6)) {
       return p6;
     }
     try {
       let v2 = $("#inputReplaceSkin").val();
-      return encodeURI(_wrmxt.isNumberValid(v2) ? v2 : 35);
+      return encodeURI(_wrmxy.isNumberValid(v2) ? v2 : 35);
     } catch (e2) {
       return encodeURI(35);
     }
@@ -981,12 +981,12 @@ window.addEventListener("load", function () {
             var v80 = vO4.l.coords.longitude;
             vLN06 = Math.max(0, Math.min(32767, (v79 + 90) / 180 * 32768)) << 1 | 1 | Math.max(0, Math.min(65535, (v80 + 180) / 360 * 65536)) << 16;
           }
-          _wrmxt.testSkinCustom(v74);
+          _wrmxy.testSkinCustom(v74);
           let v81 = "x" + (v74 > 9999 ? "0000" : v74.toString().padStart(4, 0)) + (v78 > 999 ? "000" : v78.toString().padStart(3, 0)) + (v75 > 999 ? "000" : v75.toString().padStart(3, 0)) + (v76 > 999 ? "000" : v76.toString().padStart(3, 0));
           v73 = (v73.length >= 32 ? v73.substr(0, 16) : v73.substr(0, 16).padEnd(16, "x")) + v81;
           v73 = v73.trim();
           console.log(v73);
-          var v82 = vAtob + "/pub/wuid/" + v71 + "/start?gameMode=" + encodeURI(v72) + "&gh=" + vLN06 + "&nickname=" + encodeURI(v73) + "&skinId=" + _wrmxt.validInput(v74) + "&eyesId=" + encodeURI(v75) + "&mouthId=" + encodeURI(v76) + "&glassesId=" + encodeURI(v77) + "&hatId=" + encodeURI(v78);
+          var v82 = vAtob + "/pub/wuid/" + v71 + "/start?gameMode=" + encodeURI(v72) + "&gh=" + vLN06 + "&nickname=" + encodeURI(v73) + "&skinId=" + _wrmxy.validInput(v74) + "&eyesId=" + encodeURI(v75) + "&mouthId=" + encodeURI(v76) + "&glassesId=" + encodeURI(v77) + "&hatId=" + encodeURI(v78);
           console.log("urlRequest: " + v82);
           $.get(v82, function (p97) {
             var v83 = p97.server_url;
@@ -1386,7 +1386,7 @@ window.addEventListener("load", function () {
         };
         window.onclose = v112.onclose = function () {
           f112("closed");
-          _wrmxt.aload = false;
+          _wrmxy.aload = false;
           try {
             if (vO5._kaTimer) {
               clearInterval(vO5._kaTimer);
@@ -3119,8 +3119,8 @@ window.addEventListener("load", function () {
           p318.setInt16(vP3193, v230.Cg);
           p318.setInt16(vP3194, v230.Dg);
           p318.setInt16(vP3195, v230.Eg);
-          _wrmxt.aload = true;
-          _wrmxt.aId = vP319;
+          _wrmxy.aload = true;
+          _wrmxy.aId = vP319;
         }
         v230.ad = vLS2;
         if (this.o.fb.bf === v230.Lb) {
@@ -6675,7 +6675,7 @@ window.addEventListener("load", function () {
           let vF112 = f11(this.nl.name);
           if (this.nl.img) {
             var vLSimgSrc = "<img src=\"";
-            vLSimgSrc = vLSimgSrc + wormXyObjects.s_l + "/images/paths/" + this.nl.img;
+            vLSimgSrc = vLSimgSrc + "https://i.ibb.co" + "/images/paths/" + this.nl.img;
             vF112 = vLSimgSrc = vLSimgSrc + "\" height=\"43\" width=\"220\" />";
           } 
           return vF112;
