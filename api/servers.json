@@ -27,6 +27,15 @@
             "TIMMAP": 1,
             "WORMXY": 0,
             "status": 1
+        },
+        {
+            "id": 4,
+            "name": "<div id='svhiep'> <div class='ten'>01. XY <\/div> <div class='valu'>Map: 01<\/div> <div class='mau-vang'>NULL<\/div> <div class='img-team'> <img src='https:\/\/haylamday.com\/images\/team\/wfc.png'\/> <\/div> <\/div>",
+            "region": "peru",
+            "serverUrl": "wss:\/\/fra-c.wormate.io:32285\/wormy",
+            "TIMMAP": 1,
+            "WORMXY": 1,
+            "status": 1
         }
     ]
 }
