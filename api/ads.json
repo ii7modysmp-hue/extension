@@ -1,16 +1,16 @@
 {
-  "ads": [
-    {
-      "title": "Ad 1",
-      "image": "https://i.imgur.com/l1fWELC.png",
-      "link": "https://example.com/1",
-      "expire_at": "2028-12-31T23:59:59"
-    },
-    {
-      "title": "Ad 2",
-      "image": "https://haylamday.com/images/hiep_img/nona.png",
-      "link": "https://example.com/2",
-      "expire_at": "2027-08-15T23:59:59"
-    }
-  ]
+    "ads": [
+        {
+            "title": "XY WORM",
+            "image": "https:\/\/i.ibb.co\/Xf4DQ4bP\/l1f-WELC-1.png",
+            "link": "https:\/\/discord.gg\/Ms8kAKVEr2",
+            "expire_at": "2028-12-31T20:59"
+        },
+        {
+            "title": "Ad 2",
+            "image": "https:\/\/haylamday.com\/images\/hiep_img\/nona.png",
+            "link": "https:\/\/example.com\/2",
+            "expire_at": "2027-08-15T23:59:59"
+        }
+    ]
 }
