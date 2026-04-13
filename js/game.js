@@ -6654,43 +6654,68 @@ window.addEventListener("load", function () {
         }
       };
       var vF65 = function () {
-        function f97(p589, p590) {
-          this.sl = p589;
-          this.ol = 0;
-          this.nl = p590;
-        }
-        f97.prototype.gl = function () {
-          if (--this.ol < 0) {
-            this.ol = this.nl.list.length - 1;
-          }
-          this.sl.il(true);
-        };
-        f97.prototype.hl = function () {
-          if (++this.ol >= this.nl.list.length) {
-            this.ol = 0;
-          }
-          this.sl.il(true);
-        };
-        f97.prototype.kl = function () {
-          let vF112 = f11(this.nl.name);
-          if (this.nl.img) {
-            var vLSimgSrc = "<img src=\"";
-            vLSimgSrc = vLSimgSrc + "https://i.ibb.co" + "/images/paths/" + this.nl.img;
-            vF112 = vLSimgSrc = vLSimgSrc + "\" height=\"43\" width=\"220\" />";
-          } 
-          return vF112;
-        };
-        f97.prototype.ql = function () {
-          if (this.ol >= this.nl.list.length) {
-            return vF28.Yg();
-          } else {
-            return vF28.Zg(this.nl.list[this.ol]);
-          }
-        };
-        return f97;
-      }();
-      return vF1518;
-    }();
+  function f97(p589, p590) {
+    this.sl = p589;
+    this.ol = 0;
+    this.nl = p590;
+  }
+
+  f97.prototype.gl = function () {
+    if (--this.ol < 0) {
+      this.ol = this.nl.list.length - 1;
+    }
+    this.sl.il(true);
+  };
+
+  f97.prototype.hl = function () {
+    if (++this.ol >= this.nl.list.length) {
+      this.ol = 0;
+    }
+    this.sl.il(true);
+  };
+
+  f97.prototype.kl = function () {
+    let vF112 = f11(this.nl.name);
+
+    if (this.nl.img) {
+      var vLSimgSrc = String(this.nl.img).trim();
+      var vLSfinalSrc = "";
+
+      if (
+        /^https?:\/\//i.test(vLSimgSrc) ||
+        /^\/\//.test(vLSimgSrc) ||
+        /^data:/i.test(vLSimgSrc) ||
+        /^blob:/i.test(vLSimgSrc)
+      ) {
+        vLSfinalSrc = vLSimgSrc;
+      } else if (/^\//.test(vLSimgSrc)) {
+        vLSfinalSrc = vLSimgSrc;
+      } else if (/^images\//i.test(vLSimgSrc)) {
+        vLSfinalSrc = "/" + vLSimgSrc;
+      } else if (/^paths\//i.test(vLSimgSrc)) {
+        vLSfinalSrc = "/images/" + vLSimgSrc;
+      } else {
+        vLSfinalSrc = "/images/paths/" + vLSimgSrc;
+      }
+
+      vF112 = '<img src="' + vLSfinalSrc + '" height="43" width="220" />';
+    }
+
+    return vF112;
+  };
+
+  f97.prototype.ql = function () {
+    if (this.ol >= this.nl.list.length) {
+      return vF28.Yg();
+    } else {
+      return vF28.Zg(this.nl.list[this.ol]);
+    }
+  };
+
+  return f97;
+}();
+return vF1518;
+}();
     var vF66 = function () {
       var v$83 = $("#store-go-coins-button");
       var v$84 = $("#store-go-skins-button");
