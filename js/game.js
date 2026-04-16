@@ -1768,7 +1768,7 @@ window.addEventListener("load", function () {
               v106._kaTimer = null;
             }
           } catch (_0x153da9) {}
-          if (v106.db === _0x43fcef) {
+          if (v106.db === v134) {
             console.log("Socket closed");
             v106.Ub();
           }
@@ -1784,7 +1784,7 @@ window.addEventListener("load", function () {
               v106._kaTimer = null;
             }
           } catch (_0x479efd) {}
-          if (v106.db === _0x43fcef) {
+          if (v106.db === v134) {
             console.log("Socket error");
             v106.Ub();
           }
