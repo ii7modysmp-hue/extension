@@ -7122,7 +7122,7 @@ to{
   position:absolute;
   height: 56%;
   width:100%;
-  margin-top: -49px;
+  /* margin-top: -49px; */
 }
 #game-wrap #game-cont #stretch-box #main-menu-view #mm-line-center .column-middle #mm-menu-cont .mm-logo {
   width:100%;

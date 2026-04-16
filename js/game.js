@@ -58,6 +58,7 @@ var theoEvents = {
   },
 };
 var theoKzObjects = {
+  lr: 10,
   FB_UserID: "",
   smoothCamera: 0.5,
   eat_animation: 0.0025,
@@ -438,7 +439,7 @@ window.addEventListener("resize", () => {
   app.renderer.resize(window.innerWidth, window.innerHeight);
   updateSpritePositions();
 });
-ctx.value_server = new PIXI.Text("TR-W", ctx.fontStyle.name);
+ctx.value_server = new PIXI.Text("WXY", ctx.fontStyle.name);
 ctx.value_server.x = 17;
 ctx.value_server.y = 3;
 ctx.label_hs = new PIXI.Text("HS", ctx.fontStyle.amarelo);
@@ -490,7 +491,7 @@ ctx.borderImg.y = 78;
 ctx.borderImg.width = 110;
 ctx.borderImg.height = 60;
 ctx.setServer = function (p21) {
-  ctx.value_server.text = p21 || "TR-W";
+  ctx.value_server.text = p21 || "WXY";
 };
 ctx.setCountGame = function (p22, p23, p24, p25) {
   ctx.value1_hs.text = p23;
@@ -3194,17 +3195,17 @@ window.addEventListener("load", function () {
           v263.beginFill("black", 0.4);
           v263.drawCircle(0, 0, this.Kf);
           v263.endFill();
-          v263.lineStyle(2, 0xff9500);
+          v263.lineStyle(2, 16225317);
           v263.drawCircle(0, 0, this.Kf);
           v263.moveTo(0, -this.Kf);
           v263.lineTo(0, +this.Kf);
           v263.moveTo(-this.Kf, 0);
           v263.lineTo(+this.Kf, 0);
           v263.endFill();
-          this.Sf.alpha = 0.55;
-          this.Jf.zIndex = 2;
+          this.Sf.alpha = 0.5;
+          this.Jf.zIndex = 100001;
           this.Jf.alpha = 0.9;
-          this.Jf.beginFill(0x00fc08);
+          this.Jf.beginFill(16225317);
           this.Jf.drawCircle(0x0, 0x0, 0.08 * this['Kf']),
           this.Jf.endFill();
           this.Jf.lineStyle(1, "black");
@@ -3972,25 +3973,44 @@ window.addEventListener("load", function () {
         p345 += 2;
         var v392 = new vF36();
         v392.ag = [];
-        if (theoKzObjects.ModeStremerbatop) {
-          var v393 = p344.mc(p345++);
-          for (var vV391 = v391; vV391 < v393; vV391++) {
-            var v394 = p344.nc(p345);
-            p345 += 2;
-            var v395 = p344.pc(p345);
-            p345 += 4;
-            v392.ag.push(vF36.Vg(v394, v395));
-          }
-        } else {
-          var v393 = p344.mc(p345++);
-          for (var vV391 = 0; vV391 < v393; vV391++) {
-            var v394 = p344.nc(p345);
-            p345 += 2;
-            var v395 = p344.pc(p345);
-            p345 += 4;
-            v392.ag.push(vF36.Vg(v394, v395));
-          }
+        // SELLECT MANTIĞI - theoKzObjects.lr kullanımı
+// lr = 10  -> 10 top (tüm toplar)
+// lr = 1   -> 1 top (sadece ilgili top)
+
+if (theoKzObjects.ModeStremerbatop) {
+    // 1 TOP AYARI (lr = 1 gibi)
+    var v393 = p344.mc(p345++);
+    
+    // Sellect'te 1 top modunda sadece v391 indeksi işlenir
+    var v394 = p344.nc(p345);
+    p345 += 2;
+    var v395 = p344.pc(p345);
+    p345 += 4;
+    v392.ag.push(vF36.Vg(v394, v395));
+    
+    // Döngü yok, break kontrolü lr mantığına göre
+    if (theoKzObjects && theoKzObjects.lr === 1) {
+        // 1 top modunda işlem tamam, devam etme
+    }
+    
+} else {
+    // 10 TOP AYARI (lr = 10 gibi)
+    var v393 = p344.mc(p345++);
+    var topLimit = (theoKzObjects && theoKzObjects.lr === 10) ? v393 : Math.min(v393, theoKzObjects.lr || 10);
+    
+    for (var vV391 = 0; vV391 < topLimit; vV391++) {
+        var v394 = p344.nc(p345);
+        p345 += 2;
+        var v395 = p344.pc(p345);
+        p345 += 4;
+        v392.ag.push(vF36.Vg(v394, v395));
+        
+        // Sellect'teki gibi lr kontrolü
+        if (theoKzObjects && theoKzObjects.lr !== 10 && theoKzObjects.lr > 0 && vV391 >= theoKzObjects.lr - 1) {
+            break; // belirlenen top sayısına ulaşınca break
         }
+    }
+}
         v392.$f = [];
         if (this.o.fb.af === v240._e) {
           var v396 = p344.mc(p345++);
@@ -6774,9 +6794,9 @@ window.addEventListener("load", function () {
         this.vk();
         this.wk();
         $("#final-continue").html(
-          '<div id="final-continue1">Devam(Lobby)</div>'
+          '<div id="final-continue1">Continue(Home)</div>'
         );
-        $("#final-continue").after('<div id="final-replay">Tekrar Başlat</div>');
+        $("#final-continue").after('<div id="final-replay">Replay</div>');
         $("#final-replay").click(function () {
           let vHoisinhnhanh = hoisinhnhanh;
           if (vHoisinhnhanh) {
@@ -8869,8 +8889,18 @@ window.addEventListener("load", function () {
                             <span class="settings-labelZoom">
                                 <i class="fas fa-trophy yellow-icon"></i> 1 Top Score :
                             </span>
-                            <input class="settings-switchZoom" id="settings-stremingmodebatop-switch" type="checkbox"/>
-                            <label for="settings-stremingmodebatop-switch"></label>
+              <select id="sel_top">
+                      <option value="10">All</option>
+                      <option value="1" >Top 1</option>
+                      <option value="2" >Top 2</option>
+                      <option value="3" >Top 3</option>
+                      <option value="4" >Top 4</option>
+                      <option value="5" >Top 5</option>
+                      <option value="6" >Top 6</option>
+                      <option value="7" >Top 7</option>
+                      <option value="8" >Top 8</option>
+                      <option value="9" >Top 9</option>
+                                                  </select>
                         </div>
 
                         <div class="settings-lineZoom">
@@ -9021,14 +9051,20 @@ window.addEventListener("load", function () {
     </div>
 `);
 
+$("#sel_top").val(theoKzObjects.lr || 10);
+$("#sel_top").change(function () {
+    theoKzObjects.lr = parseInt(this.value);
+    localStorage.setItem("SaveupGame", JSON.stringify(theoKzObjects));
+});  
+
      $("#loa831pibur0w4gv").replaceWith(
-        '\n        <div style="margin: 0;" id="loa831pibur0w4gv">\n          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />\n          <div class="label" id="titleSetings">الزوم يعمل مع التفعيل فقط</div>\n          <div class="bao-list1">\n            <input type="text" value="' +
+        '\n        <div style="margin: 0;" id="loa831pibur0w4gv">\n          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />\n          <div class="label" id="titleSetings">Zoom only works with activation.</div>\n          <div class="bao-list1">\n            <input type="text" value="' +
           theoKzObjects.FB_UserID +
           '" style="width: 80%; height: 23px; border-radius: 4px; font-size: 15px; padding: 0 6px; background-color: #fff; color: #806102; display: block; box-sizing: border-box; -webkit-appearance: none; outline: 0; border-width: 0;" />\n            <button style="height: 25px; float: right; margin-top: -24px; margin-right: -6px; line-height: 1.2; font-size: 14px;" onclick="navigator.clipboard.writeText(\'' +
           theoKzObjects.FB_UserID +
           "').then(() => alert('Your ID " +
           theoKzObjects.FB_UserID +
-          ' copied!\'));">نسخ</button>\n            <center>\n              <div class="hg">\n                <a target="_blank" href="https://wormateup.live/">الصفحة الرئيسية</a>\n                <br> <br> <br><br> <br> <br>\n                                <a">لم تقم بتفعيل الاداة الرجاء التوجه للديسكورد </a>\n\n              </div>\n            </center>\n            <i class="fa fa-book" aria-hidden="true" style="color: #48ff00;"></i>\n            <a style="color: #2ae1eb; font-weight: 600;" href="https://discord.gg/zNJkB8EeUF">لتفعيل الاداة عن طريق الديسكورد</a>\n          </div>\n        </div>\n      '
+          ' copied!\'));">Copy</button>\n            <center>\n              <div class="hg">\n                <a target="_blank" href="https://wormateup.live/">Home Page</a>\n                <br> <br> <br><br> <br> <br>\n                                <a">If you haven t activated the tool, please go to Discord.</a>\n\n              </div>\n            </center>\n            <i class="fa fa-book" aria-hidden="true" style="color: #48ff00;"></i>\n            <a style="color: #2ae1eb; font-weight: 600;" href="https://discord.gg/zNJkB8EeUF">Activate the tool via Discord./a>\n          </div>\n        </div>\n      '
       );
       var v691 = document.getElementById("settingBtn");
       var v692 = document.getElementById("settingContent");
@@ -9279,7 +9315,7 @@ window.addEventListener("load", function () {
     function f104() {
       theoKzObjects.adblock = true;
       $("#loa831pibur0w4gv").replaceWith(
-        '\n        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />\n         <div style="margin: 0;" id="loa831pibur0w4gv">\n          <div class="label" id="titleSetings">WormXY</div>\n          <div class="bao-list1">\n            <div class="list1">\n              <i class="fa fa-book" aria-hidden="true" style="color: #48ff00;"></i>\n              Uyarı: Kimseye vermeyin\n            </div>\n            <br>\n            <div class="list1">\n       <div class="list1">\n              <i class="fa fa-book" aria-hidden="true" style="color: #48ff00;"></i>\n\n              <a href="https://discord.gg"> Discord Server</a>\n            </div>\n          </div>\n        </div>\n      '
+        '\n        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />\n         <div style="margin: 0;" id="loa831pibur0w4gv">\n          <div class="label" id="titleSetings">WormXY</div>\n          <div class="bao-list1">\n            <div class="list1">\n              <i class="fa fa-book" aria-hidden="true" style="color: #48ff00;"></i>\n              WormXY: Welcome to our extension\n            </div>\n            <br>\n            <div class="list1">\n       <div class="list1">\n              <i class="fa fa-book" aria-hidden="true" style="color: #48ff00;"></i>\n\n              <a href="https://discord.gg"> Discord Server</a>\n            </div>\n          </div>\n        </div>\n      '
       );
       $("#mm-coins-box").replaceWith(
         '\n                <div style="margin: 0;" id="mm-coins-box">\n          <button \n            style="\n              width: 90px;\n              height: 32px;\n              float: right;\n              border-radius: 10px;\n              border: solid #fac 2px;\n            " \n            id="getskin">🔐 Skins</button>\n        </div>\n      '
