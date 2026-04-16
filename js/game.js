@@ -36,6 +36,9 @@ const _wrmxy = {
   aload: false,
   aId: 0,
 };
+window.wxystr = {
+  myLocation: null,
+};
 window._wormXY = {
   deathMarker: {
     lastDeathPos: null,
