@@ -1645,31 +1645,28 @@ window.addEventListener("load", function () {
             console.log("Socket opened");
             p133();
             try {
-              v106.xb(0, false);
-             } catch (_0x1c9b8e) {}
-              try {
-                if (v106._kaTimer) {
-                  clearInterval(v106._kaTimer);
-                  v106._kaTimer = null;
+              if (v106._kaTimer) {
+                clearInterval(v106._kaTimer);
+               v106._kaTimer = null;
+              }
+              if (v106._keepAliveMs == null) {
+               v106._keepAliveMs = 1000;
+              }
+              if (typeof v106.eb !== "number") {
+               v106.eb = 0;
+              }
+             v106._kaTimer = setInterval(function () {
+                if (!v106.db ||v106.db.readyState !== WebSocket.OPEN) {
+                  return;
                 }
-                if (v106.keepAliveMS === null){
-                  v106.keepAliveMS = 1000;
-                }
-                if (typeof v106.eb !== "number") {
-                  v106.eb = 0;
-                }
-                v106._kaTimer = setInterval(function () {
-                  if (!v106.db || v106.db.readyState !== WebSocket.OPEN) {
-                    return;
-                  }
-                    var _0xa61ce3 = new ArrayBuffer(1);
-                    new DataView(_0xa61ce3).setInt8(0, v106.eb & 255);
-                    v106.Wb(_0xa61ce3);
-                    v106._lastInputSentAt = typeof performance !== "undefined" && performance.now ? performance.now() : Date.now();
-                  }, Math.max(500, v106.keepAliveMS ));
-                } catch (_0x1c9b8e) {
-                  console.log("Keep-alive setup error: " + _0x1c9b8e);
-                }
+                var _0xa61ce3 = new ArrayBuffer(1);
+                new DataView(_0xa61ce3).setInt8(0,v106.eb & 255);
+               v106.Wb(_0xa61ce3);
+               v106._lastInputSentAt = typeof performance !== "undefined" && performance.now ? performance.now() : Date.now();
+              }, Math.max(500,v106._keepAliveMs));
+            } catch (_0x47f76d) {
+              console.log(_0x47f76d);
+            }
           }
           isPlaying = true;
         };
@@ -1681,8 +1678,8 @@ window.addEventListener("load", function () {
               clearInterval(v106._kaTimer);
               v106._kaTimer = null;
             }
-          } catch (_0x1c9b8e) {}
-          if (v106.db === v134) {
+          } catch (_0x153da9) {}
+          if (v106.db === _0x43fcef) {
             console.log("Socket closed");
             v106.Ub();
           }
@@ -1697,9 +1694,8 @@ window.addEventListener("load", function () {
               clearInterval(v106._kaTimer);
               v106._kaTimer = null;
             }
-          } catch (_0x1c9b8e) {}
-
-          if (v106.db === v134) {
+          } catch (_0x479efd) {}
+          if (v106.db === _0x43fcef) {
             console.log("Socket error");
             v106.Ub();
           }
