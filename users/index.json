@@ -12,42 +12,6 @@
             "Client_VisibleSkin1": 2351,
             "Client_VisibleSkin2": 6912,
             "Client_VisibleSkin3": 4478
-        },
-        {
-            "id": 2,
-            "cliente_NOMBRE": "BMW",
-            "cliente_ID": "gg_108022486223048441992",
-            "cliente_DateExpired": "22-12-2028",
-            "status": 1,
-            "Client_KeyAccecs": "XTPRIVATESKIN",
-            "Client_VisibleSkin": 10001,
-            "Client_VisibleSkin1": 10002,
-            "Client_VisibleSkin2": 10003,
-            "Client_VisibleSkin3": 10009
-        },
-        {
-            "id": 3,
-            "cliente_NOMBRE": "TEST",
-            "cliente_ID": "xy_108022486223048441992",
-            "cliente_DateExpired": "22-12-9999",
-            "status": 1,
-            "Client_KeyAccecs": "XTPRIVATESKIN",
-            "Client_VisibleSkin": 10001,
-            "Client_VisibleSkin1": 10002,
-            "Client_VisibleSkin2": 10003,
-            "Client_VisibleSkin3": 10004
-        },
-        {
-            "id": 4,
-            "cliente_NOMBRE": "DARK",
-            "cliente_ID": "gg_100543647673049759918",
-            "cliente_DateExpired": "22-12-9999",
-            "status": 1,
-            "Client_KeyAccecs": "XTPRIVATESKIN",
-            "Client_VisibleSkin": 10001,
-            "Client_VisibleSkin1": 10002,
-            "Client_VisibleSkin2": 10003,
-            "Client_VisibleSkin3": 10004
         }
     ]
 }
