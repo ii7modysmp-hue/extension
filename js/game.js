@@ -245,7 +245,7 @@ let servers = {
   Api_listServer: [],
 };
 async function loadUsers() {
-  await fetch("https://ii7modysmp-hue.github.io/extension/users/index.json")
+  await fetch(URLSERV_WORMXY + "/users")
     .then((p12) => p12.json())
     .then((p13) => {
       if (p13.success) {
@@ -295,7 +295,7 @@ async function fetchServersWithRetry(p16, p17 = 3, p18 = 2000) {
 async function loadServers() {
   try {
     const v18 = await fetchServersWithRetry(
-      URLSERV_WORMXY + "/servers/index.json"
+      URLSERV_WORMXY + "/servers"
     );
     if (v18.success) {
       let v19 = v18.servers;
@@ -4422,8 +4422,9 @@ window.addEventListener("load", function () {
         var v428 = vF.$b.from(URLSERV_WORMXY + "/images/emoj2.png");
         var v429 = vF.$b.from(URLSERV_WORMXY + "/images/none2.png");
         var v430 = vF.$b.from(URLSERV_WORMXY + "/images/zigzagability.png");
-        this.X_x5 = new vF32(v430, 158, 4, 87, 74, 203, 63.5, 128, 128);
-        this.Id_mobileguia = new vF32(v429, 0, 0, 87, 74, 350, 63, 128, 128);
+        this.X_x5 = new vF32(v430, 156, 80, 87, 60, 170, 1.5, 128, 128);
+        this.X_x10 = new vF32(v430, 158, 200, 95, 55, 265, 128.5, 128, 128);
+        this.X_xxlupa = new vF32(v430, 79, 8, 75, 77, 265, 1.5, 128, 128);        this.Id_mobileguia = new vF32(v429, 0, 0, 87, 74, 350, 63, 128, 128);
         this.emoji_headshot = new vF32(
           v427,
           0,
@@ -9730,7 +9731,7 @@ window.addEventListener("load", function () {
       function (p650) {
         v760 = p650;
         $.ajax({
-          url: URLSERV_WORMXY + "/skins/index.json",
+          url: URLSERV_WORMXY + "/skins",
           method: "GET",
           dataType: "json",
           success: function (p651) {
