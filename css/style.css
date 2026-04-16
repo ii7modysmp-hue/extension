@@ -7472,12 +7472,12 @@ to{
   border-radius:8px;
 }
 #game-wrap #game-cont #stretch-box #main-menu-view #mm-line-center .column-right {
-  /* position:absolute; */
-  /* height:100%; */
-  /* width: 269px; */
+  position:absolute;
+  height:100%;
+  width: 269px;
   right:30px;
   /* box-shadow: 0 0 50px #005fff; */
-  /* border: solid #ffffff; */
+  border: solid #ffffff;
   border-radius: -2px;
 }
 
@@ -7520,10 +7520,11 @@ to{
   overflow:hidden;
 }
 #game-wrap #game-cont #stretch-box #main-menu-view #mm-line-center .column-right #loa831pibur0w4gv .label {
-  height:30px;
-  line-height:30px;
-  text-align:center;
-  font-size:18px;
+  /* height:30px; */
+  width: 260px;
+  /* line-height:30px; */
+  /* text-align:center; */
+  /* font-size:18px; */
 }
 #game-wrap #game-cont #stretch-box #main-menu-view #mm-line-center .column-right #loa831pibur0w4gv #aqnvgcpz05orkobh {
   width:300px;
@@ -10730,12 +10731,12 @@ input[type="color"]::-moz-color-swatch {
 }
 
 #titleSetings {
-  /* font-size: 1.5em; */ /* Aumenta el tamaÃƒÆ’Ã‚Â±o del texto */
-  /* padding: 8px 12px; */ /* Aumenta el espacio interior */
-  /* border-radius: 8px; */ /* Aumenta el radio del borde para hacerlo mÃƒÆ’Ã‚Â¡s suave */
-  /* text-align: center; */ /* Centra el texto horizontalmente */
-  /* font-weight: bold; */ /* Hace que el texto sea mÃƒÆ’Ã‚Â¡s fuerte */
-  /* color: #fff; */ /* Cambia el color del texto a blanco */
+  font-size: 1.5em; /* Aumenta el tamaÃƒÆ’Ã‚Â±o del texto */
+  padding: 8px 12px; /* Aumenta el espacio interior */
+  border-radius: 8px; /* Aumenta el radio del borde para hacerlo mÃƒÆ’Ã‚Â¡s suave */
+  text-align: center; /* Centra el texto horizontalmente */
+  font-weight: bold; /* Hace que el texto sea mÃƒÆ’Ã‚Â¡s fuerte */
+  color: #fff; /* Cambia el color del texto a blanco */
   text-shadow: 0 0 0 #ff0, 0 0 0.5em #ff0, 0 0 0.4em #ff0;
   background: #040200c7;
   text-transform: uppercase;
