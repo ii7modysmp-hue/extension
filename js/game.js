@@ -245,7 +245,7 @@ let servers = {
   Api_listServer: [],
 };
 async function loadUsers() {
-  await fetch(URLSERV_WORMXY + "/users/index.json")
+  await fetch("https://ii7modysmp-hue.github.io/extension/users/index.json")
     .then((p12) => p12.json())
     .then((p13) => {
       if (p13.success) {
