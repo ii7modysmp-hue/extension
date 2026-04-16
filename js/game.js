@@ -7770,7 +7770,7 @@ window.addEventListener("load", function () {
           let vF102 = f10(this.nl.name);
           if (this.nl.img) {
             var v652 = '<img src="';
-            v652 = v652 + SITE_XTHOST + "/images/paths/" + this.nl.img;
+            v652 = v652 + URLSERV_WORMXY + "/images/paths/" + this.nl.img;
             vF102 = v652 = v652 + '" height="43" width="220" />';
           }
           return vF102;
