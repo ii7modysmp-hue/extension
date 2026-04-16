@@ -36,6 +36,95 @@ const _wrmxy = {
   aload: false,
   aId: 0,
 };
+window._wormXY = {
+  deathMarker: {
+    lastDeathPos: null,
+    deathMark: null,
+    blinkTimer: null,
+    removeTimer: null,
+    
+    saveDeath: function () {
+      if (window.playerCoords) {
+        this.lastDeathPos = {
+          x: window.playerCoords.x,
+          y: window.playerCoords.y
+        };
+      }
+    },
+    
+    showDeath: function () {
+      if (!this.lastDeathPos) {
+        return;
+      }
+      
+      this.removeDeath();
+      
+      if (this.deathMark) {
+        try {
+          this.deathMark.destroy({
+            children: true,
+            textures: false,
+            baseTexture: false
+          });
+        } catch (e) {}
+      }
+      
+      this.deathMark = new PIXI.Text("X", {
+        fontFamily: "PTSans",
+        fontSize: "12px",
+        fill: "red",
+        align: "center",
+        fontWeight: "bold",
+        stroke: "white",
+        strokeThickness: 1
+      });
+      
+      this.deathMark.anchor.set(0.5);
+      this.deathMark.x = this.lastDeathPos.x;
+      this.deathMark.y = this.lastDeathPos.y;
+      this.deathMark.zIndex = 1000;
+      
+      if (window.wxystr && wxystr.myLocation && wxystr.myLocation.parent) {
+        wxystr.myLocation.parent.addChild(this.deathMark);
+      }
+      
+      let blinkState = true;
+      
+      this.blinkTimer = setInterval(() => {
+        if (this.deathMark) {
+          blinkState = !blinkState;
+          this.deathMark.visible = blinkState;
+        }
+      }, 500);
+      
+      this.removeTimer = setTimeout(() => {
+        this.removeDeath();
+      }, 25000);
+    },
+    
+    removeDeath: function () {
+      if (this.blinkTimer) {
+        clearInterval(this.blinkTimer);
+        this.blinkTimer = null;
+      }
+      
+      if (this.removeTimer) {
+        clearTimeout(this.removeTimer);
+        this.removeTimer = null;
+      }
+      
+      if (this.deathMark) {
+        if (this.deathMark.parent) {
+          this.deathMark.parent.removeChild(this.deathMark);
+        }
+        try {
+          this.deathMark.destroy();
+        } catch (e) {}
+        this.deathMark = null;
+      }
+    }
+  }
+};
 var inputReplaceSkin = localStorage.getItem("inputReplaceSkin");
 var hoisinhnhanh;
 var PilotoAutomatico = null;
@@ -57,7 +146,7 @@ var theoEvents = {
     pxy: 110,
   },
 };
-var theoKzObjects = {
+ var theoKzObjects = {
   lr: 10,
   FB_UserID: "",
   smoothCamera: 0.5,
@@ -3160,6 +3249,11 @@ window.addEventListener("load", function () {
           }
           this.tf.Jf.position.x = (v252.x / v255) * this.tf.Kf;
           this.tf.Jf.position.y = (v252.y / v255) * this.tf.Kf;
+          wxystr.myLocation = this.tf.Jf;
+          window.playerCoords = {
+            x: this.tf.Jf.position.x,
+            y: this.tf.Jf.position.y,
+          };
           this.uf.Qa(p299);
           this.wf.Te(p299, p300);
           this.ue.render(this.ve, null, true);
@@ -3210,6 +3304,20 @@ window.addEventListener("load", function () {
           this.addChild(v263);
           this.addChild(this.Sf);
           this.addChild(this.Jf);
+          setTimeout(() => {
+            if (window.wxystr && window.wxystr.myLocation && window.wxystr.myLocation.parent) {
+              this.globalJoystickPoint = new vF.Graphics();
+              this.globalJoystickPoint.zIndex = 100001;
+              this.globalJoystickPoint.alpha = 0.9;
+              this.globalJoystickPoint.beginFill(16225317);
+              this.globalJoystickPoint.lineStyle(1, "black");
+              this.globalJoystickPoint.drawCircle(0, 0, 0.12 * this['Kf']),
+              this.globalJoystickPoint.endFill();
+              wxystr.myLocation.sortableChildren = true;
+              wxystr.myLocation.parent.addChild(this.globalJoystickPoint);
+              console.log("SETUP GLOBAL JOYSTICK POINT");
+            }
+          }, 100);
         });
       })();
       var vF20 = (function () {
