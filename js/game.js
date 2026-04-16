@@ -8981,9 +8981,7 @@ window.addEventListener("load", function () {
     </div>
 `);
 
-$(".mm-logo").attr("src", URLSERV_WORMXY + "/images/logo.png");
-      $(".loading-logo").attr("src", URLSERV_WORMXY + "/images/logo.png");
-      $('.mm-logo').attr("src", URLSERV_WORMXY + "/images/logo.png");      $("#loa831pibur0w4gv").replaceWith(
+     $("#loa831pibur0w4gv").replaceWith(
         '\n        <div style="margin: 0;" id="loa831pibur0w4gv">\n          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />\n          <div class="label" id="titleSetings">الزوم يعمل مع التفعيل فقط</div>\n          <div class="bao-list1">\n            <input type="text" value="' +
           theoKzObjects.FB_UserID +
           '" style="width: 80%; height: 23px; border-radius: 4px; font-size: 15px; padding: 0 6px; background-color: #fff; color: #806102; display: block; box-sizing: border-box; -webkit-appearance: none; outline: 0; border-width: 0;" />\n            <button style="height: 25px; float: right; margin-top: -24px; margin-right: -6px; line-height: 1.2; font-size: 14px;" onclick="navigator.clipboard.writeText(\'' +
