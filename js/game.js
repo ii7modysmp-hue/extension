@@ -9313,9 +9313,6 @@ $("#sel_top").change(function () {
       $("#loa831pibur0w4gv").replaceWith(
         '\n        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />\n         <div style="margin: 0;" id="loa831pibur0w4gv">\n          <div class="label" id="titleSetings">WormXY</div>\n          <div class="bao-list1">\n            <div class="list1">\n              <i class="fa fa-book" aria-hidden="true" style="color: #48ff00;"></i>\n              WormXY: Welcome to our extension\n            </div>\n            <br>\n            <div class="list1">\n       <div class="list1">\n              <i class="fa fa-book" aria-hidden="true" style="color: #48ff00;"></i>\n\n              <a href="https://discord.gg"> Discord Server</a>\n            </div>\n          </div>\n        </div>\n      '
       );
-      $("#mm-coins-box").replaceWith(
-        '\n                <div style="margin: 0;" id="mm-coins-box">\n          <button \n            style="\n              width: 90px;\n              height: 32px;\n              float: right;\n              border-radius: 10px;\n              border: solid #fac 2px;\n            " \n            id="getskin">🔐 Skins</button>\n        </div>\n      '
-      );
       window.multiplier = 1;
       window.zoomLevel = 5;
       window.onwheel = (p640) => {
@@ -9735,6 +9732,9 @@ $("#sel_top").change(function () {
         if (v750) {
           $("#mm-params-nickname").val("أن الله يراك*");
         }
+      });
+      $(document).ready(function () {
+        $("#getskin").click();
       });
       $("#final-share-fb").css("display", "none");
       $("#unl6wj4czdl84o9b").css("display", "none");
