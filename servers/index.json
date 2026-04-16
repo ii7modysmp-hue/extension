@@ -59,7 +59,7 @@
         },
         {
             "id": 1,
-            "name": "<div id='svhiep'> <div class='ten'>01.Orange</div> <div class='valu'>  DE_1</div> <div class='img-team'> <img src='https://i.imgur.com/qk0LcAx.jpeg'/> </div> </div>",
+            "name": "<div id='svhiep'> <div class='ten'>01.SEKO</div> <div class='valu'>  DE_1</div> <div class='img-team'> <img src='https://i.imgur.com/qk0LcAx.jpeg'/> </div> </div>",
             "region": "peru",
             "serverUrl": "wss://fra-c.wormate.io:31965/wormy ",
             "status": 1
