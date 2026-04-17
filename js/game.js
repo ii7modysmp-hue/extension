@@ -3156,15 +3156,15 @@ window.addEventListener("load", function () {
             Math.max(v243, v244),
             window.multiplier * Math.min(v243, v244)
           ));
-        if (theoKzObjects.Mode === "Stremer") {
+        if (theoKzObjects.Mode === "Center") {
             this.tf.position.x = v243 / 2 + 150;
             this.uf.position.x = v243 / 2 + 10;
             this.vf.position.x = v243 / 2 - 130;
-        } else if (theoKzObjects.Mode === "Custom") {
+        } else if (theoKzObjects.Mode === "%75") {
             // Custom modda sürüklediğimiz değerleri kullan
-            this.tf.position.x = theoKzObjects.customX_tf || 60;
-            this.uf.position.x = theoKzObjects.customX_uf || 110;
-            this.vf.position.x = theoKzObjects.customX_vf || (v243 - 200);
+            this.tf.position.x = 40;
+            this.uf.position.x = 110;
+            this.vf.position.x = v243 - 200;
         } else {
             // Normal Mod
             this.tf.position.x = 60;
@@ -3189,28 +3189,6 @@ window.addEventListener("load", function () {
         };
         this.tf.addChild(ctx.containerCountInfo);
       };
-              let isDragging = false;
-
-        $(window).on("mousedown", function (e) {
-            if (theoKzObjects.Mode === "Custom" && e.ctrlKey) {
-                isDragging = true;
-            }
-        });
-
-        $(window).on("mousemove", function (e) {
-            if (isDragging && theoKzObjects.Mode === "Custom") {
-                let moveX = e.originalEvent.movementX || 0;
-
-                // Koordinatları güncelle (Undefined ise varsayılan değerden başlat)
-                theoKzObjects.customX_tf = (theoKzObjects.customX_tf || 60) + moveX;
-                theoKzObjects.customX_uf = (theoKzObjects.customX_uf || 110) + moveX;
-                theoKzObjects.customX_vf = (theoKzObjects.customX_vf || -200) + moveX;
-            }
-        });
-
-        $(window).on("mouseup", function () {
-            isDragging = false;
-        });
               f62.prototype.Te = function (p297, p298) {
         var vF63 = f6();
         this.if = 15;
@@ -9026,12 +9004,12 @@ if (theoKzObjects.ModeStremerbatop) {
 
                         <div class="settings-lineZoom">
                             <span class="settings-labelZoom">
-                                <i class="fas fa-video yellow-icon"></i> Center Streamer :
+                                <i class="fas fa-video yellow-icon"></i> Mode :
                             </span>
                             <select id="settings-mode-selector" class="your-custom-class">
-                              <option value="Normal">Normal Mod</option>
-                              <option value="Stremer">Streamer Modu</option>
-                              <option value="Custom">Custom Mod</option>
+                              <option value="Normal">Normal</option>
+                              <option value="%75">%75</option>
+                              <option value="Center">Center</option>
                           </select>
                         </div>
                     </div>
@@ -9217,7 +9195,7 @@ $("#settings-mode-selector").on("change", function () {
     theoKzObjects.Mode = selectedMode;
     
     // Eski boolean mantığını korumak istersen (Geriye dönük uyumluluk):
-    theoKzObjects.ModeStremer = (selectedMode === "Stremer");
+    theoKzObjects.ModeStremer = (selectedMode === "Center");
     
     // LocalStorage'a kaydet
     localStorage.setItem("SelectedMode", selectedMode);
