@@ -1498,7 +1498,7 @@ html {
 }
 
 .valusv {
-    flex: 1;
+   /* flex: 1; */
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -1551,7 +1551,7 @@ html {
 }
 
 .valu {
-    flex: 1; 
+   /* flex: 1; */
     display: flex; 
     justify-content: center;
     align-items: center; 

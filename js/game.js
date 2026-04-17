@@ -3194,7 +3194,7 @@ window.addEventListener("load", function () {
         this.lf.Bf(p297.af == v240.$e ? vF63.q.Cf : vF63.q.Df);
         var v245 = this.mf;
         v245.clear();
-        v245.lineStyle(0.8, 16711680);
+        v245.lineStyle(0.2, 16711680, 0.6);
         v245.drawCircle(0, 0, p297.ub);
         v245.endFill();
         this.vf.Ef = p298;
