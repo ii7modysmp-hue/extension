@@ -3162,7 +3162,7 @@ window.addEventListener("load", function () {
             this.vf.position.x = v243 / 2 - 130;
         } else if (theoKzObjects.Mode === "%75") {
             // Custom modda sürüklediğimiz değerleri kullan
-            this.tf.position.x = 40;
+            this.tf.position.x = 80;
             this.uf.position.x = 110;
             this.vf.position.x = v243 - 200;
         } else {
