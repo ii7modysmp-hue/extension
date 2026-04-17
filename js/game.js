@@ -150,6 +150,19 @@ var theoEvents = {
   },
 };
  var theoKzObjects = {
+  // Mevcut diğer özelliklerin...
+    
+    // 1. Aktif Modu Tutacak Değişken (Varsayılan: Normal)
+    Mode: localStorage.getItem("SelectedMode") || "Normal",
+
+    // 2. Eski sistemle uyumluluk için boolean (Opsiyonel)
+    ModeStremer: localStorage.getItem("SelectedMode") === "Stremer",
+
+    // 3. Custom (Sürükle-Bırak) Koordinatları
+    // Eğer hafızada kayıtlı değer varsa onu alır, yoksa varsayılan başlangıç değerlerini atar.
+    customX_tf: parseFloat(localStorage.getItem("customX_tf")) || 60,
+    customX_uf: parseFloat(localStorage.getItem("customX_uf")) || 110,
+    customX_vf: parseFloat(localStorage.getItem("customX_vf")) || -200 ,
   lr: 10,
   FB_UserID: "",
   smoothCamera: 0.5,
@@ -3143,15 +3156,22 @@ window.addEventListener("load", function () {
             Math.max(v243, v244),
             window.multiplier * Math.min(v243, v244)
           ));
-        if (theoKzObjects.ModeStremer) {
-          this.tf.position.x = v243 / 2 + 150;
-          this.uf.position.x = v243 / 2 + 10;
-          this.vf.position.x = v243 / 2 - 130;
+        if (theoKzObjects.Mode === "Stremer") {
+            this.tf.position.x = v243 / 2 + 150;
+            this.uf.position.x = v243 / 2 + 10;
+            this.vf.position.x = v243 / 2 - 130;
+        } else if (theoKzObjects.Mode === "Custom") {
+            // Custom modda sürüklediğimiz değerleri kullan
+            this.tf.position.x = theoKzObjects.customX_tf || 60;
+            this.uf.position.x = theoKzObjects.customX_uf || 110;
+            this.vf.position.x = theoKzObjects.customX_vf || (v243 - 200);
         } else {
-          this.tf.position.x = 60;
-          this.uf.position.x = 110;
-          this.vf.position.x = v243 - 200;
+            // Normal Mod
+            this.tf.position.x = 60;
+            this.uf.position.x = 110;
+            this.vf.position.x = v243 - 200;
         }
+          
         this.tf.position.y = 60;
         this.uf.position.y = 10;
         this.vf.position.y = 3;
@@ -3169,7 +3189,29 @@ window.addEventListener("load", function () {
         };
         this.tf.addChild(ctx.containerCountInfo);
       };
-      f62.prototype.Te = function (p297, p298) {
+              let isDragging = false;
+
+        $(window).on("mousedown", function (e) {
+            if (theoKzObjects.Mode === "Custom" && e.ctrlKey) {
+                isDragging = true;
+            }
+        });
+
+        $(window).on("mousemove", function (e) {
+            if (isDragging && theoKzObjects.Mode === "Custom") {
+                let moveX = e.originalEvent.movementX || 0;
+
+                // Koordinatları güncelle (Undefined ise varsayılan değerden başlat)
+                theoKzObjects.customX_tf = (theoKzObjects.customX_tf || 60) + moveX;
+                theoKzObjects.customX_uf = (theoKzObjects.customX_uf || 110) + moveX;
+                theoKzObjects.customX_vf = (theoKzObjects.customX_vf || -200) + moveX;
+            }
+        });
+
+        $(window).on("mouseup", function () {
+            isDragging = false;
+        });
+              f62.prototype.Te = function (p297, p298) {
         var vF63 = f6();
         this.if = 15;
         this.nf.removeChildren();
@@ -8986,8 +9028,11 @@ if (theoKzObjects.ModeStremerbatop) {
                             <span class="settings-labelZoom">
                                 <i class="fas fa-video yellow-icon"></i> Center Streamer :
                             </span>
-                            <input class="settings-switchZoom" id="settings-stremingmode-switch" type="checkbox"/>
-                            <label for="settings-stremingmode-switch"></label>
+                            <select id="settings-mode-selector" class="your-custom-class">
+                              <option value="Normal">Normal Mod</option>
+                              <option value="Stremer">Streamer Modu</option>
+                              <option value="Custom">Custom Mod</option>
+                          </select>
                         </div>
                     </div>
 
@@ -9157,6 +9202,29 @@ if (theoKzObjects.ModeStremerbatop) {
         </style>
     </div>
 `);
+
+
+// 1. Sayfa yüklendiğinde hafızadaki modu geri yükle
+const savedMode = localStorage.getItem("SelectedMode") || "Normal";
+theoKzObjects.Mode = savedMode; // Obje içine aktar
+$("#settings-mode-selector").val(savedMode); // UI'da seçili göster
+
+// 2. Seçim değiştiğinde çalışacak fonksiyon
+$("#settings-mode-selector").on("change", function () {
+    const selectedMode = $(this).val();
+    
+    // Obje üzerindeki değeri güncelle
+    theoKzObjects.Mode = selectedMode;
+    
+    // Eski boolean mantığını korumak istersen (Geriye dönük uyumluluk):
+    theoKzObjects.ModeStremer = (selectedMode === "Stremer");
+    
+    // LocalStorage'a kaydet
+    localStorage.setItem("SelectedMode", selectedMode);
+    
+    console.log("Aktif Mod:", selectedMode);
+});
+
 
 $("#sel_top").val(theoKzObjects.lr || 10);
 $("#sel_top").change(function () {
