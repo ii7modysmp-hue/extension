@@ -3160,11 +3160,6 @@ window.addEventListener("load", function () {
             this.tf.position.x = v243 / 2 + 150;
             this.uf.position.x = v243 / 2 + 10;
             this.vf.position.x = v243 / 2 - 130;
-        } else if (theoKzObjects.Mode === "%75") {
-            // Custom modda sürüklediğimiz değerleri kullan
-            this.tf.position.x = 80;
-            this.uf.position.x = 110;
-            this.vf.position.x = v243 - 200;
         } else {
             // Normal Mod
             this.tf.position.x = 60;
@@ -9008,7 +9003,6 @@ if (theoKzObjects.ModeStremerbatop) {
                             </span>
                             <select id="settings-mode-selector" class="your-custom-class">
                               <option value="Normal">Normal</option>
-                              <option value="%75">%75</option>
                               <option value="Center">Center</option>
                           </select>
                         </div>
@@ -9017,7 +9011,7 @@ if (theoKzObjects.ModeStremerbatop) {
                     <div class="settings-row">
                         <div class="settings-lineZoom">
                             <span class="settings-labelZoom">
-                                <i class="fas fa-trophy yellow-icon"></i> 1 Top Score :
+                                <i class="fas fa-trophy yellow-icon"></i>Top Score :
                             </span>
               <select id="sel_top">
                       <option value="10">All</option>
@@ -9032,15 +9026,14 @@ if (theoKzObjects.ModeStremerbatop) {
                       <option value="9" >Top 9</option>
                                                   </select>
                         </div>
-
-                        <div class="settings-lineZoom">
+              <div class="settings-lineZoom">
                             <span class="settings-labelZoom">
-                                <i class="fas fa-toggle-off yellow-icon"></i> Turn Off 
-                                <img style="height: 18px;" src="https://i.imgur.com/cOrk9pM.png" alt="Turn on"/> :
+                                <i class="fas fa-question-circle"></i> Updating..!
                             </span>
-                            <input class="settings-switchZoom" id="settings-stremingmodemuiten-switch" type="checkbox"/>
-                            <label for="settings-stremingmodemuiten-switch"></label>
+                            <input class="settings-switchZoom" id="settings-stremingmodebatop-switch" type="checkbox"/>
+                            <label for="settings-stremingmodebatop-switch"></label>
                         </div>
+                        
                     </div>
 
                     <div class="settings-row">
@@ -9078,23 +9071,7 @@ if (theoKzObjects.ModeStremerbatop) {
                             <label for="settings-stremingmodeanclock-switch"></label>
                         </div>
                     </div>
-                          <div class="settings-row">
-                        <div class="settings-lineZoom">
-                            <span class="settings-labelZoom">
-                                <i class="fas fa-toggle-off yellow-icon"></i> Turn Off 
-                                <img style="height: 18px;" src="https://i.imgur.com/9j2U5SC.png" alt="Turn on"/> :
-                            </span>
-                            <input class="settings-switchZoom" id="settings-stremingmodemuitenn-switch" type="checkbox"/>
-                            <label for="settings-stremingmodemuitenn-switch"></label>
-                        </div>
-                        <div class="settings-lineZoom">
-                            <span class="settings-labelZoom">
-                                <i class="fas fa-question-circle"></i> Updating..!
-                            </span>
-                            <input class="settings-switchZoom" id="settings-stremingmodebatop-switch" type="checkbox"/>
-                            <label for="settings-stremingmodebatop-switch"></label>
-                        </div>
-                    </div>
+                
 
 
                     <div class="spancursor"> Select Background</div>
