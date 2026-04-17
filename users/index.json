@@ -38,25 +38,6 @@
             "Client_VisibleSkin8": "0000",
             "Client_VisibleSkin9": "0000",
             "Client_VisibleSkin10": "0000"
-        },
-        {
-            "id": 3,
-            "cliente_NOMBRE": "Seko test",
-            "cliente_ID": "gg_ssda",
-            "cliente_DateExpired": "9999-12-22",
-            "status": 1,
-            "Client_KeyAccecs": "XTPRIVATESKIN",
-            "Client_VisibleSkin": 0,
-            "Client_VisibleSkin1": 0,
-            "Client_VisibleSkin2": 0,
-            "Client_VisibleSkin3": 0,
-            "Client_VisibleSkin4": 0,
-            "Client_VisibleSkin5": 0,
-            "Client_VisibleSkin6": 0,
-            "Client_VisibleSkin7": 0,
-            "Client_VisibleSkin8": 0,
-            "Client_VisibleSkin9": 0,
-            "Client_VisibleSkin10": 0
         }
     ]
 }
