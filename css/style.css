@@ -1547,7 +1547,7 @@ html {
 }
 
 .ten {
-    flex: 2;
+    /* flex: 2; */
 }
 
 .valu {
@@ -1577,8 +1577,8 @@ html {
 }
 
 .img-team {
-    flex: 1; 
-    display: flex; 
+    /* flex: 1; */
+    display: flex;
     justify-content: center;
     align-items: center;
 }
