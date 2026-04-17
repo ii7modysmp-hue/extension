@@ -27,8 +27,8 @@
         },
         {
             "id": 3,
-            "cliente_NOMBRE": "ffff",
-            "cliente_ID": "gg___s",
+            "cliente_NOMBRE": "ss",
+            "cliente_ID": "gg__",
             "cliente_DateExpired": "22-12-9999",
             "status": 1,
             "Client_KeyAccecs": "XTPRIVATESKIN",
