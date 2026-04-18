@@ -8905,6 +8905,81 @@ if (theoKzObjects.ModeStremerbatop) {
         url: "https://asserts.wormworld.io/backgrounds/bg_sky_4.png",
       },
     ];
+    // Arka plan değiştirici - PIXI versiyonu (v689 zaten var)
+let currentIndex = localStorage.getItem("bgIndex") ? parseInt(localStorage.getItem("bgIndex")) : 0;
+
+function changeBG() {
+  if (typeof ooo === "undefined" || !ooo.ef) {
+    console.log("❌ Oyun bulunamadı!");
+    return;
+  }
+  
+  currentIndex = (currentIndex + 1) % v689.length;
+  let bg = v689[currentIndex];
+  let bgUrl = bg.url;
+  
+  try {
+    if (PIXI.utils.TextureCache[bgUrl]) {
+      PIXI.utils.TextureCache[bgUrl].destroy(true);
+      delete PIXI.utils.TextureCache[bgUrl];
+    }
+    
+    if (typeof ooo !== "undefined" && ooo.ef && ooo.ef.fn_o) {
+      let texture = ooo.ef.fn_o(bgUrl);
+      ooo.ef.F_bg = new PIXI.Texture(texture);
+    } else if (typeof PIXI !== "undefined") {
+      ooo.ef.F_bg = PIXI.Texture.from(bgUrl);
+    }
+    
+    if (ooo && ooo.Xg && ooo.Xg.Kf && ooo.Xg.Kf.Wg && ooo.Xg.Kf.Wg.sh) {
+      ooo.Xg.Kf.Wg.sh.Hh(ooo.ef.F_bg);
+    }
+    
+    localStorage.setItem("bgIndex", currentIndex);
+    localStorage.setItem("bgUrl", bgUrl);
+    console.log(`✅ Arka plan değiştirildi: ${bg.nombre}`);
+  } catch(e) {
+    console.log("❌ Hata:", e);
+  }
+}
+
+// Kayıtlı arka planı yükle
+if (localStorage.getItem("bgUrl")) {
+  let savedUrl = localStorage.getItem("bgUrl");
+  let savedIndex = parseInt(localStorage.getItem("bgIndex"));
+  if (savedIndex >= 0 && v689[savedIndex] && v689[savedIndex].url === savedUrl) {
+    currentIndex = savedIndex;
+    let bg = v689[currentIndex];
+    try {
+      if (typeof ooo !== "undefined" && ooo.ef) {
+        if (PIXI.utils.TextureCache[bg.url]) {
+          PIXI.utils.TextureCache[bg.url].destroy(true);
+          delete PIXI.utils.TextureCache[bg.url];
+        }
+        if (typeof ooo.ef.fn_o !== "undefined") {
+          let texture = ooo.ef.fn_o(bg.url);
+          ooo.ef.F_bg = new PIXI.Texture(texture);
+        } else {
+          ooo.ef.F_bg = PIXI.Texture.from(bg.url);
+        }
+        if (ooo.Xg && ooo.Xg.Kf && ooo.Xg.Kf.Wg && ooo.Xg.Kf.Wg.sh) {
+          ooo.Xg.Kf.Wg.sh.Hh(ooo.ef.F_bg);
+        }
+      }
+      console.log(`📀 Kayıtlı arka plan yüklendi: ${bg.nombre}`);
+    } catch(e) {}
+  }
+}
+
+// B tuşu ile değiştirme
+document.addEventListener("keydown", (e) => {
+  if (e.key === "b" || e.key === "B") {
+    changeBG();
+    e.preventDefault();
+  }
+});
+
+console.log("🎨 Arka plan değiştirici hazır! B tuşuna bas");
     theoKzObjects.loading = true;
     var v690 = "";
     v690 += "</div>";
