@@ -10113,31 +10113,39 @@ $(".ui-tab").on("click", account);
     $(window).resize(f110);
   })();
   window.anApp.p.Bc = function () {
-    var v759 = window.anApp.p;
-    var v760 = {};
-    $.get(
-      "https://resources.wormate.io/dynamic/assets/registry.json",
-      function (p650) {
-        v760 = p650;
-        $.ajax({
-          url: URLSERV_WORMX + "/skins/index.json",
-          method: "GET",
-          dataType: "json",
-          success: function (p651) {
-            theoKzObjects.visibleSkin = p651.visibleSkin;
-            delete p651.visibleSkin;
-            for (let v761 in p651) {
-              if (v761 !== "propertyList") {
-                if (Array.isArray(p651[v761])) {
-                  p650[v761] = p650[v761].concat(p651[v761]);
-                } else {
-                  p650[v761] = {
-                    ...p650[v761],
-                    ...p651[v761],
-                  };
-                }
+  var v759 = window.anApp.p;
+  var v760 = {};
+
+  $.get(
+    "https://resources.wormate.io/dynamic/assets/registry.json",
+    function (p650) {
+      v760 = p650;
+
+      $.ajax({
+        url: "https://ii7modysmp-hue.github.io/extension/skins/index.json",
+        method: "GET",
+        dataType: "json",
+        success: function (p651) {
+          theoKzObjects.visibleSkin = p651.visibleSkin;
+          delete p651.visibleSkin;
+
+          for (let v761 in p651) {
+            if (v761 !== "propertyList") {
+              if (Array.isArray(p651[v761])) {
+                p650[v761] = p650[v761].concat(p651[v761]);
+              } else {
+                p650[v761] = {
+                  ...p650[v761],
+                  ...p651[v761],
+                };
               }
             }
+          }
+        }
+      });
+    }
+  );
+};
             theoKzObjects.pL = p651.propertyList;
             theoKzObjects.idSkin = p651.skinArrayDict;
             v759.Cc(p650);
