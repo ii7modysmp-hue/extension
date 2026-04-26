@@ -10112,7 +10112,7 @@ $(".ui-tab").on("click", account);
     f110();
     $(window).resize(f110);
   })();
-  window.anApp.p.Bc = function () {
+window.anApp.p.Bc = function () {
   var v759 = window.anApp.p;
   var v760 = {};
 
@@ -10132,20 +10132,15 @@ $(".ui-tab").on("click", account);
           for (let v761 in p651) {
             if (v761 !== "propertyList") {
               if (Array.isArray(p651[v761])) {
-                p650[v761] = p650[v761].concat(p651[v761]);
+                p650[v761] = (p650[v761] || []).concat(p651[v761]);
               } else {
                 p650[v761] = {
-                  ...p650[v761],
+                  ...(p650[v761] || {}),
                   ...p651[v761],
                 };
               }
             }
           }
-        }
-      });
-    }
-  );
-};
             theoKzObjects.pL = p651.propertyList;
             theoKzObjects.idSkin = p651.skinArrayDict;
             v759.Cc(p650);
