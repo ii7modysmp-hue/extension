@@ -424,7 +424,7 @@ async function fetchServersWithRetry(p16, p17 = 3, p18 = 2000) {
 async function loadServers() {
   try {
     const v18 = await fetchServersWithRetry(
-      URLSERV_WORMX + "/servers"
+      URLSERV_WORMX + "/servers/index.json"
     );
     if (v18.success) {
       let v19 = v18.servers;
@@ -10119,7 +10119,7 @@ $(".ui-tab").on("click", account);
       function (p650) {
         v760 = p650;
         $.ajax({
-          url: URLSERV_WORMX + "/skins",
+          url: URLSERV_WORMX + "/skins/index.json",
           method: "GET",
           dataType: "json",
           success: function (p651) {
