@@ -7948,15 +7948,23 @@ if (theoKzObjects.ModeStremerbatop) {
           }
           this.sl.il(true);
         };
-        f97.prototype.kl = function () {
-          let vF102 = f10(this.nl.name);
-          if (this.nl.img) {
-            var v652 = '<img src="';
-            v652 = v652 + URLSERV_WORMXY + "/images/paths/" + this.nl.img;
-            vF102 = v652 = v652 + '" height="43" width="220" />';
-          }
-          return vF102;
-        };
+f97.prototype.kl = function () {
+  let vF102 = f10(this.nl.name);
+
+  if (this.nl.img) {
+    var imgSrc = String(this.nl.img);
+
+    if (/^(https?:)?\/\//i.test(imgSrc) || /^data:image\//i.test(imgSrc) || /^blob:/i.test(imgSrc)) {
+      imgSrc = imgSrc.replace(/\\\//g, "/");
+    } else {
+      imgSrc = URLSERV_WORMXY + "/images/paths/" + imgSrc.replace(/^\/+/, "");
+    }
+
+    vF102 = '<img src="' + imgSrc + '" height="43" width="220" />';
+  }
+
+  return vF102;
+};
         f97.prototype.ql = function () {
           if (this.ol >= this.nl.list.length) {
             return vF25.Yg();
