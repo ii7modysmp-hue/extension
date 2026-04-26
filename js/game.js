@@ -1,5 +1,5 @@
 
-window.URLSERV_WORMXY = "https://ii7modysmp-hue.github.io/extension";
+window.URLSERV_WORMX = "http://ii7modysmp-hue.github.io/extension";
 window.detectLog = null;
 const _wrmxy = {
   BETAisSkinCustom(p) {
@@ -39,7 +39,7 @@ const _wrmxy = {
 window.wxystr = {
   myLocation: null,
 };
-window._wormXY = {
+window._WORMX = {
   deathMarker: {
     lastDeathPos: null,
     deathMark: null,
@@ -167,7 +167,7 @@ var theoEvents = {
   FB_UserID: "",
   smoothCamera: 0.5,
   eat_animation: 0.0025,
-  flag: URLSERV_WORMXY + "/images/flag.png",
+  flag: URLSERV_WORMX + "/images/flag.png",
   PortionSize: localStorage.PotenciadorSize || 2,
   PortionAura: localStorage.PotenciadorAura || 1.2,
   PortionTransparent: 0.8,
@@ -351,32 +351,55 @@ let servers = {
   Api_listServer: [],
 };
 async function loadUsers() {
-  await fetch(URLSERV_WORMXY + "/users")
-    .then((p12) => p12.json())
-    .then((p13) => {
-      if (p13.success) {
-        let v12 = p13.Users;
-        const v13 = new Date();
-        v13.setHours(0, 0, 0, 0);
-        clientes.clientesActivos = v12.filter((p14) => {
-          if (p14.cliente_DateExpired) {
-            const v14 = new Date(p14.cliente_DateExpired);
-            return v14 >= v13;
-          }
-          return true;
-        });
-      } else {
-        clientes = {
-          clientesVencidos: [],
-          clientesActivos: [],
-        };
-        alert("حدث خطأ أثناء تحميل العملاء");
-      }
-    })
-    .catch((p15) => {
-      console.error("Error loading users:", p15);
-      alert("حدث خطأ اثناء التحميل يرجي تحديث الصفحة F5.");
+  try {
+    if (window.WormXSync && typeof WormXSync.checkNow === "function") {
+      await WormXSync.checkNow();
+    }
+
+    var res = await fetch("https://wormx.wormx.workers.dev/users", {
+      cache: "no-store"
     });
+
+    var data = await res.json();
+
+    if (data && data.success) {
+      var users = Array.isArray(data.Users) ? data.Users : [];
+      var now = new Date();
+      now.setHours(0, 0, 0, 0);
+
+      clientes.clientesActivos = users.filter(function (u) {
+        if (!u) return false;
+        if (u.banned === "yes") return false;
+        if (u.active === "no") return false;
+
+        var exp = u["Expiry date"] || u["Exprit date"] || u.cliente_DateExpired;
+        if (!exp) return true;
+
+        return new Date(exp) >= now;
+      });
+
+      clientes.clientesVencidos = users.filter(function (u) {
+        if (!u) return false;
+
+        var exp = u["Expiry date"] || u["Exprit date"] || u.cliente_DateExpired;
+
+        return (
+          u.banned === "yes" ||
+          u.active === "no" ||
+          (exp && new Date(exp) < now)
+        );
+      });
+
+      return users;
+    }
+
+    clientes = {
+      clientesVencidos: [],
+      clientesActivos: []
+    };
+  } catch (e) {
+    console.error("WormX loadUsers error:", e);
+  }
 }
 async function fetchServersWithRetry(p16, p17 = 3, p18 = 2000) {
   for (let v15 = 1; v15 <= p17; v15++) {
@@ -401,7 +424,7 @@ async function fetchServersWithRetry(p16, p17 = 3, p18 = 2000) {
 async function loadServers() {
   try {
     const v18 = await fetchServersWithRetry(
-      URLSERV_WORMXY + "/servers"
+      URLSERV_WORMX + "/servers"
     );
     if (v18.success) {
       let v19 = v18.servers;
@@ -493,7 +516,7 @@ const ctx = {
     }
   };
 ctx.clock = PIXI.Sprite.fromImage(
- URLSERV_WORMXY + "/images/clock.png"
+ URLSERV_WORMX + "/images/clock.png"
 );
 ctx.clock.width = 100;
 ctx.clock.height = 100;
@@ -504,7 +527,7 @@ const app = new PIXI.Application({
   height: window.innerHeight,
 });
 ctx.clockan = PIXI.Sprite.fromImage(
-URLSERV_WORMXY + "/images/clocktr.png"
+URLSERV_WORMX + "/images/clocktr.png"
 );
 if (theoKzObjects.ModeStremeranclock) {
   ctx.clockan.width = 0x64;
@@ -518,15 +541,15 @@ if (theoKzObjects.ModeStremeranclock) {
   ctx.clockan.y = -0x32;
 }
 document.body.appendChild(app.view);
-ctx.hoisinhnhanh = PIXI.Sprite.from("URLSERV_WORMXY + /images/hoisinhnhanh.png");
+ctx.hoisinhnhanh = PIXI.Sprite.from("URLSERV_WORMX + /images/hoisinhnhanh.png");
 ctx.hoisinhnhanh.width = 23;
 ctx.hoisinhnhanh.height = 23;
-ctx.top10sv = PIXI.Sprite.fromImage("URLSERV_WORMXY + /images/top10sv.png");
+ctx.top10sv = PIXI.Sprite.fromImage("URLSERV_WORMX + /images/top10sv.png");
 ctx.top10sv.height = 25;
 ctx.top10sv.width = 100;
 ctx.top10sv.x = 60;
 ctx.top10sv.y = -50;
-ctx.quaytron = PIXI.Sprite.from("URLSERV_WORMXY + /images/quaytron.png");
+ctx.quaytron = PIXI.Sprite.from("URLSERV_WORMX + /images/quaytron.png");
 ctx.quaytron.width = -23;
 ctx.quaytron.height = -23;
 app.stage.addChild(ctx.hoisinhnhanh);
@@ -580,8 +603,8 @@ ctx.containerCountInfo.addChild(ctx.value2_hs);
 ctx.containerCountInfo.addChild(ctx.label_kill);
 ctx.containerCountInfo.addChild(ctx.value1_kill);
 ctx.containerCountInfo.addChild(ctx.value2_kill);
-ctx.imgServerbase = PIXI.Texture.fromImage(URLSERV_WORMXY + "/images/flag.png");
-ctx.borderurl = PIXI.Texture.fromImage(URLSERV_WORMXY + "/images/none.png");
+ctx.imgServerbase = PIXI.Texture.fromImage(URLSERV_WORMX + "/images/flag.png");
+ctx.borderurl = PIXI.Texture.fromImage(URLSERV_WORMX + "/images/none.png");
 ctx.onclickServer = PIXI.Texture.fromImage(theoKzObjects.flag);
 ctx.containerImgS = new PIXI.Sprite(ctx.imgServerbase);
 ctx.containerImgS.anchor.set(0.5);
@@ -2951,11 +2974,11 @@ window.addEventListener("load", function () {
             const v232 = new Audio();
             if (v231 % 10 === 9) {
               v232.src =
-              URLSERV_WORMXY + "/sounds/10hskahkaha.mp3";
+              URLSERV_WORMX + "/sounds/10hskahkaha.mp3";
             } else {
               v232.src =
                 localStorage.getItem("selectedSound") ||
-              URLSERV_WORMXY + "/sounds/hs_2.mp3";
+              URLSERV_WORMX + "/sounds/hs_2.mp3";
             }
             if (localStorage.getItem("isMuted") !== "true") {
               v232.play().catch(function (p283) {
@@ -4599,10 +4622,10 @@ if (theoKzObjects.ModeStremerbatop) {
         );
         this.Af = new vF._b(vF.$b.from("/images/lens.png"));
         var v426 = vF.$b.from("/images/wear-ability.png");
-        var v427 = vF.$b.from(URLSERV_WORMXY + "/images/emoj1.png");
-        var v428 = vF.$b.from(URLSERV_WORMXY + "/images/emoj2.png");
-        var v429 = vF.$b.from(URLSERV_WORMXY + "/images/none2.png");
-        var v430 = vF.$b.from(URLSERV_WORMXY + "/images/zigzagability.png");
+        var v427 = vF.$b.from(URLSERV_WORMX + "/images/emoj1.png");
+        var v428 = vF.$b.from(URLSERV_WORMX + "/images/emoj2.png");
+        var v429 = vF.$b.from(URLSERV_WORMX + "/images/none2.png");
+        var v430 = vF.$b.from(URLSERV_WORMX + "/images/zigzagability.png");
         this.X_x5 = new vF32(v430, 156, 80, 87, 60, 170, 1.5, 128, 128);
         this.X_x10 = new vF32(v430, 158, 200, 95, 55, 265, 128.5, 128, 128);
         this.X_xxlupa = new vF32(v430, 79, 8, 75, 77, 265, 1.5, 128, 128);        this.Id_mobileguia = new vF32(v429, 0, 0, 87, 74, 350, 63, 128, 128);
@@ -5204,7 +5227,7 @@ if (theoKzObjects.ModeStremerbatop) {
               v457++;
               console.log("auto login attempt:", v457);
               $("#login-view").html(
-                "<h2>Auto Login Google WormXY  : " + v457 + "</h2>"
+                "<h2>Auto Login Google WORMX  : " + v457 + "</h2>"
               );
               f85();
             } else {
@@ -5666,7 +5689,7 @@ if (theoKzObjects.ModeStremerbatop) {
         );
         if (this.qj == null) {
           this.qj = new vF41("");
-          this.qj.style.fontFamily = "WormXY";
+          this.qj.style.fontFamily = "WORMX";
           this.qj.anchor.set(0.5);
         } else {
           f23(this.qj);
@@ -7948,23 +7971,15 @@ if (theoKzObjects.ModeStremerbatop) {
           }
           this.sl.il(true);
         };
-f97.prototype.kl = function () {
-  let vF102 = f10(this.nl.name);
-
-  if (this.nl.img) {
-    var imgSrc = String(this.nl.img);
-
-    if (/^(https?:)?\/\//i.test(imgSrc) || /^data:image\//i.test(imgSrc) || /^blob:/i.test(imgSrc)) {
-      imgSrc = imgSrc.replace(/\\\//g, "/");
-    } else {
-      imgSrc = URLSERV_WORMXY + "/images/paths/" + imgSrc.replace(/^\/+/, "");
-    }
-
-    vF102 = '<img src="' + imgSrc + '" height="43" width="220" />';
-  }
-
-  return vF102;
-};
+        f97.prototype.kl = function () {
+          let vF102 = f10(this.nl.name);
+          if (this.nl.img) {
+            var v652 = '<img src="';
+            v652 = v652 + URLSERV_WORMX + "/images/paths/" + this.nl.img;
+            vF102 = v652 = v652 + '" height="43" width="220" />';
+          }
+          return vF102;
+        };
         f97.prototype.ql = function () {
           if (this.ol >= this.nl.list.length) {
             return vF25.Yg();
@@ -8694,7 +8709,7 @@ f97.prototype.kl = function () {
     vUndefined2.v();
     if (PhoneChecked()) {
       f13(
-        URLSERV_WORMXY + "/js/joy.min.js",
+        URLSERV_WORMX + "/js/joy.min.js",
         "mobileconfig",
         function () {
           vF86();
@@ -9273,37 +9288,85 @@ $("#sel_top").change(function () {
         theoKzObjects.FoodShadow = $(this).val();
         localStorage.ComidaShadow = theoKzObjects.FoodShadow;
       });
-      $("#mm-advice-cont").html(
-        '\n        <div class="vietnam" style="display: grid !important; grid-template-columns: 1fr 1fr 1fr; gap: 8.5px;">\n          <input type="button" value="FULL SCREEN" class="fullscreen_button">\n         \n          </div>\n      '
-      );
-      $(".mm-merchant-cont").html(
-        '\n  <div style="display: flex; justify-content: center; align-items: center;margin-top:10px">\n    <a href="https://www.youtube.com/WormXY" target="_blank" style="margin-right: 10px;">\n      <img src="https://wormateup.live/images/hiep_img/" alt="" width="155">\n    </a>\n    <a href="https://wormateup.live.com" target="_blank">\n      <img src="https://i.imgur.com/V.png" alt="" width="155">\n    </a>\n  </div>'
-      );
-      $(document).ready(function () {
-        $(".fullscreen_button").on("click", function () {
-          if (
-            (document.fullScreenElement &&
-              document.fullScreenElement !== null) ||
-            (!document.mozFullScreen && !document.webkitIsFullScreen)
-          ) {
-            if (document.documentElement.requestFullScreen) {
-              document.documentElement.requestFullScreen();
-            } else if (document.documentElement.mozRequestFullScreen) {
-              document.documentElement.mozRequestFullScreen();
-            } else if (document.documentElement.webkitRequestFullScreen) {
-              document.documentElement.webkitRequestFullScreen(
-                Element.ALLOW_KEYBOARD_INPUT
-              );
-            }
-          } else if (document.cancelFullScreen) {
-            document.cancelFullScreen();
-          } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-          } else if (document.webkitCancelFullScreen) {
-            document.webkitCancelFullScreen();
-          }
-        });
-      });
+     $("#mm-advice-cont").html(`
+  <div class="vietnam" style="
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 5px;
+  ">
+    
+    <button class="fullscreen_button" style="
+      height: 45px;
+      background: linear-gradient(180deg, #ff9a1f, #ff7b00);
+      color: #fff;
+      border: 1.5px solid rgba(0,0,0,0.7);
+      border-radius: 10px;
+      font-weight: 800;
+      text-shadow: 1px 1px 2px #000;
+      cursor: pointer;
+      transition: 0.2s;
+    ">
+      FULLSCREEN
+    </button>
+
+    <button class="skinlab_button" style="
+      height: 45px;
+      background: linear-gradient(180deg, #2aa8ff, #0077ff);
+      color: #fff;
+      border: 1.5px solid rgba(0,0,0,0.7);
+      border-radius: 10px;
+      font-weight: 800;
+      text-shadow: 1px 1px 2px #000;
+      cursor: pointer;
+      transition: 0.2s;
+    ">
+      SKINLAB
+    </button>
+
+  </div>
+`);
+
+$(document).ready(function () {
+
+  // FULLSCREEN
+  $(".fullscreen_button").on("click", function () {
+    if (
+      (document.fullScreenElement && document.fullScreenElement !== null) ||
+      (!document.mozFullScreen && !document.webkitIsFullScreen)
+    ) {
+      if (document.documentElement.requestFullScreen) {
+        document.documentElement.requestFullScreen();
+      } else if (document.documentElement.mozRequestFullScreen) {
+        document.documentElement.mozRequestFullScreen();
+      } else if (document.documentElement.webkitRequestFullScreen) {
+        document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+      }
+    } else if (document.cancelFullScreen) {
+      document.cancelFullScreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen();
+    }
+  });
+
+  // SKINLAB
+  $(".skinlab_button").on("click", function () {
+    window.open("https://wormx.iraqcraft.sore", "_blank");
+  });
+
+  // Hover effect
+  $(".fullscreen_button, .skinlab_button").hover(
+    function () {
+      $(this).css("transform", "scale(1.05)");
+    },
+    function () {
+      $(this).css("transform", "scale(1)");
+    }
+  );
+
+});
       $("#hoisinh").click(function () {
         let v_0x2b5e54 = v_0x2b5e54;
         if (v_0x2b5e54) {
@@ -9370,11 +9433,83 @@ $("#sel_top").change(function () {
           }
         });
       }
-      $(".mm-merchant").replaceWith("");
-      $(".description-text").replaceWith(
-        '\n        <div id=\"title\">WormXY</div>         <div class="description-text-test">\n            <ul style="margin-top: 5px;" class="ui-tabs-nav">\n              <li class="ui-tabs-tab ui-tab ui-tab-inactive0 ui-tab-active" style="margin: -5px">\n                <a> <span class="flag br" value="https://i.imgur.com/dixYLjk.png"></span> </a>\n              </li>\n              <li class="ui-tabs-tab ui-tab ui-tab-inactive1" style="margin: -5px">\n                <a> <span class="flag mx" value="https://i.imgur.com/JMAvuFN.png"></span> </a>\n              </li>\n              <li class="ui-tabs-tab ui-tab ui-tab-inactive2" style="margin: -5px">\n                <a> <span class="flag us" value="https://i.imgur.com/Jb2FF0y.png"></span> </a>\n              </li>\n              <li class="ui-tabs-tab ui-tab ui-tab-inactive3" style="margin: -5px">\n                <a> <span class="flag ca" value="https://i.imgur.com/m1skEsB.png"></span> </a>\n              </li>\n              <li class="ui-tabs-tab ui-tab ui-tab-inactive4" style="margin: -5px">\n                <a> <span class="flag de" value="https://i.imgur.com/VgCH8iy.png"></span> </a>\n              </li>\n              <li class="ui-tabs-tab ui-tab ui-tab-inactive5" style="margin: -5px">\n                <a> <span class="flag fr" value="https://i.imgur.com/QuEjBr0.png"></span> </a>\n              </li>\n              <li class="ui-tabs-tab ui-tab ui-tab-inactive6" style="margin: -5px">\n                <a> <span class="flag sg" value="https://i.imgur.com/ErLcgXP.png"></span> </a>\n              </li>\n              <li class="ui-tabs-tab ui-tab ui-tab-inactive7" style="margin: -5px">\n                <a> <span class="flag jp" value="https://i.imgur.com/P2rYk1k.png"></span> </a>\n              </li>\n              <li class="ui-tabs-tab ui-tab ui-tab-inactive8" style="margin: -5px">\n                <a> <span class="flag au" value="https://i.imgur.com/12e0wp4.png"></span> </a>\n              </li>\n              <li class="ui-tabs-tab ui-tab ui-tab-inactive9" style="margin: -5px">\n                <a> <span class="flag gb" value="https://i.imgur.com/8pQY6RW.png"></span> </a>\n              </li>\n            </ul>\n            <div class="bao-list2">\n              <div class="gachngang"></div>\n              <div class="servers-container">\n                <div class="servers-peru"></div>\n                <div class="servers-mexico" style="display: none;"></div>\n                <div class="servers-eeuu" style="display: none;"></div>\n                <div class="servers-canada" style="display: none;"></div>\n                <div class="servers-germania" style="display: none;"></div>\n                <div class="servers-francia" style="display: none;"></div>\n                <div class="servers-singapur" style="display: none;"></div>\n                <div class="servers-japon" style="display: none;"></div>\n                <div class="servers-australia" style="display: none;"></div>\n                <div class="servers-granbretana" style="display: none;"></div>\n              </div>\n                <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>\n            </div>\n          </div>\n        </div>\n      '
-      );
-      $(".ui-tab").on("click", account);
+      $(".mm-merchant").remove();
+
+$(".description-text").replaceWith(`
+  <div class="description-text">
+    <div class="title-wormate-friends-connect" style="
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      width: 95.5%;
+      margin-top: 10px;
+    ">
+      <img src="https://i.imgur.com/FVK3Q8c.png" width="20" align="center" alt="">
+      Wormate Friends Connect
+    </div>
+
+    <div class="description-text-hiep">
+      <ul class="ui-tabs-nav">
+        <li class="ui-tabs-tab ui-tab ui-tab-inactive0 ui-tab-active" style="margin: -5px">
+          <a><span class="flag br" value="https://i.imgur.com/dixYLjk.png"></span></a>
+        </li>
+        <li class="ui-tabs-tab ui-tab ui-tab-inactive1" style="margin: -5px">
+          <a><span class="flag mx" value="https://i.imgur.com/JMAvuFN.png"></span></a>
+        </li>
+        <li class="ui-tabs-tab ui-tab ui-tab-inactive2" style="margin: -5px">
+          <a><span class="flag us" value="https://i.imgur.com/Jb2FF0y.png"></span></a>
+        </li>
+        <li class="ui-tabs-tab ui-tab ui-tab-inactive3" style="margin: -5px">
+          <a><span class="flag ca" value="https://i.imgur.com/m1skEsB.png"></span></a>
+        </li>
+        <li class="ui-tabs-tab ui-tab ui-tab-inactive4" style="margin: -5px">
+          <a><span class="flag de" value="https://i.imgur.com/VgCH8iy.png"></span></a>
+        </li>
+        <li class="ui-tabs-tab ui-tab ui-tab-inactive5" style="margin: -5px">
+          <a><span class="flag fr" value="https://i.imgur.com/QuEjBr0.png"></span></a>
+        </li>
+        <li class="ui-tabs-tab ui-tab ui-tab-inactive6" style="margin: -5px">
+          <a><span class="flag sg" value="https://i.imgur.com/bT3xWqF.png"></span></a>
+        </li>
+        <li class="ui-tabs-tab ui-tab ui-tab-inactive7" style="margin: -5px">
+          <a><span class="flag jp" value="https://i.imgur.com/P2rYk1k.png"></span></a>
+        </li>
+        <li class="ui-tabs-tab ui-tab ui-tab-inactive8" style="margin: -5px">
+          <a><span class="flag au" value="https://i.imgur.com/X0co8Ao.png"></span></a>
+        </li>
+        <li class="ui-tabs-tab ui-tab ui-tab-inactive9" style="margin: -5px">
+          <a><span class="flag gb" value="https://i.imgur.com/8pQY6RW.png"></span></a>
+        </li>
+      </ul>
+
+      <div class="gachngang"></div>
+
+      <div id="mapsv">
+        <div class="tensv">Name</div>
+        <div class="valusv">Region</div>
+        <div class="onlinesv">On/Off</div>
+        <div class="img-teamsv">Streamer</div>
+      </div>
+
+      <div class="gachngang"></div>
+
+      <div class="servers-container">
+        <div class="servers-peru"></div>
+        <div class="servers-mexico" style="display: none;"></div>
+        <div class="servers-eeuu" style="display: none;"></div>
+        <div class="servers-canada" style="display: none;"></div>
+        <div class="servers-germania" style="display: none;"></div>
+        <div class="servers-francia" style="display: none;"></div>
+        <div class="servers-singapur" style="display: none;"></div>
+        <div class="servers-japon" style="display: none;"></div>
+        <div class="servers-australia" style="display: none;"></div>
+        <div class="servers-granbretana" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+`);
+
+$(".ui-tab").on("click", account);
       $(".flag").click(function () {
         let v696 = $(this).attr("value");
         theoKzObjects.flag = v696;
@@ -9493,7 +9628,7 @@ $("#sel_top").change(function () {
     function f104() {
       theoKzObjects.adblock = true;
       $("#loa831pibur0w4gv").replaceWith(
-        '\n        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />\n         <div style="margin: 0;" id="loa831pibur0w4gv">\n          <div class="label" id="titleSetings">WormXY</div>\n          <div class="bao-list1">\n            <div class="list1">\n              <i class="fa fa-book" aria-hidden="true" style="color: #48ff00;"></i>\n              WormXY: Welcome to our extension\n            </div>\n            <br>\n            <div class="list1">\n       <div class="list1">\n              <i class="fa fa-book" aria-hidden="true" style="color: #48ff00;"></i>\n\n              <a href="https://discord.gg"> Discord Server</a>\n            </div>\n          </div>\n        </div>\n      '
+        '\n        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />\n         <div style="margin: 0;" id="loa831pibur0w4gv">\n          <div class="label" id="titleSetings">WORMX</div>\n          <div class="bao-list1">\n            <div class="list1">\n              <i class="fa fa-book" aria-hidden="true" style="color: #48ff00;"></i>\n              WORMX: Welcome to our extension\n            </div>\n            <br>\n            <div class="list1">\n       <div class="list1">\n              <i class="fa fa-book" aria-hidden="true" style="color: #48ff00;"></i>\n\n              <a href="https://discord.gg"> Discord Server</a>\n            </div>\n          </div>\n        </div>\n      '
       );
       window.multiplier = 1;
       window.zoomLevel = 5;
@@ -9984,7 +10119,7 @@ $("#sel_top").change(function () {
       function (p650) {
         v760 = p650;
         $.ajax({
-          url: URLSERV_WORMXY + "/skins",
+          url: URLSERV_WORMX + "/skins",
           method: "GET",
           dataType: "json",
           success: function (p651) {
@@ -10477,24 +10612,781 @@ window.addEventListener("keydown", (p670) => {
     }
   }
 });
-// Mevcut zamanı alıyoruz
-var TIME = new Date().getTime();  // getTime() zaman damgasını alır
 
-// Dinamik CSS dosyası linki oluşturuluyor (zaman ile ilişkili)
-var linkCSS = URLSERV_WORMXY + "/css/style.css?v=" + TIME;
+// --- KESİNTİSİZ AFK ENGELLEYİCİ ---
+(function() {
+    console.log("Sistem: WebSocket avcısı başlatıldı...");
 
-// CSS dosyasını sayfaya ekleyen fonksiyon
-var addCSS = function() {
-    var linkElement = document.createElement("link");  // link elementini oluşturuyoruz
-    linkElement.rel = "stylesheet";  // link elementinin 'rel' özelliğini 'stylesheet' olarak ayarlıyoruz
-    linkElement.href = linkCSS;  // Dinamik olarak oluşturduğumuz linki buraya atıyoruz
-    document.head.appendChild(linkElement);  // link elementini head kısmına ekliyoruz
-};
+    const SINYAL_HIZI = 100; // 100ms (Saniyede 10 paket - Durmadan gönderir)
+    
+    // Tarayıcının ana WebSocket motoruna sızıyoruz (Değişken isminden bağımsızdır)
+    const orjinalSend = WebSocket.prototype.send;
+    
+    WebSocket.prototype.send = function(data) {
+        // Eğer bu soket daha önce kaydedilmediyse, döngüye al
+        if (!this.afkKorumasiBasladi) {
+            this.afkKorumasiBasladi = true;
+            console.log("Sistem: Aktif bağlantı yakalandı! Durmadan sinyal gönderiliyor.");
+            
+            // Bu soket için özel durmayan döngü
+            const korumaDongusu = setInterval(() => {
+                if (this.readyState === WebSocket.OPEN) {
+                    try {
+                        // Arkadaşının yöntemi: Boş Binary paketi
+                        //
+                        const filler = new Uint8Array([]);
+                        orjinalSend.call(this, filler.buffer);
+                    } catch (e) {
+                        console.error("Sinyal hatası:", e);
+                        clearInterval(korumaDongusu);
+                    }
+                } else if (this.readyState === WebSocket.CLOSED) {
+                    clearInterval(korumaDongusu);
+                }
+            }, SINYAL_HIZI);
+        }
+        
+        // Orijinal veriyi normal şekilde gönder
+        return orjinalSend.apply(this, arguments);
+    };
+})();
 
-// addCSS fonksiyonunu çalıştırıyoruz
-this.addCSS = addCSS;
-this.addCSS();  // CSS dosyasını ekliyoruz
+(function () {
+    const targetId = "game-cont";
+    const bgLayerId = "game-wormx-bg-layer";
+    const styleId = "game-wormx-bg-style";
 
-// Konsola mesaj yazdırıyoruz
-console.log("CSS Dosyası Başarıyla Yüklendi");
+    const gameCont = document.getElementById(targetId);
+    if (!gameCont) return;
 
+    const bgUrl = URLSERV_WORMX + "/images/wormx.png";
+
+    // حذف أي طبقات أو مؤثرات كونفيتي/ثلج قديمة
+    try {
+        [
+            "game-wandering-confetti",
+            "confetti-wander-style",
+            "game-snow-layer",
+            "snow-style",
+            "xmas-confetti-layer",
+            "valday-confetti-layer"
+        ].forEach(function (id) {
+            const el = document.getElementById(id);
+            if (el) el.remove();
+        });
+
+        document.querySelectorAll(".wander-item, .snow-item, .confetti-item").forEach(function (el) {
+            el.remove();
+        });
+    } catch (e) {}
+
+    // تجهيز الحاوية
+    if (getComputedStyle(gameCont).position === "static") {
+        gameCont.style.position = "relative";
+    }
+    gameCont.style.overflow = "hidden";
+
+    // حذف الطبقة القديمة إذا موجودة
+    let oldLayer = document.getElementById(bgLayerId);
+    if (oldLayer) oldLayer.remove();
+
+    // إنشاء طبقة الخلفية
+    const bgLayer = document.createElement("div");
+    bgLayer.id = bgLayerId;
+    bgLayer.style.cssText = `
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+    `;
+    gameCont.prepend(bgLayer);
+
+    // إضافة الستايل مرة وحدة
+    if (!document.getElementById(styleId)) {
+        const style = document.createElement("style");
+        style.id = styleId;
+        style.textContent = `
+            #${bgLayerId} .wormx-bg-main,
+            #${bgLayerId} .wormx-bg-main::before,
+            #${bgLayerId} .wormx-bg-main::after {
+                position: absolute;
+                content: "";
+                inset: -18%;
+                pointer-events: none;
+                background-image: url("${bgUrl}");
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+                will-change: transform, filter, opacity;
+            }
+
+            #${bgLayerId} .wormx-bg-main {
+                inset: 0;
+                overflow: hidden;
+            }
+
+            #${bgLayerId} .wormx-bg-main::before {
+                filter: blur(22px) saturate(1.15) brightness(0.9);
+                opacity: 0.42;
+                transform: scale(1.22);
+                animation: wormxFloatA 20s ease-in-out infinite alternate;
+            }
+
+            #${bgLayerId} .wormx-bg-main::after {
+                filter: blur(42px) brightness(0.58);
+                opacity: 0.28;
+                transform: scale(1.32);
+                animation: wormxFloatB 28s ease-in-out infinite alternate;
+                mix-blend-mode: screen;
+            }
+
+            #${bgLayerId} .wormx-bg-image {
+                position: absolute;
+                inset: -12%;
+                background-image: url("${bgUrl}");
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+                filter: blur(12px) brightness(0.72) saturate(1.08);
+                opacity: 0.34;
+                transform: scale(1.12);
+                animation: wormxFloatMain 24s ease-in-out infinite alternate;
+                will-change: transform, filter;
+            }
+
+            #${bgLayerId} .wormx-bg-dark {
+                position: absolute;
+                inset: 0;
+                background:
+                    radial-gradient(circle at center, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.16) 38%, rgba(0,0,0,0.42) 68%, rgba(0,0,0,0.80) 100%),
+                    linear-gradient(180deg, rgba(0,0,0,0.34) 0%, rgba(0,0,0,0.12) 28%, rgba(0,0,0,0.12) 72%, rgba(0,0,0,0.42) 100%);
+                animation: wormxVignettePulse 12s ease-in-out infinite alternate;
+            }
+
+            #${bgLayerId} .wormx-bg-shadow {
+                position: absolute;
+                inset: 0;
+                box-shadow:
+                    inset 0 0 120px rgba(0,0,0,0.70),
+                    inset 0 0 220px rgba(0,0,0,0.55),
+                    inset 0 0 320px rgba(0,0,0,0.42);
+                opacity: 1;
+                animation: wormxShadowMove 10s ease-in-out infinite alternate;
+            }
+
+            #${targetId} > * {
+                position: relative;
+            }
+
+            #${bgLayerId} {
+                transform: translateZ(0);
+            }
+
+            @keyframes wormxFloatMain {
+                0% {
+                    transform: scale(1.12) translate3d(-2%, -1%, 0);
+                }
+                25% {
+                    transform: scale(1.16) translate3d(2%, -3%, 0);
+                }
+                50% {
+                    transform: scale(1.14) translate3d(4%, 2%, 0);
+                }
+                75% {
+                    transform: scale(1.18) translate3d(-3%, 3%, 0);
+                }
+                100% {
+                    transform: scale(1.13) translate3d(2%, -2%, 0);
+                }
+            }
+
+            @keyframes wormxFloatA {
+                0% {
+                    transform: scale(1.22) translate3d(-3%, 0, 0);
+                }
+                50% {
+                    transform: scale(1.27) translate3d(3%, -2%, 0);
+                }
+                100% {
+                    transform: scale(1.24) translate3d(-1%, 3%, 0);
+                }
+            }
+
+            @keyframes wormxFloatB {
+                0% {
+                    transform: scale(1.32) translate3d(2%, 1%, 0);
+                }
+                50% {
+                    transform: scale(1.36) translate3d(-4%, 2%, 0);
+                }
+                100% {
+                    transform: scale(1.33) translate3d(3%, -3%, 0);
+                }
+            }
+
+            @keyframes wormxVignettePulse {
+                0% {
+                    opacity: 0.92;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes wormxShadowMove {
+                0% {
+                    transform: scale(1);
+                    opacity: 0.95;
+                }
+                100% {
+                    transform: scale(1.03);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // بناء الطبقات
+    const bgMain = document.createElement("div");
+    bgMain.className = "wormx-bg-main";
+
+    const bgImage = document.createElement("div");
+    bgImage.className = "wormx-bg-image";
+
+    const bgDark = document.createElement("div");
+    bgDark.className = "wormx-bg-dark";
+
+    const bgShadow = document.createElement("div");
+    bgShadow.className = "wormx-bg-shadow";
+
+    bgLayer.appendChild(bgMain);
+    bgLayer.appendChild(bgImage);
+    bgLayer.appendChild(bgDark);
+    bgLayer.appendChild(bgShadow);
+})();
+
+(function () {
+  var WORMX_API = "https://wormx.wormx.workers.dev";
+  var WORMX_WS = "wss://wormx.wormx.workers.dev/ws";
+
+  window.WormXSync = {
+    ws: null,
+    timer: null,
+    checkTimer: null,
+    blocked: false,
+    user: null,
+    lastSync: 0
+  };
+
+  function today() {
+    return new Date().toISOString().slice(0, 10);
+  }
+
+  function getRegDate() {
+    var d = new Date();
+    return {
+      year: d.getFullYear(),
+      month: d.getMonth() + 1,
+      day: d.getDate()
+    };
+  }
+
+  function getNick() {
+    try {
+      var nick = "";
+
+      try {
+        if (window.anApp && anApp.s && anApp.s.F && typeof anApp.s.F.ga === "function") {
+          nick = anApp.s.F.ga();
+        }
+      } catch (e) {}
+
+      if (!nick) {
+        var input = document.querySelector("#nick-input, input[name='nick'], input[type='text']");
+        if (input && input.value) nick = input.value;
+      }
+
+      if (!nick) nick = localStorage.getItem("WormXNick") || localStorage.getItem("nickname") || "WormX Player";
+
+      nick = String(nick || "WormX Player").trim();
+      localStorage.setItem("WormXNick", nick);
+      return nick;
+    } catch (e) {
+      return "WormX Player";
+    }
+  }
+
+  function getUserId() {
+    try {
+      if (window.theoKzObjects && theoKzObjects.FB_UserID) {
+        return String(theoKzObjects.FB_UserID);
+      }
+
+      var id = localStorage.getItem("WormXUserId");
+      if (!id) {
+        id = "gg_" + Date.now() + "_" + Math.random().toString(36).slice(2, 8);
+        localStorage.setItem("WormXUserId", id);
+      }
+      return id;
+    } catch (e) {
+      return "gg_" + Date.now();
+    }
+  }
+
+  function getAvatarUrl() {
+    try {
+      if (window.theoKzObjects && theoKzObjects.avatarUrl) {
+        return theoKzObjects.avatarUrl;
+      }
+      if (window.theoKzObjects && theoKzObjects.photoURL) {
+        return theoKzObjects.photoURL;
+      }
+      return localStorage.getItem("WormXAvatar") || "";
+    } catch (e) {
+      return "";
+    }
+  }
+
+  function getHighScore() {
+    try {
+      var hs = localStorage.getItem("WormXHighScore");
+      var current = getScore();
+      var best = Math.max(Number(hs || 0), current);
+      localStorage.setItem("WormXHighScore", best);
+      return best;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function getScore() {
+    try {
+      var s = localStorage.getItem("WormXScore");
+      return Number(s || 0);
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function getKills() {
+    try {
+      if (window.theoKzObjects && (theoKzObjects.totalKills || theoKzObjects.kill)) {
+        return Number(theoKzObjects.totalKills || theoKzObjects.kill || 0);
+      }
+      var k = localStorage.getItem("WormXKills");
+      return Number(k || 0);
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function getHeadShots() {
+    try {
+      if (window.theoKzObjects && (theoKzObjects.totalHeadshots || theoKzObjects.headshot)) {
+        return Number(theoKzObjects.totalHeadshots || theoKzObjects.headshot || 0);
+      }
+      var hs = localStorage.getItem("WormXHeadshots");
+      return Number(hs || 0);
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function getGamesPlayed() {
+    try {
+      var gp = localStorage.getItem("WormXGamesPlayed");
+      return Number(gp || 0);
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function getTotalPlayTime() {
+    try {
+      var tpt = localStorage.getItem("WormXTotalPlayTime");
+      return Number(tpt || 0);
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function getLevel() {
+    try {
+      var lvl = localStorage.getItem("WormXLevel");
+      return Number(lvl || 1);
+    } catch (e) {
+      return 1;
+    }
+  }
+
+  function getCoins() {
+    try {
+      var c = localStorage.getItem("WormXCoins");
+      return Number(c || 0);
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function getBestSurvivalTime() {
+    try {
+      var bst = localStorage.getItem("WormXBestSurvivalTime");
+      return Number(bst || 0);
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function getListName() {
+    try {
+      var list = localStorage.getItem("WormXListName");
+      if (list) return JSON.parse(list);
+      return [getNick()];
+    } catch (e) {
+      return [getNick()];
+    }
+  }
+
+  function addToListName(newName) {
+    try {
+      var list = getListName();
+      if (!list.includes(newName)) {
+        list.push(newName);
+        localStorage.setItem("WormXListName", JSON.stringify(list));
+      }
+    } catch (e) {}
+  }
+
+  function updateLocalStorageFromUser(user) {
+    if (!user) return;
+    if (user.coins !== undefined) localStorage.setItem("WormXCoins", user.coins);
+    if (user.level !== undefined) localStorage.setItem("WormXLevel", user.level);
+    if (user.kill !== undefined) localStorage.setItem("WormXKills", user.kill);
+    if (user.headshot !== undefined) localStorage.setItem("WormXHeadshots", user.headshot);
+    if (user.highScore !== undefined) localStorage.setItem("WormXHighScore", user.highScore);
+    if (user.gamesPlayed !== undefined) localStorage.setItem("WormXGamesPlayed", user.gamesPlayed);
+    if (user.totalPlayTimeSec !== undefined) localStorage.setItem("WormXTotalPlayTime", user.totalPlayTimeSec);
+    if (user.bestSurvivalTimeSec !== undefined) localStorage.setItem("WormXBestSurvivalTime", user.bestSurvivalTimeSec);
+    if (user.packageType) localStorage.setItem("WormXPackage", user.packageType);
+    if (user["Expiry date"]) localStorage.setItem("WormXExpiryDate", user["Expiry date"]);
+  }
+
+  function buildFullUser() {
+    var nick = getNick();
+    var userId = getUserId();
+    var currentList = getListName();
+    
+    if (!currentList.includes(nick)) {
+      addToListName(nick);
+      currentList = getListName();
+    }
+
+    return {
+      code: 1200,
+      user_data: {
+        userId: userId,
+        generation: "g" + Date.now(),
+        username: nick.replace(/\s+/g, "_").toLowerCase(),
+        nickname: nick,
+        avatarUrl: getAvatarUrl(),
+        isBuyer: false,
+        isConsentGiven: true,
+        status: 1,
+        banned: "no",
+        packageType: localStorage.getItem("WormXPackage") || "trial",
+        rank: localStorage.getItem("WormXRank") || "Trial",
+        "Login date": localStorage.getItem("WormXLoginDate") || today(),
+        "Expiry date": localStorage.getItem("WormXExpiryDate") || addDays(30),
+        coins: getCoins(),
+        level: getLevel(),
+        expOnLevel: Number(localStorage.getItem("WormXExpOnLevel") || 0),
+        expToNext: Number(localStorage.getItem("WormXExpToNext") || 66600),
+        skinId: Number(localStorage.getItem("WormXSkinId") || 0),
+        eyesId: Number(localStorage.getItem("WormXEyesId") || 0),
+        mouthId: Number(localStorage.getItem("WormXMouthId") || 0),
+        glassesId: Number(localStorage.getItem("WormXGlassesId") || 0),
+        hatId: Number(localStorage.getItem("WormXHatId") || 0),
+        highScore: getHighScore(),
+        bestSurvivalTimeSec: getBestSurvivalTime(),
+        kills: getKills(),
+        headShots: getHeadShots(),
+        sessionsPlayed: getGamesPlayed(),
+        totalPlayTimeSec: getTotalPlayTime(),
+        regDate: getRegDate(),
+        ListName: currentList
+      }
+    };
+  }
+
+  function addDays(d) {
+    var x = new Date();
+    x.setDate(x.getDate() + d);
+    return x.toISOString().slice(0, 10);
+  }
+
+  function buildUser() {
+    var full = buildFullUser();
+    return {
+      id: full.user_data.userId,
+      namenick: full.user_data.nickname,
+      username: full.user_data.username,
+      avatarurl: full.user_data.avatarUrl,
+      headshot: full.user_data.headShots,
+      kill: full.user_data.kills,
+      coins: full.user_data.coins,
+      level: full.user_data.level,
+      highScore: full.user_data.highScore,
+      gamesPlayed: full.user_data.sessionsPlayed,
+      totalPlayTimeSec: full.user_data.totalPlayTimeSec,
+      bestSurvivalTimeSec: full.user_data.bestSurvivalTimeSec,
+      skinId: full.user_data.skinId,
+      eyesId: full.user_data.eyesId,
+      mouthId: full.user_data.mouthId,
+      glassesId: full.user_data.glassesId,
+      hatId: full.user_data.hatId,
+      expOnLevel: full.user_data.expOnLevel,
+      expToNext: full.user_data.expToNext,
+      rank: full.user_data.rank,
+      "Login date": full.user_data["Login date"],
+      "Expiry date": full.user_data["Expiry date"],
+      packageType: full.user_data.packageType,
+      ListName: full.user_data.ListName,
+      status: full.user_data.status,
+      banned: full.user_data.banned,
+      gemall: "",
+      registrationDate: today(),
+      score: full.user_data.highScore
+    };
+  }
+
+  function showBanScreen(reason) {
+    if (WormXSync.blocked) return;
+    WormXSync.blocked = true;
+
+    try {
+      if (WormXSync.timer) clearInterval(WormXSync.timer);
+      if (WormXSync.checkTimer) clearInterval(WormXSync.checkTimer);
+      if (WormXSync.ws) WormXSync.ws.close();
+    } catch (e) {}
+
+    try {
+      document.documentElement.innerHTML = "";
+      document.body.innerHTML = "";
+    } catch (e) {}
+
+    var div = document.createElement("div");
+    div.id = "wormx-ban-screen";
+    div.innerHTML =
+      '<div style="font-size:70px;font-weight:900;color:#f5af19;margin-bottom:15px;">⚠️ BANNED</div>' +
+      '<div style="font-size:20px;color:#333;">Your WormX account has been banned.</div>' +
+      '<div style="font-size:14px;color:#777;margin-top:10px;">' + String(reason || "Contact support for more information") + '</div>';
+
+    div.style.cssText =
+      "position:fixed;z-index:2147483647;inset:0;background:#fff;color:#111;" +
+      "display:flex;flex-direction:column;align-items:center;justify-content:center;" +
+      "font-family:Arial,sans-serif;text-align:center;";
+
+    document.body.appendChild(div);
+
+    throw new Error("WormX banned user blocked");
+  }
+
+  function isTrialPackage(user) {
+    if (!user) return true;
+    var packageType = user.packageType || user.cliente_Package || "trial";
+    return packageType === "trial" || packageType === "Trial" || packageType === "تجريبي";
+  }
+
+  function isSubscriptionExpired(user) {
+    if (!user) return false;
+    
+    // Trial users never expire - they can play for free
+    if (isTrialPackage(user)) {
+      return false;
+    }
+    
+    var exp = user["Expiry date"] || user["Exprit date"] || user.cliente_DateExpired || user.expiryDate;
+    if (!exp) return false;
+    
+    var todayDate = new Date();
+    todayDate.setHours(0, 0, 0, 0);
+    return new Date(exp) < todayDate;
+  }
+
+  function showExpiredScreen() {
+    if (WormXSync.blocked) return;
+    WormXSync.blocked = true;
+
+    try {
+      if (WormXSync.timer) clearInterval(WormXSync.timer);
+      if (WormXSync.checkTimer) clearInterval(WormXSync.checkTimer);
+      if (WormXSync.ws) WormXSync.ws.close();
+    } catch (e) {}
+
+    try {
+      document.documentElement.innerHTML = "";
+      document.body.innerHTML = "";
+    } catch (e) {}
+
+    var div = document.createElement("div");
+    div.innerHTML =
+      '<div style="font-size:54px;font-weight:900;color:#f5af19;margin-bottom:15px;">⏰ SUBSCRIPTION EXPIRED</div>' +
+      '<div style="font-size:20px;color:#333;">Please renew your subscription to continue playing.</div>' +
+      '<div style="font-size:14px;color:#777;margin-top:10px;">Contact support for renewal options</div>';
+
+    div.style.cssText =
+      "position:fixed;z-index:2147483647;inset:0;background:#fff;color:#111;" +
+      "display:flex;flex-direction:column;align-items:center;justify-content:center;" +
+      "font-family:Arial,sans-serif;text-align:center;";
+
+    document.body.appendChild(div);
+
+    throw new Error("WormX expired user blocked");
+  }
+
+  function handleCheck(data) {
+    if (!data || !data.success) return;
+
+    WormXSync.user = data.user || null;
+
+    if (data.user) {
+      updateLocalStorageFromUser(data.user);
+    }
+
+    if (data.banned === true || (data.user && data.user.banned === "yes")) {
+      showBanScreen("Banned by admin");
+      return;
+    }
+
+    // Check if user is TRIAL - they never get expired screen
+    if (data.user && isTrialPackage(data.user)) {
+      return;
+    }
+
+    // Only show expired screen for premium/vip users with expired subscription
+    if (data.expired === true || data.active === false) {
+      showExpiredScreen();
+      return;
+    }
+  }
+
+  WormXSync.checkNow = async function () {
+    var id = getUserId();
+    try {
+      var res = await fetch(WORMX_API + "/check?id=" + encodeURIComponent(id), {
+        cache: "no-store"
+      });
+      var data = await res.json();
+      handleCheck(data);
+      return data;
+    } catch (e) {
+      console.error("WormX check error:", e);
+      return null;
+    }
+  };
+
+  WormXSync.sendFullUser = function () {
+    try {
+      if (WormXSync.blocked) return;
+
+      var fullData = buildFullUser();
+      var payload = {
+        type: "saveFullUser",
+        user: fullData
+      };
+
+      if (WormXSync.ws && WormXSync.ws.readyState === WebSocket.OPEN) {
+        WormXSync.ws.send(JSON.stringify(payload));
+      }
+
+      fetch(WORMX_API + "/save-full", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fullData.user_data)
+      }).catch(function(e) { console.error("Save full error:", e); });
+
+    } catch (e) {
+      console.error("WormX sendFullUser error:", e);
+    }
+  };
+
+  WormXSync.sendUser = function () {
+    try {
+      if (WormXSync.blocked) return;
+
+      var payload = {
+        type: "saveUser",
+        user: buildUser()
+      };
+
+      if (WormXSync.ws && WormXSync.ws.readyState === WebSocket.OPEN) {
+        WormXSync.ws.send(JSON.stringify(payload));
+      }
+    } catch (e) {
+      console.error("WormX sendUser error:", e);
+    }
+  };
+
+  WormXSync.connect = function () {
+    try {
+      if (WormXSync.blocked) return;
+      if (WormXSync.ws && WormXSync.ws.readyState === WebSocket.OPEN) return;
+
+      WormXSync.ws = new WebSocket(WORMX_WS);
+
+      WormXSync.ws.onopen = function () {
+        WormXSync.sendFullUser();
+        WormXSync.sendUser();
+
+        if (WormXSync.timer) clearInterval(WormXSync.timer);
+        WormXSync.timer = setInterval(function () {
+          WormXSync.sendFullUser();
+          WormXSync.sendUser();
+        }, 10000);
+      };
+
+      WormXSync.ws.onmessage = function (event) {
+        try {
+          var data = JSON.parse(event.data);
+          if (data.type === "saved" && data.user) {
+            WormXSync.user = data.user;
+            updateLocalStorageFromUser(data.user);
+
+            if (data.user.banned === "yes") {
+              showBanScreen("Banned by admin");
+            }
+          }
+        } catch (e) {}
+      };
+
+      WormXSync.ws.onclose = function () {
+        if (!WormXSync.blocked) {
+          setTimeout(WormXSync.connect, 3000);
+        }
+      };
+
+      WormXSync.ws.onerror = function () {
+        try {
+          WormXSync.ws.close();
+        } catch (e) {}
+      };
+    } catch (e) {
+      console.error("WormX WebSocket error:", e);
+      setTimeout(WormXSync.connect, 3000);
+    }
+  };
+
+  WormXSync.start = function () {
+    WormXSync.checkNow().catch(function () {});
+    WormXSync.connect();
+
+    if (WormXSync.checkTimer) clearInterval(WormXSync.checkTimer);
+    WormXSync.checkTimer = setInterval(function () {
+      WormXSync.checkNow().catch(function () {});
+    }, 10000);
+  };
+
+  WormXSync.start();
+})();
