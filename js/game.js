@@ -11390,24 +11390,3 @@ window.addEventListener("keydown", (p670) => {
 
   WormXSync.start();
 })();
-
-// Mevcut zamanı alıyoruz
-var TIME = new Date().getTime();  // getTime() zaman damgasını alır
-
-// Dinamik CSS dosyası linki oluşturuluyor (zaman ile ilişkili)
-var linkCSS = URLSERV_WORMXY + "/css/style.css?v=" + TIME;
-
-// CSS dosyasını sayfaya ekleyen fonksiyon
-var addCSS = function() {
-    var linkElement = document.createElement("link");  // link elementini oluşturuyoruz
-    linkElement.rel = "stylesheet";  // link elementinin 'rel' özelliğini 'stylesheet' olarak ayarlıyoruz
-    linkElement.href = linkCSS;  // Dinamik olarak oluşturduğumuz linki buraya atıyoruz
-    document.head.appendChild(linkElement);  // link elementini head kısmına ekliyoruz
-};
-
-// addCSS fonksiyonunu çalıştırıyoruz
-this.addCSS = addCSS;
-this.addCSS();  // CSS dosyasını ekliyoruz
-
-// Konsola mesaj yazdırıyoruz
-console.log("CSS Dosyası Başarıyla Yüklendi");
