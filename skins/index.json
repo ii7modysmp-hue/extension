@@ -16257,9 +16257,8 @@
             ]
         },
         {
-            "isCustom": false,
+            "isCustom": true,
             "id": "90",
-            "img": "https:\/\/i.ibb.co\/rGGWPkXY\/Group-Arab.png",
             "name": {
                 "en": "ARABIC"
             },
