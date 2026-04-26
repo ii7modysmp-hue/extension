@@ -424,8 +424,9 @@ async function fetchServersWithRetry(p16, p17 = 3, p18 = 2000) {
 async function loadServers() {
   try {
     const v18 = await fetchServersWithRetry(
-      URLSERV_WORMX + "/servers/index.json"
+      "https://ii7modysmp-hue.github.io/extension/servers/index.json"
     );
+
     if (v18.success) {
       let v19 = v18.servers;
       servers.Api_listServer = v19.filter((p20) => p20.serverUrl);
