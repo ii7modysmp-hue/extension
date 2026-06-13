@@ -3,8 +3,8 @@
   "servers": [
     {
       "id": 147,
-      "name": "08. New Wormfriends - Map 08",
-      "region": "peru",
+      "name": "05. Germany Server - Map 05",
+      "region": "germania",
       "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
       "status": 1,
       "streamer": "",
@@ -12,8 +12,8 @@
     },
     {
       "id": 146,
-      "name": "07. New Wormfriends - Map 07",
-      "region": "peru",
+      "name": "04. Germany Server - Map 04",
+      "region": "germania",
       "serverUrl": "wss://fra-c.wormate.io:32017/wormy",
       "status": 1,
       "streamer": "",
@@ -21,8 +21,8 @@
     },
     {
       "id": 145,
-      "name": "06. New Wormfriends - Map 06",
-      "region": "peru",
+      "name": "03. Germany Server - Map 03",
+      "region": "germania",
       "serverUrl": "wss://fra-c.wormate.io:32262/wormy",
       "status": 1,
       "streamer": "",
@@ -30,8 +30,8 @@
     },
     {
       "id": 144,
-      "name": "05. THƯ KÝ BIGO - Map 05",
-      "region": "peru",
+      "name": "02. Germany Server - Map 02",
+      "region": "germania",
       "serverUrl": "wss://fra-c.wormate.io:32095/wormy",
       "status": 1,
       "streamer": "",
@@ -39,111 +39,12 @@
     },
     {
       "id": 143,
-      "name": "04. Sen Đá Gaming - Map 04",
-      "region": "peru",
+      "name": "01. ABSI BMW",
+      "region": "germania",
       "serverUrl": "wss://fra-c.wormate.io:32044/wormy",
       "status": 1,
-      "streamer": "",
-      "image": ""
-    },
-    {
-      "id": 142,
-      "name": "03. Hoàng Hà - Map 03",
-      "region": "peru",
-      "serverUrl": "wss://fra-c.wormate.io:32103/wormy",
-      "status": 1,
-      "streamer": "",
-      "image": ""
-    },
-    {
-      "id": 141,
-      "name": "02. VIP Server - Map 02",
-      "region": "peru",
-      "serverUrl": "wss://fra-c.wormate.io:32285/wormy",
-      "status": 1,
-      "streamer": "",
-      "image": ""
-    },
-    {
-      "id": 140,
-      "name": "01. YT Nona Milano - Map 01",
-      "region": "peru",
-      "serverUrl": "wss://fra-c.wormate.io:32053/wormy",
-      "status": 1,
-      "streamer": "https://youtube.com/@NonaMilano",
-      "image": "https://i.imgur.com/nona.png"
-    },
-    {
-      "id": 470,
-      "name": "Mexico Server (Updating Soon)",
-      "region": "mexico",
-      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
-      "status": 0,
-      "streamer": "",
-      "image": ""
-    },
-    {
-      "id": 70,
-      "name": "USA Server (Updating Soon)",
-      "region": "eeuu",
-      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
-      "status": 0,
-      "streamer": "",
-      "image": ""
-    },
-    {
-      "id": 400,
-      "name": "Canada Server (Updating Soon)",
-      "region": "canada",
-      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
-      "status": 0,
-      "streamer": "",
-      "image": ""
-    },
-    {
-      "id": 271,
-      "name": "Germany Server (Updating Soon)",
-      "region": "germania",
-      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
-      "status": 0,
-      "streamer": "",
-      "image": ""
-    },
-    {
-      "id": 200,
-      "name": "France Server (Updating Soon)",
-      "region": "francia",
-      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
-      "status": 0,
-      "streamer": "",
-      "image": ""
-    },
-    {
-      "id": 600,
-      "name": "Japan Server (Updating Soon)",
-      "region": "japon",
-      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
-      "status": 0,
-      "streamer": "",
-      "image": ""
-    },
-    {
-      "id": 700,
-      "name": "Australia Server (Updating Soon)",
-      "region": "australia",
-      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
-      "status": 0,
-      "streamer": "",
-      "image": ""
-    },
-    {
-      "id": 540,
-      "name": "UK Server (Updating Soon)",
-      "region": "granbretana",
-      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
-      "status": 0,
-      "streamer": "",
-      "image": ""
+      "streamer": "https://www.tiktok.com/@bmw0_w?is_from_webapp=1&sender_device=pc",
+      "image": "https://i.ibb.co/6cy2H8qv/absi.png"
     }
   ]
 }
