@@ -2,40 +2,148 @@
   "success": true,
   "servers": [
     {
-      "id": 1,
-      "name": "Singapore #1",
-      "region": "singapur",
-      "serverUrl": "wss://sg-1.example.com/wormy",
+      "id": 147,
+      "name": "08. New Wormfriends - Map 08",
+      "region": "peru",
+      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
       "status": 1,
       "streamer": "",
-      "image": "https://i.ibb.co/mrHP1zGg/icon128.png"
+      "image": ""
     },
     {
-      "id": 2,
-      "name": "USA #1",
+      "id": 146,
+      "name": "07. New Wormfriends - Map 07",
+      "region": "peru",
+      "serverUrl": "wss://fra-c.wormate.io:32017/wormy",
+      "status": 1,
+      "streamer": "",
+      "image": ""
+    },
+    {
+      "id": 145,
+      "name": "06. New Wormfriends - Map 06",
+      "region": "peru",
+      "serverUrl": "wss://fra-c.wormate.io:32262/wormy",
+      "status": 1,
+      "streamer": "",
+      "image": ""
+    },
+    {
+      "id": 144,
+      "name": "05. THƯ KÝ BIGO - Map 05",
+      "region": "peru",
+      "serverUrl": "wss://fra-c.wormate.io:32095/wormy",
+      "status": 1,
+      "streamer": "",
+      "image": ""
+    },
+    {
+      "id": 143,
+      "name": "04. Sen Đá Gaming - Map 04",
+      "region": "peru",
+      "serverUrl": "wss://fra-c.wormate.io:32044/wormy",
+      "status": 1,
+      "streamer": "",
+      "image": ""
+    },
+    {
+      "id": 142,
+      "name": "03. Hoàng Hà - Map 03",
+      "region": "peru",
+      "serverUrl": "wss://fra-c.wormate.io:32103/wormy",
+      "status": 1,
+      "streamer": "",
+      "image": ""
+    },
+    {
+      "id": 141,
+      "name": "02. VIP Server - Map 02",
+      "region": "peru",
+      "serverUrl": "wss://fra-c.wormate.io:32285/wormy",
+      "status": 1,
+      "streamer": "",
+      "image": ""
+    },
+    {
+      "id": 140,
+      "name": "01. YT Nona Milano - Map 01",
+      "region": "peru",
+      "serverUrl": "wss://fra-c.wormate.io:32053/wormy",
+      "status": 1,
+      "streamer": "https://youtube.com/@NonaMilano",
+      "image": "https://i.imgur.com/nona.png"
+    },
+    {
+      "id": 470,
+      "name": "Mexico Server (Updating Soon)",
+      "region": "mexico",
+      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
+      "status": 0,
+      "streamer": "",
+      "image": ""
+    },
+    {
+      "id": 70,
+      "name": "USA Server (Updating Soon)",
       "region": "eeuu",
-      "serverUrl": "wss://us-1.example.com/wormy",
-      "status": 1,
-      "streamer": "https://i.ibb.co/mrHP1zGg/icon12edf8.png",
-      "image": "https://i.ibb.co/mrHP1zGg/icon128.png"
+      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
+      "status": 0,
+      "streamer": "",
+      "image": ""
     },
     {
-      "id": 3,
-      "name": "Germany #1",
+      "id": 400,
+      "name": "Canada Server (Updating Soon)",
+      "region": "canada",
+      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
+      "status": 0,
+      "streamer": "",
+      "image": ""
+    },
+    {
+      "id": 271,
+      "name": "Germany Server (Updating Soon)",
       "region": "germania",
-      "serverUrl": "wss://de-1.example.com/wormy",
-      "status": 1,
+      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
+      "status": 0,
       "streamer": "",
-      "image": "https://i.ibb.co/mrHP1zGg/icon128.png"
+      "image": ""
     },
     {
-      "id": 4,
-      "name": "Australia #1",
-      "region": "australia",
-      "serverUrl": "wss://au-1.example.com/wormy",
-      "status": 1,
+      "id": 200,
+      "name": "France Server (Updating Soon)",
+      "region": "francia",
+      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
+      "status": 0,
       "streamer": "",
-      "image": https://i.ibb.co/mrHP1zGg/icon128.png"
+      "image": ""
+    },
+    {
+      "id": 600,
+      "name": "Japan Server (Updating Soon)",
+      "region": "japon",
+      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
+      "status": 0,
+      "streamer": "",
+      "image": ""
+    },
+    {
+      "id": 700,
+      "name": "Australia Server (Updating Soon)",
+      "region": "australia",
+      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
+      "status": 0,
+      "streamer": "",
+      "image": ""
+    },
+    {
+      "id": 540,
+      "name": "UK Server (Updating Soon)",
+      "region": "granbretana",
+      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
+      "status": 0,
+      "streamer": "",
+      "image": ""
     }
   ]
 }
