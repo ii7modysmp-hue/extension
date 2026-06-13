@@ -1,10 +1,3006 @@
 {
-  "success": true,
-  "User": {
-    "id": 3,
-    "cliente_NOMBRE": "BMW",
-    "cliente_ID": "gg_108022486223048441992",
-    "cliente_DateExpired": "22-12-2027",
-    "status": 1
-  }
+    "success": true,
+    "Users": [
+        {
+            "userId": "gg_108022486223048441992",
+            "generation": "g1745612862036",
+            "username": "ٌ",
+            "nickname": "TIK/عبسي BMWxxxxx0987000010005",
+            "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocK61tm5_tXAh8JuyQD-Q7jTEtajH6hHUXPWnJt3cBALnuim91ga=s96-c",
+            "isBuyer": false,
+            "isConsentGiven": true,
+            "coins": 12850,
+            "level": 39,
+            "expOnLevel": 30414,
+            "skinId": 35,
+            "eyesId": 10,
+            "mouthId": 5,
+            "glassesId": 0,
+            "hatId": 0,
+            "highScore": 10656184,
+            "bestSurvivalTimeSec": 3174,
+            "kills": 9048,
+            "headShots": 2330,
+            "sessionsPlayed": 20021,
+            "totalPlayTimeSec": 925806,
+            "regDate": {
+                "year": 2025,
+                "month": 4,
+                "day": 25
+            },
+            "propertyList": [
+                {
+                    "id": "9406",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "20",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9085",
+                    "type": "HAT"
+                },
+                {
+                    "id": "32",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "56",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "1",
+                    "type": "HAT"
+                },
+                {
+                    "id": "204",
+                    "type": "HAT"
+                },
+                {
+                    "id": "24",
+                    "type": "HAT"
+                },
+                {
+                    "id": "131",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9147",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "3",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "143",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9088",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9150",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9146",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9077",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9091",
+                    "type": "EYES"
+                },
+                {
+                    "id": "3",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9194",
+                    "type": "HAT"
+                },
+                {
+                    "id": "5",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "95",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9407",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "21",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "33",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "55",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9087",
+                    "type": "EYES"
+                },
+                {
+                    "id": "180",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9090",
+                    "type": "EYES"
+                },
+                {
+                    "id": "140",
+                    "type": "HAT"
+                },
+                {
+                    "id": "2",
+                    "type": "EYES"
+                },
+                {
+                    "id": "100",
+                    "type": "HAT"
+                },
+                {
+                    "id": "4",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "70",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "31",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9193",
+                    "type": "HAT"
+                },
+                {
+                    "id": "30",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "48",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9038",
+                    "type": "EYES"
+                },
+                {
+                    "id": "54",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "1",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9149",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9400",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "21",
+                    "type": "HAT"
+                },
+                {
+                    "id": "1",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9196",
+                    "type": "HAT"
+                },
+                {
+                    "id": "3",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "7",
+                    "type": "HAT"
+                },
+                {
+                    "id": "53",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "235",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9401",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "182",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9089",
+                    "type": "EYES"
+                },
+                {
+                    "id": "11",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9037",
+                    "type": "EYES"
+                },
+                {
+                    "id": "2",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9148",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "102",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9151",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "2",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9078",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9200",
+                    "type": "HAT"
+                },
+                {
+                    "id": "110",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "13",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "170",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9195",
+                    "type": "HAT"
+                },
+                {
+                    "id": "6",
+                    "type": "HAT"
+                },
+                {
+                    "id": "8",
+                    "type": "EYES"
+                },
+                {
+                    "id": "200",
+                    "type": "HAT"
+                },
+                {
+                    "id": "40",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9402",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "76",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "80",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "10",
+                    "type": "EYES"
+                },
+                {
+                    "id": "83",
+                    "type": "HAT"
+                },
+                {
+                    "id": "1",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "34",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9198",
+                    "type": "HAT"
+                },
+                {
+                    "id": "111",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "75",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "51",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9084",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9039",
+                    "type": "EYES"
+                },
+                {
+                    "id": "35",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "7",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9403",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "180",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "140",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "302",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "108",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "4",
+                    "type": "HAT"
+                },
+                {
+                    "id": "11",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "112",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9197",
+                    "type": "HAT"
+                },
+                {
+                    "id": "100",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "74",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "50",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "34",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9404",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "10",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "14",
+                    "type": "HAT"
+                },
+                {
+                    "id": "113",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "0",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "7",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "81",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9405",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "73",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "35",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "5",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "146",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "114",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "1",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "190",
+                    "type": "HAT"
+                },
+                {
+                    "id": "150",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9199",
+                    "type": "HAT"
+                },
+                {
+                    "id": "2",
+                    "type": "HAT"
+                },
+                {
+                    "id": "60",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "6",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "21",
+                    "type": "GLASSES"
+                }
+            ],
+            "expToNext": 74100,
+            "status": 1,
+            "cliente_ID": "gg_108022486223048441992",
+            "cliente_NOMBRE": "TIK/عبسي BMWxxxxx0987000010005",
+            "cliente_DateExpired": "22-12-2027",
+            "updated_at": "2026-06-10 07:07:44",
+            "last_ip": "162.158.210.126",
+            "last_user_agent": "Mozilla/5.0 MatrixProxy",
+            "created_at": "2026-06-10 01:47:27"
+        },
+        {
+            "userId": "gg_100543647673049759918",
+            "generation": "g1650934283143",
+            "username": "shakera",
+            "nickname": "!̵𝒜𝒮𝒯𝒰R̸ą╮💀x0035000000000",
+            "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocIIguGNNE4PwU5xEWhSziUKlRzfTbOf1DfrT18naCU-cH09yoA=s96-c",
+            "isBuyer": false,
+            "isConsentGiven": true,
+            "coins": 63017,
+            "level": 71,
+            "expOnLevel": 89828,
+            "skinId": "9836",
+            "eyesId": 0,
+            "mouthId": 0,
+            "glassesId": 0,
+            "hatId": 0,
+            "highScore": 14601907,
+            "bestSurvivalTimeSec": 6672,
+            "kills": 67631,
+            "headShots": 22887,
+            "sessionsPlayed": 78315,
+            "totalPlayTimeSec": 5642103,
+            "regDate": {
+                "year": 2022,
+                "month": 4,
+                "day": 25
+            },
+            "propertyList": [
+                {
+                    "id": "84",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "96",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "1",
+                    "type": "HAT"
+                },
+                {
+                    "id": "56",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "44",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9377",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9256",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9389",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "24",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9353",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9365",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9036",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9341",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "60",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "72",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9119",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "139",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "103",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "115",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "191",
+                    "type": "HAT"
+                },
+                {
+                    "id": "11",
+                    "type": "HAT"
+                },
+                {
+                    "id": "85",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "55",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9378",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9342",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9354",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9118",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "310",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "116",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "128",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "180",
+                    "type": "HAT"
+                },
+                {
+                    "id": "192",
+                    "type": "HAT"
+                },
+                {
+                    "id": "30",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9038",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9379",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "66",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "54",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9355",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9343",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "101",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "70",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "94",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "21",
+                    "type": "HAT"
+                },
+                {
+                    "id": "181",
+                    "type": "HAT"
+                },
+                {
+                    "id": "95",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "53",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "65",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9344",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9356",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "57",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9037",
+                    "type": "EYES"
+                },
+                {
+                    "id": "102",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "71",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "83",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "138",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "114",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "126",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "32",
+                    "type": "HAT"
+                },
+                {
+                    "id": "182",
+                    "type": "HAT"
+                },
+                {
+                    "id": "170",
+                    "type": "HAT"
+                },
+                {
+                    "id": "52",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "76",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "88",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9127",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9139",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9068",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9103",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9397",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "36",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9115",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9252",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9361",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "107",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "313",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "301",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "1",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9102",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "5",
+                    "type": "HAT"
+                },
+                {
+                    "id": "65",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "35",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "23",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "89",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9138",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9067",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9079",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9114",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9126",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9398",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9362",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9374",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9055",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9350",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "302",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9101",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "108",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "4",
+                    "type": "HAT"
+                },
+                {
+                    "id": "62",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "74",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "98",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "10",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "14",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9117",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9375",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9254",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "26",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9351",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9363",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "50",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "105",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "109",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "129",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "3",
+                    "type": "HAT"
+                },
+                {
+                    "id": "51",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "63",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "75",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "87",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "99",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "45",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "33",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9388",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9116",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9128",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9364",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9069",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9376",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9255",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9340",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9352",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "106",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "312",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "190",
+                    "type": "HAT"
+                },
+                {
+                    "id": "118",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "2",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9085",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9337",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9349",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "204",
+                    "type": "HAT"
+                },
+                {
+                    "id": "131",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9147",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "167",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "143",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9134",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "87",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9146",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9122",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "5",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9194",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9182",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9181",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9338",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "205",
+                    "type": "HAT"
+                },
+                {
+                    "id": "120",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "144",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "74",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9145",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "86",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9121",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9133",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "4",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "31",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9193",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9339",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9087",
+                    "type": "HAT"
+                },
+                {
+                    "id": "141",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9149",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "153",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9400",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9125",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9137",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "165",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "61",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9124",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9100",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "3",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9196",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9184",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9172",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9160",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9401",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "130",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "142",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9136",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "25",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9148",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "154",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "2",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "84",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9123",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9135",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9195",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9183",
+                    "type": "HAT"
+                },
+                {
+                    "id": "236",
+                    "type": "HAT"
+                },
+                {
+                    "id": "200",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9190",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9357",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9345",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "80",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "92",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "135",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9130",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9142",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "147",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "50",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "31",
+                    "type": "HAT"
+                },
+                {
+                    "id": "55",
+                    "type": "HAT"
+                },
+                {
+                    "id": "201",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9346",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9358",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9310",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "221",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "81",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "124",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9141",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "148",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "54",
+                    "type": "HAT"
+                },
+                {
+                    "id": "66",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9192",
+                    "type": "HAT"
+                },
+                {
+                    "id": "202",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9083",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9180",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9359",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9347",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "90",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "145",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "157",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "121",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9120",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "169",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9132",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9144",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "7",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9191",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9348",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9336",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "91",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "146",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "110",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "122",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9131",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9143",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "6",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9082",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9406",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9309",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "171",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "4",
+                    "type": "EYES"
+                },
+                {
+                    "id": "183",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "3",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "6",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9150",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9077",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9091",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9178",
+                    "type": "HAT"
+                },
+                {
+                    "id": "3",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9166",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9154",
+                    "type": "HAT"
+                },
+                {
+                    "id": "17",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9142",
+                    "type": "HAT"
+                },
+                {
+                    "id": "29",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "232",
+                    "type": "HAT"
+                },
+                {
+                    "id": "233",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9407",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "160",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "172",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "184",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9090",
+                    "type": "EYES"
+                },
+                {
+                    "id": "2",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9189",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9177",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9165",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9153",
+                    "type": "HAT"
+                },
+                {
+                    "id": "18",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "100",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9141",
+                    "type": "HAT"
+                },
+                {
+                    "id": "222",
+                    "type": "HAT"
+                },
+                {
+                    "id": "234",
+                    "type": "HAT"
+                },
+                {
+                    "id": "181",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "48",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "14",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "1",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9081",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9140",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9168",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9156",
+                    "type": "HAT"
+                },
+                {
+                    "id": "15",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9144",
+                    "type": "HAT"
+                },
+                {
+                    "id": "27",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "12",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "1",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9120",
+                    "type": "HAT"
+                },
+                {
+                    "id": "210",
+                    "type": "HAT"
+                },
+                {
+                    "id": "235",
+                    "type": "HAT"
+                },
+                {
+                    "id": "170",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "37",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "182",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "49",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "11",
+                    "type": "EYES"
+                },
+                {
+                    "id": "2",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9151",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9080",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9078",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9179",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9167",
+                    "type": "HAT"
+                },
+                {
+                    "id": "110",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9155",
+                    "type": "HAT"
+                },
+                {
+                    "id": "16",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9143",
+                    "type": "HAT"
+                },
+                {
+                    "id": "13",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "8",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9402",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9305",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "163",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "175",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "187",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "83",
+                    "type": "HAT"
+                },
+                {
+                    "id": "34",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9198",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9186",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9174",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9162",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9150",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9306",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9084",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "7",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9403",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "164",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "140",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "176",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "188",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "94",
+                    "type": "HAT"
+                },
+                {
+                    "id": "11",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "35",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9197",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9185",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9173",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9161",
+                    "type": "HAT"
+                },
+                {
+                    "id": "120",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9307",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9404",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "185",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "161",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "173",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9099",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "44",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9188",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9176",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9086",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9152",
+                    "type": "HAT"
+                },
+                {
+                    "id": "19",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9140",
+                    "type": "HAT"
+                },
+                {
+                    "id": "81",
+                    "type": "HAT"
+                },
+                {
+                    "id": "230",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9308",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9405",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "5",
+                    "type": "EYES"
+                },
+                {
+                    "id": "174",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "186",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "150",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9098",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "33",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9199",
+                    "type": "HAT"
+                },
+                {
+                    "id": "45",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9187",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9175",
+                    "type": "HAT"
+                },
+                {
+                    "id": "231",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9163",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9151",
+                    "type": "HAT"
+                },
+                {
+                    "id": "110",
+                    "type": "HAT"
+                },
+                {
+                    "id": "21",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "96",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "20",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "32",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "72",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "56",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "68",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9052",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9393",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9076",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9088",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9381",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9051",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9138",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9064",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "95",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "83",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "21",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "33",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9382",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9087",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9394",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9050",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9149",
+                    "type": "HAT"
+                },
+                {
+                    "id": "306",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9137",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9125",
+                    "type": "HAT"
+                },
+                {
+                    "id": "104",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9077",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "140",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9065",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "78",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9078",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9395",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9383",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9054",
+                    "type": "EYES"
+                },
+                {
+                    "id": "303",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "109",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "105",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "93",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "81",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "7",
+                    "type": "HAT"
+                },
+                {
+                    "id": "31",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "67",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9089",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9053",
+                    "type": "EYES"
+                },
+                {
+                    "id": "17",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9396",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9360",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9372",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9251",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "106",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9139",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9200",
+                    "type": "HAT"
+                },
+                {
+                    "id": "92",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "6",
+                    "type": "HAT"
+                },
+                {
+                    "id": "130",
+                    "type": "HAT"
+                },
+                {
+                    "id": "52",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "40",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "12",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "24",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "10",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9071",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9083",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9158",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9146",
+                    "type": "HAT"
+                },
+                {
+                    "id": "2",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "309",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9122",
+                    "type": "HAT"
+                },
+                {
+                    "id": "111",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "75",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "63",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "51",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "180",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9070",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9082",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9390",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9169",
+                    "type": "HAT"
+                },
+                {
+                    "id": "3",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9157",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9145",
+                    "type": "HAT"
+                },
+                {
+                    "id": "26",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "160",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9121",
+                    "type": "HAT"
+                },
+                {
+                    "id": "112",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "10",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "50",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "22",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "34",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "58",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9074",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9086",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9391",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9073",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9148",
+                    "type": "HAT"
+                },
+                {
+                    "id": "113",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "0",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9124",
+                    "type": "HAT"
+                },
+                {
+                    "id": "59",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "101",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "85",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "73",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "23",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "35",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9085",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9380",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9392",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9072",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9084",
+                    "type": "EYES"
+                },
+                {
+                    "id": "114",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "1",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9159",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9147",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9123",
+                    "type": "HAT"
+                },
+                {
+                    "id": "150",
+                    "type": "HAT"
+                }
+            ],
+            "expToNext": 248500,
+            "status": 1,
+            "cliente_ID": "gg_100543647673049759918",
+            "cliente_NOMBRE": "!̵𝒜𝒮𝒯𝒰R̸ą╮💀x0035000000000",
+            "cliente_DateExpired": "22-12-2027",
+            "updated_at": "2026-06-10 06:34:26",
+            "last_ip": "162.158.210.126",
+            "last_user_agent": "Mozilla/5.0 MatrixProxy",
+            "created_at": "2026-06-10 06:17:50"
+        },
+        {
+            "userId": "gg_106932790945487513741",
+            "generation": "g1750092602038",
+            "username": "جودو",
+            "nickname": "＃𝙰🅜𝙺ㅤᴊ🅐ᴡ🅰️ᴅx6123778000000",
+            "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocINhW-os-La2pDdz2mJyab0hZ4_n5o9XxUIxGMVlNT7ihNgiw=s96-c",
+            "isBuyer": false,
+            "isConsentGiven": true,
+            "coins": 84253,
+            "level": 49,
+            "expOnLevel": 56505,
+            "skinId": 34,
+            "eyesId": 0,
+            "mouthId": 0,
+            "glassesId": 0,
+            "hatId": 0,
+            "highScore": 11976760,
+            "bestSurvivalTimeSec": 1760,
+            "kills": 29475,
+            "headShots": 11730,
+            "sessionsPlayed": 27166,
+            "totalPlayTimeSec": 1868261,
+            "regDate": {
+                "year": 2025,
+                "month": 6,
+                "day": 16
+            },
+            "propertyList": [
+                {
+                    "id": "9406",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "20",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9085",
+                    "type": "HAT"
+                },
+                {
+                    "id": "32",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "1",
+                    "type": "HAT"
+                },
+                {
+                    "id": "171",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "4",
+                    "type": "EYES"
+                },
+                {
+                    "id": "131",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9147",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9036",
+                    "type": "EYES"
+                },
+                {
+                    "id": "60",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9088",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9150",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "51",
+                    "type": "HAT"
+                },
+                {
+                    "id": "191",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9146",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9091",
+                    "type": "EYES"
+                },
+                {
+                    "id": "11",
+                    "type": "HAT"
+                },
+                {
+                    "id": "232",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9194",
+                    "type": "HAT"
+                },
+                {
+                    "id": "5",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9407",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "21",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "33",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "120",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9087",
+                    "type": "EYES"
+                },
+                {
+                    "id": "116",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "180",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9090",
+                    "type": "EYES"
+                },
+                {
+                    "id": "140",
+                    "type": "HAT"
+                },
+                {
+                    "id": "2",
+                    "type": "EYES"
+                },
+                {
+                    "id": "18",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "192",
+                    "type": "HAT"
+                },
+                {
+                    "id": "100",
+                    "type": "HAT"
+                },
+                {
+                    "id": "4",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "70",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "31",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9193",
+                    "type": "HAT"
+                },
+                {
+                    "id": "48",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9038",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9149",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "1",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9400",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "137",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "109",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "1",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9196",
+                    "type": "HAT"
+                },
+                {
+                    "id": "7",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9401",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "182",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "49",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9089",
+                    "type": "EYES"
+                },
+                {
+                    "id": "11",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9037",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9148",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9151",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "2",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9200",
+                    "type": "HAT"
+                },
+                {
+                    "id": "110",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "16",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "13",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "170",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9195",
+                    "type": "HAT"
+                },
+                {
+                    "id": "41",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "6",
+                    "type": "HAT"
+                },
+                {
+                    "id": "130",
+                    "type": "HAT"
+                },
+                {
+                    "id": "236",
+                    "type": "HAT"
+                },
+                {
+                    "id": "8",
+                    "type": "EYES"
+                },
+                {
+                    "id": "200",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9402",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "80",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "10",
+                    "type": "EYES"
+                },
+                {
+                    "id": "135",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "95",
+                    "type": "HAT"
+                },
+                {
+                    "id": "2",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9198",
+                    "type": "HAT"
+                },
+                {
+                    "id": "111",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "53",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9084",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "7",
+                    "type": "EYES"
+                },
+                {
+                    "id": "9403",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "140",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "112",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "108",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "4",
+                    "type": "HAT"
+                },
+                {
+                    "id": "160",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9197",
+                    "type": "HAT"
+                },
+                {
+                    "id": "100",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "9085",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "120",
+                    "type": "HAT"
+                },
+                {
+                    "id": "50",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "22",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "34",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9404",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "58",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "173",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "41",
+                    "type": "HAT"
+                },
+                {
+                    "id": "109",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "113",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "0",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "7",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "3",
+                    "type": "HAT"
+                },
+                {
+                    "id": "19",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "9405",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "87",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "35",
+                    "type": "SKIN"
+                },
+                {
+                    "id": "5",
+                    "type": "EYES"
+                },
+                {
+                    "id": "114",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "190",
+                    "type": "HAT"
+                },
+                {
+                    "id": "9199",
+                    "type": "HAT"
+                },
+                {
+                    "id": "150",
+                    "type": "HAT"
+                },
+                {
+                    "id": "2",
+                    "type": "HAT"
+                },
+                {
+                    "id": "231",
+                    "type": "HAT"
+                },
+                {
+                    "id": "60",
+                    "type": "MOUTH"
+                },
+                {
+                    "id": "21",
+                    "type": "GLASSES"
+                },
+                {
+                    "id": "9082",
+                    "type": "HAT"
+                }
+            ],
+            "expToNext": 117600,
+            "status": 1,
+            "cliente_ID": "gg_106932790945487513741",
+            "cliente_NOMBRE": "＃𝙰🅜𝙺ㅤᴊ🅐ᴡ🅰️ᴅx6123778000000",
+            "cliente_DateExpired": "22-12-2027",
+            "updated_at": "2026-06-10 08:37:50",
+            "last_ip": "162.159.122.44",
+            "last_user_agent": "Mozilla/5.0 MatrixProxy",
+            "created_at": "2026-06-10 08:17:08"
+        }
+    ]
 }
