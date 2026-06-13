@@ -3,45 +3,45 @@
   "servers": [
     {
       "id": 147,
-      "name": "05. Germany Server - Map 05",
+      "name": "05. Germany Server ",
       "region": "germania",
       "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
       "status": 1,
       "streamer": "",
-      "image": ""
+      "image": "https://i.ibb.co/mrHP1zGg/icon128.png"
     },
     {
       "id": 146,
-      "name": "04. Germany Server - Map 04",
+      "name": "04. Germany Server ",
       "region": "germania",
       "serverUrl": "wss://fra-c.wormate.io:32017/wormy",
       "status": 1,
       "streamer": "",
-      "image": ""
+      "image": "https://i.ibb.co/mrHP1zGg/icon128.png"
     },
     {
       "id": 145,
-      "name": "03. Germany Server - Map 03",
+      "name": "03. Germany Server",
       "region": "germania",
       "serverUrl": "wss://fra-c.wormate.io:32262/wormy",
       "status": 1,
       "streamer": "",
-      "image": ""
+      "image": "https://i.ibb.co/mrHP1zGg/icon128.png"
     },
     {
       "id": 144,
-      "name": "02. Germany Server - Map 02",
+      "name": "02. DARK - XO",
       "region": "germania",
-      "serverUrl": "wss://fra-c.wormate.io:32095/wormy",
+      "serverUrl": "wss://fra-c.wormate.io:32609/wormy",
       "status": 1,
       "streamer": "",
-      "image": ""
+      "image": "https://i.ibb.co/mrHP1zGg/icon128.png"
     },
     {
       "id": 143,
       "name": "01. ABSI BMW",
       "region": "germania",
-      "serverUrl": "wss://fra-c.wormate.io:32044/wormy",
+      "serverUrl": "wss://fra-c.wormate.io:32053/wormy",
       "status": 1,
       "streamer": "https://www.tiktok.com/@bmw0_w?is_from_webapp=1&sender_device=pc",
       "image": "https://i.ibb.co/6cy2H8qv/absi.png"
