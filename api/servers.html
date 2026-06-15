@@ -275,6 +275,93 @@
                 padding-left: 8px;
             }
         }
+
+        /* MATRIX INFO BOX UNDER SERVERS */
+        .matrix-info-box {
+            position: relative;
+            z-index: 2;
+            margin: 10px 4px 2px;
+            padding: 8px;
+            border-radius: 14px;
+            background: rgba(7, 18, 20, .70);
+            border: 1px solid rgba(137, 175, 30, .85);
+            box-shadow: 0 0 12px rgba(137, 175, 30, .35), inset 0 0 12px rgba(0,0,0,.25);
+            color: #fff;
+            overflow: hidden;
+        }
+        .matrix-info-box:before {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            border-radius: 10px;
+            border: 1px solid rgba(137, 175, 30, .22);
+            pointer-events: none;
+        }
+        .matrix-stats-row {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.15fr;
+            align-items: center;
+            min-height: 30px;
+            border-radius: 10px;
+            background: rgba(0,0,0,.22);
+            border: 1px solid rgba(255,255,255,.12);
+            overflow: hidden;
+        }
+        .matrix-stat-cell {
+            min-width: 0;
+            padding: 5px 4px;
+            text-align: center;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 900;
+            line-height: 1.15;
+            text-shadow: 0 1px 4px rgba(0,0,0,.55);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .matrix-stat-cell + .matrix-stat-cell {
+            border-left: 1px solid rgba(137, 175, 30, .55);
+        }
+        .matrix-stat-title {
+            color: #b9ff38;
+            margin-right: 3px;
+        }
+        .matrix-buttons-row {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7px;
+            margin-top: 8px;
+        }
+        .matrix-action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff !important;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: .3px;
+            text-shadow: 0 1px 3px rgba(0,0,0,.45);
+            border: 1px solid rgba(255,255,255,.28);
+            box-shadow: 0 4px 10px rgba(0,0,0,.22), inset 0 0 8px rgba(255,255,255,.10);
+        }
+        .matrix-action-btn:hover {
+            filter: brightness(1.08);
+        }
+        .matrix-activ-btn {
+            background: #26c6da;
+        }
+        .matrix-discord-btn {
+            background: #f7941d;
+        }
+
     </style>
 </head>
 <body>
@@ -411,6 +498,19 @@
         
         <!-- Great Britain -->
         <div id="area_gb" class="area_map div_hidden"><p style="text-align: center;font-size: 20px;">Updating.<br>Please wait, Thanks.</p></div>
+
+        <div class="matrix-info-box">
+            <div class="matrix-stats-row">
+                <div class="matrix-stat-cell"><span class="matrix-stat-title">HS</span>| <span id="matrix_hs_value">0</span></div>
+                <div class="matrix-stat-cell"><span class="matrix-stat-title">KL</span>| <span id="matrix_kl_value">0</span></div>
+                <div class="matrix-stat-cell"><span class="matrix-stat-title">DATE</span>| <span id="matrix_date_value"></span></div>
+            </div>
+            <div class="matrix-buttons-row">
+                <a class="matrix-action-btn matrix-activ-btn" href="https://wormatrix.fun/activ" target="_blank">ACTIV</a>
+                <a class="matrix-action-btn matrix-discord-btn" href="https://discord.gg/8cUx25kP9j" target="_blank">DISCORD</a>
+            </div>
+        </div>
+
     </div>
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -440,6 +540,43 @@
             }
 
             renumberServerItems();
+
+            function matrixReadTheoStorage() {
+                var obj = {};
+                try {
+                    if (window.theoKzObjects) obj = window.theoKzObjects;
+                } catch (e) {}
+                try {
+                    if (window.parent && window.parent !== window && window.parent.theoKzObjects) {
+                        obj = window.parent.theoKzObjects;
+                    }
+                } catch (e2) {}
+                try {
+                    var save = localStorage.getItem("SaveGameXT");
+                    if (save && save !== "null") {
+                        var t = JSON.parse(save);
+                        obj = Object.assign({}, obj || {}, t || {});
+                    }
+                } catch (e3) {}
+                return obj || {};
+            }
+
+            function matrixUpdateStatsBox() {
+                var obj = matrixReadTheoStorage();
+                var hs = obj.totalHeadshots;
+                var kl = obj.totalKills;
+
+                if (hs === undefined || hs === null || hs === "") hs = obj.headshot || 0;
+                if (kl === undefined || kl === null || kl === "") kl = obj.kill || 0;
+
+                $("#matrix_hs_value").text(parseInt(hs, 10) || 0);
+                $("#matrix_kl_value").text(parseInt(kl, 10) || 0);
+                $("#matrix_date_value").text("");
+            }
+
+            matrixUpdateStatsBox();
+            setInterval(matrixUpdateStatsBox, 1000);
+
 
             function showArea(code){
                 areas.forEach(function(area){
