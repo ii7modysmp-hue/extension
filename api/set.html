@@ -1,307 +1,507 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
+<style>
+  #loa831pibur0w4gv{
+    margin:0;
+    width:100%;
+    box-sizing:border-box;
+    color:#fff;
+    font-family:Arial,Tahoma,sans-serif;
+  }
+
+  #loa831pibur0w4gv *{
+    box-sizing:border-box;
+  }
+
+  #titleSetings{
+    color:#fff;
+    text-align:center;
+    font-weight:900;
+    text-shadow:0 1px 5px rgba(0,0,0,.55);
+  }
+
+  #loa831pibur0w4gv .wmx-settings-panel{
+    margin:6px 0 0 0;
+    padding:7px;
+    border-radius:10px;
+    background:rgba(4,12,18,.72);
+    border:1px solid rgba(137,175,30,.85);
+    box-shadow:0 0 12px rgba(137,175,30,.28), inset 0 0 12px rgba(0,0,0,.32);
+    max-height:430px;
+    overflow:hidden;
+  }
+
+  #loa831pibur0w4gv .wmx-settings-tabs{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:4px;
+    margin-bottom:7px;
+  }
+
+  #loa831pibur0w4gv .wmx-tab-button{
+    min-height:25px;
+    padding:3px 4px;
+    border-radius:7px;
+    background:rgba(0,0,0,.28);
+    border:1px solid rgba(255,255,255,.14);
+    color:#fff;
+    font-size:9px;
+    font-weight:900;
+    text-align:center;
+    cursor:pointer;
+    user-select:none;
+    text-shadow:0 1px 3px rgba(0,0,0,.45);
+  }
+
+  #loa831pibur0w4gv .wmx-tab-button.active{
+    background:linear-gradient(180deg,#9ccc25,#5e8b10);
+    border-color:rgba(255,255,255,.25);
+    box-shadow:0 0 8px rgba(137,175,30,.55);
+  }
+
+  #loa831pibur0w4gv .wmx-tab-content{
+    display:none;
+    max-height:350px;
+    overflow:auto;
+    padding:6px;
+    border-radius:9px;
+    background:rgba(0,0,0,.18);
+    border:1px solid rgba(255,255,255,.10);
+    scrollbar-width:thin;
+  }
+
+  #loa831pibur0w4gv .wmx-tab-content.active-tab{
+    display:block;
+  }
+
+  #loa831pibur0w4gv .wmx-grid-2{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:6px;
+  }
+
+  #loa831pibur0w4gv .wmx-grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:6px;
+  }
+
+  #loa831pibur0w4gv .wmx-setting-line,
+  #loa831pibur0w4gv .settings-lineZoom{
+    min-height:30px;
+    padding:4px 6px;
+    border-radius:8px;
+    background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(0,0,0,.12));
+    border:1px solid rgba(255,255,255,.12);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:5px;
+    overflow:hidden;
+  }
+
+  #loa831pibur0w4gv .wmx-setting-line label,
+  #loa831pibur0w4gv .settings-labelZoom{
+    color:#fff;
+    font-size:9px;
+    font-weight:900;
+    line-height:1.1;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    white-space:nowrap;
+    text-shadow:0 1px 3px rgba(0,0,0,.45);
+  }
+
+  #loa831pibur0w4gv input[type="checkbox"]{
+    width:16px;
+    height:16px;
+    accent-color:#89af1e;
+  }
+
+  #loa831pibur0w4gv input[type="text"],
+  #loa831pibur0w4gv input[type="number"],
+  #loa831pibur0w4gv select{
+    min-width:0;
+    max-width:100%;
+    height:23px;
+    border-radius:6px;
+    border:1px solid rgba(255,255,255,.22);
+    background:rgba(255,255,255,.94);
+    color:#111;
+    font-size:9px;
+    font-weight:800;
+    outline:0;
+    padding:0 5px;
+  }
+
+  #loa831pibur0w4gv input[type="range"]{
+    width:100%;
+    accent-color:#89af1e;
+  }
+
+  #loa831pibur0w4gv .toggle-btn{
+    width:50px;
+    height:22px;
+    border-radius:25px;
+    background:linear-gradient(180deg,#555,#2a2a2a);
+    border:1px solid rgba(255,255,255,.25);
+    position:relative;
+    cursor:pointer;
+    flex:0 0 50px;
+    transition:.2s ease;
+    box-shadow:inset 0 1px 3px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.2);
+  }
+
+  #loa831pibur0w4gv .toggle-btn span{
+    position:absolute;
+    left:0;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
+    text-align:center;
+    font-size:8px;
+    font-weight:900;
+    color:#ddd;
+    letter-spacing:.5px;
+    z-index:1;
+  }
+
+  #loa831pibur0w4gv .toggle-btn .toggle-knob{
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:#ff5252;
+    position:absolute;
+    left:3px;
+    top:2px;
+    transition:.2s ease;
+    box-shadow:0 1px 3px rgba(0,0,0,.3);
+  }
+
+  #loa831pibur0w4gv .toggle-btn.active{
+    background:linear-gradient(180deg,#6fbf1c,#4a8a0e);
+    box-shadow:0 0 8px rgba(111,191,28,.5);
+  }
+
+  #loa831pibur0w4gv .toggle-btn.active .toggle-knob{
+    left:31px;
+    background:#fff;
+    box-shadow:0 0 5px rgba(255,255,255,.6);
+  }
+
+  #loa831pibur0w4gv .toggle-btn.active span{
+    color:#fff;
+  }
+
+  #loa831pibur0w4gv .wm-id-card{
+    margin:7px 0;
+    padding:5px;
+    border-radius:8px;
+    background:rgba(0,0,0,.19);
+    border:1px solid rgba(137,175,30,.34);
+    display:flex;
+    align-items:center;
+    gap:5px;
+  }
+
+  #loa831pibur0w4gv .wm-id-label{
+    color:#fff;
+    font-size:9px;
+    font-weight:900;
+    white-space:nowrap;
+  }
+
+  #loa831pibur0w4gv .wm-id-input{
+    flex:1 1 auto;
+    height:21px;
+  }
+
+  #loa831pibur0w4gv button,
+  #loa831pibur0w4gv .wm-id-copy,
+  #loa831pibur0w4gv .wmx-btn{
+    min-height:23px;
+    padding:3px 7px;
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:7px;
+    background:linear-gradient(180deg,#9ccc25,#6f9315);
+    color:#fff;
+    font-size:9px;
+    font-weight:900;
+    cursor:pointer;
+    box-shadow:0 0 5px rgba(137,175,30,.35);
+  }
+
+  #loa831pibur0w4gv .wmx-btn-blue{
+    background:#26c6da;
+  }
+
+  #loa831pibur0w4gv .wmx-btn-orange{
+    background:#f7941d;
+  }
+
+  #loa831pibur0w4gv .spancursor,
+  #loa831pibur0w4gv .sub-title{
+    display:block;
+    margin:8px 0 5px;
+    padding:4px 7px;
+    border-radius:7px;
+    background:rgba(137,175,30,.15);
+    border:1px solid rgba(137,175,30,.34);
+    color:#fff;
+    font-size:11px;
+    font-weight:900;
+    text-align:center;
+    line-height:1.1;
+  }
+
+  #loa831pibur0w4gv .background-container,
+  #loa831pibur0w4gv .cursor-container{
+    min-height:38px;
+    max-height:76px;
+    overflow:auto;
+    padding:5px;
+    border-radius:8px;
+    background:rgba(0,0,0,.16);
+    border:1px solid rgba(255,255,255,.11);
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+
+  #loa831pibur0w4gv .background-container img,
+  #loa831pibur0w4gv .cursor-container img,
+  #loa831pibur0w4gv #default-cursor-btn img{
+    width:35px;
+    height:35px;
+    object-fit:cover;
+    border-radius:8px;
+    border:2px solid rgba(255,255,255,.25);
+    background:rgba(255,255,255,.08);
+    cursor:pointer;
+    transition:.15s ease;
+  }
+
+  #loa831pibur0w4gv .cursor-container img,
+  #loa831pibur0w4gv #default-cursor-btn img{
+    padding:3px;
+    object-fit:contain;
+    background:rgba(0,0,0,.3);
+  }
+
+  #loa831pibur0w4gv .background-container img:hover,
+  #loa831pibur0w4gv .cursor-container img:hover,
+  #loa831pibur0w4gv #default-cursor-btn img:hover{
+    transform:scale(1.08);
+    border-color:#9ccc25;
+    box-shadow:0 0 10px rgba(137,175,30,.65);
+  }
+
+  #loa831pibur0w4gv .set-zoom-wwc{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:6px;
+  }
+
+  #loa831pibur0w4gv .szwwc-item{
+    grid-column:1 / 3;
+    padding:5px;
+    border-radius:8px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.10);
+  }
+
+  #loa831pibur0w4gv .szwwc-item label{
+    display:block;
+    font-size:9px;
+    font-weight:900;
+    margin-bottom:3px;
+  }
+
+  #loa831pibur0w4gv .wm-hidden-zoom-tools{
+    display:none;
+  }
+
+  #loa831pibur0w4gv ul{
+    margin:4px 0;
+    padding-left:18px;
+    font-size:10px;
+    line-height:1.35;
+  }
+</style>
+
 <div style="margin:0;" id="loa831pibur0w4gv">
   <div class="label" id="titleSetings">Settings</div>
-
-  <div class="wm-settings-frame">
-    <div class="wm-settings-body">
-
-      <div class="wm-settings-grid">
-        <div class="settings-lineZoom">
-          <span class="settings-labelZoom"><i class="fas fa-video"></i> Streamer</span>
-          <div class="toggle-btn" id="toggle-centerStreamer">
-            <span>OFF</span>
-            <div class="toggle-knob"></div>
-          </div>
-        </div>
-
-        <div class="settings-lineZoom">
-          <span class="settings-labelZoom"><i class="fas fa-trophy"></i> Top 3</span>
-          <div class="toggle-btn" id="toggle-top3Score">
-            <span>OFF</span>
-            <div class="toggle-knob"></div>
-          </div>
-        </div>
-
-        <div class="settings-lineZoom">
-          <span class="settings-labelZoom"><i class="fas fa-smile-wink"></i> Off Emoji</span>
-          <div class="toggle-btn" id="toggle-offEmoji">
-            <span>OFF</span>
-            <div class="toggle-knob"></div>
-          </div>
-        </div>
-
-        <div class="settings-lineZoom">
-          <span class="settings-labelZoom"><i class="fas fa-power-off"></i> Turn Off</span>
-          <div class="toggle-btn" id="toggle-turnOff">
-            <span>OFF</span>
-            <div class="toggle-knob"></div>
-          </div>
-        </div>
-      </div>
-
+  <div class="bao-list1">
+    <div class="wmx-settings-panel">
       <div class="wm-id-card">
         <span class="wm-id-label"><i class="fa fa-user"></i> ID</span>
         <input class="wm-id-input" id="wm-copy-user-id" type="text" readonly value="" />
         <button class="wm-id-copy" id="wm-copy-user-id-btn" type="button">COPY</button>
       </div>
 
-      <div class="wm-settings-separator"></div>
+      <div class="wmx-settings-tabs">
+        <div id="tab_b1" class="wmx-tab-button tab-button active" data-tab="0">SET</div>
+        <div id="tab_b2" class="wmx-tab-button tab-button" data-tab="1">STREAM</div>
+        <div id="tab_b3" class="wmx-tab-button tab-button" data-tab="2">CUSTOM</div>
+        <div id="tab_b4" class="wmx-tab-button tab-button" data-tab="3">ZOOM</div>
+        <div id="tab_b5" class="wmx-tab-button tab-button" data-tab="4">SKIN</div>
+        <div id="tab_b6" class="wmx-tab-button tab-button" data-tab="5">JOY</div>
+        <div id="tab_b7" class="wmx-tab-button tab-button" data-tab="6">MEDIA</div>
+        <div id="tab_b8" class="wmx-tab-button tab-button" data-tab="7">HELP</div>
+      </div>
 
-      <div class="spancursor"><i class="fas fa-image"></i> Select Background</div>
-      <div class="background-container" id="backgroundContainer"></div>
+      <div id="tab1" class="wmx-tab-content tab-content active-tab">
+        <div class="wmx-grid-3">
+          <div class="wmx-setting-line"><label>SAVE Kill</label><input type="checkbox" id="saveGame" /></div>
+          <div class="wmx-setting-line"><label>TOP HS 9</label><input type="checkbox" id="showTophs" /></div>
+          <div class="wmx-setting-line"><label>Record HS 0</label><input type="checkbox" id="showRechs" /></div>
+        </div>
 
-      <div class="spancursor"><i class="fas fa-mouse-pointer"></i> Select Cursor</div>
-      <div class="cursor-container" id="cursorContainer">
-        <div id="default-cursor-btn">
-          <img src="https://i.imgur.com/lWpvpbL.png" alt="Default Cursor" />
+        <div class="wmx-grid-2" style="margin-top:6px;">
+          <div class="wmx-setting-line"><label>3 TOP SCORE</label><input type="checkbox" id="onlytop" /></div>
+          <div class="wmx-setting-line"><label>MODO STREAMER</label><input type="checkbox" id="modoSTREAMER" /></div>
+          <div class="wmx-setting-line"><label>Bad Language</label><input type="checkbox" id="activeBadLang" /></div>
+          <div class="wmx-setting-line"><label>SOUNDS</label><input type="checkbox" id="activeSounds" /></div>
+        </div>
+
+        <div class="wmx-grid-2" style="margin-top:6px;">
+          <div class="wmx-setting-line"><label>Background</label><select id="backgroundArena"></select></div>
+          <div class="wmx-setting-line"><label>Replace SKIN</label><input type="text" name="inputReplaceSkin" id="inputReplaceSkin" value="35" maxlength="12" /></div>
+        </div>
+
+        <span class="sub-title">Food / Smooth</span>
+        <div class="wmx-grid-2">
+          <div class="szwwc-item"><label>Portion Size</label><input type="range" id="PortionSize" min="0.5" max="5" step="0.1" /></div>
+          <div class="szwwc-item"><label>Portion Aura</label><input type="range" id="PortionAura" min="0.5" max="5" step="0.1" /></div>
+          <div class="szwwc-item"><label>Food Size</label><input type="range" id="FoodSize" min="0.5" max="5" step="0.1" /></div>
+          <div class="szwwc-item"><label>Food Shadow</label><input type="range" id="FoodShadow" min="0" max="8" step="0.1" /></div>
+          <div class="szwwc-item"><label>Smooth Camera</label><input type="range" id="smoothCamera" min="0" max="2" step="0.05" /></div>
         </div>
       </div>
 
-      <div class="wm-hidden-zoom-tools">
-        <span id="zoom-percentage">100%</span>
-        <input id="zoom-slider" type="range" min="0" max="100" value="100" />
+      <div id="tab2" class="wmx-tab-content tab-content">
+        <div class="wmx-grid-2">
+          <div class="settings-lineZoom">
+            <span class="settings-labelZoom"><i class="fas fa-video"></i> Center Streamer</span>
+            <div class="toggle-btn" id="toggle-centerStreamer"><span>OFF</span><div class="toggle-knob"></div></div>
+          </div>
+          <div class="settings-lineZoom">
+            <span class="settings-labelZoom"><i class="fas fa-trophy"></i> Top 3 Score</span>
+            <div class="toggle-btn" id="toggle-top3Score"><span>OFF</span><div class="toggle-knob"></div></div>
+          </div>
+          <div class="settings-lineZoom">
+            <span class="settings-labelZoom"><i class="fas fa-smile-wink"></i> Off Emoji</span>
+            <div class="toggle-btn" id="toggle-offEmoji"><span>OFF</span><div class="toggle-knob"></div></div>
+          </div>
+          <div class="settings-lineZoom">
+            <span class="settings-labelZoom"><i class="fas fa-power-off"></i> Turn Off</span>
+            <div class="toggle-btn" id="toggle-turnOff"><span>OFF</span><div class="toggle-knob"></div></div>
+          </div>
+        </div>
+
+        <span class="sub-title">Legacy Streamer</span>
+        <div class="wmx-grid-2">
+          <div class="wmx-setting-line"><label>Ẩn hiện</label><input type="checkbox" id="settings-stremingmodedangaunhien-switch" /></div>
+          <div class="wmx-setting-line"><label>Clock</label><input type="checkbox" id="settings-stremingmodeanclock-switch" /></div>
+          <div class="wmx-setting-line"><label>Headshot</label><input type="checkbox" id="settings-stremingmodeheadshot-switch" /></div>
+          <div class="wmx-setting-line"><label>Save Headshot</label><input type="checkbox" id="settings-stremingmodesaveheadshot-switch" /></div>
+          <div class="wmx-setting-line"><label>Arrow Mobile</label><input type="checkbox" id="settings-arrowmobile-switch" /></div>
+          <div class="wmx-setting-line"><label>Eat Animation</label><input type="checkbox" id="settings-Abilityzoom-switch" /></div>
+        </div>
       </div>
 
+      <div id="tab3" class="wmx-tab-content tab-content">
+        <div class="wmx-grid-2">
+          <div class="wmx-setting-line"><label>LASER</label><input type="checkbox" id="laser" name="laser" /></div>
+          <div class="wmx-setting-line"><label>Laser Color</label><input type="color" id="color" name="color" value="#ff0000" /></div>
+          <div class="wmx-setting-line"><label>Laser Size</label><input type="range" id="range" name="range" min="0.1" max="1" step="0.1" value="0.1" /></div>
+          <div class="wmx-setting-line"><label>Value</label><span id="range-value">0.1</span></div>
+          <div class="wmx-setting-line"><label>Enemy Color</label><input type="color" id="enemyNameColor" value="#ff0000" /></div>
+          <div class="wmx-setting-line"><label>Enemy Font</label><input type="number" id="enemyNameFontSize" min="10" max="32" step="1" value="14" /></div>
+        </div>
+
+        <span class="sub-title">Clean / Reset</span>
+        <div class="wmx-grid-2">
+          <button id="TestAUDIO" type="button">Test AUDIO</button>
+          <button id="clearBackground" type="button">Clear WALLPAPERS</button>
+          <button id="clearPosition" type="button">Clear Map Position</button>
+          <button id="clearClock" type="button">Clear Map Clock</button>
+          <button id="clearJoyStick" type="button">Clear Joy Stick</button>
+          <button id="clearBgGame" type="button">Clear Bg GAME</button>
+        </div>
+      </div>
+
+      <div id="tab4" class="wmx-tab-content tab-content">
+        <div class="set-zoom-wwc">
+          <div class="wmx-setting-line"><label>Zoom PC</label><input type="checkbox" id="activeZoom" /></div>
+          <div class="wmx-setting-line"><label>Zoom Mobile</label><input type="checkbox" id="activeZoomMobile" /></div>
+          <div class="szwwc-item"><label>Zoom Limit Down</label><input type="range" id="limitDown" min="0.00001" max="2" step="0.25" /><span id="limitDownValue"></span></div>
+          <div class="szwwc-item"><label>Zoom +|- step</label><input type="range" id="step" min="0.25" max="2" step="0.25" /><span id="stepValue"></span></div>
+          <div class="szwwc-item"><label>Zoom Keyboard C</label><input type="range" id="closeUp" min="0.25" max="2" step="0.25" /><span id="closeUpValue"></span></div>
+          <div class="szwwc-item"><label>Zoom Keyboard Z</label><input type="range" id="closeDown" min="0.25" max="2" step="0.25" /><span id="closeDownValue"></span></div>
+        </div>
+
+        <div class="wm-hidden-zoom-tools">
+          <span id="zoom-percentage">100%</span>
+          <input id="zoom-slider" type="range" min="0.00001" max="500" step="0.5" value="5" />
+        </div>
+      </div>
+
+      <div id="tab5" class="wmx-tab-content tab-content">
+        <span class="sub-title">SKINS SELECTEDS</span>
+        <ul id="myListSkin"></ul>
+        <div class="wmx-grid-2">
+          <button id="reloadSkinShed" type="button">Reload LIST</button>
+          <button id="cleanTheSkinShed" type="button">Clean LIST</button>
+        </div>
+      </div>
+
+      <div id="tab6" class="wmx-tab-content tab-content">
+        <div class="wmx-grid-2">
+          <div class="wmx-setting-line"><label>Joy Active</label><input type="checkbox" id="joystick_checked" /></div>
+          <div class="wmx-setting-line"><label>Color</label><select id="joystick_color"><option value="red">RED</option><option value="blue">BLUE</option><option value="white">WHITE</option><option value="black">BLACK</option></select></div>
+          <div class="wmx-setting-line"><label>Mode</label><select id="joystick_mode"><option value="dynamic">Dynamic</option><option value="static">Static</option></select></div>
+          <div class="wmx-setting-line"><label>Position</label><select id="joystick_position"><option value="R">Right</option><option value="L">Left</option></select></div>
+          <div class="wmx-setting-line"><label>Size</label><select id="joystick_size"><option value="110">110</option><option value="100">100</option><option value="90">90</option><option value="80">80</option><option value="75">75</option><option value="70">70</option></select></div>
+        </div>
+
+        <span class="sub-title">Joystick Buttons</span>
+        <div class="wmx-grid-2">
+          <div class="wmx-setting-line"><label>Type Button Zoom</label><select id="joystickSelectTypeCurrent"><option value="btn">BUTTON</option><option value="range">RANGE</option></select></div>
+          <div class="wmx-setting-line"><label>Type Name</label><select id="joystickSelectTypeName"><option value="all">all</option><option value="abb">abbreviated</option></select></div>
+        </div>
+        <div id="joystickButtons" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:7px;"></div>
+        <div style="margin-top:7px;"><button id="joystickCleanConfig" type="button">CLEAN CONFIG</button></div>
+      </div>
+
+      <div id="tab7" class="wmx-tab-content tab-content">
+        <div class="spancursor"><i class="fas fa-image"></i> Select Background</div>
+        <div class="background-container" id="backgroundContainer"></div>
+        <div class="spancursor"><i class="fas fa-mouse-pointer"></i> Select Cursor</div>
+        <div class="cursor-container" id="cursorContainer">
+          <div id="default-cursor-btn"><img src="https://i.imgur.com/lWpvpbL.png" alt="Default Cursor" /></div>
+        </div>
+      </div>
+
+      <div id="tab8" class="wmx-tab-content tab-content">
+        <strong class="sub-title">KEYBOARD</strong>
+        <ul>
+          <li>0 - SHOW/HIDE RECORD HS</li>
+          <li>1 - SKIN REPLACE</li>
+          <li>9 - SHOW/HIDE TOP HS</li>
+          <li>8 - AUTOMATIC LOOP</li>
+          <li>7 - AUTOMATIC SPIRAL</li>
+          <li>6 - SHOW/HIDE NAMES TOP</li>
+          <li>5 - RESPAWN</li>
+          <li>4 - LASER</li>
+          <li>3 - BACKGROUND</li>
+          <li>Z / X / M - CUSTOM ZOOM</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
-
-<style>
-#loa831pibur0w4gv{
-  margin:0;
-  width:100%;
-  box-sizing:border-box;
-}
-#loa831pibur0w4gv #titleSetings{
-  margin:0 0 6px 0;
-}
-#loa831pibur0w4gv .wm-settings-frame{
-  position:relative;
-  width:100%;
-  min-height:260px;
-  max-height:430px;
-  padding:8px;
-  margin:0;
-  overflow:hidden;
-  border-radius:8px;
-  background:rgba(3,12,18,.90);
-  border:1px solid #89af1e;
-  box-shadow:inset 0 0 12px rgba(137,175,30,.12);
-  box-sizing:border-box;
-}
-#loa831pibur0w4gv .wm-settings-frame:before{
-  content:"";
-  position:absolute;
-  inset:4px;
-  border-radius:6px;
-  border:1px solid rgba(137,175,30,.28);
-  pointer-events:none;
-}
-#loa831pibur0w4gv .wm-settings-body{
-  position:relative;
-  z-index:2;
-  max-height:405px;
-  overflow-x:hidden;
-  overflow-y:auto;
-  padding:4px 6px 8px 6px;
-  box-sizing:border-box;
-  scrollbar-width:thin;
-  scrollbar-color:#89af1e rgba(255,255,255,.08);
-}
-#loa831pibur0w4gv .wm-settings-body::-webkit-scrollbar{
-  width:6px;
-}
-#loa831pibur0w4gv .wm-settings-body::-webkit-scrollbar-track{
-  background:rgba(255,255,255,.08);
-  border-radius:20px;
-}
-#loa831pibur0w4gv .wm-settings-body::-webkit-scrollbar-thumb{
-  background:#89af1e;
-  border-radius:20px;
-}
-#loa831pibur0w4gv .wm-settings-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:7px;
-}
-#loa831pibur0w4gv .settings-lineZoom{
-  min-height:33px;
-  padding:4px 5px 4px 7px;
-  border-radius:7px;
-  background:rgba(0,0,0,.18);
-  border:1px solid rgba(137,175,30,.25);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:5px;
-  box-sizing:border-box;
-  overflow:hidden;
-}
-#loa831pibur0w4gv .settings-labelZoom{
-  color:#fff;
-  font-size:9px;
-  font-weight:800;
-  line-height:1;
-  display:flex;
-  align-items:center;
-  gap:5px;
-  white-space:nowrap;
-  text-shadow:none;
-}
-#loa831pibur0w4gv .settings-labelZoom i{
-  font-size:10px;
-  color:#89af1e;
-}
-#loa831pibur0w4gv .toggle-btn{
-  width:50px;
-  height:22px;
-  border-radius:25px;
-  background:#343434;
-  border:1px solid rgba(255,255,255,.22);
-  position:relative;
-  cursor:pointer;
-  flex:0 0 50px;
-  box-shadow:none;
-}
-#loa831pibur0w4gv .toggle-btn span{
-  position:absolute;
-  left:0;
-  right:0;
-  top:50%;
-  transform:translateY(-50%);
-  text-align:center;
-  font-size:8px;
-  font-weight:900;
-  color:#ddd;
-  letter-spacing:.5px;
-  z-index:1;
-}
-#loa831pibur0w4gv .toggle-btn .toggle-knob{
-  width:16px;
-  height:16px;
-  border-radius:50%;
-  background:#ff5252;
-  position:absolute;
-  left:3px;
-  top:2px;
-  box-shadow:none;
-}
-#loa831pibur0w4gv .toggle-btn.active{
-  background:#6fae18;
-  box-shadow:none;
-}
-#loa831pibur0w4gv .toggle-btn.active .toggle-knob{
-  left:31px;
-  background:#fff;
-  box-shadow:none;
-}
-#loa831pibur0w4gv .toggle-btn.active span{
-  color:#fff;
-  text-shadow:none;
-}
-#loa831pibur0w4gv .wm-id-card{
-  margin:8px 0 3px;
-  padding:6px;
-  border-radius:7px;
-  background:rgba(0,0,0,.18);
-  border:1px solid rgba(137,175,30,.30);
-  display:flex;
-  align-items:center;
-  gap:5px;
-  box-sizing:border-box;
-}
-#loa831pibur0w4gv .wm-id-label{
-  color:#fff;
-  font-size:9px;
-  font-weight:900;
-  white-space:nowrap;
-  text-shadow:none;
-}
-#loa831pibur0w4gv .wm-id-input{
-  min-width:0;
-  flex:1 1 auto;
-  height:21px;
-  padding:0 5px;
-  border-radius:4px;
-  border:1px solid rgba(255,255,255,.22);
-  background:#fff;
-  color:#1d1d1d;
-  font-size:9px;
-  font-weight:800;
-  outline:0;
-  box-sizing:border-box;
-}
-#loa831pibur0w4gv .wm-id-copy{
-  height:21px;
-  padding:0 8px;
-  border:0;
-  border-radius:4px;
-  background:#89af1e;
-  color:#fff;
-  font-size:8px;
-  font-weight:900;
-  cursor:pointer;
-  box-shadow:none;
-}
-#loa831pibur0w4gv .wm-settings-separator{
-  height:2px;
-  width:92%;
-  margin:8px auto;
-  background:linear-gradient(90deg,transparent,#89af1e,#b414ff,transparent);
-  border-radius:8px;
-}
-#loa831pibur0w4gv .spancursor{
-  margin:7px 0 5px;
-  padding:4px 7px;
-  border-radius:6px;
-  background:rgba(137,175,30,.12);
-  border:1px solid rgba(137,175,30,.32);
-  color:#fff;
-  font-size:11px;
-  font-weight:900;
-  text-align:center;
-  line-height:1.1;
-}
-#loa831pibur0w4gv .background-container,
-#loa831pibur0w4gv .cursor-container{
-  min-height:40px;
-  max-height:82px;
-  overflow:auto;
-  padding:5px;
-  border-radius:7px;
-  background:rgba(0,0,0,.16);
-  border:1px solid rgba(255,255,255,.11);
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  gap:6px;
-  flex-wrap:wrap;
-}
-#loa831pibur0w4gv .background-container img,
-#loa831pibur0w4gv .cursor-container img,
-#loa831pibur0w4gv #default-cursor-btn img{
-  width:35px;
-  height:35px;
-  object-fit:cover;
-  border-radius:6px;
-  border:2px solid rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-  cursor:pointer;
-}
-#loa831pibur0w4gv .cursor-container img,
-#loa831pibur0w4gv #default-cursor-btn img{
-  padding:3px;
-  object-fit:contain;
-  background:rgba(0,0,0,.3);
-}
-#loa831pibur0w4gv .background-container img:hover,
-#loa831pibur0w4gv .cursor-container img:hover,
-#loa831pibur0w4gv #default-cursor-btn img:hover{
-  border-color:#89af1e;
-}
-#loa831pibur0w4gv .wm-hidden-zoom-tools{
-  display:none;
-}
-</style>
