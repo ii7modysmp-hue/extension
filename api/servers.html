@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wormate Maps List</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            font-family: Arial, Tahoma, sans-serif;
+        }
+
+        /* خلفية السيرفرات فقط: وردي + بنفسجي + أزرق */
+        #div_map {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            min-height: 360px;
+            max-height: 560px;
+            margin: 0 auto;
+            padding: 10px 10px 34px;
+            overflow: hidden;
+            border-radius: 18px;
+            background:
+                radial-gradient(circle at 15% 8%, rgba(255, 80, 196, .72), transparent 35%),
+                radial-gradient(circle at 85% 18%, rgba(0, 180, 255, .66), transparent 38%),
+                linear-gradient(135deg, #ff49c7 0%, #8029ff 46%, #04c8ff 100%);
+            border: 1px solid rgba(255,255,255,.42);
+            box-shadow: 0 0 20px rgba(163, 45, 255, .55), inset 0 0 24px rgba(255,255,255,.13);
+            color: #fff;
+        }
+
+        #div_map:before {
+            content: "";
+            position: absolute;
+            inset: 8px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,.22);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .flags {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            margin: 0 auto 8px;
+            border-collapse: collapse;
+            table-layout: fixed;
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+        }
+
+        .flags td {
+            padding: 2px 4px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .flags a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            transform: none;
+            transition: none;
+        }
+
+        .flags a:hover,
+        .flags a.area_show {
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .flags .flag {
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            line-height: 32px;
+            background: url(https://timmapwormate.com/images/check/flags.png) no-repeat;
+            border-radius: 0;
+            box-shadow: none;
+            filter: none;
+        }
+
+        .flags .br { background-position: 0px 0px; }
+        .flags .us { background-position: 0px -35px; }
+        .flags .ca { background-position: 0px -71px; }
+        .flags .mx { background-position: 0px -106px; }
+        .flags .de { background-position: 0px -141px; }
+        .flags .fr { background-position: 0px -177px; }
+        .flags .sg { background-position: 0px -212px; }
+        .flags .jp { background-position: 0px -247px; }
+        .flags .au { background-position: 0px -283px; }
+        .flags .gb { background-position: 0px -318px; }
+        hr {
+            position: relative;
+            z-index: 1;
+            height: 1px;
+            margin: 8px 0;
+            border: 0;
+            background: rgba(136, 190, 24, .75);
+        }
+
+        .div_hidden {
+            display: none !important;
+        }
+
+        .div_show {
+            display: block !important;
+        }
+
+        .area_map {
+            position: relative;
+            z-index: 1;
+            max-height: 402px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding: 5px 4px 8px;
+            border-radius: 14px;
+            background: rgba(10, 10, 36, .22);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,.65) rgba(255,255,255,.12);
+        }
+
+        .area_map::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        .area_map::-webkit-scrollbar-track {
+            background: rgba(255,255,255,.10);
+            border-radius: 20px;
+        }
+
+        .area_map::-webkit-scrollbar-thumb {
+            background: linear-gradient(#ff6bd6, #37d6ff);
+            border-radius: 20px;
+        }
+
+        .area_map p {
+            margin: 8px 6px;
+            padding: 10px;
+            border-radius: 12px;
+            color: #fff !important;
+            background: rgba(0,0,0,.20);
+            text-shadow: 0 1px 4px rgba(0,0,0,.55);
+        }
+        .div_item {
+            position: relative;
+            min-height: 36px;
+            margin: 3px 0;
+            padding: 0;
+            border: 0;
+            border-bottom: 1px solid rgba(255,255,255,.18);
+            border-radius: 0;
+            overflow: hidden;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .div_item:hover {
+            background: rgba(255,255,255,.08);
+            box-shadow: none;
+        }
+
+        .select_item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 42px;
+            width: calc(100% - 36px);
+            padding: 0 48px 0 12px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: .15px;
+            line-height: 1.25;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-shadow: none;
+        }
+        .select_item:before {
+            display: none;
+        }
+
+        .select_item span[style*="background-color"] {
+            display: none !important;
+        }
+
+        .div_item > a[target="_blank"] {
+            position: absolute !important;
+            right: 7px !important;
+            top: 50% !important;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            border-radius: 0;
+            overflow: hidden;
+            background: rgba(255,255,255,.22);
+            border: 1px solid rgba(255,255,255,.35);
+            box-shadow: 0 2px 8px rgba(0,0,0,.26);
+        }
+
+        .div_item > a[target="_blank"] img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+            display: block;
+            vertical-align: middle !important;
+        }
+
+        #update_new_2 {
+            left: 10px !important;
+            right: 10px !important;
+            bottom: 8px !important;
+            width: auto !important;
+            min-height: 22px;
+            padding: 3px 8px;
+            text-align: center;
+            position: absolute;
+            z-index: 2;
+            background: rgba(255,255,255,.18) !important;
+            color: #fff !important;
+            font-size: 12px;
+            font-weight: bold;
+            border: 1px solid rgba(255,255,255,.35) !important;
+            border-radius: 999px !important;
+            text-shadow: 0 1px 4px rgba(0,0,0,.55);
+            backdrop-filter: blur(4px);
+        }
+
+        @media (max-width: 420px) {
+            #div_map {
+                max-width: 100%;
+                border-radius: 14px;
+                padding-left: 7px;
+                padding-right: 7px;
+            }
+
+            .flags {
+                border-spacing: 4px;
+            }
+
+            .flags a {
+                height: 34px;
+            }
+
+            .flags .flag {
+                transform: scale(.88);
+            }
+
+            .select_item {
+                font-size: 12px;
+                padding-left: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="div_map">
+        <table class="flags">
+            <tr>
+                <td class="center"><a id="flag_sg" class="area_show"><span class="flag sg"></span></a></td>
+                <td class="center"><a id="flag_jp"><span class="flag jp"></span></a></td>
+                <td class="center"><a id="flag_ca"><span class="flag ca"></span></a></td>
+                <td class="center"><a id="flag_mx"><span class="flag mx"></span></a></td>
+                <td class="center"><a id="flag_de"><span class="flag de"></span></a></td>
+            </tr>
+            <tr>
+                <td class="center"><a id="flag_br"><span class="flag br"></span></a></td>
+                <td class="center"><a id="flag_us"><span class="flag us"></span></a></td>
+                <td class="center"><a id="flag_fr"><span class="flag fr"></span></a></td>
+                <td class="center"><a id="flag_au"><span class="flag au"></span></a></td>
+                <td class="center"><a id="flag_gb"><span class="flag gb"></span></a></td>
+            </tr>
+        </table>
+        <hr>
+        
+        <!-- Brazil -->
+        <div id="area_br" class="area_map div_hidden"><p style="text-align: center;font-size: 20px;">Updating.<br>Please wait, Thanks.</p></div>
+        
+        <!-- USA -->
+        <div id="area_us" class="area_map div_hidden">
+            <div class="div_item"><a href="" class="select_item" data-name="UAE_1" data-port="wss://fra-c.wormate.io:32053/wormy">1. &nbsp;Ali Gaming<span style="background-color: #4dff00;width: 12px;height: 12px;border-radius: 12px;margin-top: 9px;margin-right: 28px;float: right;"></span></a><a href="https://www.facebook.com/aligamingfriendly125/" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/ali.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="UAE_2" data-port="wss://fra-c.wormate.io:32609/wormy">2. &nbsp;Qasim Gaming<span style="background-color: #4dff00;width: 12px;height: 12px;border-radius: 12px;margin-top: 9px;margin-right: 28px;float: right;"></span></a><a href="https://www.tiktok.com/@qasimgamingfb2.0" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/qusim.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="UAE_3" data-port="wss://fra-c.wormate.io:32103/wormy">3. &nbsp;FIRE@YT🔥</a><a href="https://www.tiktok.com/@pindi__gaming" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/fire.jpg" style="width: 25px; vertical-align: middle"></a></div>
+        </div>
+        
+        <!-- Canada -->
+        <div id="area_ca" class="area_map div_hidden"></div>
+        
+        <!-- Mexico -->
+        <div id="area_mx" class="area_map div_hidden"><p style="text-align: center;font-size: 20px;">Updating.<br>Please wait, Thanks.</p></div>
+        
+        <!-- Germany -->
+        <div id="area_de" class="area_map div_hidden">
+            <div class="div_item"><a href="" class="select_item" data-name="DE_1" data-port="wss://fra-c.wormate.io:32053/wormy">01. &nbsp;SivasLı Gaminq<span style="background-color: #4dff00;width: 12px;height: 12px;border-radius: 12px;margin-top: 9px;margin-right: 28px;float: right;"></span></a><a href="https://www.tiktok.com/@sivasli_gaming" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/Siva.png" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_2" data-port="wss://fra-c.wormate.io:32609/wormy">02. &nbsp;Germany<span style="background-color: #4dff00;width: 12px;height: 12px;border-radius: 12px;margin-top: 9px;margin-right: 28px;float: right;"></span></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_3" data-port="wss://fra-c.wormate.io:32103/wormy">03. &nbsp;FB Team Nike</a><a href="https://www.facebook.com/TeamNike2" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/nike.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_4" data-port="wss://fra-c.wormate.io:32064/wormy">04. &nbsp;maro_kng</a><a href="https://www.tiktok.com/@maro_kng" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/mano_png.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_5" data-port="wss://fra-c.wormate.io:32708/wormy">05. &nbsp;𝒼carshmelo 𝒢aming</a><a href="https://www.facebook.com/marshmelo.gamer" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/melo.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_6" data-port="wss://fra-c.wormate.io:32026/wormy">06. &nbsp;tik 🜹 SALIM ✗</a><a href="https://www.tiktok.com/@lb.salim1" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/salim.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_7" data-port="wss://fra-c.wormate.io:32285/wormy">07. &nbsp;FIRE@YT🔥</a><a href="https://www.tiktok.com/@pindi__gaming" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/fire.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_8" data-port="wss://fra-c.wormate.io:31280/wormy">08. &nbsp;tik 🜹 𝒦𝒶𝓇𝒾𝓂 ✗</a><a href="https://www.tiktok.com/@karim_g11" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/karim.png" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_9" data-port="wss://fra-c.wormate.io:32017/wormy">09. &nbsp;ناصر | ☪️</a><a href="https://www.tiktok.com/@tik.na4" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/NS.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_10" data-port="wss://fra-c.wormate.io:32095/wormy">10. &nbsp;🦊 Dziri Gaming</a><a href="https://www.tiktok.com/@dzirigaming" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/dziri.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_11" data-port="wss://fra-c.wormate.io:31050/wormy">11. &nbsp;Germany</a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_12" data-port="wss://fra-c.wormate.io:30956/wormy">12. &nbsp;tik shadi</a><a href="https://www.tiktok.com/@xxshadi1" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/shadi.png" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_13" data-port="wss://fra-c.wormate.io:32567/wormy">13. &nbsp;AOTO GAMING</a><a href="https://www.tiktok.com/@aoto_gaming" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/aoto.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_14" data-port="wss://fra-c.wormate.io:31886/wormy">14. &nbsp;DZ⚡ORGANISATION</a><a href="https://discord.gg/rps2AUcp" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/DZ.png" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_15" data-port="wss://fra-c.wormate.io:31403/wormy">15. &nbsp;Sherwani 🎩</a><a href="https://www.facebook.com/profile.php?id=100083316140496" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/sherwani.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_16" data-port="wss://fra-c.wormate.io:30501/wormy">16. &nbsp;Germany</a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_17" data-port="wss://fra-c.wormate.io:32196/wormy">17. &nbsp;tik 🜹 𝓪 𝓮 𝓮 𝓽 ✗ sy</a><a href="https://www.tiktok.com/@root.sy" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/root_sy.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_18" data-port="wss://fra-c.wormate.io:32625/wormy">18. &nbsp;Saeedi Gaming</a><a href="https://www.facebook.com/SaeediGaming86" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/saeedi.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_19" data-port="wss://fra-c.wormate.io:30201/wormy">19. &nbsp;Glitch Berlin</a><a href="https://www.tiktok.com/@berlin52.hz" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/52hz.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_20" data-port="wss://fra-c.wormate.io:30988/wormy">20. &nbsp;Germany</a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="DE_21" data-port="wss://fra-c.wormate.io:32044/wormy">21. &nbsp;Germany</a></div>
+        </div>
+        
+        <!-- France -->
+        <div id="area_fr" class="area_map div_hidden">
+            <div class="div_item"><a href="" class="select_item" data-name="FR_1" data-port="wss://fra-c.wormate.io:32053/wormy">01. &nbsp;D V BLACK<span style="background-color: #4dff00;width: 12px;height: 12px;border-radius: 12px;margin-top: 9px;margin-right: 28px;float: right;"></span></a><a href="https://www.tiktok.com/@sallh.sy" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/dv_black.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="FR_2" data-port="wss://fra-c.wormate.io:32609/wormy">02. &nbsp;France<span style="background-color: #4dff00;width: 12px;height: 12px;border-radius: 12px;margin-top: 9px;margin-right: 28px;float: right;"></span></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="FR_3" data-port="wss://fra-c.wormate.io:32103/wormy">03. &nbsp;KENT AVİZE</a><a href="https://www.tiktok.com/@kentavize?lang=tr-TR" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/KA.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="FR_4" data-port="wss://fra-c.wormate.io:32064/wormy">04. &nbsp;EĞLENCE DÜNYAM</a><a href="https://www.tiktok.com/@tc.hilmitekmen?lang=tr-TR" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/eg.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="FR_5" data-port="wss://fra-c.wormate.io:32708/wormy">05. &nbsp;SivasLı Gaminq</a><a href="https://www.tiktok.com/@sivasli_gaming?lang=tr-TR" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/SG.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="FR_6" data-port="wss://fra-c.wormate.io:32026/wormy">06. &nbsp;Alfa Casper org Gaming</a><a href="https://www.tiktok.com/@alfaorg" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/alfaorg.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="FR_7" data-port="wss://fra-c.wormate.io:32285/wormy">07. &nbsp;DV DAVINCI</a><a href="https://www.tiktok.com/@dv.davinci" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/davinci.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="FR_8" data-port="wss://fra-c.wormate.io:31280/wormy">08. &nbsp;✰𝒻Ꮛ⍟⍟ᏨᏋ⍟✰</a><a href="https://www.tiktok.com/@_fallujah_" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/fallujah.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="FR_9" data-port="wss://fra-c.wormate.io:32017/wormy">09. &nbsp;Glitch Gaming</a><a href="https://www.facebook.com/glitchgamingvas/" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/glitch.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="FR_10" data-port="wss://fra-c.wormate.io:32095/wormy">10. &nbsp;☠𝓲𝓪𝓫𝓼𝓶𝓸𝓸𝓷𝓮☠</a><a href="https://www.facebook.com/profile.php?id=100087458370473" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/kabtshino.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="FR_11" data-port="wss://fra-c.wormate.io:31050/wormy">11. &nbsp;tik/Malek Gaming</a><a href="https://www.tiktok.com/@g1sc" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/g1sc.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="FR_12" data-port="wss://fra-c.wormate.io:30956/wormy">12. &nbsp;Kamikaze Gaming</a><a href="https://www.tiktok.com/@kamikazegaming34" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/Kami.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="FR_13" data-port="wss://fra-c.wormate.io:32567/wormy">13. &nbsp;『 🶩 ˹𝒾𝓉𝓈𝓉𝒾𝓃𝓎˼ 🶪 』</a><a href="https://www.tiktok.com/@5rur" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/5rur.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="FR_14" data-port="wss://fra-c.wormate.io:31886/wormy">14. &nbsp;SM3AN GAMING</a><a href="https://www.tiktok.com/@sm3angaming" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/sm3an.jpg" style="width: 25px; vertical-align: middle"></a></div>
+        </div>
+        
+        <!-- Singapore -->
+        <div id="area_sg" class="area_map div_show">
+            <p id="pusg_1" style="text-align: center;font-size: 20px;">Please clear your browsing history to update the list of Singapore maps</p>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_1" data-port="wss://fra-c.wormate.io:32053/wormy">01. &nbsp;❄️ SCD 𝕮𝖎𝖓𝖉𝖞 𝖓𝖆𝖓𝖆<span style="background-color: #4dff00;width: 12px;height: 12px;border-radius: 12px;margin-top: 9px;margin-right: 28px;float: right;"></span></a><a href="https://www.tiktok.com/@tong.cindy" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/cindynana.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_2" data-port="wss://fra-c.wormate.io:32609/wormy">02. &nbsp;❄️ SCD Muội Muội<span style="background-color: #4dff00;width: 12px;height: 12px;border-radius: 12px;margin-top: 9px;margin-right: 28px;float: right;"></span></a><a href="https://www.facebook.com/profile.php?id=100092254689927" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/hoangduy.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_3" data-port="wss://fra-c.wormate.io:32103/wormy">03. &nbsp;GLITCH 🙈 NOURA</a><a href="https://www.tiktok.com/@glitchnoura" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/glithchnoura.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_4" data-port="wss://fra-c.wormate.io:32064/wormy">04. &nbsp;🍒Cherry Land</a><a href="https://www.facebook.com/Cherry9123" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/cherry.png" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_5" data-port="wss://fra-c.wormate.io:32708/wormy">05. &nbsp;💎🪓𝍺𝍷ℱ𝓁ℯ𝓍ℯ𝓇 168</a><a href="https://www.facebook.com/KHLeangGaming168" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/KHLeng.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_6" data-port="wss://fra-c.wormate.io:32026/wormy">06. &nbsp;VQH.Gaming</a><a href="https://www.tiktok.com/@vqh.48" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/vqh.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_7" data-port="wss://fra-c.wormate.io:32285/wormy">07. &nbsp;ᴘᴜᴘⱽ Tuấn Cảnh TV</a><a href="https://www.facebook.com/tuancanhTCTV" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/tuancanh.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_8" data-port="wss://fra-c.wormate.io:31280/wormy">08. &nbsp;🔥🐉 61c.39239</a><a href="https://www.facebook.com/profile.php?id=100076038386454" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/61c.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_9" data-port="wss://fra-c.wormate.io:32017/wormy">09. &nbsp;ᴬᴿ𝅭𝅭𝅭𝄞Cậu còi TV</a><a href="https://www.facebook.com/profile.php?id=100064318623308" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/cau_coi.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_10" data-port="wss://fra-c.wormate.io:32095/wormy">10. &nbsp;❄️SCD.𝓯𝓇̈̂𝓎 𝓲𝓼𝓁𝓪𝓃</a><a href="https://www.tiktok.com/@haukunz76" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/haukun.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_11" data-port="wss://fra-c.wormate.io:31050/wormy">11. &nbsp;🐻 ADH Diêm Vương</a><a href="https://www.facebook.com/vuongvanle1986" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/diemvuong.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_12" data-port="wss://fra-c.wormate.io:30956/wormy">12. &nbsp;Xà Tinh Gaming</a><a href="https://www.facebook.com/thuan151084" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/xatinh.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_13" data-port="wss://fra-c.wormate.io:32567/wormy">13. &nbsp; 💰𝅥𝅦💸 VIỆT KIÊN🌸</a><a href="https://www.facebook.com/profile.php?id=100063915230765" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/vietkien.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_14" data-port="wss://fra-c.wormate.io:31886/wormy">14. &nbsp;🎁KHUN ACE🎁</a><a href="https://www.facebook.com/khunace168" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/KhunAce.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_15" data-port="wss://fra-c.wormate.io:31403/wormy">15. &nbsp;🌈𝅂𝅗❤️ Sam Vịt</a><a href="https://www.facebook.com/Samtutinhhoa" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/sam.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_16" data-port="wss://fra-c.wormate.io:30501/wormy">16. &nbsp;🍓Cu Trường Gaming🌸</a><a href="https://www.tiktok.com/@wormate.iolive" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/CutruongGM.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_17" data-port="wss://fra-c.wormate.io:32196/wormy">17. &nbsp;🔥🐉 Ngà ăn tỏi GM</a><a href="https://www.facebook.com/Ngangao000" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/nga_toi.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_18" data-port="wss://fra-c.wormate.io:32625/wormy">18. &nbsp;💣Trường Bom TV</a><a href="https://www.facebook.com/truongbomgaming" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/truongboom.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_19" data-port="wss://fra-c.wormate.io:30201/wormy">19. &nbsp;ᵭ🦜ℂ𝕙𝕚𝕝𝕝ơℂ𝕒</a><a href="https://www.facebook.com/profile.php?id=100086944465949" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/votu.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_20" data-port="wss://fra-c.wormate.io:30988/wormy">20. &nbsp;🍑 Chung Ruồi Gaming</a><a href="https://www.facebook.com/Cr.chungruoigaming" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/chungruoigaming.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_21" data-port="wss://fra-c.wormate.io:32249/wormy">21. &nbsp;FB: Girl ADH</a><a href="https://www.facebook.com/profile.php?id=100075939892854" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/girl_adh.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_22" data-port="wss://fra-c.wormate.io:32262/wormy">22. &nbsp;🥕 Akira Gaming</a><a href="https://www.facebook.com/profile.php?id=100077450623669" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/akira.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_23" data-port="wss://fra-c.wormate.io:32044/wormy">23. &nbsp;Tiểu Thư Ký Gaming</a><a href="https://www.facebook.com/tieuthukygaming" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/tieuthuky.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_24" data-port="wss://fra-c.wormate.io:32064/wormy">24. &nbsp;FB🐰HoàngHônTV</a><a href="https://www.facebook.com/hoanghontv" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/hoanghon.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_25" data-port="wss://fra-c.wormate.io:32708/wormy">25. &nbsp;⛄SQ🌸Salju Qaseh🐰</a><a href="https://www.facebook.com/SQSaljuQaseh" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/sq.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_26" data-port="wss://fra-c.wormate.io:32026/wormy">26. &nbsp;🍄𝅲𝅼Mạnh Còi TV</a><a href="https://www.tiktok.com/@hoaxuanmanh93" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/manhcoi_gm.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_27" data-port="wss://fra-c.wormate.io:32285/wormy">27. &nbsp;CẬUBIN 🐘❤️❤️❤️</a><a href="https://www.tiktok.com/@caubinranio" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/caubin.jpeg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_28" data-port="wss://fra-c.wormate.io:31280/wormy">28. &nbsp;Lộc Sẹo TV</a><a href="https://www.tiktok.com/@locseotv" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/locseo.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_29" data-port="wss://fra-c.wormate.io:32017/wormy">29. &nbsp;Cô Chủ Nhỏ🖤</a><a href="https://www.tiktok.com/@uyen_baby1" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/cochunho.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_30" data-port="wss://fra-c.wormate.io:32095/wormy">30. &nbsp;CG 💚 Liên Tủn 💚</a><a href="https://www.facebook.com/cglientun" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/Lientun.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_31" data-port="wss://sin-b.wormate.io:31050/wormy">31. &nbsp;🌸ᴵᴿᴵˢ SêN Đá ᴿᴹ</a><a href="https://www.tiktok.com/@senda_gaming" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/senda.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_32" data-port="wss://sin-b.wormate.io:30956/wormy">32. &nbsp;🦋⁶⁸⁶⁸ Cu Lếch TV</a><a href="https://www.tiktok.com/@culech247" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/culech.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_33" data-port="wss://sin-b.wormate.io:32567/wormy">33. &nbsp;Hà Hà Xuka</a><a href="https://www.tiktok.com/@haha.3009" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/hahaxuka1994.png" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_34" data-port="wss://sin-b.wormate.io:31886/wormy">34. &nbsp;🐳Long Hải🌊</a><a href="https://www.tiktok.com/@longhai1188" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/Longhai.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_35" data-port="wss://fra-c.wormate.io:31403/wormy">35. &nbsp;🔥Đô𝐋𝐚❣️</a><a href="https://www.tiktok.com/@dola.gamer" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/duc_dola.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_36" data-port="wss://fra-c.wormate.io:30501/wormy">36. &nbsp;🐳𝐒𝐚𝐧𝐠 𝐒𝐮𝐧🌊</a><a href="https://www.tiktok.com/@sangsunn98" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/Sangsun.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="SG_37" data-port="wss://sin-b.wormate.io:32196/wormy">37. &nbsp;Endha Agustin</a><a href="https://www.facebook.com/Endha.Agustin" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/ea.jpg" style="width: 25px; vertical-align: middle"></a></div>
+        </div>
+        
+        <!-- Japan -->
+        <div id="area_jp" class="area_map div_hidden"><p style="text-align: center;font-size: 20px;">Updating.<br>Please wait, Thanks.</p></div>
+        
+        <!-- Australia -->
+        <div id="area_au" class="area_map div_hidden">
+            <div class="div_item"><a href="" class="select_item" data-name="AU_1" data-port="wss://fra-c.wormate.io:32053/wormy">01. &nbsp;SRTIRAQTIK<span style="background-color: #4dff00;width: 12px;height: 12px;border-radius: 12px;margin-top: 9px;margin-right: 28px;float: right;"></span></a><a href="https://www.tiktok.com/@srtiraqq" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/srtiraqq.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="AU_2" data-port="wss://fra-c.wormate.io:32609/wormy">02. &nbsp;Paman Rizky<span style="background-color: #4dff00;width: 12px;height: 12px;border-radius: 12px;margin-top: 9px;margin-right: 28px;float: right;"></span></a><a href="https://www.tiktok.com/@pamanrizky" target="_blank" style="position: absolute;right: 0px;top: -2px;"><img src="https://timmapwormate.com/images/check/paman_rizky.jpg" style="width: 25px; vertical-align: middle"></a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="AU_3" data-port="wss://fra-c.wormate.io:32103/wormy">03. &nbsp;Australia</a></div>
+            <div class="div_item"><a href="" class="select_item" data-name="AU_4" data-port="wss://fra-c.wormate.io:32064/wormy">04. &nbsp;Australia</a></div>
+        </div>
+        
+        <!-- Great Britain -->
+        <div id="area_gb" class="area_map div_hidden"><p style="text-align: center;font-size: 20px;">Updating.<br>Please wait, Thanks.</p></div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var areas = ["br", "us", "ca", "mx", "de", "fr", "sg", "jp", "au", "gb"];
+
+            function showArea(code){
+                areas.forEach(function(area){
+                    var isActive = area === code;
+                    $("#flag_" + area).toggleClass("area_show", isActive);
+                    $("#area_" + area).toggleClass("div_show", isActive).toggleClass("div_hidden", !isActive);
+                });
+            }
+
+            areas.forEach(function(code){
+                $("#flag_" + code).on("click", function(e){
+                    e.preventDefault();
+                    showArea(code);
+                });
+            });
+
+            $(document).on("click", ".select_item", function(d){
+                d.preventDefault();
+                var p = $(this).data("port");
+                var n = $(this).data("name");
+
+                if (p && $("#port_id").length) {
+                    $("#port_id").val(p);
+                }
+
+                if (n && $("#port_name").length) {
+                    $("#port_name").val(n);
+                }
+
+                var playBtn = document.getElementById("mm-action-play");
+                if (playBtn) {
+                    playBtn.click();
+                }
+            });
+        });
+    </script>
+    <p id="update_new_2" style="text-align: center;position: absolute;bottom: -15px;width: 100%;background-image: linear-gradient(#ffffff, #ffffff);font-weight: bold;color: black;border: 1px solid;border-radius: 10px;border-color: #ffffff;">Please, Clear browser history to update the extension. Thanks.</p>
+</body>
+</html>
